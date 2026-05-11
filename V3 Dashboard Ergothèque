@@ -499,6 +499,25 @@ a:hover{text-decoration:underline}
     <div class="kpi" style="border-top:3px solid var(--sage-l)"><div class="kpi-label">AT recyclées</div><div class="kpi-value" id="eq-recyc">—</div><div class="kpi-sub">Récupérées et redistribuées</div></div>
   </div>
 
+  <div class="card mb20" style="padding:14px 20px">
+    <div class="grid g2" style="gap:24px;align-items:center">
+      <div style="display:flex;align-items:baseline;gap:12px">
+        <div class="kpi-value" id="eq-ratio-preco" style="font-size:22px;color:var(--coral)">—</div>
+        <div>
+          <div class="fw500 fs13">AT préconisées par bénéficiaire</div>
+          <div class="fs11 text-mid">Total préconisations ÷ bénéficiaires</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:12px">
+        <div class="kpi-value" id="eq-ratio-pret" style="font-size:22px;color:var(--sage)">—</div>
+        <div>
+          <div class="fw500 fs13">AT mises à dispo par bénéficiaire</div>
+          <div class="fs11 text-mid">Prêts MJ ÷ bénéficiaires</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="card-feature mb20">
     <div class="serif mb8" style="font-size:16px;color:var(--sage)">L'impact du modèle sans reste à charge</div>
     <div id="model-message" style="font-size:13px;line-height:1.75"></div>
@@ -1512,6 +1531,11 @@ function drawEquipement() {
   document.getElementById('eq-achat').textContent = fmt(d.achat);
   document.getElementById('eq-nmep').textContent = fmt(d.nmep);
   document.getElementById('eq-recyc').textContent = fmt(d.recyc);
+
+  const ratioPreco = d.benef > 0 ? (d.total / d.benef) : 0;
+  const ratioPret = d.benef > 0 ? (d.pret / d.benef) : 0;
+  document.getElementById('eq-ratio-preco').textContent = ratioPreco.toFixed(1).replace('.', ',');
+  document.getElementById('eq-ratio-pret').textContent = ratioPret.toFixed(1).replace('.', ',');
 
   // Message modèle
   const tauxPret = d.total > 0 ? (100*d.pret/d.total) : 0;
