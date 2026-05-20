@@ -626,10 +626,10 @@ a:hover{text-decoration:underline}
         <div class="slider-row">
           <div class="slider-label">% chutes graves (parmi les chutes des bénéficiaires à risque)
             <small>Santé publique France 2024 : 174 824 hospitalisations / 450 000 chutes ≈ 39%</small>
-            <small class="guide">Recommandation : 25–35% pour rester conservatif</small>
+            <small class="guide">Recommandation : 39% (SpF)</small>
           </div>
-          <input type="range" class="slider-input" id="s-pct-grave" min="10" max="45" step="1" value="28" oninput="calcSROI()">
-          <div class="slider-val" id="v-pct-grave">28 %</div>
+          <input type="range" class="slider-input" id="s-pct-grave" min="10" max="45" step="1" value="39" oninput="calcSROI()">
+          <div class="slider-val" id="v-pct-grave">39 %</div>
         </div>
       </div>
 
@@ -637,8 +637,9 @@ a:hover{text-decoration:underline}
         <div class="block-title">Efficacité ergothérapique sur le risque de chute</div>
         <div class="slider-row">
           <div class="slider-label">Réduction du risque de chute par aménagement
-            <small>Cochrane 2018 : RR 0.88 (−12%) ; études récentes profils à haut risque : −30 à −39%</small>
-            <small class="guide">Recommandation : 25% (population intermédiaire) — 35% si profils à haut risque ciblés</small>
+            <small>En mode Auto : interpolée selon le profil de risque de la population — de −12% (Cochrane 2018, population générale) à −38% (Stark/HARP, profils à haut risque). Plus la population est fragile, plus l'efficacité estimée est élevée (effect modification documentée).</small>
+            <small class="guide">Manuel — recommandation : 25% (population intermédiaire) — 35% si profils à haut risque ciblés</small>
+            <label class="auto-toggle"><input type="checkbox" id="auto-reduc" checked onchange="toggleSroiAuto('reduc')"> Auto (depuis les données)</label>
           </div>
           <input type="range" class="slider-input" id="s-reduc" min="10" max="45" step="1" value="25" oninput="calcSROI()">
           <div class="slider-val" id="v-reduc">25 %</div>
@@ -666,17 +667,17 @@ a:hover{text-decoration:underline}
       <div class="card mb16">
         <div class="block-title">Aides humaines évitées</div>
         <div class="slider-row">
-          <div class="slider-label">Coût annuel d'une heure d'aide humaine supplémentaire évitée
-            <small>Tarif APA plancher national 2026 : 23 €/h × 4h/semaine évitées × 50 sem ≈ 4 600 €/an</small>
-            <small class="guide">Recommandation : 1 800 €/an — équivalent à ~1,5 h/sem économisée</small>
+          <div class="slider-label">Montant annuel d'aide humaine évitée (par bénéficiaire concerné)
+            <small>Référence : Hoenig et al. 2003 (AJPH, n=2 368) — l'usage d'AT est associé à <strong>−3,8 h/semaine</strong> d'aide humaine chez les personnes âgées avec limitations. × tarif APA 23 €/h × 52 sem ≈ 4 540 €/an pour un bénéficiaire qui substitue pleinement.</small>
+            <small class="guide">Recommandation : 1 800 €/an (≈ 1,5 h/sem) — défaut volontairement conservateur, soit ~40% de l'effet plein de la littérature</small>
           </div>
           <input type="range" class="slider-input" id="s-aide-hum" min="500" max="5000" step="100" value="1800" oninput="calcSROI()">
           <div class="slider-val" id="v-aide-hum">1 800 €</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">% bénéficiaires évitant un recours à aide humaine supplémentaire
-            <small>Estimation à partir de l'enquête partenaires (66% citent réduction des aides humaines comme coût évité)</small>
-            <small class="guide">Recommandation : 15–20% (estimation conservative)</small>
+            <small>Littérature : la substitution AT → aide humaine concerne surtout les personnes avec limitations ADL et les AT simples (Hoenig 2003 ; Agree &amp; Freedman 2000). Triangulé avec l'enquête partenaires (66% citent la réduction des aides humaines comme bénéfice).</small>
+            <small class="guide">Recommandation : 15–20% de la file active (estimation conservative)</small>
           </div>
           <input type="range" class="slider-input" id="s-pct-auto" min="5" max="40" step="1" value="18" oninput="calcSROI()">
           <div class="slider-val" id="v-pct-auto">18 %</div>
@@ -688,10 +689,10 @@ a:hover{text-decoration:underline}
         <div class="slider-row">
           <div class="slider-label">Coût moyen d'accompagnement par bénéficiaire (intervention ergo + AT)
             <small>Intervention ergothérapeute + matériel mis à disposition + suivi</small>
-            <small class="guide">Recommandation : 350 € par bénéficiaire (à ajuster selon budget réel ergothèque)</small>
+            <small class="guide">Recommandation : 560 € par bénéficiaire (à ajuster selon budget réel ergothèque)</small>
           </div>
-          <input type="range" class="slider-input" id="s-cout-ben" min="150" max="800" step="25" value="350" oninput="calcSROI()">
-          <div class="slider-val" id="v-cout-ben">350 €</div>
+          <input type="range" class="slider-input" id="s-cout-ben" min="150" max="800" step="5" value="560" oninput="calcSROI()">
+          <div class="slider-val" id="v-cout-ben">560 €</div>
         </div>
       </div>
     </div>
@@ -732,6 +733,9 @@ a:hover{text-decoration:underline}
           <li>Stark S. et al. (2018, 2021). <em>OT-led home modifications, high-risk older adults — fall reduction:</em> −38 à −39%. (HARP study)</li>
           <li>CNSA (2026). <em>Tarif APA plancher national :</em> 23 €/h pour les services d'aide à domicile.</li>
           <li>INSEE / DREES (2017-2024). <em>Coût moyen mensuel maintien à domicile bénéficiaires APA :</em> 480 €/mois (90% pour aides humaines).</li>
+          <li>Hoenig H., Taylor D.H., Sloan F.A. (2003). <em>Does assistive technology substitute for personal assistance among the disabled elderly?</em> American Journal of Public Health, 93(2):330-337. Usage d'AT associé à <strong>−3,8 h/semaine</strong> d'aide humaine (n=2 368, ≥1 limitation ADL). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1447739/" target="_blank">Lien</a></li>
+          <li>Agree E.M., Freedman V.A. (2000). <em>Substitution between assistive technology and personal care.</em> Les AT simples se substituent à l'aide informelle ; les AT complexes la complètent.</li>
+          <li>Maresova P. et al. (2025). <em>Systematic review of home modifications for aging in place :</em> 13/20 études confirment l'efficacité (prévention chutes, indépendance fonctionnelle, économies). <a href="https://www.mdpi.com/2227-9032/13/7/752" target="_blank">Lien</a></li>
           <li>Service-public.gouv.fr / pour-les-personnes-agees.gouv.fr — <em>Plafonds APA 2026 par GIR.</em></li>
         </ul>
       </div>
@@ -2008,7 +2012,10 @@ function drawEqCross() {
 //  PAGE: SROI
 // ════════════════════════════════════════
 // État des bascules Auto/Manuel (par défaut auto activé)
-const sroiAuto = {pctRisque: true, incid: true};
+const sroiAuto = {pctRisque: true, incid: true, reduc: true};
+// Bornes d'efficacité de la prévention par aménagement (réduction du risque de chute)
+const REDUC_MIN = 0.12; // Cochrane 2018, population générale
+const REDUC_MAX = 0.38; // Stark / HARP, profils à haut risque
 // Taux d'incidence de chute par tranche d'âge (Santé publique France)
 const AGE_FALL_INCIDENCE = {'60-69':0.20, '70-79':0.30, '80-89':0.40, '90+':0.50};
 
@@ -2037,8 +2044,14 @@ function computeIncid(d) {
   }
   return den > 0 ? num/den : 0.40;
 }
+// Réduction du risque interpolée selon la prévalence du risque dans la population
+function computeReduc(d) {
+  const pr = computePctRisque(d); // 0..1
+  return REDUC_MIN + (REDUC_MAX - REDUC_MIN) * pr;
+}
 function toggleSroiAuto(key) {
-  const cb = document.getElementById('auto-' + (key === 'pctRisque' ? 'pct-risque' : 'incid'));
+  const idMap = {pctRisque: 'auto-pct-risque', incid: 'auto-incid', reduc: 'auto-reduc'};
+  const cb = document.getElementById(idMap[key]);
   sroiAuto[key] = cb.checked;
   calcSROI();
 }
@@ -2047,7 +2060,6 @@ function calcSROI() {
   const d = getCurrentData();
   const coutChute = +document.getElementById('s-cout-chute').value;
   const pctGrave = +document.getElementById('s-pct-grave').value / 100;
-  const reduc = +document.getElementById('s-reduc').value / 100;
   const aideHum = +document.getElementById('s-aide-hum').value;
   const pctAuto = +document.getElementById('s-pct-auto').value / 100;
   const coutBen = +document.getElementById('s-cout-ben').value;
@@ -2076,10 +2088,22 @@ function calcSROI() {
     incid = +slIncid.value;
   }
 
+  // Réduction du risque — auto (interpolée selon le profil) ou manuel
+  let reduc;
+  const slReduc = document.getElementById('s-reduc');
+  if (sroiAuto.reduc) {
+    reduc = computeReduc(d);
+    slReduc.value = Math.round(reduc*100);
+    slReduc.disabled = true;
+  } else {
+    slReduc.disabled = false;
+    reduc = +slReduc.value / 100;
+  }
+
   // Update displays
   document.getElementById('v-cout-chute').textContent = fmtEur(coutChute);
   document.getElementById('v-pct-grave').textContent = (pctGrave*100).toFixed(0)+' %';
-  document.getElementById('v-reduc').textContent = (reduc*100).toFixed(0)+' %';
+  document.getElementById('v-reduc').innerHTML = (reduc*100).toFixed(0)+' %' + (sroiAuto.reduc ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-pct-risque').innerHTML = (pctRisque*100).toFixed(0)+' %' + (sroiAuto.pctRisque ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-incid').innerHTML = incid.toFixed(2).replace('.',',') + ' /an' + (sroiAuto.incid ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-aide-hum').textContent = fmtEur(aideHum);
@@ -2099,10 +2123,10 @@ function calcSROI() {
       perimetre = `Ensemble du dispositif (${DATA.ergos_meta.length} ergothèques)`;
     }
     if (activeYear !== 'all') perimetre += ' · année ' + activeYear;
-    const nAuto = (sroiAuto.pctRisque?1:0) + (sroiAuto.incid?1:0);
+    const nAuto = (sroiAuto.pctRisque?1:0) + (sroiAuto.incid?1:0) + (sroiAuto.reduc?1:0);
     let ratioNote;
-    if (nAuto === 2) {
-      ratioNote = `Le <em>% à risque de chute</em> et l'<em>incidence</em> sont recalculés depuis le profil GIR/âge réel de cette population — donc le <strong>ratio SROI lui-même varie selon le territoire</strong> sélectionné.`;
+    if (nAuto >= 2) {
+      ratioNote = `Plusieurs hypothèses (% à risque, incidence, efficacité de la prévention) sont recalculées depuis le profil GIR/âge réel de cette population — donc le <strong>ratio SROI lui-même varie selon le territoire</strong> sélectionné.`;
     } else if (nAuto === 1) {
       ratioNote = `Une hypothèse est recalculée depuis le profil réel de cette population, les autres viennent des curseurs — le ratio varie donc en partie selon le territoire.`;
     } else {
