@@ -127,6 +127,10 @@ a:hover{text-decoration:underline}
 .slider-label small.guide{color:var(--gold);font-style:italic}
 .slider-input{flex:1;min-width:100px;accent-color:var(--sage)}
 .slider-val{font-size:12px;font-weight:600;color:var(--sage);width:78px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.slider-input:disabled{opacity:.55;cursor:not-allowed}
+.auto-toggle{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--sage);font-style:normal;margin-top:5px;cursor:pointer;user-select:none;background:var(--sage-pale);border:1px solid var(--border2);padding:2px 8px;border-radius:20px;width:fit-content}
+.auto-toggle input{accent-color:var(--sage);margin:0;cursor:pointer}
+.auto-badge{display:inline-block;font-size:9px;font-weight:600;color:white;background:var(--sage);padding:1px 6px;border-radius:8px;margin-left:6px;vertical-align:middle;letter-spacing:.03em}
 .sroi-result{background:var(--charcoal);color:white;border-radius:var(--r2);padding:28px 28px 24px}
 .sroi-result-eyebrow{font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.5;margin-bottom:6px}
 .sroi-result-value{font-family:'Playfair Display',serif;font-size:48px;font-weight:500;line-height:1;color:#F2C4A8}
@@ -641,16 +645,18 @@ a:hover{text-decoration:underline}
         </div>
         <div class="slider-row">
           <div class="slider-label">% bénéficiaires à risque élevé de chute
-            <small>Profil dispositif (GIR 3-4 majoritaire, âge moyen 80,9 ans, isolement 21%) — population fragile</small>
-            <small class="guide">Recommandation : 50% (50% des plus de 80 ans chutent chaque année — SpF)</small>
+            <small>En mode Auto : prévalence du risque élevé pondérée par le GIR de la population filtrée (poids 1,0 pour GIR 3-4 mobiles-fragiles ; 0,70 pour GIR 1-2 ; 0,40 pour GIR 5-6 autonomes).</small>
+            <small class="guide">Manuel — recommandation : 50% (50% des plus de 80 ans chutent chaque année — SpF)</small>
+            <label class="auto-toggle"><input type="checkbox" id="auto-pct-risque" checked onchange="toggleSroiAuto('pctRisque')"> Auto (depuis les données)</label>
           </div>
           <input type="range" class="slider-input" id="s-pct-risque" min="20" max="80" step="1" value="50" oninput="calcSROI()">
           <div class="slider-val" id="v-pct-risque">50 %</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">Incidence annuelle des chutes (population à risque)
-            <small>1 personne sur 3 (≥65 ans) chute par an — Santé publique France</small>
-            <small class="guide">Recommandation : 0,33 (1 chute / personne / an) — 0,50 si profils ≥ 80 ans</small>
+            <small>En mode Auto : moyenne pondérée par la pyramide des âges filtrée (60-69 : 0,20 ; 70-79 : 0,30 ; 80-89 : 0,40 ; 90+ : 0,50 chute/an — SpF).</small>
+            <small class="guide">Manuel — recommandation : 0,33 (1 chute / personne / an) — 0,50 si profils ≥ 80 ans</small>
+            <label class="auto-toggle"><input type="checkbox" id="auto-incid" checked onchange="toggleSroiAuto('incid')"> Auto (depuis les données)</label>
           </div>
           <input type="range" class="slider-input" id="s-incid" min="0.20" max="1.20" step="0.05" value="0.40" oninput="calcSROI()">
           <div class="slider-val" id="v-incid">0,40 /an</div>
@@ -2001,27 +2007,86 @@ function drawEqCross() {
 // ════════════════════════════════════════
 //  PAGE: SROI
 // ════════════════════════════════════════
+// État des bascules Auto/Manuel (par défaut auto activé)
+const sroiAuto = {pctRisque: true, incid: true};
+// Taux d'incidence de chute par tranche d'âge (Santé publique France)
+const AGE_FALL_INCIDENCE = {'60-69':0.20, '70-79':0.30, '80-89':0.40, '90+':0.50};
+
+// Pondération du risque de chute par GIR (prévalence relative du risque élevé).
+// Le risque culmine chez les profils mobiles-mais-fragiles (GIR 3-4) ; il reste
+// non nul chez les autonomes (GIR 5-6, qui vieillissent et chutent aussi) et
+// légèrement réduit chez les très dépendants (GIR 1-2, mobilité/exposition moindre).
+const GIR_FALL_WEIGHT = {g1:0.70, g2:0.70, g3:1.00, g4:1.00, g5:0.40, g6:0.40};
+function computePctRisque(d) {
+  const g = d.gir || {};
+  let num=0, den=0;
+  for (const k in GIR_FALL_WEIGHT) {
+    const n = g[k]||0;
+    num += n * GIR_FALL_WEIGHT[k];
+    den += n;
+  }
+  return den > 0 ? num/den : 0.50;
+}
+function computeIncid(d) {
+  const a = d.age || {};
+  let num=0, den=0;
+  for (const band in AGE_FALL_INCIDENCE) {
+    const n = a[band]||0;
+    num += n * AGE_FALL_INCIDENCE[band];
+    den += n;
+  }
+  return den > 0 ? num/den : 0.40;
+}
+function toggleSroiAuto(key) {
+  const cb = document.getElementById('auto-' + (key === 'pctRisque' ? 'pct-risque' : 'incid'));
+  sroiAuto[key] = cb.checked;
+  calcSROI();
+}
+
 function calcSROI() {
+  const d = getCurrentData();
   const coutChute = +document.getElementById('s-cout-chute').value;
   const pctGrave = +document.getElementById('s-pct-grave').value / 100;
   const reduc = +document.getElementById('s-reduc').value / 100;
-  const pctRisque = +document.getElementById('s-pct-risque').value / 100;
-  const incid = +document.getElementById('s-incid').value;
   const aideHum = +document.getElementById('s-aide-hum').value;
   const pctAuto = +document.getElementById('s-pct-auto').value / 100;
   const coutBen = +document.getElementById('s-cout-ben').value;
+
+  // % à risque — auto (depuis GIR) ou manuel
+  let pctRisque;
+  const slRisque = document.getElementById('s-pct-risque');
+  if (sroiAuto.pctRisque) {
+    pctRisque = computePctRisque(d);
+    slRisque.value = Math.round(pctRisque*100);
+    slRisque.disabled = true;
+  } else {
+    slRisque.disabled = false;
+    pctRisque = +slRisque.value / 100;
+  }
+
+  // Incidence — auto (depuis âge) ou manuel
+  let incid;
+  const slIncid = document.getElementById('s-incid');
+  if (sroiAuto.incid) {
+    incid = computeIncid(d);
+    slIncid.value = incid.toFixed(2);
+    slIncid.disabled = true;
+  } else {
+    slIncid.disabled = false;
+    incid = +slIncid.value;
+  }
 
   // Update displays
   document.getElementById('v-cout-chute').textContent = fmtEur(coutChute);
   document.getElementById('v-pct-grave').textContent = (pctGrave*100).toFixed(0)+' %';
   document.getElementById('v-reduc').textContent = (reduc*100).toFixed(0)+' %';
-  document.getElementById('v-pct-risque').textContent = (pctRisque*100).toFixed(0)+' %';
-  document.getElementById('v-incid').textContent = incid.toFixed(2).replace('.',',') + ' /an';
+  document.getElementById('v-pct-risque').innerHTML = (pctRisque*100).toFixed(0)+' %' + (sroiAuto.pctRisque ? '<span class="auto-badge">auto</span>' : '');
+  document.getElementById('v-incid').innerHTML = incid.toFixed(2).replace('.',',') + ' /an' + (sroiAuto.incid ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-aide-hum').textContent = fmtEur(aideHum);
   document.getElementById('v-pct-auto').textContent = (pctAuto*100).toFixed(0)+' %';
   document.getElementById('v-cout-ben').textContent = fmtEur(coutBen);
 
-  const benef = getCurrentData().benef;
+  const benef = d.benef;
 
   // Périmètre actif (filtres topbar)
   const scopeEl = document.getElementById('sroi-scope');
@@ -2034,7 +2099,16 @@ function calcSROI() {
       perimetre = `Ensemble du dispositif (${DATA.ergos_meta.length} ergothèques)`;
     }
     if (activeYear !== 'all') perimetre += ' · année ' + activeYear;
-    scopeEl.innerHTML = `<strong>Périmètre actif :</strong> ${perimetre} — <strong>${fmt(benef)} bénéficiaires</strong>. Les montants ci-dessous (coûts évités, valeur sociale, coût du dispositif) sont calculés sur cette population. Le <em>ratio</em> SROI, lui, ne dépend que des hypothèses des curseurs.`;
+    const nAuto = (sroiAuto.pctRisque?1:0) + (sroiAuto.incid?1:0);
+    let ratioNote;
+    if (nAuto === 2) {
+      ratioNote = `Le <em>% à risque de chute</em> et l'<em>incidence</em> sont recalculés depuis le profil GIR/âge réel de cette population — donc le <strong>ratio SROI lui-même varie selon le territoire</strong> sélectionné.`;
+    } else if (nAuto === 1) {
+      ratioNote = `Une hypothèse est recalculée depuis le profil réel de cette population, les autres viennent des curseurs — le ratio varie donc en partie selon le territoire.`;
+    } else {
+      ratioNote = `Toutes les hypothèses sont en mode manuel : le <em>ratio</em> ne dépend que des curseurs (seuls les montants absolus suivent la taille de la population).`;
+    }
+    scopeEl.innerHTML = `<strong>Périmètre actif :</strong> ${perimetre} — <strong>${fmt(benef)} bénéficiaires</strong>. Les montants (coûts évités, valeur sociale, coût du dispositif) sont calculés sur cette population. ${ratioNote}`;
   }
 
   // Coût évité chutes :
