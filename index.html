@@ -604,6 +604,8 @@ a:hover{text-decoration:underline}
 
   <div class="note-box mb20"><strong>Méthode · </strong> Le modèle estime la valeur sociale créée par le dispositif Ergothèque à partir de deux mécanismes principaux documentés dans la littérature scientifique : <strong>la réduction des chutes graves</strong> (méta-analyses Cochrane &amp; études récentes 2023-2025) et <strong>la réduction du recours à des aides humaines supplémentaires</strong>. Les curseurs ci-dessous permettent de tester différents scénarios — chaque valeur par défaut est sourcée et explicitée. <em>Modèle conservatif : seuls les coûts évités quantifiables et bien documentés sont intégrés. Le maintien à domicile et le bénéfice social plus large ne sont pas monétarisés ici.</em></div>
 
+  <div class="note-box mb20" id="sroi-scope" style="background:var(--sage-pale);border-color:var(--border2)"></div>
+
   <div class="grid g2">
     <div>
       <!-- HYPOTHÈSES -->
@@ -2019,7 +2021,21 @@ function calcSROI() {
   document.getElementById('v-pct-auto').textContent = (pctAuto*100).toFixed(0)+' %';
   document.getElementById('v-cout-ben').textContent = fmtEur(coutBen);
 
-  const benef = DATA.global.benef;
+  const benef = getCurrentData().benef;
+
+  // Périmètre actif (filtres topbar)
+  const scopeEl = document.getElementById('sroi-scope');
+  if (scopeEl) {
+    let perimetre;
+    if (activeErgo) {
+      const meta = DATA.ergos_meta.find(e => e.code === activeErgo);
+      perimetre = meta ? meta.titre.replace('ERGOTHÈQUE ', 'Ergothèque ') : activeErgo;
+    } else {
+      perimetre = `Ensemble du dispositif (${DATA.ergos_meta.length} ergothèques)`;
+    }
+    if (activeYear !== 'all') perimetre += ' · année ' + activeYear;
+    scopeEl.innerHTML = `<strong>Périmètre actif :</strong> ${perimetre} — <strong>${fmt(benef)} bénéficiaires</strong>. Les montants ci-dessous (coûts évités, valeur sociale, coût du dispositif) sont calculés sur cette population. Le <em>ratio</em> SROI, lui, ne dépend que des hypothèses des curseurs.`;
+  }
 
   // Coût évité chutes :
   // bénéficiaires à risque × incidence chute/an × % chute grave × coût d'une chute grave × % réduction grâce à l'ergo
