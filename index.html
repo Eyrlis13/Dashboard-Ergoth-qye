@@ -1493,18 +1493,23 @@ function applyFilters() {
 // ════════════════════════════════════════
 //  DATA SELECTION
 // ════════════════════════════════════════
+function emptyAgg() {
+  // Bloc vide : ergothèque + année sans aucune donnée (évite de retomber sur le total toutes années)
+  return {benef:0,pret:0,achat:0,nmep:0,recyc:0,refus:0,attente:0,total:0,
+          gir:{},age:{},iso:{},orient:{},civ:{},age_mean:0,iadl:0,adl:0,sega:0};
+}
 function getCurrentData() {
   // Renvoie les agrégats correspondant aux filtres actifs
   if (activeErgo) {
     const ergo = DATA.by_ergo[activeErgo];
     if (!ergo) return DATA.global;
     if (activeYear !== 'all') {
-      return ergo.years[activeYear] || ergo.all;
+      return ergo.years[activeYear] || emptyAgg();
     }
     return ergo.all;
   }
   if (activeYear !== 'all') {
-    return DATA.by_year[activeYear] || DATA.global;
+    return DATA.by_year[activeYear] || emptyAgg();
   }
   return DATA.global;
 }
@@ -1617,8 +1622,8 @@ function drawCompare() {
   // Filtrer par année si une année spécifique est sélectionnée
   const ergoData = ergos.map(e => {
     const ergo = DATA.by_ergo[e.code];
-    if (activeYear !== 'all' && ergo.years && ergo.years[activeYear]) {
-      return ergo.years[activeYear];
+    if (activeYear !== 'all') {
+      return (ergo.years && ergo.years[activeYear]) ? ergo.years[activeYear] : emptyAgg();
     }
     return ergo.all;
   });
