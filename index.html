@@ -692,12 +692,13 @@ a:hover{text-decoration:underline}
           <div class="slider-val" id="v-prix-at">65 €</div>
         </div>
         <div class="slider-row">
-          <div class="slider-label">Taux de substitution (% de bénéficiaires qui auraient acheté l'AT sans MJ)
-            <small>Borne basse observée dans les données : ~13% des bénéficiaires ont acheté de leur poche (colonne « AT achetées »). Borne haute (saturation) : 100%. Défaut conservateur : 70%.</small>
-            <small class="guide">Recommandation : 70% — certains bénéficiaires auraient renoncé (contrainte budgétaire) ou été équipés via APA/ANAH</small>
+          <div class="slider-label">Taux de substitution (% de bénéficiaires qui auraient acquis l'AT sans MJ)
+            <small>En mode Auto : calculé empiriquement depuis les données comme <code>achat / (achat + nmep)</code> — c'est-à-dire la part des préconisations <em>non fournies par MJ</em> que les bénéficiaires achètent quand même de leur poche (~16% sur l'ensemble du dispositif). C'est une <strong>borne basse</strong> car elle ignore les autres canaux de financement (APA, ANAH, ESMS) qui auraient pu prendre le relais.</small>
+            <small class="guide">Manuel — pour intégrer les canaux publics complémentaires, monter à 30-50%</small>
+            <label class="auto-toggle"><input type="checkbox" id="auto-taux-subst" checked onchange="toggleSroiAuto('tauxSubst')"> Auto (depuis les données)</label>
           </div>
-          <input type="range" class="slider-input" id="s-taux-subst" min="20" max="100" step="5" value="70" oninput="calcSROI()">
-          <div class="slider-val" id="v-taux-subst">70 %</div>
+          <input type="range" class="slider-input" id="s-taux-subst" min="5" max="100" step="1" value="16" oninput="calcSROI()">
+          <div class="slider-val" id="v-taux-subst">16 %</div>
         </div>
       </div>
 
@@ -2033,7 +2034,7 @@ function drawEqCross() {
 //  PAGE: SROI
 // ════════════════════════════════════════
 // État des bascules Auto/Manuel (par défaut auto activé)
-const sroiAuto = {pctRisque: true, incid: true, reduc: true, prixAt: true};
+const sroiAuto = {pctRisque: true, incid: true, reduc: true, prixAt: true, tauxSubst: true};
 
 // Grille de prix marché neuf (gamme moyenne grand public, sources :
 // Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute, 2025).
@@ -2153,7 +2154,7 @@ function computeReduc(d) {
   return REDUC_MIN + (REDUC_MAX - REDUC_MIN) * pr;
 }
 function toggleSroiAuto(key) {
-  const idMap = {pctRisque: 'auto-pct-risque', incid: 'auto-incid', reduc: 'auto-reduc', prixAt: 'auto-prix-at'};
+  const idMap = {pctRisque: 'auto-pct-risque', incid: 'auto-incid', reduc: 'auto-reduc', prixAt: 'auto-prix-at', tauxSubst: 'auto-taux-subst'};
   const cb = document.getElementById(idMap[key]);
   sroiAuto[key] = cb.checked;
   calcSROI();
@@ -2166,8 +2167,20 @@ function calcSROI() {
   const pctGrave = +document.getElementById('s-pct-grave').value / 100;
   const aideHum = +document.getElementById('s-aide-hum').value;
   const pctAuto = +document.getElementById('s-pct-auto').value / 100;
-  const tauxSubst = +document.getElementById('s-taux-subst').value / 100;
   const coutBen = +document.getElementById('s-cout-ben').value;
+
+  // Taux de substitution — auto (depuis les données : achat / (achat + nmep)) ou manuel
+  let tauxSubst;
+  const slTauxSubst = document.getElementById('s-taux-subst');
+  if (sroiAuto.tauxSubst) {
+    const denom = (d.achat || 0) + (d.nmep || 0);
+    tauxSubst = denom > 0 ? (d.achat || 0) / denom : 0.16;
+    slTauxSubst.value = Math.round(tauxSubst * 100);
+    slTauxSubst.disabled = true;
+  } else {
+    slTauxSubst.disabled = false;
+    tauxSubst = +slTauxSubst.value / 100;
+  }
 
   // Prix moyen d'une AT — auto (depuis volumes) ou manuel
   let prixAt;
@@ -2226,7 +2239,7 @@ function calcSROI() {
   document.getElementById('v-aide-hum').textContent = fmtEur(aideHum);
   document.getElementById('v-pct-auto').textContent = (pctAuto*100).toFixed(0)+' %';
   document.getElementById('v-prix-at').innerHTML = fmtEur(prixAt) + (sroiAuto.prixAt ? '<span class="auto-badge">auto</span>' : '');
-  document.getElementById('v-taux-subst').textContent = (tauxSubst*100).toFixed(0)+' %';
+  document.getElementById('v-taux-subst').innerHTML = (tauxSubst*100).toFixed(0)+' %' + (sroiAuto.tauxSubst ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-cout-ben').textContent = fmtEur(coutBen);
 
   const benef = d.benef;
