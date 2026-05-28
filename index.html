@@ -680,8 +680,8 @@ a:hover{text-decoration:underline}
       </div>
 
       <div class="card mb16">
-        <div class="block-title">Matériel mis à disposition (achats neufs évités pour la collectivité)</div>
-        <div class="fs11 text-mid mb12" style="line-height:1.6">Sans le dispositif, la collectivité aurait financé chaque AT au prix neuf (1<sup>ère</sup> utilisation + chaque redistribution). Avec MJ, le matériel est mutualisé via la logique circulaire — le coût marché des achats évités s'ajoute aux mécanismes ci-dessus.</div>
+        <div class="block-title">Matériel mis à disposition (reconditionné + recyclage)</div>
+        <div class="fs11 text-mid mb12" style="line-height:1.6">Si le dispositif n'existait pas, il aurait quand même fallu équiper ces bénéficiaires pour générer la valeur sociale calculée ci-dessus (chutes évitées, aides humaines évitées). La collectivité aurait dû acheter chaque AT <strong>au prix neuf</strong>. Avec MJ, le matériel est acquis <strong>en reconditionné</strong> puis <strong>amorti par recyclage</strong> (chaque redistribution évite un nouvel achat).</div>
         <div class="slider-row">
           <div class="slider-label">Prix moyen pondéré d'une AT (neuf, marché grand public)
             <small>Calculé automatiquement à partir des volumes par catégorie d'AT mises à disposition × prix marché neuf (Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute — gamme moyenne 2025).</small>
@@ -692,12 +692,15 @@ a:hover{text-decoration:underline}
           <div class="slider-val" id="v-prix-at">65 €</div>
         </div>
         <div class="slider-row">
-          <div class="slider-label">Taux de substitution (% de bénéficiaires qui auraient acheté l'AT sans MJ)
-            <small>Borne basse observée dans les données : ~13% des bénéficiaires ont acheté de leur poche (colonne « AT achetées »). Borne haute (saturation) : 100%. Défaut conservateur : 70%.</small>
-            <small class="guide">Recommandation : 70% — certains bénéficiaires auraient renoncé (contrainte budgétaire) ou été équipés via APA/ANAH</small>
+          <div class="slider-label">% de décote du reconditionné par rapport au neuf
+            <small>Sur le marché des AT reconditionnées (recycleries spécialisées, partenaires APF, UCANSS, plateformes de don/seconde main), un équipement reconditionné se négocie en moyenne entre <strong>50% et 70% de décote</strong> par rapport au neuf, selon l'état et la catégorie. La décote effective pour MJ inclut aussi l'effet d'amortissement par le recyclage (chaque AT redistribuée évite un achat).</small>
+            <small class="guide">Recommandation : 60% (prix reconditionné ≈ 40% du neuf)</small>
           </div>
-          <input type="range" class="slider-input" id="s-taux-subst" min="20" max="100" step="5" value="70" oninput="calcSROI()">
-          <div class="slider-val" id="v-taux-subst">70 %</div>
+          <input type="range" class="slider-input" id="s-decote-recond" min="30" max="85" step="5" value="60" oninput="calcSROI()">
+          <div class="slider-val" id="v-decote-recond">60 %</div>
+        </div>
+        <div class="fs11 text-mid mt12" style="line-height:1.55;background:var(--cream);padding:10px 12px;border-radius:6px">
+          <strong>Facteur d'amortissement recyclage</strong> (auto-calculé) : <span id="amort-recyc">—</span>. Calculé comme <code>1 − (AT redistribuées / total MAD)</code> sur le périmètre actif — plus la redistribution est élevée, plus le coût matériel par utilisation baisse.
         </div>
       </div>
 
@@ -716,16 +719,22 @@ a:hover{text-decoration:underline}
 
     <div>
       <div class="sroi-result mb16">
-        <div class="sroi-result-eyebrow">Retour social sur investissement estimé</div>
-        <div class="sroi-result-value" id="sroi-ratio">—</div>
-        <div class="sroi-result-unit">euros de valeur sociale créée pour 1 € investi dans le dispositif Ergothèque</div>
+        <div class="sroi-result-eyebrow">Valeur sociale créée par le dispositif</div>
+        <div class="sroi-result-value" id="sroi-valeur-hero">—</div>
+        <div class="sroi-result-unit">euros de coûts évités pour la collectivité (chutes, aides humaines, matériel)</div>
         <div class="sroi-items">
           <div class="sroi-item"><div class="sroi-item-label">Coût évité chutes</div><div class="sroi-item-value" id="sroi-chutes">—</div></div>
           <div class="sroi-item"><div class="sroi-item-label">Aides humaines évitées</div><div class="sroi-item-value" id="sroi-aides">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">Matériel évité (achats neufs)</div><div class="sroi-item-value" id="sroi-materiel">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">Valeur sociale totale</div><div class="sroi-item-value" id="sroi-valeur">—</div></div>
-          <div class="sroi-item" style="grid-column:1/-1"><div class="sroi-item-label">Coût total dispositif</div><div class="sroi-item-value" id="sroi-cout">—</div></div>
+          <div class="sroi-item"><div class="sroi-item-label">Matériel évité (reconditionné + recyclage)</div><div class="sroi-item-value" id="sroi-materiel">—</div></div>
+          <div class="sroi-item"><div class="sroi-item-label">Coût total dispositif</div><div class="sroi-item-value" id="sroi-cout">—</div></div>
         </div>
+        <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+          <div class="sroi-item-label" style="font-size:11px;opacity:.6">Retour social sur investissement</div>
+          <div id="sroi-ratio" style="font-family:'Playfair Display',serif;font-size:24px;font-weight:500;color:#F2C4A8">—</div>
+          <div class="sroi-item-label" style="font-size:11px;opacity:.6">€ de valeur sociale pour 1 € investi</div>
+        </div>
+        <!-- compat anciennes refs -->
+        <span id="sroi-valeur" style="display:none">—</span>
       </div>
 
       <div class="card mb16">
@@ -2037,7 +2046,10 @@ const sroiAuto = {pctRisque: true, incid: true, reduc: true, prixAt: true};
 
 // Grille de prix marché neuf (gamme moyenne grand public, sources :
 // Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute, 2025).
-// Couvre les AT du top 20 (92% du volume MAD) — les autres tombent sur le prix moyen catégoriel.
+// Périmètre limité aux AT effectivement prêtées par MJ. Les LPPR purs (lit
+// médicalisé, fauteuil roulant, monte escalier, téléassistance, fauteuil
+// releveur, matelas anti-escarres, cannes médicales) sont remboursés via
+// Assurance Maladie/LPPR et ne sont pas dans le périmètre MAD MJ.
 const AT_PRICES = {
   "Barre latérale de redressement de lit": 45,
   "Rehausseur de toilette avec ou sans accoudoirs": 60,
@@ -2055,18 +2067,11 @@ const AT_PRICES = {
   "Enfile bas/chaussette": 25,
   "Handy bar": 30,
   "Eclairage à détecteur de mouvements (veilleuse ; douille, interrupteur...)": 30,
-  "Aide technique au transfert (lève personne, verticalisateur, guidon, disque de transfert)": 800,
+  // Volume mixte : majoritairement verticalisateur/disque/guidon (lève-personne pur est LPPR)
+  "Aide technique au transfert (lève personne, verticalisateur, guidon, disque de transfert)": 250,
   "Couverts adaptés": 25,
+  // Déambulateur en MAD = modèles de dépannage (rollator LPPR prend ensuite le relais)
   "Déambulateur/Cadre de marche/ Rollator": 130,
-  "Cannes/béquilles": 25,
-  "Lit médicalisé": 1200,
-  "Fauteuil roulant manuel, fauteuil confort ou coquille": 280,
-  "Téléassistance avec détecteur de chute": 250,
-  "Téléassistance intérieure": 150,
-  "Monte escalier": 4500,
-  "Fauteuil releveur": 700,
-  "Dispositif de prévention escarres (matelas, coussin, etc.)": 250,
-  "Téléphone simplifié avec bouton d'urgence": 80,
 };
 // Prix moyens par catégorie pour la longue traîne (~8% du volume)
 const CAT_PRICES = {
@@ -2166,8 +2171,13 @@ function calcSROI() {
   const pctGrave = +document.getElementById('s-pct-grave').value / 100;
   const aideHum = +document.getElementById('s-aide-hum').value;
   const pctAuto = +document.getElementById('s-pct-auto').value / 100;
-  const tauxSubst = +document.getElementById('s-taux-subst').value / 100;
+  const decoteRecond = +document.getElementById('s-decote-recond').value / 100;
   const coutBen = +document.getElementById('s-cout-ben').value;
+
+  // Facteur d'amortissement par recyclage : chaque AT redistribuée évite un nouvel achat
+  // Coût matériel par utilisation = prix_reconditionné × (acquisitions / utilisations)
+  //                               = prix_reconditionné × (1 − redistrib/MAD)
+  const amortRecycFactor = (d.pret > 0) ? Math.max(0, 1 - (d.redistrib || 0) / d.pret) : 1;
 
   // Prix moyen d'une AT — auto (depuis volumes) ou manuel
   let prixAt;
@@ -2226,7 +2236,8 @@ function calcSROI() {
   document.getElementById('v-aide-hum').textContent = fmtEur(aideHum);
   document.getElementById('v-pct-auto').textContent = (pctAuto*100).toFixed(0)+' %';
   document.getElementById('v-prix-at').innerHTML = fmtEur(prixAt) + (sroiAuto.prixAt ? '<span class="auto-badge">auto</span>' : '');
-  document.getElementById('v-taux-subst').textContent = (tauxSubst*100).toFixed(0)+' %';
+  document.getElementById('v-decote-recond').textContent = (decoteRecond*100).toFixed(0)+' %';
+  document.getElementById('amort-recyc').innerHTML = `<strong>${(amortRecycFactor*100).toFixed(0)}%</strong> du prix reconditionné est effectivement payé par MJ par utilisation (${fmt(d.redistrib || 0)} redistributions sur ${fmt(d.pret || 0)} MAD)`;
   document.getElementById('v-cout-ben').textContent = fmtEur(coutBen);
 
   const benef = d.benef;
@@ -2263,14 +2274,20 @@ function calcSROI() {
   // Aides humaines évitées
   const aidesEv = benef * pctAuto * aideHum;
 
-  // Matériel évité : nb MAD × prix moyen pondéré × taux de substitution
-  const materielEv = (d.pret || 0) * prixAt * tauxSubst;
+  // Matériel évité (hypothèse : sans MJ il aurait fallu équiper les mêmes bénéficiaires
+  // pour générer les bénéfices chutes/aides humaines, donc taux de substitution implicite = 100%).
+  // Coût par AT évité = prix neuf − (prix reconditionné × facteur amortissement recyclage)
+  const prixRecondEffectif = prixAt * (1 - decoteRecond) * amortRecycFactor;
+  const materielEv = (d.pret || 0) * Math.max(0, prixAt - prixRecondEffectif);
 
   // Total
   const valeurTotale = coutEviteChutes + aidesEv + materielEv;
   const coutTotal = benef * coutBen;
   const ratio = coutTotal > 0 ? valeurTotale / coutTotal : 0;
 
+  // Hero = valeur sociale totale en grand (priorité visuelle)
+  document.getElementById('sroi-valeur-hero').textContent = fmtEurK(valeurTotale);
+  // Ratio en petit (en bas)
   document.getElementById('sroi-ratio').textContent = ratio.toFixed(2).replace('.',',') + ' €';
   document.getElementById('sroi-chutes').textContent = fmtEurK(coutEviteChutes);
   document.getElementById('sroi-aides').textContent = fmtEurK(aidesEv);
