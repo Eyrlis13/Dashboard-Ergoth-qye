@@ -601,7 +601,7 @@ a:hover{text-decoration:underline}
     <div class="section-sub">Modèle de monétarisation — hypothèses ajustables et documentées</div>
   </div>
 
-  <div class="note-box mb20"><strong>Méthode · </strong> Le modèle estime la valeur sociale créée par le dispositif Ergothèque à partir de deux mécanismes principaux documentés dans la littérature scientifique : <strong>la réduction des chutes graves</strong> (méta-analyses Cochrane &amp; études récentes 2023-2025) et <strong>la réduction du recours à des aides humaines supplémentaires</strong>. Les curseurs ci-dessous permettent de tester différents scénarios — chaque valeur par défaut est sourcée et explicitée. <em>Modèle conservatif : seuls les coûts évités quantifiables et bien documentés sont intégrés. Le maintien à domicile et le bénéfice social plus large ne sont pas monétarisés ici.</em></div>
+  <div class="note-box mb20"><strong>Méthode · </strong> Le modèle estime la valeur sociale créée par le dispositif Ergothèque à partir de trois mécanismes documentés : <strong>la réduction des chutes graves</strong> (méta-analyses Cochrane &amp; études récentes 2023-2025), <strong>la réduction du recours à des aides humaines supplémentaires</strong> et <strong>les achats neufs évités pour la collectivité grâce à la mutualisation circulaire du matériel</strong>. Les curseurs ci-dessous permettent de tester différents scénarios — chaque valeur par défaut est sourcée et explicitée. <em>Modèle conservatif : seuls les coûts évités quantifiables et bien documentés sont intégrés. Le maintien à domicile et le bénéfice social plus large ne sont pas monétarisés ici.</em></div>
 
   <div class="note-box mb20" id="sroi-scope" style="background:var(--sage-pale);border-color:var(--border2)"></div>
 
@@ -679,6 +679,28 @@ a:hover{text-decoration:underline}
         </div>
       </div>
 
+      <div class="card mb16">
+        <div class="block-title">Matériel mis à disposition (achats neufs évités pour la collectivité)</div>
+        <div class="fs11 text-mid mb12" style="line-height:1.6">Sans le dispositif, la collectivité aurait financé chaque AT au prix neuf (1<sup>ère</sup> utilisation + chaque redistribution). Avec MJ, le matériel est mutualisé via la logique circulaire — le coût marché des achats évités s'ajoute aux mécanismes ci-dessus.</div>
+        <div class="slider-row">
+          <div class="slider-label">Prix moyen pondéré d'une AT (neuf, marché grand public)
+            <small>Calculé automatiquement à partir des volumes par catégorie d'AT mises à disposition × prix marché neuf (Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute — gamme moyenne 2025).</small>
+            <small class="guide">Curseur : ajustement ±30% pour scénarios pessimiste/optimiste autour de la valeur auto</small>
+            <label class="auto-toggle"><input type="checkbox" id="auto-prix-at" checked onchange="toggleSroiAuto('prixAt')"> Auto (depuis les volumes)</label>
+          </div>
+          <input type="range" class="slider-input" id="s-prix-at" min="20" max="200" step="1" value="65" oninput="calcSROI()">
+          <div class="slider-val" id="v-prix-at">65 €</div>
+        </div>
+        <div class="slider-row">
+          <div class="slider-label">Taux de substitution (% de bénéficiaires qui auraient acheté l'AT sans MJ)
+            <small>Borne basse observée dans les données : ~13% des bénéficiaires ont acheté de leur poche (colonne « AT achetées »). Borne haute (saturation) : 100%. Défaut conservateur : 70%.</small>
+            <small class="guide">Recommandation : 70% — certains bénéficiaires auraient renoncé (contrainte budgétaire) ou été équipés via APA/ANAH</small>
+          </div>
+          <input type="range" class="slider-input" id="s-taux-subst" min="20" max="100" step="5" value="70" oninput="calcSROI()">
+          <div class="slider-val" id="v-taux-subst">70 %</div>
+        </div>
+      </div>
+
       <div class="card">
         <div class="block-title">Budget annuel du dispositif (par bénéficiaire)</div>
         <div class="slider-row">
@@ -700,8 +722,9 @@ a:hover{text-decoration:underline}
         <div class="sroi-items">
           <div class="sroi-item"><div class="sroi-item-label">Coût évité chutes</div><div class="sroi-item-value" id="sroi-chutes">—</div></div>
           <div class="sroi-item"><div class="sroi-item-label">Aides humaines évitées</div><div class="sroi-item-value" id="sroi-aides">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">Coût total dispositif</div><div class="sroi-item-value" id="sroi-cout">—</div></div>
+          <div class="sroi-item"><div class="sroi-item-label">Matériel évité (achats neufs)</div><div class="sroi-item-value" id="sroi-materiel">—</div></div>
           <div class="sroi-item"><div class="sroi-item-label">Valeur sociale totale</div><div class="sroi-item-value" id="sroi-valeur">—</div></div>
+          <div class="sroi-item" style="grid-column:1/-1"><div class="sroi-item-label">Coût total dispositif</div><div class="sroi-item-value" id="sroi-cout">—</div></div>
         </div>
       </div>
 
@@ -732,6 +755,7 @@ a:hover{text-decoration:underline}
           <li>Agree E.M., Freedman V.A. (2000). <em>Substitution between assistive technology and personal care.</em> Les AT simples se substituent à l'aide informelle ; les AT complexes la complètent.</li>
           <li>Maresova P. et al. (2025). <em>Systematic review of home modifications for aging in place :</em> 13/20 études confirment l'efficacité (prévention chutes, indépendance fonctionnelle, économies). <a href="https://www.mdpi.com/2227-9032/13/7/752" target="_blank">Lien</a></li>
           <li>Service-public.gouv.fr / pour-les-personnes-agees.gouv.fr — <em>Plafonds APA 2026 par GIR.</em></li>
+          <li><strong>Prix marché des AT (mécanisme « matériel évité »)</strong> — Médianes 2025, gamme moyenne grand public : <a href="https://www.tousergo.com" target="_blank">Tousergo</a>, <a href="https://www.bastide.fr" target="_blank">Bastide</a>, <a href="https://www.medicalexpress.fr" target="_blank">Medical Express</a>, <a href="https://www.pharmaspot.fr" target="_blank">Pharmaspot</a>, <a href="https://www.identites.eu" target="_blank">Identités</a>, <a href="https://www.prevenchute.com" target="_blank">prevenchute</a>. Exemples : planche de bain 25-65€, rehausseur WC avec accoudoirs 40-80€, déambulateur/rollator 100-400€. Grille complète dans le code (constante <code>AT_PRICES</code>).</li>
         </ul>
       </div>
     </div>
@@ -777,7 +801,7 @@ a:hover{text-decoration:underline}
     <div style="overflow-x:auto"><table class="data-table">
       <thead><tr>
         <th>Ergothèque</th><th>Type</th><th>Région</th><th>Bénéficiaires</th>
-        <th>AT mises à dispo</th><th>Taux mise à dispo</th><th>AT recyclées</th><th>Volume</th>
+        <th>AT mises à dispo</th><th>Taux mise à dispo</th><th title="(MJ + achat perso) / total préconisé — part des préconisations satisfaites">Taux d'équipement</th><th>AT recyclées</th><th>Volume</th>
       </tr></thead>
       <tbody id="ergo-tbody"></tbody>
     </table></div>
@@ -1509,6 +1533,21 @@ function getCurrentData() {
   return DATA.global;
 }
 
+function getCurrentGranular() {
+  // Granular équivalent aux filtres actifs (cat_pret, top_pret, etc.)
+  if (activeErgo) {
+    if (activeYear !== 'all') {
+      const ey = DATA.granular_by_ergo_year[activeErgo];
+      return (ey && ey[activeYear]) ? ey[activeYear] : DATA.granular_by_ergo[activeErgo] || DATA.granular_global;
+    }
+    return DATA.granular_by_ergo[activeErgo] || DATA.granular_global;
+  }
+  if (activeYear !== 'all') {
+    return DATA.granular_by_year[activeYear] || DATA.granular_global;
+  }
+  return DATA.granular_global;
+}
+
 // ════════════════════════════════════════
 //  POPULATE ERGO FILTER
 // ════════════════════════════════════════
@@ -1994,7 +2033,89 @@ function drawEqCross() {
 //  PAGE: SROI
 // ════════════════════════════════════════
 // État des bascules Auto/Manuel (par défaut auto activé)
-const sroiAuto = {pctRisque: true, incid: true, reduc: true};
+const sroiAuto = {pctRisque: true, incid: true, reduc: true, prixAt: true};
+
+// Grille de prix marché neuf (gamme moyenne grand public, sources :
+// Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute, 2025).
+// Couvre les AT du top 20 (92% du volume MAD) — les autres tombent sur le prix moyen catégoriel.
+const AT_PRICES = {
+  "Barre latérale de redressement de lit": 45,
+  "Rehausseur de toilette avec ou sans accoudoirs": 60,
+  "Planche de bain": 55,
+  "Tabouret de douche": 45,
+  "Marche pied/demie-marche": 35,
+  "Siège de bain": 85,
+  "Barre d'appui": 35,
+  "Cadre de toilettes": 100,
+  "Plot rehausseurs de lit/fauteuil": 40,
+  "Antidérapant de sol (tapis sortie de bain, antidérapant ou double face pour tapis...)": 20,
+  "Chaise de douche (fixe ou inclinable)": 130,
+  "Chaise assis/debout": 280,
+  "Pince de préhension à long manche": 15,
+  "Enfile bas/chaussette": 25,
+  "Handy bar": 30,
+  "Eclairage à détecteur de mouvements (veilleuse ; douille, interrupteur...)": 30,
+  "Aide technique au transfert (lève personne, verticalisateur, guidon, disque de transfert)": 800,
+  "Couverts adaptés": 25,
+  "Déambulateur/Cadre de marche/ Rollator": 130,
+  "Cannes/béquilles": 25,
+  "Lit médicalisé": 1200,
+  "Fauteuil roulant manuel, fauteuil confort ou coquille": 280,
+  "Téléassistance avec détecteur de chute": 250,
+  "Téléassistance intérieure": 150,
+  "Monte escalier": 4500,
+  "Fauteuil releveur": 700,
+  "Dispositif de prévention escarres (matelas, coussin, etc.)": 250,
+  "Téléphone simplifié avec bouton d'urgence": 80,
+};
+// Prix moyens par catégorie pour la longue traîne (~8% du volume)
+const CAT_PRICES = {
+  "Salle de bain / Sanitaires": 65,
+  "Lit, transferts & couchage": 90,
+  "Mobilité & marche": 150,
+  "Sécurité & prévention chutes": 40,
+  "Préhension & repas": 25,
+  "Autres aides techniques": 55,
+  "Confort & posture": 200,
+  "Aménagement (travaux)": 1500,
+};
+
+// Calcule le prix moyen pondéré d'une AT mise à disposition sur le périmètre courant.
+// On utilise les volumes par AT spécifique (granular.top_pret, ~92% couvert) et complète
+// par les volumes catégoriels (granular.cat_pret) pour la longue traîne.
+function computePrixAtMoyen(g) {
+  if (!g) return 65;
+  const top = g.top_pret || {};
+  const cat = g.cat_pret || {};
+  let totalVol = 0, totalEuros = 0;
+  let covered = 0;
+  for (const [at, n] of Object.entries(top)) {
+    if (AT_PRICES[at] !== undefined) {
+      totalEuros += AT_PRICES[at] * n;
+      totalVol += n;
+      covered += n;
+    }
+  }
+  // Longue traîne : volume_catégorie restant × prix_catégorie
+  // Approche : on suppose que le total des MAD = somme des cat_pret (cohérent),
+  // et la partie non couverte par les prix explicites est valorisée au prix catégoriel.
+  const totalCat = Object.values(cat).reduce((a,b)=>a+b,0);
+  const reste = Math.max(0, totalCat - covered);
+  if (reste > 0) {
+    // Pour répartir le reste sur les catégories, on déduit volume_explicite par catégorie
+    // mais c'est complexe — approximation : prix moyen catégoriel pondéré global
+    let weightedCatPrice = 0, denom = 0;
+    for (const [c, n] of Object.entries(cat)) {
+      const p = CAT_PRICES[c] || 65;
+      weightedCatPrice += p * n;
+      denom += n;
+    }
+    const avgCat = denom > 0 ? weightedCatPrice / denom : 65;
+    totalEuros += reste * avgCat;
+    totalVol += reste;
+  }
+  return totalVol > 0 ? totalEuros / totalVol : 65;
+}
 // Bornes d'efficacité de la prévention par aménagement (réduction du risque de chute)
 const REDUC_MIN = 0.12; // Cochrane 2018, population générale
 const REDUC_MAX = 0.38; // Stark / HARP, profils à haut risque
@@ -2032,7 +2153,7 @@ function computeReduc(d) {
   return REDUC_MIN + (REDUC_MAX - REDUC_MIN) * pr;
 }
 function toggleSroiAuto(key) {
-  const idMap = {pctRisque: 'auto-pct-risque', incid: 'auto-incid', reduc: 'auto-reduc'};
+  const idMap = {pctRisque: 'auto-pct-risque', incid: 'auto-incid', reduc: 'auto-reduc', prixAt: 'auto-prix-at'};
   const cb = document.getElementById(idMap[key]);
   sroiAuto[key] = cb.checked;
   calcSROI();
@@ -2040,11 +2161,25 @@ function toggleSroiAuto(key) {
 
 function calcSROI() {
   const d = getCurrentData();
+  const g = getCurrentGranular();
   const coutChute = +document.getElementById('s-cout-chute').value;
   const pctGrave = +document.getElementById('s-pct-grave').value / 100;
   const aideHum = +document.getElementById('s-aide-hum').value;
   const pctAuto = +document.getElementById('s-pct-auto').value / 100;
+  const tauxSubst = +document.getElementById('s-taux-subst').value / 100;
   const coutBen = +document.getElementById('s-cout-ben').value;
+
+  // Prix moyen d'une AT — auto (depuis volumes) ou manuel
+  let prixAt;
+  const slPrixAt = document.getElementById('s-prix-at');
+  if (sroiAuto.prixAt) {
+    prixAt = computePrixAtMoyen(g);
+    slPrixAt.value = Math.round(prixAt);
+    slPrixAt.disabled = true;
+  } else {
+    slPrixAt.disabled = false;
+    prixAt = +slPrixAt.value;
+  }
 
   // % à risque — auto (depuis GIR) ou manuel
   let pctRisque;
@@ -2090,6 +2225,8 @@ function calcSROI() {
   document.getElementById('v-incid').innerHTML = incid.toFixed(2).replace('.',',') + ' /an' + (sroiAuto.incid ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-aide-hum').textContent = fmtEur(aideHum);
   document.getElementById('v-pct-auto').textContent = (pctAuto*100).toFixed(0)+' %';
+  document.getElementById('v-prix-at').innerHTML = fmtEur(prixAt) + (sroiAuto.prixAt ? '<span class="auto-badge">auto</span>' : '');
+  document.getElementById('v-taux-subst').textContent = (tauxSubst*100).toFixed(0)+' %';
   document.getElementById('v-cout-ben').textContent = fmtEur(coutBen);
 
   const benef = d.benef;
@@ -2126,24 +2263,28 @@ function calcSROI() {
   // Aides humaines évitées
   const aidesEv = benef * pctAuto * aideHum;
 
+  // Matériel évité : nb MAD × prix moyen pondéré × taux de substitution
+  const materielEv = (d.pret || 0) * prixAt * tauxSubst;
+
   // Total
-  const valeurTotale = coutEviteChutes + aidesEv;
+  const valeurTotale = coutEviteChutes + aidesEv + materielEv;
   const coutTotal = benef * coutBen;
   const ratio = coutTotal > 0 ? valeurTotale / coutTotal : 0;
 
   document.getElementById('sroi-ratio').textContent = ratio.toFixed(2).replace('.',',') + ' €';
   document.getElementById('sroi-chutes').textContent = fmtEurK(coutEviteChutes);
   document.getElementById('sroi-aides').textContent = fmtEurK(aidesEv);
+  document.getElementById('sroi-materiel').textContent = fmtEurK(materielEv);
   document.getElementById('sroi-cout').textContent = fmtEurK(coutTotal);
   document.getElementById('sroi-valeur').textContent = fmtEurK(valeurTotale);
 
-  // Pie
+  // Pie (3 segments)
   if (charts.sroiPie) charts.sroiPie.destroy();
-  const pieData = [coutEviteChutes, aidesEv];
+  const pieData = [coutEviteChutes, aidesEv, materielEv];
   const pieTot = pieData.reduce((a,b)=>a+b,0);
   charts.sroiPie = new Chart(document.getElementById('c-sroi-pie'), {
     type:'doughnut',
-    data:{labels:['Coût évité chutes','Aides humaines évitées'], datasets:[{data:pieData, backgroundColor:[COL.coral, COL.sage], borderWidth:0}]},
+    data:{labels:['Coût évité chutes','Aides humaines évitées','Matériel évité'], datasets:[{data:pieData, backgroundColor:[COL.coral, COL.sage, COL.gold], borderWidth:0}]},
     options:{
       maintainAspectRatio:false, cutout:'62%',
       plugins:{legend:{display:false}, tooltip:{callbacks:{label:(c)=>c.label+': '+fmtEurK(c.parsed)+' ('+(pieTot>0?(100*c.parsed/pieTot).toFixed(0):0)+'%)'}}}
@@ -2151,7 +2292,8 @@ function calcSROI() {
   });
   document.getElementById('lgd-sroi').innerHTML = `
     <span class="legend-item"><span class="ld" style="background:${COL.coral}"></span>Coût évité chutes (${pieTot>0?(100*coutEviteChutes/pieTot).toFixed(0):0}%)</span>
-    <span class="legend-item"><span class="ld" style="background:${COL.sage}"></span>Aides humaines évitées (${pieTot>0?(100*aidesEv/pieTot).toFixed(0):0}%)</span>`;
+    <span class="legend-item"><span class="ld" style="background:${COL.sage}"></span>Aides humaines évitées (${pieTot>0?(100*aidesEv/pieTot).toFixed(0):0}%)</span>
+    <span class="legend-item"><span class="ld" style="background:${COL.gold}"></span>Matériel évité (${pieTot>0?(100*materielEv/pieTot).toFixed(0):0}%)</span>`;
 
   // Scénarios (variation ±30%)
   if (charts.sroiScen) charts.sroiScen.destroy();
@@ -2286,6 +2428,7 @@ function drawErgotheques() {
   tbody.innerHTML = sortedErgos.map(e => {
     const a = DATA.by_ergo[e.code].all;
     const taux = a.total > 0 ? (100*a.pret/a.total) : 0;
+    const tauxEquip = a.total > 0 ? (100*(a.pret + a.achat)/a.total) : 0;
     const barPct = maxBenef > 0 ? 100*a.benef/maxBenef : 0;
     return `<tr style="cursor:pointer" onclick="showErgoDetail('${e.code}')">
       <td><div class="fw500">${e.titre}</div></td>
@@ -2294,6 +2437,7 @@ function drawErgotheques() {
       <td class="fw500">${fmt(a.benef)}</td>
       <td>${fmt(a.pret)}</td>
       <td><span class="${taux > 35 ? 'pill pill-sage' : (taux > 25 ? 'pill pill-gold' : 'pill pill-coral')}">${fmtPct(taux)}</span></td>
+      <td><span class="${tauxEquip > 50 ? 'pill pill-sage' : (tauxEquip > 30 ? 'pill pill-gold' : 'pill pill-coral')}">${fmtPct(tauxEquip)}</span></td>
       <td>${fmt(a.recyc)}</td>
       <td><div class="mini-bar"><div class="mini-bar-fill" style="width:${barPct}%"></div></div></td>
     </tr>`;
