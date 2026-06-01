@@ -211,6 +211,18 @@ a:hover{text-decoration:underline}
 .divider{height:1px;background:var(--border);margin:18px 0}
 .note-box{background:var(--gold-pale);border:1px solid rgba(184,144,58,0.22);border-radius:var(--r);padding:12px 16px;font-size:12px;color:var(--charcoal);line-height:1.6}
 .note-box strong{color:var(--gold)}
+/* Récap par section : "à quoi sert" + "ce qu'on trouve" */
+.test-recap{background:var(--cream);border-left:3px solid var(--sage);border-radius:6px;padding:12px 16px;margin-bottom:14px;font-size:12px;line-height:1.55;display:grid;grid-template-columns:130px 1fr;gap:8px 14px}
+.test-recap .lbl{font-weight:600;text-transform:uppercase;font-size:9.5px;letter-spacing:.06em;color:var(--mid);padding-top:1px}
+.test-recap .val{color:var(--charcoal)}
+.test-recap .val strong{color:var(--charcoal)}
+.test-recap.r-yes{border-left-color:var(--sage)}
+.test-recap.r-mixed{border-left-color:var(--gold)}
+.test-recap.r-no{border-left-color:var(--coral)}
+.verdict-pill{display:inline-block;padding:2px 9px;border-radius:10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-left:6px}
+.verdict-pill.yes{background:#E8F3F0;color:var(--sage)}
+.verdict-pill.mixed{background:#F5EDD6;color:var(--gold)}
+.verdict-pill.no{background:#FBF0EA;color:var(--coral)}
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-thumb{background:var(--cream3);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:var(--light)}
@@ -1226,6 +1238,38 @@ a:hover{text-decoration:underline}
     <div class="section-sub">Screening exploratoire — tests d'hypothèse, corrélations, régressions, typologie · Population 2021-2026 (n = 13 063 bénéficiaires sur 32 ergothèques)</div>
   </div>
 
+  <!-- SYNTHÈSE EN CLAIR — ouverture lisible -->
+  <div class="card-feature mb20" style="background:linear-gradient(135deg,#FBF0EA,#F8F4EE);border-left:4px solid var(--coral)">
+    <div class="eyebrow mb8" style="color:var(--coral)">Lecture express — pour aller à l'essentiel</div>
+    <div class="serif mb12" style="font-size:20px;color:var(--charcoal)">Ce que disent les données, en français simple</div>
+    <div class="fs12 text-mid mb16" style="line-height:1.6">Cette page mesure <em>qui reçoit quoi</em>, et à quel point ces différences sont solides statistiquement. Voici la lecture rapide avant les détails techniques.</div>
+
+    <div class="grid g2" style="gap:24px">
+      <div>
+        <div class="block-title" style="color:var(--sage);margin-top:0">Ce qui ressort des données</div>
+        <ul style="margin:8px 0 0 18px;line-height:1.75;font-size:12.5px">
+          <li><strong>Courbe en cloche selon le GIR.</strong> Le dispositif sert au mieux les profils du milieu (GIR 3-4, "fragiles mobiles", <strong>25 %</strong> de taux de prêt) et moins bien les deux extrêmes — très dépendants (<strong>14 %</strong>) et très autonomes (<strong>20 %</strong>). Statistiquement très robuste.</li>
+          <li><strong>Effet âge.</strong> Plus on est âgé, moins on reçoit d'AT (29 % chez les &lt;60 ans → 21 % chez les 90+), même à GIR équivalent.</li>
+          <li><strong>Effet isolement.</strong> Les personnes isolées socialement reçoivent <strong>plus</strong> d'AT (25 % vs 23 %). L'AT remplace l'aidant manquant — argument fort pour défendre le ciblage du dispositif.</li>
+          <li><strong>Maturation du dispositif.</strong> Le taux de prêt a quasiment doublé entre 2021 et 2025 (13 % → 25 %). Les ergothèques apprennent à prêter.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="block-title" style="color:var(--coral);margin-top:0">Ce qui n'est plus vrai (vs analyse antérieure)</div>
+        <ul style="margin:8px 0 0 18px;line-height:1.75;font-size:12.5px">
+          <li>« Loi d'équité inversée » avec gradient monotone GIR → taux MAD : <strong>plus vrai</strong>. C'est une cloche, pas un escalier.</li>
+          <li>« Le pattern est spécifique aux ergothèques départementales » : <strong>plus vrai</strong>. Même pattern chez les bailleurs (interaction non significative, p ≈ .96).</li>
+          <li>« Toutes les catégories d'AT suivent le même schéma » : <strong>plus vrai</strong>. Il y a deux dynamiques opposées (salle de bain favorise les autonomes, lit / préhension favorise les dépendants).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note-box mt20" style="font-size:12px;line-height:1.7;background:rgba(255,255,255,0.55);border-color:var(--border)">
+      <strong>En une phrase · </strong> Le dispositif sert au mieux les <strong>fragiles mobiles isolés</strong>, et son efficacité <strong>mature dans le temps</strong>. La vraie question à creuser : <em>comment mieux atteindre les deux extrêmes — les très dépendants (pour qui l'AT seule ne suffit pas, besoin d'environnement adapté) et les très autonomes (qui pourraient bénéficier d'une logique préventive) ?</em>
+    </div>
+  </div>
+
   <!-- COMMENT LIRE -->
   <div class="card mb20" style="background:linear-gradient(135deg,var(--sage-pale),var(--cream));border:1px solid var(--border2)">
     <div class="block-title">Comment lire cette page</div>
@@ -1270,6 +1314,12 @@ a:hover{text-decoration:underline}
   <!-- ROBUSTESSE DU GRADIENT GIR -->
   <div class="card mb20">
     <div class="block-title">Robustesse du modèle GIR — la courbure résiste-t-elle aux contrôles ?</div>
+    <div class="test-recap r-yes">
+      <div class="lbl">À quoi ça sert ?</div>
+      <div class="val">À vérifier que la cloche en U inversé n'est pas un artefact : pas un effet de l'âge, du sexe, de l'isolement, ni des pratiques différentes entre ergothèques. On empile cinq modèles statistiques de plus en plus exigeants.</div>
+      <div class="lbl">Ce qu'on trouve</div>
+      <div class="val"><strong>La courbure tient.</strong> Le modèle quadratique (avec terme GIR²) avec effets fixes ergothèque donne toujours β GIR = +0,135 *** et β GIR² = −0,018 *** — la cloche existe même à profil contrôlé et à pratiques d'ergothèque égales. <span class="verdict-pill yes">Confirmé</span></div>
+    </div>
     <div class="fs12 text-mid mt8 mb16" style="line-height:1.7">Cinq modèles emboîtés estiment le coefficient GIR <em>linéaire</em> sur le nombre d'AT prêtées. <strong>Tous donnent un β proche de zéro et non significatif</strong> (β = −0,003 brut, +0,018 avec effets fixes ; p &gt; .1 partout) — ce qui est cohérent avec la courbe en U inversé : un modèle linéaire est mathématiquement incapable de capter une relation non monotone. Le test de courbure quadratique (ci-dessus) confirme en revanche que la relation n'est pas plate mais bel et bien curviligne.
       <ul style="margin:8px 0 0 18px;line-height:1.6">
         <li><strong>M1 brut</strong> — pret ~ GIR, sans contrôle.</li>
@@ -1287,6 +1337,12 @@ a:hover{text-decoration:underline}
   <!-- HÉTÉROGÉNÉITÉ DU GRADIENT -->
   <div class="card mb20">
     <div class="block-title">Le gradient diffère-t-il selon le type d'ergothèque, la région ou l'année ?</div>
+    <div class="test-recap r-mixed">
+      <div class="lbl">À quoi ça sert ?</div>
+      <div class="val">À vérifier si la cloche est partout pareille, ou si elle est plus marquée dans certaines ergothèques / régions / années. On regarde des « interactions » : si la pente du GIR change selon le contexte.</div>
+      <div class="lbl">Ce qu'on trouve</div>
+      <div class="val"><strong>Le pattern est globalement le même</strong> entre ergothèques départementales et bailleurs (p ≈ .96). En revanche, il <strong>diffère selon la région et selon l'année</strong> (p &lt; .001 pour les deux) — la maturation du dispositif modifie progressivement la courbe. <span class="verdict-pill mixed">Nuancé</span></div>
+    </div>
     <div class="fs12 text-mid mt8 mb16" style="line-height:1.6">Tests d'interactions et estimation du coefficient GIR par sous-groupe (forest plot avec IC95 %). Un test d'interaction significatif suggère que le mécanisme générateur du gradient varie selon le contexte.</div>
     <div id="hetero-blocks"></div>
     <div class="note-box mt16" style="font-size:11px;line-height:1.6"><strong>À retenir · </strong> L'interaction <strong>GIR × type d'ergothèque</strong> est désormais <em>non significative</em> (p ≈ .96) — c'est un changement par rapport aux analyses antérieures : avec le dataset enrichi, le pattern de calibration GIR est globalement le même dans les ergothèques départementales (β taux = +0,009 ***) et chez les bailleurs (β = +0,008 n.s., n=230 limité). En revanche, deux interactions deviennent hautement significatives : <strong>GIR × année</strong> (F = 7,8, p &lt; .001) — le pic de calibration s'est <em>déplacé dans le temps</em> au fur et à mesure que le dispositif a muri — et <strong>GIR × région</strong> (F = 9,7, p &lt; .001) — certaines régions ont des pratiques de mise à disposition très différentes (à explorer en sous-section).</div>
@@ -1295,7 +1351,13 @@ a:hover{text-decoration:underline}
   <!-- DÉCOMPOSITION PAR CANAL D'ORIENTATION -->
   <div class="card mb20">
     <div class="block-title">Décomposition par canal d'orientation</div>
-    <div class="fs12 text-mid mt8 mb12" style="line-height:1.6">Pour comprendre <em>pourquoi</em> le gradient existe spécifiquement dans les ergothèques départementales, on regarde maintenant le canal par lequel le bénéficiaire est orienté. Trois canaux principaux concentrent la quasi-totalité des cas dans les ergos départementales : les Conseils Départementaux (~92%), la CARSAT et les bailleurs sociaux.</div>
+    <div class="test-recap r-mixed">
+      <div class="lbl">À quoi ça sert ?</div>
+      <div class="val">Les bénéficiaires arrivent à l'ergothèque par différents canaux : Conseil Départemental, CARSAT, bailleurs sociaux. On regarde si ces canaux orientent vers des profils différents et si la courbure GIR est portée par un canal en particulier.</div>
+      <div class="lbl">Ce qu'on trouve</div>
+      <div class="val"><strong>Les canaux orientent vers des profils très différents</strong> (χ² hautement significatif). Le Conseil Départemental couvre tout le spectre GIR et porte la majorité du pattern. La CARSAT sélectionne plutôt les autonomes (préservation). Les bailleurs sociaux orientent plutôt les profils dépendants mais sur petit volume. <span class="verdict-pill mixed">Profils contrastés</span></div>
+    </div>
+    <div class="fs12 text-mid mt8 mb12" style="line-height:1.6">Trois canaux principaux concentrent la quasi-totalité des cas dans les ergos départementales : les Conseils Départementaux, la CARSAT et les bailleurs sociaux.</div>
     <div id="orient-distrib"></div>
     <div class="block-title mt20" style="margin-top:24px">Gradient GIR par canal</div>
     <div class="fs11 text-mid mt8 mb12" style="line-height:1.6">On estime à nouveau le coefficient GIR (de combien d'AT prêtées en plus à chaque palier GIR, à âge / sexe / isolement / année comparables) pour chaque canal séparément.</div>
@@ -1306,7 +1368,13 @@ a:hover{text-decoration:underline}
   <!-- DÉCOMPOSITION PAR CATÉGORIE D'AT -->
   <div class="card-feature mb20">
     <div class="eyebrow mb8">Mécanisme — décomposition catégorie d'AT</div>
-    <div class="serif mb12" style="font-size:18px;color:var(--charcoal)">Où se loge le gradient d'équité inversée ?</div>
+    <div class="serif mb12" style="font-size:18px;color:var(--charcoal)">D'où vient la cloche ? Décomposition par catégorie d'AT</div>
+    <div class="test-recap r-mixed">
+      <div class="lbl">À quoi ça sert ?</div>
+      <div class="val">À comprendre si la cloche globale vient de toutes les AT prêtées (donc un comportement uniforme du dispositif) ou seulement de certaines familles d'AT. On découpe les prêts en 8 catégories.</div>
+      <div class="lbl">Ce qu'on trouve</div>
+      <div class="val"><strong>Deux dynamiques opposées</strong> qui se compensent. Salle de bain, confort, sécurité : prêtées plus aux <em>autonomes</em>. Lit, préhension, repas : prêtées plus aux <em>dépendants</em>. La cloche globale est la somme de ces deux pentes inverses. <span class="verdict-pill mixed">Spécialisation</span></div>
+    </div>
     <div class="fs12 text-mid mb16" style="line-height:1.7">Deux lectures complémentaires de la même question, en décomposant le gradient par catégorie d'AT (8 familles) :
       <ul style="margin:8px 0 0 18px;line-height:1.6">
         <li><strong>Test 1 — en volume absolu</strong> : β GIR sur le <em>nombre</em> d'AT prêtées de chaque catégorie. Cette lecture est dominée par les catégories volumineuses.</li>
@@ -1376,7 +1444,12 @@ a:hover{text-decoration:underline}
   <!-- TESTS D'HYPOTHESE -->
   <div class="card mb20">
     <div class="block-title">Tests d'hypothèse principaux</div>
-    <div class="fs11 text-mid mt8 mb16">Cinq questions structurantes, testées avec une statistique adaptée et une interprétation.</div>
+    <div class="test-recap r-mixed">
+      <div class="lbl">À quoi ça sert ?</div>
+      <div class="val">Cinq questions « oui / non » que les financeurs ou partenaires se posent souvent : « est-ce que les plus dépendants reçoivent plus ? », « les isolés reçoivent-ils plus ? », « est-ce différent entre dept et bailleurs ? » etc. Chaque question est testée avec une statistique adaptée et un seuil de significativité (p &lt; .05).</div>
+      <div class="lbl">Ce qu'on trouve</div>
+      <div class="val">3 effets sur 5 sont significatifs : le GIR compte (effet en cloche), l'année compte (maturation), et le taux de mise à dispo varie selon le GIR. <strong>Pas d'effet</strong> entre dept et bailleurs, et l'effet « isolement → plus de préco » est à la limite (p ≈ .08). <span class="verdict-pill mixed">3 sur 5 confirmés</span></div>
+    </div>
     <div id="analyses-tests"></div>
   </div>
 
@@ -1388,6 +1461,12 @@ a:hover{text-decoration:underline}
         <div class="fs11 text-mid mt8">Coefficient de rang sur les 10 variables clés — adapté aux distributions asymétriques.</div>
       </div>
     </div>
+    <div class="test-recap r-yes">
+      <div class="lbl">À quoi ça sert ?</div>
+      <div class="val">Repérer en un coup d'œil quelles variables varient ensemble (positivement ou négativement). Un cadre vert foncé = forte association ; un cadre rouge foncé = association inverse. Plus c'est foncé, plus c'est fort.</div>
+      <div class="lbl">Ce qu'on trouve</div>
+      <div class="val">Les variables d'AT (préco, prêt, achat, non-acquis) sont fortement corrélées entre elles — logique, elles dérivent toutes du volume de besoin. Les variables cliniques (âge, GIR, IADL, ADL, SEGA) forment un deuxième bloc cohérent. <span class="verdict-pill yes">Structure attendue</span></div>
+    </div>
     <div id="corr-heatmap" style="overflow-x:auto"></div>
     <div class="mt16">
       <div class="block-title">Corrélations les plus fortes</div>
@@ -1396,6 +1475,14 @@ a:hover{text-decoration:underline}
   </div>
 
   <!-- REGRESSIONS -->
+  <div class="card mb20" style="background:transparent;border:none;padding:0">
+    <div class="test-recap r-yes" style="margin-bottom:8px">
+      <div class="lbl">À quoi ça sert ?</div>
+      <div class="val">À identifier <em>quels facteurs expliquent</em> le nombre d'AT prêtées, en contrôlant les autres facteurs simultanément. Deux niveaux : individuel (chaque bénéficiaire) et ergothèque (chaque structure). Un β positif signifie « plus de cette variable = plus de prêts » à profil contrôlé.</div>
+      <div class="lbl">Ce qu'on trouve</div>
+      <div class="val"><strong>Côté individuel</strong> : âge ↘, GIR (courbe), isolement ↗. <strong>Côté ergothèque</strong> : la part d'isolés dans la file explique 43 % de la variation entre ergos (R² = 0,43). <span class="verdict-pill yes">Signaux clairs</span></div>
+    </div>
+  </div>
   <div class="grid g2 mb20">
     <div class="card">
       <div class="block-title">Régression OLS — niveau individuel</div>
@@ -1412,6 +1499,12 @@ a:hover{text-decoration:underline}
   <!-- ICC / MULTILEVEL -->
   <div class="card mb20">
     <div class="block-title">Variance inter-ergothèques (ICC)</div>
+    <div class="test-recap r-yes">
+      <div class="lbl">À quoi ça sert ?</div>
+      <div class="val">À répondre à la question : « les différences entre bénéficiaires viennent-elles d'eux-mêmes ou de leur ergothèque ? » L'ICC est le pourcentage de variance attribuable à l'ergothèque. Si ICC = 50 %, l'ergothèque pèse autant que l'individu ; si ICC = 5 %, l'ergothèque pèse marginalement.</div>
+      <div class="lbl">Ce qu'on trouve</div>
+      <div class="val">ICC entre <strong>7 % et 10 %</strong> selon les variables — c'est modéré. 90 % de la variance vient des bénéficiaires eux-mêmes (leur profil, leurs besoins). Les écarts entre ergothèques sont surtout dus aux profils accueillis, pas à des « bonnes » ou « mauvaises » pratiques. <span class="verdict-pill yes">Individu domine</span></div>
+    </div>
     <div class="fs11 text-mid mt8 mb12">Modèle mixte à intercept aléatoire. L'ICC indique la part de variance attribuable au niveau ergothèque (vs au niveau individuel). Un ICC ≥ 0,05 suggère que la modélisation multi-niveaux est légitime ; ≥ 0,10 qu'elle est importante.</div>
     <div class="chart-box" style="height:220px"><canvas id="c-icc"></canvas></div>
     <div id="icc-table" class="mt12"></div>
@@ -1420,6 +1513,12 @@ a:hover{text-decoration:underline}
   <!-- CLUSTERING -->
   <div class="card mb20">
     <div class="block-title">Typologie des ergothèques (K-means, k=4)</div>
+    <div class="test-recap r-yes">
+      <div class="lbl">À quoi ça sert ?</div>
+      <div class="val">À regrouper automatiquement les 32 ergothèques en familles selon leur profil (âge moyen de la file, GIR moyen, taux d'isolés, taux de prêt). L'algorithme « K-means » trouve 4 groupes optimaux. Utile pour comparer des ergos similaires entre elles et identifier des modèles d'organisation.</div>
+      <div class="lbl">Ce qu'on trouve</div>
+      <div class="val">Quatre profils d'ergothèques distincts apparaissent sur les axes PCA — voir tableau à droite pour leur composition. Permet de situer chaque ergothèque dans son groupe pertinent. <span class="verdict-pill yes">Typologie claire</span></div>
+    </div>
     <div class="fs11 text-mid mt8 mb12">Projection PCA sur 2 axes, à partir de 6 indicateurs normalisés au niveau ergothèque.</div>
     <div class="grid g2">
       <div><div class="chart-box" style="height:340px"><canvas id="c-clusters"></canvas></div></div>
