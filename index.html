@@ -972,7 +972,7 @@ a:hover{text-decoration:underline}
     </div>
 
     <!-- Effets observés -->
-    <div class="card">
+    <div class="card mb20">
       <div class="block-title">Effets observés sur le territoire</div>
       <div class="fs12 text-mid mb16">Question : <em>« Depuis la mise en œuvre du dispositif, avez-vous observé les effets suivants sur votre territoire ? »</em></div>
       <div class="likert-legend mb12">
@@ -985,6 +985,20 @@ a:hover{text-decoration:underline}
       <div class="note-box mt16">
         <strong>Lecture · </strong> Les effets les plus consensuels concernent la connaissance des aides techniques (29/35 « observé » ou « fortement observé »), de l'ergothérapie (28/35) et des enjeux de prévention/autonomie (27/35). Les effets systémiques sont plus nuancés : coopérations inter-acteurs (19/35 seulement, 15 partenaires les ont peu observés ou n'étaient pas en mesure d'apprécier), émergence de nouvelles pratiques (19/35), évolution des représentations du vieillissement (18/35).
       </div>
+    </div>
+
+    <!-- Autres effets observés (verbatims libres) -->
+    <div class="card mb20" id="part-autres-effets-card">
+      <div class="block-title mb16">Autres effets observés</div>
+      <div class="fs12 text-mid mb16">Question : <em>« Avez-vous observé d'autres effets depuis la mise en œuvre du dispositif Ergothèque ? »</em> (réponse libre)</div>
+      <div class="grid g2" id="part-autres-effets"></div>
+    </div>
+
+    <!-- Limites du dispositif -->
+    <div class="card">
+      <div class="block-title mb16">Limites du dispositif perçues par les partenaires</div>
+      <div class="fs12 text-mid mb16">Question : <em>« Quelles sont selon vous les limites du dispositif Ergothèque ? »</em> (réponse libre)</div>
+      <div class="grid g2" id="part-limites"></div>
     </div>
   </div>
 
@@ -2776,6 +2790,22 @@ function drawPartenaires() {
     }).join('');
     return `<div class="likert-row"><div class="likert-label">${label}<span class="likert-n">n=${tot}</span></div><div class="likert-bar">${segments}</div></div>`;
   }).join('');
+
+  // 9. Autres effets observés (verbatims libres)
+  const _aeCard = document.getElementById('part-autres-effets-card');
+  if (enq.autres_effets && enq.autres_effets.length > 0) {
+    document.getElementById('part-autres-effets').innerHTML = enq.autres_effets.map(v =>
+      `<div class="verbatim-card"><div class="verbatim-text">"${v.text}"</div><div class="verbatim-meta"><span class="verbatim-who">${v.qui}</span></div></div>`
+    ).join('');
+    if (_aeCard) _aeCard.style.display = '';
+  } else if (_aeCard) {
+    _aeCard.style.display = 'none';
+  }
+
+  // 10. Limites du dispositif (verbatims libres)
+  document.getElementById('part-limites').innerHTML = (enq.limites || []).map(v =>
+    `<div class="verbatim-card" style="border-left-color:var(--coral)"><div class="verbatim-text">"${v.text}"</div><div class="verbatim-meta"><span class="verbatim-who">${v.qui}</span></div></div>`
+  ).join('');
 }
 
 
