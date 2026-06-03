@@ -697,11 +697,11 @@ a:hover{text-decoration:underline}
         <div class="block-title">Aides humaines évitées</div>
         <div class="slider-row">
           <div class="slider-label">Montant annuel d'aide humaine évitée (par bénéficiaire concerné)
-            <small>Référence : Hoenig et al. 2003 (AJPH, n=2 368) — l'usage d'AT est associé à <strong>−3,8 h/semaine</strong> d'aide humaine chez les personnes âgées avec limitations. × tarif APA 23 €/h × 52 sem ≈ 4 540 €/an pour un bénéficiaire qui substitue pleinement.</small>
-            <small class="guide">Recommandation : 1 800 €/an (≈ 1,5 h/sem) — défaut volontairement conservateur, soit ~40% de l'effet plein de la littérature</small>
+            <small>Référence : Hoenig et al. 2003 (AJPH, n=2 368) — l'usage d'AT est associé à <strong>−3,8 h/semaine</strong> d'aide humaine chez les personnes âgées avec limitations. × coût horaire réel chargé <strong>27 €/h</strong> (DREES 2025, intégrant charges et structure, au-dessus du plancher CNSA 23 €/h) × 52 sem ≈ <strong>5 335 €/an</strong> pour un bénéficiaire qui substitue pleinement. La revue systématique Marasinghe 2022 (BMC Geriatrics) nuance toutefois la magnitude de l'effet — d'où un défaut volontairement conservateur.</small>
+            <small class="guide">Recommandation : 2 100 €/an (≈ 1,5 h/sem × 27 €/h × 52 sem) — défaut conservateur, soit ~40% de l'effet plein de la littérature</small>
           </div>
-          <input type="range" class="slider-input" id="s-aide-hum" min="500" max="5000" step="100" value="1800" oninput="calcSROI()">
-          <div class="slider-val" id="v-aide-hum">1 800 €</div>
+          <input type="range" class="slider-input" id="s-aide-hum" min="500" max="5500" step="100" value="2100" oninput="calcSROI()">
+          <div class="slider-val" id="v-aide-hum">2 100 €</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">% bénéficiaires évitant un recours à aide humaine supplémentaire
@@ -767,7 +767,9 @@ a:hover{text-decoration:underline}
           <li>Assurance Maladie / Ameli. <em>Coût moyen d'une hospitalisation pour fracture du col du fémur :</em> ~9 000 €/patient. <a href="https://www.ameli.fr" target="_blank">Lien</a></li>
           <li>Cochrane review (2018). <em>Environmental interventions for preventing falls.</em> Réduction RR 0,88 (−12%) avec ergothérapeute. <a href="https://www.cochrane.org/fr/CD013258" target="_blank">Lien</a></li>
           <li>Stark S. et al. (2018, 2021). <em>OT-led home modifications, high-risk older adults — fall reduction:</em> −38 à −39%. (HARP study)</li>
-          <li>CNSA (2026). <em>Tarif APA plancher national :</em> 23 €/h pour les services d'aide à domicile.</li>
+          <li>CNSA (2026). <em>Tarif APA plancher national :</em> 23 €/h. <strong>Coût réel chargé retenu : 27 €/h</strong> (intégrant les charges patronales, frais de structure et déplacements selon DREES 2025).</li>
+          <li>DREES (2025). <em>Aides à domicile : revenu salarial annuel moyen.</em> Salaire moyen 1 470 €/mois EQTP, coût employeur réel ~26-30 €/h selon structure (privée vs prestataire associatif). <a href="https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/250612_ER_aides-a-domicile-revenu-salarial-annuel-moyen" target="_blank">Lien</a></li>
+          <li>Marasinghe K.M. (2022). <em>The impact of assistive devices on community-dwelling older adults and their informal caregivers: a systematic review.</em> BMC Geriatrics. Revue systématique post-Hoenig confirmant l'effet de substitution AT → aide humaine, avec nuance sur sa magnitude réelle (effet plus modéré pour certaines configurations). <a href="https://bmcgeriatr.biomedcentral.com/articles/10.1186/s12877-022-03557-8" target="_blank">Lien</a></li>
           <li>INSEE / DREES (2017-2024). <em>Coût moyen mensuel maintien à domicile bénéficiaires APA :</em> 480 €/mois (90% pour aides humaines).</li>
           <li>Hoenig H., Taylor D.H., Sloan F.A. (2003). <em>Does assistive technology substitute for personal assistance among the disabled elderly?</em> American Journal of Public Health, 93(2):330-337. Usage d'AT associé à <strong>−3,8 h/semaine</strong> d'aide humaine (n=2 368, ≥1 limitation ADL). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1447739/" target="_blank">Lien</a></li>
           <li>Agree E.M., Freedman V.A. (2000). <em>Substitution between assistive technology and personal care.</em> Les AT simples se substituent à l'aide informelle ; les AT complexes la complètent.</li>
