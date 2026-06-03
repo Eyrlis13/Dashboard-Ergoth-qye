@@ -436,7 +436,7 @@ a:hover{text-decoration:underline}
       <option value="2022">2022</option>
       <option value="2021">2021</option>
     </select>
-    <span class="filter-badge" id="filter-badge">31 ergothèques</span>
+    <span class="filter-badge" id="filter-badge">32 ergothèques</span>
   </div>
 </div>
 
@@ -449,7 +449,7 @@ a:hover{text-decoration:underline}
       <div class="hero-stat-sub">Évaluation à domicile par un·e ergothérapeute · Mise à disposition immédiate et sans reste à charge d'aides techniques · Logique circulaire · Préconisations et conseils pour l'autonomie · Coordination avec l'écosystème du bien-vieillir</div>
     </div>
     <div class="hero-stat-numbers">
-      <div class="hero-stat-num"><div class="hero-stat-num-val" id="hero-ergos">31</div><div class="hero-stat-num-lbl">Ergothèques</div></div>
+      <div class="hero-stat-num"><div class="hero-stat-num-val" id="hero-ergos">32</div><div class="hero-stat-num-lbl">Ergothèques</div></div>
       <div class="hero-stat-num"><div class="hero-stat-num-val" id="hero-benef">—</div><div class="hero-stat-num-lbl">Bénéficiaires</div></div>
       <div class="hero-stat-num"><div class="hero-stat-num-val" id="hero-at">—</div><div class="hero-stat-num-lbl">AT mises à dispo</div></div>
     </div>
@@ -3748,7 +3748,7 @@ a:hover{text-decoration:underline}
     </div>
     <div class="card">
       <div class="block-title">Régression OLS — niveau ergothèque</div>
-      <div class="fs11 text-mid mt8 mb12">Y = taux moyen de mise à disposition (pret/total) par ergothèque. N=31.</div>
+      <div class="fs11 text-mid mt8 mb12">Y = taux moyen de mise à disposition (pret/total) par ergothèque. N=32.</div>
       <div id="reg-ergo"></div>
     </div>
   </div>
@@ -5708,7 +5708,7 @@ function drawAnalyses() {
     } else {
       txt = `<strong>Comment lire · </strong> Ce modèle utilise les <strong>moyennes par ergothèque</strong> (N = ${fmt(reg.n)}) plutôt que les bénéficiaires individuels. La variable expliquée est le <em>taux de mise à dispo</em> moyen de l'ergothèque. R² = ${r2.toFixed(3)} (${(r2*100).toFixed(1)} %).`;
       if (sigVars.length === 0) {
-        txt += ` <strong>Aucune variable n'est significative à p &lt; .05</strong>. Avec seulement 31 ergothèques, la puissance statistique est très limitée. Conclusion provisoire : il faudrait soit plus d'organisations, soit changer d'unité d'analyse (au niveau individuel, on a plus de puissance — voir colonne de gauche).`;
+        txt += ` <strong>Aucune variable n'est significative à p &lt; .05</strong>. Avec seulement 32 ergothèques, la puissance statistique est très limitée. Conclusion provisoire : il faudrait soit plus d'organisations, soit changer d'unité d'analyse (au niveau individuel, on a plus de puissance — voir colonne de gauche).`;
       } else {
         txt += ` ${sigVars.length} variable(s) significative(s).`;
       }
