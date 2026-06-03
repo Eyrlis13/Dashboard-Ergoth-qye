@@ -809,6 +809,14 @@ a:hover{text-decoration:underline}
           <input type="range" class="slider-input" id="s-decote-recond" min="30" max="85" step="5" value="60" oninput="calcEcoCirc()">
           <div class="slider-val" id="v-decote-recond">60 %</div>
         </div>
+        <div class="slider-row">
+          <div class="slider-label">Coût de reconditionnement interne par AT redistribuée
+            <small>Lorsqu'une AT est récupérée puis redistribuée, MJ doit la nettoyer, la désinfecter, parfois remplacer des pièces (caoutchouc, sangles, embouts). Estimation interne ~20 €/AT — à ajuster selon le mix de catégories (les AT lourdes comme les sièges/déambulateurs coûtent plus à remettre en état).</small>
+            <small class="guide">Recommandation : 20 € (estimation MJ)</small>
+          </div>
+          <input type="range" class="slider-input" id="s-cout-reco" min="5" max="60" step="1" value="20" oninput="calcEcoCirc()">
+          <div class="slider-val" id="v-cout-reco">20 €</div>
+        </div>
         <div class="fs11 text-mid mt12" style="line-height:1.55;background:var(--cream);padding:10px 12px;border-radius:6px">
           <strong>Facteur de recyclage</strong> (auto-calculé sur le périmètre actif) : <span id="amort-recyc">—</span>
         </div>
@@ -822,10 +830,10 @@ a:hover{text-decoration:underline}
         <div class="sroi-result-unit">euros d'économie matérielle annuelle vs scénario « tout neuf, sans recyclage »</div>
         <div class="sroi-items">
           <div class="sroi-item"><div class="sroi-item-label">Économie reconditionnement</div><div class="sroi-item-value" id="ecoc-recond">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">Économie recyclage</div><div class="sroi-item-value" id="ecoc-recyc">—</div></div>
+          <div class="sroi-item"><div class="sroi-item-label">Économie recyclage (nette)</div><div class="sroi-item-value" id="ecoc-recyc">—</div></div>
         </div>
         <div class="fs11 mt12" style="opacity:.7;line-height:1.55">
-          <strong>Reconditionnement</strong> : nb MAD × (Prix neuf − Prix reconditionné). <strong>Recyclage</strong> : nb redistributions × Prix reconditionné (chaque AT redistribuée évite un nouvel achat).
+          <strong>Reconditionnement</strong> : nb MAD × (Prix neuf − Prix reconditionné). <strong>Recyclage net</strong> : nb redistributions × (Prix reconditionné − coût de reconditionnement interne).
         </div>
       </div>
 
@@ -4686,6 +4694,7 @@ function calcEcoCirc() {
   const d = getCurrentData();
   const g = getCurrentGranular();
   const decoteRecond = +document.getElementById('s-decote-recond').value / 100;
+  const coutReco = +document.getElementById('s-cout-reco').value;
 
   // Prix moyen d'une AT — auto (depuis volumes) ou manuel
   let prixAt;
@@ -4705,14 +4714,18 @@ function calcEcoCirc() {
 
   // Économie reconditionnement : on a acheté toutes les AT en reconditionné au lieu du neuf
   const ecoRecond = nMAD * (prixAt - prixRecond);
-  // Économie recyclage : chaque AT redistribuée évite un rachat (au prix reconditionné)
-  const ecoRecyc = nRedistrib * prixRecond;
+  // Économie recyclage NETTE : chaque AT redistribuée évite un rachat (au prix reconditionné)
+  // MOINS le coût interne de reconditionnement de cette AT redistribuée
+  const ecoRecycBrut = nRedistrib * prixRecond;
+  const coutRecoTotal = nRedistrib * coutReco;
+  const ecoRecyc = ecoRecycBrut - coutRecoTotal;
   const total = ecoRecond + ecoRecyc;
   const tauxRedistrib = nMAD > 0 ? (nRedistrib / nMAD) : 0;
 
   // Affichage curseurs
   document.getElementById('v-prix-at').innerHTML = fmtEur(prixAt) + (sroiAuto.prixAt ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-decote-recond').textContent = (decoteRecond*100).toFixed(0)+' %';
+  document.getElementById('v-cout-reco').textContent = fmtEur(coutReco);
   document.getElementById('amort-recyc').innerHTML = `<strong>${(tauxRedistrib*100).toFixed(1)}%</strong> de redistribution (${fmt(nRedistrib)} AT redistribuées sur ${fmt(nMAD)} MAD)`;
 
   // Affichage résultats
@@ -4728,7 +4741,8 @@ function calcEcoCirc() {
       <strong>Économie reconditionnement</strong> = ${fmt(nMAD)} MAD × (${fmtEur(prixAt)} − ${fmtEur(prixRecond)}) = <strong>${fmtEurK(ecoRecond)}</strong>
     </div>
     <div style="padding:8px 10px;background:var(--sage-pale);border-radius:6px">
-      <strong>Économie recyclage</strong> = ${fmt(nRedistrib)} redistributions × ${fmtEur(prixRecond)} = <strong>${fmtEurK(ecoRecyc)}</strong>
+      <strong>Économie recyclage nette</strong> = ${fmt(nRedistrib)} redistributions × (${fmtEur(prixRecond)} − ${fmtEur(coutReco)} reco interne) = <strong>${fmtEurK(ecoRecyc)}</strong>
+      <div class="fs10 text-mid mt8" style="font-style:italic">Brut : ${fmtEurK(ecoRecycBrut)} d'achat évité — Coût reconditionnement interne : ${fmtEurK(coutRecoTotal)} (${fmt(nRedistrib)} × ${fmtEur(coutReco)})</div>
     </div>
   `;
 }
