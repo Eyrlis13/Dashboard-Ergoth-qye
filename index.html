@@ -645,12 +645,12 @@ a:hover{text-decoration:underline}
       <div class="card mb16">
         <div class="block-title">Coût des chutes graves</div>
         <div class="slider-row">
-          <div class="slider-label">Coût moyen d'une chute grave hospitalisée
-            <small>Hospitalisation pour fracture col fémur — Assurance Maladie</small>
-            <small class="guide">Recommandation : 9 000 € (référence Ameli)</small>
+          <div class="slider-label">Coût moyen d'une chute grave (hospitalisation + SSR)
+            <small>Coût direct intégrant hospitalisation initiale (Ameli ~9 000 €) et soins de suite & réadaptation. Health Data Hub estime le coût total annuel par patient après fracture col fémur à ~17 000 € — défaut conservateur 12 000 € pour éviter le double-comptage avec « aides humaines évitées ».</small>
+            <small class="guide">Recommandation : 12 000 € (Ameli + SSR initial)</small>
           </div>
-          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="500" value="9000" oninput="calcSROI()">
-          <div class="slider-val" id="v-cout-chute">9 000 €</div>
+          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="500" value="12000" oninput="calcSROI()">
+          <div class="slider-val" id="v-cout-chute">12 000 €</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">% chutes graves (parmi les chutes des bénéficiaires à risque)
@@ -666,7 +666,7 @@ a:hover{text-decoration:underline}
         <div class="block-title">Efficacité ergothérapique sur le risque de chute</div>
         <div class="slider-row">
           <div class="slider-label">Réduction du risque de chute par aménagement
-            <small>En mode Auto : interpolée selon le profil de risque de la population — de −12% (Cochrane 2018, population générale) à −38% (Stark/HARP, profils à haut risque). Plus la population est fragile, plus l'efficacité estimée est élevée (effect modification documentée).</small>
+            <small>En mode Auto : interpolée selon le profil de risque de la population — de −21% (Cochrane Clemson 2023, 22 études n=8 463) à −38% (Stark/HARP, profils à haut risque). Plus la population est fragile, plus l'efficacité estimée est élevée (effect modification documentée).</small>
             <small class="guide">Manuel — recommandation : 25% (population intermédiaire) — 35% si profils à haut risque ciblés</small>
             <label class="auto-toggle"><input type="checkbox" id="auto-reduc" checked onchange="toggleSroiAuto('reduc')"> Auto (depuis les données)</label>
           </div>
@@ -765,7 +765,8 @@ a:hover{text-decoration:underline}
           <li>Plan national antichute des personnes âgées 2022-2024, Ministère des Solidarités. <a href="https://solidarites.gouv.fr/plan-antichute-des-personnes-agees" target="_blank">Lien</a></li>
           <li>Health Data Hub. <em>Coût hospitalier de la prise en charge des fractures de l'extrémité supérieure du fémur en France :</em> 500 M€/an pour 65 000 fractures. <a href="https://www.health-data-hub.fr" target="_blank">Lien</a></li>
           <li>Assurance Maladie / Ameli. <em>Coût moyen d'une hospitalisation pour fracture du col du fémur :</em> ~9 000 €/patient. <a href="https://www.ameli.fr" target="_blank">Lien</a></li>
-          <li>Cochrane review (2018). <em>Environmental interventions for preventing falls.</em> Réduction RR 0,88 (−12%) avec ergothérapeute. <a href="https://www.cochrane.org/fr/CD013258" target="_blank">Lien</a></li>
+          <li>Health Data Hub. <em>Estimation du coût médical direct de la prise en charge hospitalière et post-hospitalière des fractures de l'extrémité supérieure du fémur :</em> coût total moyen ~17 000 €/patient sur l'année qui suit la fracture (hospitalisation + SSR + suivi). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11358834/" target="_blank">Lien</a></li>
+          <li>Clemson L. et al. (2023). <em>Environmental interventions for preventing falls in older people living in the community.</em> Cochrane Database of Systematic Reviews. Méta-analyse sur 22 études n=8 463 : réduction du taux de chutes de 21% (RR=0,79 ; IC 95 % 0,65-0,97) avec interventions ergothérapeute au domicile. Remplace la révision 2018. <a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD013258.pub2/full" target="_blank">Lien</a></li>
           <li>Stark S. et al. (2018, 2021). <em>OT-led home modifications, high-risk older adults — fall reduction:</em> −38 à −39%. (HARP study)</li>
           <li>CNSA (2026). <em>Tarif APA plancher national :</em> 23 €/h. <strong>Coût réel chargé retenu : 27 €/h</strong> (intégrant les charges patronales, frais de structure et déplacements selon DREES 2025).</li>
           <li>DREES (2025). <em>Aides à domicile : revenu salarial annuel moyen.</em> Salaire moyen 1 470 €/mois EQTP, coût employeur réel ~26-30 €/h selon structure (privée vs prestataire associatif). <a href="https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/250612_ER_aides-a-domicile-revenu-salarial-annuel-moyen" target="_blank">Lien</a></li>
@@ -4516,7 +4517,7 @@ function computePrixAtMoyen(g) {
   return totalVol > 0 ? totalEuros / totalVol : 65;
 }
 // Bornes d'efficacité de la prévention par aménagement (réduction du risque de chute)
-const REDUC_MIN = 0.12; // Cochrane 2018, population générale
+const REDUC_MIN = 0.21; // Cochrane Clemson 2023, méta-analyse 22 études (RR=0,79)
 const REDUC_MAX = 0.38; // Stark / HARP, profils à haut risque
 // Taux d'incidence de chute par tranche d'âge (Santé publique France)
 const AGE_FALL_INCIDENCE = {'60-69':0.20, '70-79':0.30, '80-89':0.40, '90+':0.50};
