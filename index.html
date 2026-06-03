@@ -713,31 +713,6 @@ a:hover{text-decoration:underline}
         </div>
       </div>
 
-      <div class="card mb16">
-        <div class="block-title">Matériel mis à disposition (reconditionné + recyclage)</div>
-        <div class="fs11 text-mid mb12" style="line-height:1.6">Si le dispositif n'existait pas, il aurait quand même fallu équiper ces bénéficiaires pour générer la valeur sociale calculée ci-dessus (chutes évitées, aides humaines évitées). La collectivité aurait dû acheter chaque AT <strong>au prix neuf</strong>. Avec MJ, le matériel est acquis <strong>en reconditionné</strong> puis <strong>amorti par recyclage</strong> (chaque redistribution évite un nouvel achat).</div>
-        <div class="slider-row">
-          <div class="slider-label">Prix moyen pondéré d'une AT (neuf, marché grand public)
-            <small>Calculé automatiquement à partir des volumes par catégorie d'AT mises à disposition × prix marché neuf (Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute — gamme moyenne 2025).</small>
-            <small class="guide">Curseur : ajustement ±30% pour scénarios pessimiste/optimiste autour de la valeur auto</small>
-            <label class="auto-toggle"><input type="checkbox" id="auto-prix-at" checked onchange="toggleSroiAuto('prixAt')"> Auto (depuis les volumes)</label>
-          </div>
-          <input type="range" class="slider-input" id="s-prix-at" min="20" max="200" step="1" value="65" oninput="calcSROI()">
-          <div class="slider-val" id="v-prix-at">65 €</div>
-        </div>
-        <div class="slider-row">
-          <div class="slider-label">% de décote du reconditionné par rapport au neuf
-            <small>Sur le marché des AT reconditionnées (recycleries spécialisées, partenaires APF, UCANSS, plateformes de don/seconde main), un équipement reconditionné se négocie en moyenne entre <strong>50% et 70% de décote</strong> par rapport au neuf, selon l'état et la catégorie. La décote effective pour MJ inclut aussi l'effet d'amortissement par le recyclage (chaque AT redistribuée évite un achat).</small>
-            <small class="guide">Recommandation : 60% (prix reconditionné ≈ 40% du neuf)</small>
-          </div>
-          <input type="range" class="slider-input" id="s-decote-recond" min="30" max="85" step="5" value="60" oninput="calcSROI()">
-          <div class="slider-val" id="v-decote-recond">60 %</div>
-        </div>
-        <div class="fs11 text-mid mt12" style="line-height:1.55;background:var(--cream);padding:10px 12px;border-radius:6px">
-          <strong>Facteur d'amortissement recyclage</strong> (auto-calculé) : <span id="amort-recyc">—</span>. Calculé comme <code>1 − (AT redistribuées / total MAD)</code> sur le périmètre actif — plus la redistribution est élevée, plus le coût matériel par utilisation baisse.
-        </div>
-      </div>
-
       <div class="card">
         <div class="block-title">Budget annuel du dispositif (par bénéficiaire)</div>
         <div class="slider-row">
@@ -755,12 +730,11 @@ a:hover{text-decoration:underline}
       <div class="sroi-result mb16">
         <div class="sroi-result-eyebrow">Valeur sociale créée par le dispositif</div>
         <div class="sroi-result-value" id="sroi-valeur-hero">—</div>
-        <div class="sroi-result-unit">euros de coûts évités pour la collectivité (chutes, aides humaines, matériel)</div>
+        <div class="sroi-result-unit">euros de coûts évités pour la collectivité (chutes graves, aides humaines)</div>
         <div class="sroi-items">
           <div class="sroi-item"><div class="sroi-item-label">Coût évité chutes</div><div class="sroi-item-value" id="sroi-chutes">—</div></div>
           <div class="sroi-item"><div class="sroi-item-label">Aides humaines évitées</div><div class="sroi-item-value" id="sroi-aides">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">Matériel évité (reconditionné + recyclage)</div><div class="sroi-item-value" id="sroi-materiel">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">Coût total dispositif</div><div class="sroi-item-value" id="sroi-cout">—</div></div>
+          <div class="sroi-item" style="grid-column:1/-1"><div class="sroi-item-label">Coût total dispositif</div><div class="sroi-item-value" id="sroi-cout">—</div></div>
         </div>
         <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
           <div class="sroi-item-label" style="font-size:11px;opacity:.6">Retour social sur investissement</div>
@@ -769,6 +743,7 @@ a:hover{text-decoration:underline}
         </div>
         <!-- compat anciennes refs -->
         <span id="sroi-valeur" style="display:none">—</span>
+        <span id="sroi-materiel" style="display:none">—</span>
       </div>
 
       <div class="card mb16">
@@ -800,6 +775,63 @@ a:hover{text-decoration:underline}
           <li>Service-public.gouv.fr / pour-les-personnes-agees.gouv.fr — <em>Plafonds APA 2026 par GIR.</em></li>
           <li><strong>Prix marché des AT (mécanisme « matériel évité »)</strong> — Médianes 2025, gamme moyenne grand public : <a href="https://www.tousergo.com" target="_blank">Tousergo</a>, <a href="https://www.bastide.fr" target="_blank">Bastide</a>, <a href="https://www.medicalexpress.fr" target="_blank">Medical Express</a>, <a href="https://www.pharmaspot.fr" target="_blank">Pharmaspot</a>, <a href="https://www.identites.eu" target="_blank">Identités</a>, <a href="https://www.prevenchute.com" target="_blank">prevenchute</a>. Exemples : planche de bain 25-65€, rehausseur WC avec accoudoirs 40-80€, déambulateur/rollator 100-400€. Grille complète dans le code (constante <code>AT_PRICES</code>).</li>
         </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ ÉCONOMIE CIRCULAIRE — section séparée ═══════ -->
+  <div class="mb24 mt32" style="padding-top:14px;border-top:1px solid var(--border)">
+    <div class="section-title" style="font-size:20px">Économie circulaire — efficience matérielle</div>
+    <div class="section-sub">Indicateur complémentaire — économies générées par le modèle reconditionné et le recyclage</div>
+  </div>
+
+  <div class="note-box mb20" style="background:var(--sage-pale);border-color:rgba(61,122,106,0.25)">
+    <strong>Pourquoi cet indicateur est séparé du SROI · </strong> Le SROI ci-dessus mesure les coûts évités <em>grâce à l'intervention</em> (chutes, aides humaines). Ce calcul-ci mesure une autre dimension : l'<em>efficience matérielle</em> du modèle. Hypothèse contrefactuelle différente : à équipement équivalent, combien aurait coûté à la collectivité l'achat au prix neuf, et combien économise-t-on grâce au reconditionné et au recyclage ? Les deux indicateurs sont complémentaires mais ne s'additionnent pas (ils reposent sur des contrefactuels distincts).
+  </div>
+
+  <div class="grid g2">
+    <div>
+      <div class="card mb16">
+        <div class="block-title">Hypothèses</div>
+        <div class="slider-row">
+          <div class="slider-label">Prix moyen pondéré d'une AT (neuf, marché grand public)
+            <small>Calculé automatiquement à partir des volumes par catégorie d'AT mises à disposition × prix marché neuf (Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute — gamme moyenne 2025).</small>
+            <label class="auto-toggle"><input type="checkbox" id="auto-prix-at" checked onchange="toggleSroiAuto('prixAt')"> Auto (depuis les volumes)</label>
+          </div>
+          <input type="range" class="slider-input" id="s-prix-at" min="20" max="200" step="1" value="65" oninput="calcEcoCirc()">
+          <div class="slider-val" id="v-prix-at">65 €</div>
+        </div>
+        <div class="slider-row">
+          <div class="slider-label">% de décote du reconditionné par rapport au neuf
+            <small>Sur le marché des AT reconditionnées (recycleries spécialisées, partenaires APF, UCANSS, plateformes de don/seconde main), un équipement reconditionné se négocie en moyenne entre <strong>50% et 70% de décote</strong> par rapport au neuf, selon l'état et la catégorie.</small>
+            <small class="guide">Recommandation : 60% (prix reconditionné ≈ 40% du neuf)</small>
+          </div>
+          <input type="range" class="slider-input" id="s-decote-recond" min="30" max="85" step="5" value="60" oninput="calcEcoCirc()">
+          <div class="slider-val" id="v-decote-recond">60 %</div>
+        </div>
+        <div class="fs11 text-mid mt12" style="line-height:1.55;background:var(--cream);padding:10px 12px;border-radius:6px">
+          <strong>Facteur de recyclage</strong> (auto-calculé sur le périmètre actif) : <span id="amort-recyc">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sroi-result mb16" style="background:linear-gradient(135deg,#3D7A6A,#2A312E)">
+        <div class="sroi-result-eyebrow">Économie circulaire totale</div>
+        <div class="sroi-result-value" id="ecoc-total">—</div>
+        <div class="sroi-result-unit">euros d'économie matérielle annuelle vs scénario « tout neuf, sans recyclage »</div>
+        <div class="sroi-items">
+          <div class="sroi-item"><div class="sroi-item-label">Économie reconditionnement</div><div class="sroi-item-value" id="ecoc-recond">—</div></div>
+          <div class="sroi-item"><div class="sroi-item-label">Économie recyclage</div><div class="sroi-item-value" id="ecoc-recyc">—</div></div>
+        </div>
+        <div class="fs11 mt12" style="opacity:.7;line-height:1.55">
+          <strong>Reconditionnement</strong> : nb MAD × (Prix neuf − Prix reconditionné). <strong>Recyclage</strong> : nb redistributions × Prix reconditionné (chaque AT redistribuée évite un nouvel achat).
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="block-title">Détail du calcul</div>
+        <div class="fs11" style="line-height:1.7" id="ecoc-detail">—</div>
       </div>
     </div>
   </div>
@@ -4502,30 +4534,13 @@ function toggleSroiAuto(key) {
 
 function calcSROI() {
   const d = getCurrentData();
-  const g = getCurrentGranular();
   const coutChute = +document.getElementById('s-cout-chute').value;
   const pctGrave = +document.getElementById('s-pct-grave').value / 100;
   const aideHum = +document.getElementById('s-aide-hum').value;
   const pctAuto = +document.getElementById('s-pct-auto').value / 100;
-  const decoteRecond = +document.getElementById('s-decote-recond').value / 100;
   const coutBen = +document.getElementById('s-cout-ben').value;
 
-  // Facteur d'amortissement par recyclage : chaque AT redistribuée évite un nouvel achat
-  // Coût matériel par utilisation = prix_reconditionné × (acquisitions / utilisations)
-  //                               = prix_reconditionné × (1 − redistrib/MAD)
-  const amortRecycFactor = (d.pret > 0) ? Math.max(0, 1 - (d.redistrib || 0) / d.pret) : 1;
-
-  // Prix moyen d'une AT — auto (depuis volumes) ou manuel
-  let prixAt;
-  const slPrixAt = document.getElementById('s-prix-at');
-  if (sroiAuto.prixAt) {
-    prixAt = computePrixAtMoyen(g);
-    slPrixAt.value = Math.round(prixAt);
-    slPrixAt.disabled = true;
-  } else {
-    slPrixAt.disabled = false;
-    prixAt = +slPrixAt.value;
-  }
+  // (Prix AT et décote reconditionné sont gérés par calcEcoCirc() — calcul séparé)
 
   // % à risque — auto (depuis GIR) ou manuel
   let pctRisque;
@@ -4571,9 +4586,6 @@ function calcSROI() {
   document.getElementById('v-incid').innerHTML = incid.toFixed(2).replace('.',',') + ' /an' + (sroiAuto.incid ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-aide-hum').textContent = fmtEur(aideHum);
   document.getElementById('v-pct-auto').textContent = (pctAuto*100).toFixed(0)+' %';
-  document.getElementById('v-prix-at').innerHTML = fmtEur(prixAt) + (sroiAuto.prixAt ? '<span class="auto-badge">auto</span>' : '');
-  document.getElementById('v-decote-recond').textContent = (decoteRecond*100).toFixed(0)+' %';
-  document.getElementById('amort-recyc').innerHTML = `<strong>${(amortRecycFactor*100).toFixed(0)}%</strong> du prix reconditionné est effectivement payé par MJ par utilisation (${fmt(d.redistrib || 0)} redistributions sur ${fmt(d.pret || 0)} MAD)`;
   document.getElementById('v-cout-ben').textContent = fmtEur(coutBen);
 
   const benef = d.benef;
@@ -4610,34 +4622,25 @@ function calcSROI() {
   // Aides humaines évitées
   const aidesEv = benef * pctAuto * aideHum;
 
-  // Matériel évité (hypothèse : sans MJ il aurait fallu équiper les mêmes bénéficiaires
-  // pour générer les bénéfices chutes/aides humaines, donc taux de substitution implicite = 100%).
-  // Coût par AT évité = prix neuf − (prix reconditionné × facteur amortissement recyclage)
-  const prixRecondEffectif = prixAt * (1 - decoteRecond) * amortRecycFactor;
-  const materielEv = (d.pret || 0) * Math.max(0, prixAt - prixRecondEffectif);
-
-  // Total
-  const valeurTotale = coutEviteChutes + aidesEv + materielEv;
+  // Total — désormais hors « matériel évité » (déplacé en section Économie circulaire dédiée)
+  const valeurTotale = coutEviteChutes + aidesEv;
   const coutTotal = benef * coutBen;
   const ratio = coutTotal > 0 ? valeurTotale / coutTotal : 0;
 
-  // Hero = valeur sociale totale en grand (priorité visuelle)
   document.getElementById('sroi-valeur-hero').textContent = fmtEurK(valeurTotale);
-  // Ratio en petit (en bas)
   document.getElementById('sroi-ratio').textContent = ratio.toFixed(2).replace('.',',') + ' €';
   document.getElementById('sroi-chutes').textContent = fmtEurK(coutEviteChutes);
   document.getElementById('sroi-aides').textContent = fmtEurK(aidesEv);
-  document.getElementById('sroi-materiel').textContent = fmtEurK(materielEv);
   document.getElementById('sroi-cout').textContent = fmtEurK(coutTotal);
   document.getElementById('sroi-valeur').textContent = fmtEurK(valeurTotale);
 
-  // Pie (3 segments)
+  // Pie (2 segments)
   if (charts.sroiPie) charts.sroiPie.destroy();
-  const pieData = [coutEviteChutes, aidesEv, materielEv];
+  const pieData = [coutEviteChutes, aidesEv];
   const pieTot = pieData.reduce((a,b)=>a+b,0);
   charts.sroiPie = new Chart(document.getElementById('c-sroi-pie'), {
     type:'doughnut',
-    data:{labels:['Coût évité chutes','Aides humaines évitées','Matériel évité'], datasets:[{data:pieData, backgroundColor:[COL.coral, COL.sage, COL.gold], borderWidth:0}]},
+    data:{labels:['Coût évité chutes','Aides humaines évitées'], datasets:[{data:pieData, backgroundColor:[COL.coral, COL.sage], borderWidth:0}]},
     options:{
       maintainAspectRatio:false, cutout:'62%',
       plugins:{legend:{display:false}, tooltip:{callbacks:{label:(c)=>c.label+': '+fmtEurK(c.parsed)+' ('+(pieTot>0?(100*c.parsed/pieTot).toFixed(0):0)+'%)'}}}
@@ -4645,8 +4648,10 @@ function calcSROI() {
   });
   document.getElementById('lgd-sroi').innerHTML = `
     <span class="legend-item"><span class="ld" style="background:${COL.coral}"></span>Coût évité chutes (${pieTot>0?(100*coutEviteChutes/pieTot).toFixed(0):0}%)</span>
-    <span class="legend-item"><span class="ld" style="background:${COL.sage}"></span>Aides humaines évitées (${pieTot>0?(100*aidesEv/pieTot).toFixed(0):0}%)</span>
-    <span class="legend-item"><span class="ld" style="background:${COL.gold}"></span>Matériel évité (${pieTot>0?(100*materielEv/pieTot).toFixed(0):0}%)</span>`;
+    <span class="legend-item"><span class="ld" style="background:${COL.sage}"></span>Aides humaines évitées (${pieTot>0?(100*aidesEv/pieTot).toFixed(0):0}%)</span>`;
+
+  // Mise à jour de l'encart Économie circulaire (calcul séparé)
+  calcEcoCirc();
 
   // Scénarios (variation ±30%)
   if (charts.sroiScen) charts.sroiScen.destroy();
@@ -4672,6 +4677,60 @@ function calcSROI() {
       }
     }
   });
+}
+
+// ════════════════════════════════════════
+//  ÉCONOMIE CIRCULAIRE (calcul séparé du SROI)
+// ════════════════════════════════════════
+function calcEcoCirc() {
+  const d = getCurrentData();
+  const g = getCurrentGranular();
+  const decoteRecond = +document.getElementById('s-decote-recond').value / 100;
+
+  // Prix moyen d'une AT — auto (depuis volumes) ou manuel
+  let prixAt;
+  const slPrixAt = document.getElementById('s-prix-at');
+  if (sroiAuto.prixAt) {
+    prixAt = computePrixAtMoyen(g);
+    slPrixAt.value = Math.round(prixAt);
+    slPrixAt.disabled = true;
+  } else {
+    slPrixAt.disabled = false;
+    prixAt = +slPrixAt.value;
+  }
+
+  const prixRecond = prixAt * (1 - decoteRecond);
+  const nMAD = d.pret || 0;
+  const nRedistrib = d.redistrib || 0;
+
+  // Économie reconditionnement : on a acheté toutes les AT en reconditionné au lieu du neuf
+  const ecoRecond = nMAD * (prixAt - prixRecond);
+  // Économie recyclage : chaque AT redistribuée évite un rachat (au prix reconditionné)
+  const ecoRecyc = nRedistrib * prixRecond;
+  const total = ecoRecond + ecoRecyc;
+  const tauxRedistrib = nMAD > 0 ? (nRedistrib / nMAD) : 0;
+
+  // Affichage curseurs
+  document.getElementById('v-prix-at').innerHTML = fmtEur(prixAt) + (sroiAuto.prixAt ? '<span class="auto-badge">auto</span>' : '');
+  document.getElementById('v-decote-recond').textContent = (decoteRecond*100).toFixed(0)+' %';
+  document.getElementById('amort-recyc').innerHTML = `<strong>${(tauxRedistrib*100).toFixed(1)}%</strong> de redistribution (${fmt(nRedistrib)} AT redistribuées sur ${fmt(nMAD)} MAD)`;
+
+  // Affichage résultats
+  document.getElementById('ecoc-total').textContent = fmtEurK(total);
+  document.getElementById('ecoc-recond').textContent = fmtEurK(ecoRecond);
+  document.getElementById('ecoc-recyc').textContent = fmtEurK(ecoRecyc);
+
+  // Détail du calcul
+  document.getElementById('ecoc-detail').innerHTML = `
+    <div style="margin-bottom:10px"><strong>Prix neuf moyen pondéré</strong> = ${fmtEur(prixAt)} (calculé sur ${fmt(nMAD)} AT mises à disposition)</div>
+    <div style="margin-bottom:10px"><strong>Prix reconditionné</strong> = ${fmtEur(prixAt)} × (1 − ${(decoteRecond*100).toFixed(0)}%) = <strong>${fmtEur(prixRecond)}</strong></div>
+    <div style="margin-bottom:10px;padding:8px 10px;background:var(--sage-pale);border-radius:6px">
+      <strong>Économie reconditionnement</strong> = ${fmt(nMAD)} MAD × (${fmtEur(prixAt)} − ${fmtEur(prixRecond)}) = <strong>${fmtEurK(ecoRecond)}</strong>
+    </div>
+    <div style="padding:8px 10px;background:var(--sage-pale);border-radius:6px">
+      <strong>Économie recyclage</strong> = ${fmt(nRedistrib)} redistributions × ${fmtEur(prixRecond)} = <strong>${fmtEurK(ecoRecyc)}</strong>
+    </div>
+  `;
 }
 
 // ════════════════════════════════════════
