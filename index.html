@@ -647,10 +647,10 @@ a:hover{text-decoration:underline}
         <div class="slider-row">
           <div class="slider-label">Coût moyen d'une chute grave (hospitalisation + SSR)
             <small>Coût direct intégrant hospitalisation initiale (Ameli ~9 000 €) et soins de suite & réadaptation. Health Data Hub estime le coût total annuel par patient après fracture col fémur à ~17 000 € — défaut conservateur 12 000 € pour éviter le double-comptage avec « aides humaines évitées ».</small>
-            <small class="guide">Recommandation : 12 000 € (Ameli + SSR initial)</small>
+            <small class="guide">Recommandation : 14 000 € (Ameli + SSR + part du suivi post-aigu — sans atteindre les 17 000 €/an de Health Data Hub pour éviter le double comptage avec aides humaines chroniques)</small>
           </div>
-          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="500" value="12000" oninput="calcSROI()">
-          <div class="slider-val" id="v-cout-chute">12 000 €</div>
+          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="500" value="14000" oninput="calcSROI()">
+          <div class="slider-val" id="v-cout-chute">14 000 €</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">% chutes graves (parmi les chutes des bénéficiaires à risque)
@@ -698,18 +698,18 @@ a:hover{text-decoration:underline}
         <div class="slider-row">
           <div class="slider-label">Montant annuel d'aide humaine évitée (par bénéficiaire concerné)
             <small>Référence : Hoenig et al. 2003 (AJPH, n=2 368) — l'usage d'AT est associé à <strong>−3,8 h/semaine</strong> d'aide humaine chez les personnes âgées avec limitations. × coût horaire réel chargé <strong>27 €/h</strong> (DREES 2025, intégrant charges et structure, au-dessus du plancher CNSA 23 €/h) × 52 sem ≈ <strong>5 335 €/an</strong> pour un bénéficiaire qui substitue pleinement. La revue systématique Marasinghe 2022 (BMC Geriatrics) nuance toutefois la magnitude de l'effet — d'où un défaut volontairement conservateur.</small>
-            <small class="guide">Recommandation : 2 100 €/an (≈ 1,5 h/sem × 27 €/h × 52 sem) — défaut conservateur, soit ~40% de l'effet plein de la littérature</small>
+            <small class="guide">Recommandation : 2 800 €/an (≈ 2 h/sem × 27 €/h × 52 sem) — soit 53 % de l'effet plein de la littérature (5 335 €/an pour substitution complète Hoenig)</small>
           </div>
-          <input type="range" class="slider-input" id="s-aide-hum" min="500" max="5500" step="100" value="2100" oninput="calcSROI()">
-          <div class="slider-val" id="v-aide-hum">2 100 €</div>
+          <input type="range" class="slider-input" id="s-aide-hum" min="500" max="5500" step="100" value="2800" oninput="calcSROI()">
+          <div class="slider-val" id="v-aide-hum">2 800 €</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">% bénéficiaires évitant un recours à aide humaine supplémentaire
             <small>Littérature : la substitution AT → aide humaine concerne surtout les personnes avec limitations ADL et les AT simples (Hoenig 2003 ; Agree &amp; Freedman 2000). Triangulé avec l'enquête partenaires (66% citent la réduction des aides humaines comme bénéfice).</small>
-            <small class="guide">Recommandation : 15–20% de la file active (estimation conservative)</small>
+            <small class="guide">Recommandation : 22 % de la file active — défaut conservateur. L'enquête partenaires (66 % citent la réduction d'aide humaine) suggère un effet bien plus large, donc 22 % reste un plancher.</small>
           </div>
-          <input type="range" class="slider-input" id="s-pct-auto" min="5" max="40" step="1" value="18" oninput="calcSROI()">
-          <div class="slider-val" id="v-pct-auto">18 %</div>
+          <input type="range" class="slider-input" id="s-pct-auto" min="5" max="40" step="1" value="22" oninput="calcSROI()">
+          <div class="slider-val" id="v-pct-auto">22 %</div>
         </div>
       </div>
 
@@ -718,10 +718,10 @@ a:hover{text-decoration:underline}
         <div class="slider-row">
           <div class="slider-label">% des coûts évités effectivement attribuable au dispositif MJ
             <small>Les coûts évités ne sont pas dus au seul dispositif MJ. D'autres intervenants y contribuent : APA, médecin traitant, famille, professionnels de santé, autres acteurs du parcours. Par rigueur méthodologique, on n'attribue au dispositif qu'une <strong>part</strong> des coûts évités calculés bruts. Triangulé avec l'enquête partenaires : 66 % des partenaires citent la réduction des aides humaines comme bénéfice — confirmant une attribution réelle mais partielle.</small>
-            <small class="guide">Recommandation : 60 % (défaut conservateur) — ajustable 40-80 % selon le contexte territorial et la maturité des partenariats</small>
+            <small class="guide">Recommandation : 70 % — soutenu par la revue Marasinghe 2022 et l'enquête partenaires. Reste sous le maximum théorique de 100 % puisqu'il y aura toujours d'autres contributeurs (APA, médecin, famille).</small>
           </div>
-          <input type="range" class="slider-input" id="s-attribution" min="40" max="80" step="5" value="60" oninput="calcSROI()">
-          <div class="slider-val" id="v-attribution">60 %</div>
+          <input type="range" class="slider-input" id="s-attribution" min="40" max="80" step="5" value="70" oninput="calcSROI()">
+          <div class="slider-val" id="v-attribution">70 %</div>
         </div>
       </div>
 
