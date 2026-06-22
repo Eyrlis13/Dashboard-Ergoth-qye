@@ -406,7 +406,7 @@ a:hover{text-decoration:underline}
     </button>
     <button class="nav-item" onclick="go('sroi')">
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-      Coût évité &amp; SROI
+      Coût-bénéfice
     </button>
     <button class="nav-item" onclick="go('analyses')">
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg>
@@ -631,11 +631,11 @@ a:hover{text-decoration:underline}
 <!-- ══ SROI ══ -->
 <div id="p-sroi" class="page">
   <div class="mb24">
-    <div class="section-title">Coût évité &amp; SROI</div>
-    <div class="section-sub">Modèle de monétarisation — hypothèses ajustables et documentées</div>
+    <div class="section-title">Coût-bénéfice — coûts évités pour la collectivité</div>
+    <div class="section-sub">Analyse coût-bénéfice (ACB) restreinte aux coûts tangibles et documentés — approche dérivée du SROI</div>
   </div>
 
-  <div class="note-box mb20"><strong>Méthode · </strong> Le modèle estime la valeur sociale créée par le dispositif Ergothèque à partir de trois mécanismes documentés : <strong>la réduction des chutes graves</strong> (méta-analyses Cochrane &amp; études récentes 2023-2025), <strong>la réduction du recours à des aides humaines supplémentaires</strong> et <strong>les achats neufs évités pour la collectivité grâce à la mutualisation circulaire du matériel</strong>. Les curseurs ci-dessous permettent de tester différents scénarios — chaque valeur par défaut est sourcée et explicitée. <em>Modèle conservatif : seuls les coûts évités quantifiables et bien documentés sont intégrés. Le maintien à domicile et le bénéfice social plus large ne sont pas monétarisés ici.</em></div>
+  <div class="note-box mb20"><strong>Méthode · </strong> Cette analyse coût-bénéfice (ACB) chiffre uniquement les <strong>coûts évités tangibles</strong> pour la collectivité — chutes graves hospitalisées et aides humaines évitées — issus de la littérature internationale. Tous les bénéfices « mous » (sentiment de sécurité, lien social, dignité, soutien aux proches) sont reconnus mais <em>délibérément non monétarisés</em> : ils figurent en bas de page sous forme qualitative. Le ratio affiché est donc un <strong>plancher conservateur</strong> : la valeur réelle créée par le dispositif est supérieure. Les curseurs ci-dessous permettent de tester différents scénarios — chaque valeur par défaut est sourcée et explicitée. Un facteur d'<strong>attribution</strong> (60 % par défaut) corrige le fait que MJ n'est pas seul à produire ces économies (APA, médecin, famille, autres intervenants y contribuent également).</div>
 
   <div class="note-box mb20" id="sroi-scope" style="background:var(--sage-pale);border-color:var(--border2)"></div>
 
@@ -713,6 +713,18 @@ a:hover{text-decoration:underline}
         </div>
       </div>
 
+      <div class="card mb16">
+        <div class="block-title">Part attribuable au dispositif</div>
+        <div class="slider-row">
+          <div class="slider-label">% des coûts évités effectivement attribuable au dispositif MJ
+            <small>Les coûts évités ne sont pas dus au seul dispositif MJ. D'autres intervenants y contribuent : APA, médecin traitant, famille, professionnels de santé, autres acteurs du parcours. Par rigueur méthodologique, on n'attribue au dispositif qu'une <strong>part</strong> des coûts évités calculés bruts. Triangulé avec l'enquête partenaires : 66 % des partenaires citent la réduction des aides humaines comme bénéfice — confirmant une attribution réelle mais partielle.</small>
+            <small class="guide">Recommandation : 60 % (défaut conservateur) — ajustable 40-80 % selon le contexte territorial et la maturité des partenariats</small>
+          </div>
+          <input type="range" class="slider-input" id="s-attribution" min="40" max="80" step="5" value="60" oninput="calcSROI()">
+          <div class="slider-val" id="v-attribution">60 %</div>
+        </div>
+      </div>
+
       <div class="card">
         <div class="block-title">Budget annuel du dispositif (par bénéficiaire)</div>
         <div class="slider-row">
@@ -728,18 +740,20 @@ a:hover{text-decoration:underline}
 
     <div>
       <div class="sroi-result mb16">
-        <div class="sroi-result-eyebrow">Valeur sociale créée par le dispositif</div>
+        <div class="sroi-result-eyebrow">Coûts évités annuels pour la collectivité (net d'attribution)</div>
         <div class="sroi-result-value" id="sroi-valeur-hero">—</div>
-        <div class="sroi-result-unit">euros de coûts évités pour la collectivité (chutes graves, aides humaines)</div>
+        <div class="sroi-result-unit">euros — somme des coûts évités tangibles (chutes graves hospitalisées, aides humaines), après application du facteur d'attribution</div>
         <div class="sroi-items">
-          <div class="sroi-item"><div class="sroi-item-label">Coût évité chutes</div><div class="sroi-item-value" id="sroi-chutes">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">Aides humaines évitées</div><div class="sroi-item-value" id="sroi-aides">—</div></div>
+          <div class="sroi-item"><div class="sroi-item-label">Chutes graves évitées (brut)</div><div class="sroi-item-value" id="sroi-chutes">—</div></div>
+          <div class="sroi-item"><div class="sroi-item-label">Aides humaines évitées (brut)</div><div class="sroi-item-value" id="sroi-aides">—</div></div>
+          <div class="sroi-item"><div class="sroi-item-label">Total brut</div><div class="sroi-item-value" id="sroi-brut">—</div></div>
+          <div class="sroi-item"><div class="sroi-item-label">× Attribution dispositif</div><div class="sroi-item-value" id="sroi-attr">—</div></div>
           <div class="sroi-item" style="grid-column:1/-1"><div class="sroi-item-label">Coût total dispositif</div><div class="sroi-item-value" id="sroi-cout">—</div></div>
         </div>
         <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
-          <div class="sroi-item-label" style="font-size:11px;opacity:.6">Retour social sur investissement</div>
+          <div class="sroi-item-label" style="font-size:11px;opacity:.6">ROI coûts évités</div>
           <div id="sroi-ratio" style="font-family:'Playfair Display',serif;font-size:24px;font-weight:500;color:#F2C4A8">—</div>
-          <div class="sroi-item-label" style="font-size:11px;opacity:.6">€ de valeur sociale pour 1 € investi</div>
+          <div class="sroi-item-label" style="font-size:11px;opacity:.6">€ de coûts évités pour 1 € investi</div>
         </div>
         <!-- compat anciennes refs -->
         <span id="sroi-valeur" style="display:none">—</span>
@@ -780,6 +794,58 @@ a:hover{text-decoration:underline}
         </ul>
       </div>
     </div>
+  </div>
+
+  <!-- ═══════ BLOC B — VALEUR SOCIALE NON MONÉTARISÉE ═══════ -->
+  <div class="mb24 mt32" style="padding-top:14px;border-top:1px solid var(--border)">
+    <div class="section-title" style="font-size:20px">Valeur sociale non monétarisée</div>
+    <div class="section-sub">Les bénéfices réels du dispositif qui ne figurent pas dans le ratio ci-dessus — par choix méthodologique</div>
+  </div>
+
+  <div class="note-box mb20" style="background:var(--coral-pale);border-color:rgba(212,113,74,0.25)">
+    <strong>Pourquoi ces bénéfices ne sont pas dans le ratio · </strong> Le ratio ACB ne chiffre que des coûts évités <em>tangibles</em>, documentés par la littérature scientifique et triangulables. Les bénéfices ci-dessous existent et sont confirmés par les ergothérapeutes, les partenaires et la recherche en gérontologie — mais leur monétarisation est méthodologiquement fragile (estimations très variables, contrefactuels difficiles). Nous choisissons délibérément de les laisser en qualitatif. <strong>Le ratio ci-dessus est donc un plancher : la valeur réelle créée par le dispositif est supérieure.</strong>
+  </div>
+
+  <div class="grid g3">
+    <div class="card">
+      <div class="block-title" style="color:var(--sage)">Sécurité retrouvée à domicile</div>
+      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« Sécurisation du maintien à domicile accessible à tous (pour ceux qui entrent dans le dispositif) porteur de valeurs humaines tels que la fraternité et le respect pour l'environnement. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
+      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« C'est un dispositif qui permet l'accompagnement des personnes physiquement fragiles. »<br><span class="fs10 text-mid" style="font-style:normal">— Bailleur social, enquête partenaires</span></div>
+    </div>
+
+    <div class="card">
+      <div class="block-title" style="color:var(--gold)">Autonomie de choix et dignité</div>
+      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« Dispositif essentiel dans le parcours résidentiel des personnes qui redonne aux personnes le pouvoir de choisir plus librement son lieu de vie : valeur économique et sociale tant au niveau de l'individu qu'au niveau de la société. »<br><span class="fs10 text-mid" style="font-style:normal">— Caisse de retraite, enquête partenaires</span></div>
+      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Pour nous bailleur social, il permet de répondre à un besoin immédiat dans l'attente de la programmation d'éventuels travaux. »<br><span class="fs10 text-mid" style="font-style:normal">— Bailleur social, enquête partenaires</span></div>
+    </div>
+
+    <div class="card">
+      <div class="block-title" style="color:var(--coral)">Soutien aux proches aidants</div>
+      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« Valeur d'aide au maintien à domicile et de soutien aux aidants. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
+      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Le dispositif, au-delà d'aider les personnes et leurs proches, apporte une plus-value sur les plans économique, social et écologique. »<br><span class="fs10 text-mid" style="font-style:normal">— Caisse de retraite, enquête partenaires</span></div>
+    </div>
+
+    <div class="card">
+      <div class="block-title" style="color:var(--plum)">Effet pédagogique et préventif</div>
+      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« C'est un dispositif de prévention, de sensibilisation des bénéficiaires sur le bien vieillir à domicile, donc pédagogique également. »<br><span class="fs10 text-mid" style="font-style:normal">— Caisse de retraite, enquête partenaires</span></div>
+      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Un dispositif complémentaire à la prise en charge humaine du maintien à domicile, un acteur de prévention essentiel. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
+    </div>
+
+    <div class="card">
+      <div class="block-title" style="color:var(--sage)">Démocratisation de l'accès</div>
+      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« Une vie améliorée pour des bénéficiaires qui profitent tôt de leur AT, pour laquelle ils ont pu avoir une présentation. Simplification des démarches pour l'usager avec un dispositif intégré. »<br><span class="fs10 text-mid" style="font-style:normal">— Caisse de retraite, enquête partenaires</span></div>
+      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Boucle d'orientation rapide permettant un accompagnement complet. »<br><span class="fs10 text-mid" style="font-style:normal">— CFPPA, enquête partenaires</span></div>
+    </div>
+
+    <div class="card">
+      <div class="block-title" style="color:var(--gold)">Adaptation personnalisée</div>
+      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« Solution pratique et concrète après nos VAD/APA pour pouvoir avoir des conseils personnalisés et adaptés et mettre en place des aides techniques qui favorisent un maintien à domicile de meilleure qualité. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
+      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Réponse utile, efficace et personnalisée. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
+    </div>
+  </div>
+
+  <div class="note-box mt20" style="background:var(--cream);border-color:var(--border)">
+    <strong>Position assumée · </strong> Nous aurions pu attribuer une valeur monétaire à chacun de ces bénéfices (« x €/an pour le sentiment de sécurité », « y €/an pour le soutien aidant »...). Les méthodologies SROI le permettent. Nous choisissons de ne pas le faire pour <strong>protéger la robustesse du chiffre principal</strong> : un ratio fondé uniquement sur des coûts évités tangibles est inattaquable. La <em>valorisation qualitative</em> de ces bénéfices, ci-dessus, permet de les défendre sans les chiffrer.
   </div>
 
   <!-- ═══════ ÉCONOMIE CIRCULAIRE — section séparée ═══════ -->
@@ -4565,6 +4631,7 @@ function calcSROI() {
   const pctGrave = +document.getElementById('s-pct-grave').value / 100;
   const aideHum = +document.getElementById('s-aide-hum').value;
   const pctAuto = +document.getElementById('s-pct-auto').value / 100;
+  const attribution = +document.getElementById('s-attribution').value / 100;
   const coutBen = +document.getElementById('s-cout-ben').value;
 
   // (Prix AT et décote reconditionné sont gérés par calcEcoCirc() — calcul séparé)
@@ -4613,6 +4680,7 @@ function calcSROI() {
   document.getElementById('v-incid').innerHTML = incid.toFixed(2).replace('.',',') + ' /an' + (sroiAuto.incid ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-aide-hum').textContent = fmtEur(aideHum);
   document.getElementById('v-pct-auto').textContent = (pctAuto*100).toFixed(0)+' %';
+  document.getElementById('v-attribution').textContent = (attribution*100).toFixed(0)+' %';
   document.getElementById('v-cout-ben').textContent = fmtEur(coutBen);
 
   const benef = d.benef;
@@ -4631,26 +4699,28 @@ function calcSROI() {
     const nAuto = (sroiAuto.pctRisque?1:0) + (sroiAuto.incid?1:0) + (sroiAuto.reduc?1:0);
     let ratioNote;
     if (nAuto >= 2) {
-      ratioNote = `Plusieurs hypothèses (% à risque, incidence, efficacité de la prévention) sont recalculées depuis le profil GIR/âge réel de cette population — donc le <strong>ratio SROI lui-même varie selon le territoire</strong> sélectionné.`;
+      ratioNote = `Plusieurs hypothèses (% à risque, incidence, efficacité de la prévention) sont recalculées depuis le profil GIR/âge réel de cette population — donc le <strong>ratio lui-même varie selon le territoire</strong> sélectionné.`;
     } else if (nAuto === 1) {
       ratioNote = `Une hypothèse est recalculée depuis le profil réel de cette population, les autres viennent des curseurs — le ratio varie donc en partie selon le territoire.`;
     } else {
       ratioNote = `Toutes les hypothèses sont en mode manuel : le <em>ratio</em> ne dépend que des curseurs (seuls les montants absolus suivent la taille de la population).`;
     }
-    scopeEl.innerHTML = `<strong>Périmètre actif :</strong> ${perimetre} — <strong>${fmt(benef)} bénéficiaires</strong>. Les montants (coûts évités, valeur sociale, coût du dispositif) sont calculés sur cette population. ${ratioNote}`;
+    scopeEl.innerHTML = `<strong>Périmètre actif :</strong> ${perimetre} — <strong>${fmt(benef)} bénéficiaires</strong>. Les montants sont calculés sur cette population. ${ratioNote}`;
   }
 
-  // Coût évité chutes :
+  // Coût évité chutes (brut, avant attribution) :
   // bénéficiaires à risque × incidence chute/an × % chute grave × coût d'une chute grave × % réduction grâce à l'ergo
   const beneficR = benef * pctRisque;
   const chutesGravesEvitees = beneficR * incid * pctGrave * reduc;
   const coutEviteChutes = chutesGravesEvitees * coutChute;
 
-  // Aides humaines évitées
+  // Aides humaines évitées (brut, avant attribution)
   const aidesEv = benef * pctAuto * aideHum;
 
-  // Total — désormais hors « matériel évité » (déplacé en section Économie circulaire dédiée)
-  const valeurTotale = coutEviteChutes + aidesEv;
+  // Total brut puis NET d'attribution (le facteur d'attribution corrige le fait que MJ
+  // n'est pas seul à produire ces économies — voir curseur s-attribution)
+  const totalBrut = coutEviteChutes + aidesEv;
+  const valeurTotale = totalBrut * attribution;
   const coutTotal = benef * coutBen;
   const ratio = coutTotal > 0 ? valeurTotale / coutTotal : 0;
 
@@ -4658,24 +4728,26 @@ function calcSROI() {
   document.getElementById('sroi-ratio').textContent = ratio.toFixed(2).replace('.',',') + ' €';
   document.getElementById('sroi-chutes').textContent = fmtEurK(coutEviteChutes);
   document.getElementById('sroi-aides').textContent = fmtEurK(aidesEv);
+  const elBrut = document.getElementById('sroi-brut'); if (elBrut) elBrut.textContent = fmtEurK(totalBrut);
+  const elAttr = document.getElementById('sroi-attr'); if (elAttr) elAttr.textContent = (attribution*100).toFixed(0)+' %';
   document.getElementById('sroi-cout').textContent = fmtEurK(coutTotal);
   document.getElementById('sroi-valeur').textContent = fmtEurK(valeurTotale);
 
-  // Pie (2 segments)
+  // Pie (2 segments — proportions sur le brut, l'attribution s'applique sur le total)
   if (charts.sroiPie) charts.sroiPie.destroy();
-  const pieData = [coutEviteChutes, aidesEv];
+  const pieData = [coutEviteChutes * attribution, aidesEv * attribution];
   const pieTot = pieData.reduce((a,b)=>a+b,0);
   charts.sroiPie = new Chart(document.getElementById('c-sroi-pie'), {
     type:'doughnut',
-    data:{labels:['Coût évité chutes','Aides humaines évitées'], datasets:[{data:pieData, backgroundColor:[COL.coral, COL.sage], borderWidth:0}]},
+    data:{labels:['Chutes évitées (net)','Aides humaines évitées (net)'], datasets:[{data:pieData, backgroundColor:[COL.coral, COL.sage], borderWidth:0}]},
     options:{
       maintainAspectRatio:false, cutout:'62%',
       plugins:{legend:{display:false}, tooltip:{callbacks:{label:(c)=>c.label+': '+fmtEurK(c.parsed)+' ('+(pieTot>0?(100*c.parsed/pieTot).toFixed(0):0)+'%)'}}}
     }
   });
   document.getElementById('lgd-sroi').innerHTML = `
-    <span class="legend-item"><span class="ld" style="background:${COL.coral}"></span>Coût évité chutes (${pieTot>0?(100*coutEviteChutes/pieTot).toFixed(0):0}%)</span>
-    <span class="legend-item"><span class="ld" style="background:${COL.sage}"></span>Aides humaines évitées (${pieTot>0?(100*aidesEv/pieTot).toFixed(0):0}%)</span>`;
+    <span class="legend-item"><span class="ld" style="background:${COL.coral}"></span>Chutes évitées (${pieTot>0?(100*pieData[0]/pieTot).toFixed(0):0}%)</span>
+    <span class="legend-item"><span class="ld" style="background:${COL.sage}"></span>Aides humaines évitées (${pieTot>0?(100*pieData[1]/pieTot).toFixed(0):0}%)</span>`;
 
   // Mise à jour de l'encart Économie circulaire (calcul séparé)
   calcEcoCirc();
