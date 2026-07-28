@@ -38,7 +38,9 @@ a:hover{text-decoration:underline}
 .page.active{display:block}
 
 /* SIDEBAR */
-.sb-header{padding:28px 24px 20px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.sb-header{padding:28px 24px 20px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:12px}
+.sb-mark{width:40px;height:40px;flex-shrink:0;display:block}
+.sb-titles{min-width:0}
 .sb-logo{font-family:'Playfair Display',serif;font-size:19px;color:white;letter-spacing:0.02em;line-height:1.2}
 .sb-logo span{color:#F2C4A8;font-style:italic}
 .sb-sub{font-size:10px;color:var(--light);margin-top:4px;letter-spacing:0.07em;text-transform:uppercase}
@@ -382,8 +384,11 @@ a:hover{text-decoration:underline}
 <!-- ══════════ SIDEBAR ══════════ -->
 <aside class="sidebar">
   <div class="sb-header">
-    <div class="sb-logo">Merci <span>Julie</span></div>
-    <div class="sb-sub">Ergothèque® &nbsp;·&nbsp; Pilotage V3</div>
+    <img class="sb-mark" src="logo-mark.png" width="40" height="40" alt="">
+    <div class="sb-titles">
+      <div class="sb-logo">Merci <span>Julie</span></div>
+      <div class="sb-sub">Ergothèque® &nbsp;·&nbsp; Pilotage V3</div>
+    </div>
   </div>
   <nav class="sb-nav">
     <div class="nav-section">Données</div>
