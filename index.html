@@ -17,7 +17,8 @@
 <div class="app">
 
 <!-- ══════════ SIDEBAR ══════════ -->
-<aside class="sidebar">
+<div class="sb-overlay" onclick="closeNav()"></div>
+<aside class="sidebar" id="sidebar">
   <div class="sb-header">
     <img class="sb-mark" src="logo-mark.png" width="56" height="56" alt="Myria">
     <div class="sb-titles">
@@ -66,6 +67,9 @@
 <!-- ══════════ MAIN ══════════ -->
 <div class="main">
 <div class="topbar">
+  <button class="nav-toggle" type="button" aria-label="Ouvrir la navigation" aria-expanded="false" aria-controls="sidebar" onclick="toggleNav()">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
   <div class="topbar-title" id="topbar-title">Vue d'ensemble</div>
   <div class="topbar-filters">
     <span class="filter-label">Ergothèque</span>
@@ -3612,7 +3616,19 @@ function go(view) {
   const titles = {vue:"Vue d'ensemble", personnes:'Personnes', equipement:'Équipement & modèle', sroi:'Coût évité & SROI', ergotheques:'Ergothèques', recherche:'Enquêtes & entretiens'};
   document.getElementById('topbar-title').textContent = titles[view];
   drawPage(view);
+  closeNav();
 }
+
+// Tiroir de navigation (sous 900px ; au-delà la sidebar est permanente).
+function toggleNav(force) {
+  const open = force === undefined ? !document.body.classList.contains('nav-open') : force;
+  document.body.classList.toggle('nav-open', open);
+  document.getElementById('sidebar').classList.toggle('open', open);
+  document.querySelector('.sb-overlay').classList.toggle('show', open);
+  document.querySelector('.nav-toggle').setAttribute('aria-expanded', String(open));
+}
+function closeNav() { toggleNav(false); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
 
 function applyFilters() {
   activeErgo = document.getElementById('f-ergo').value;
