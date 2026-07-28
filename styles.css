@@ -76,11 +76,19 @@ body.nav-open{overflow:hidden}
 
 /* GRIDS */
 .grid{display:grid;gap:16px}
+/* Une piste de grille refuse par défaut de descendre sous la taille min-content
+   de son contenu, ce qui fait déborder la carte au lieu de la comprimer. */
+.grid>*{min-width:0}
 /* Une colonne par défaut ; on en ajoute à mesure que la place le permet. */
 .g2,.g3,.g4{grid-template-columns:1fr}
 .gauto{grid-template-columns:repeat(auto-fit,minmax(175px,1fr))}
 @media(min-width:640px){.g2,.g3,.g4{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1200px){.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}}
+/* Duos « graphique + commentaire » aux proportions variables. Chaque instance
+   pose les siennes dans --cols ; elles ne s'appliquent qu'une fois la place
+   disponible, en dessous les deux volets s'empilent. */
+.g-split{grid-template-columns:1fr}
+@media(min-width:900px){.g-split{grid-template-columns:var(--cols)}}
 
 /* CARDS */
 .card{background:white;border:1px solid var(--border);border-radius:var(--r2);padding:20px;box-shadow:var(--sh)}
@@ -96,6 +104,9 @@ body.nav-open{overflow:hidden}
 
 /* CHART */
 .chart-box{position:relative;width:100%}
+/* Chart.js dimensionne lui-même les canvas qu'il pilote ; ce plafond ne sert
+   qu'à ceux restés vides, qui garderaient sinon leur 300px par défaut. */
+.chart-box canvas{max-width:100%}
 
 /* LEGEND */
 .legend{display:flex;flex-wrap:wrap;gap:12px}
@@ -103,7 +114,7 @@ body.nav-open{overflow:hidden}
 .ld{width:9px;height:9px;border-radius:2px;flex-shrink:0}
 
 /* TABS */
-.tabs{display:flex;gap:3px;background:var(--cream2);padding:3px;border-radius:8px;width:fit-content}
+.tabs{display:flex;flex-wrap:wrap;gap:3px;background:var(--cream2);padding:3px;border-radius:8px;width:fit-content;max-width:100%}
 .tab{padding:6px 14px;border-radius:6px;border:none;background:transparent;color:var(--mid);font-size:11px;font-weight:500;transition:all .15s;cursor:pointer;white-space:nowrap}
 .tab.on{background:white;color:var(--charcoal);box-shadow:var(--sh)}
 
@@ -141,7 +152,9 @@ body.nav-open{overflow:hidden}
 .slider-label small{display:block;font-size:10px;color:var(--light);margin-top:2px;line-height:1.5}
 .slider-label small.guide{color:var(--gold);font-style:italic}
 .slider-input{flex:1;min-width:100px;accent-color:var(--sage)}
-.slider-val{font-size:12px;font-weight:600;color:var(--sage);width:78px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+/* Largeur plancher plutôt que fixe : la valeur peut porter un badge « auto »
+   qui, à 78px pile, débordait de la ligne à toutes les tailles d'écran. */
+.slider-val{font-size:12px;font-weight:600;color:var(--sage);min-width:78px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .slider-input:disabled{opacity:.55;cursor:not-allowed}
 .auto-toggle{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--sage);font-style:normal;margin-top:5px;cursor:pointer;user-select:none;background:var(--sage-pale);border:1px solid var(--border2);padding:2px 8px;border-radius:20px;width:fit-content}
 .auto-toggle input{accent-color:var(--sage);margin:0;cursor:pointer}
@@ -150,7 +163,8 @@ body.nav-open{overflow:hidden}
 .sroi-result-eyebrow{font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.5;margin-bottom:6px}
 .sroi-result-value{font-family:'Playfair Display',serif;font-size:48px;font-weight:500;line-height:1;color:#F2C4A8}
 .sroi-result-unit{font-size:13px;opacity:.65;margin-top:6px}
-.sroi-items{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
+/* Deux colonnes dès qu'un intitulé y tient en entier, une seule sinon. */
+.sroi-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:10px;margin-top:20px}
 .sroi-item{background:rgba(255,255,255,0.07);border-radius:var(--r);padding:14px}
 .sroi-item-label{font-size:10px;opacity:.55;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
 .sroi-item-value{font-family:'Playfair Display',serif;font-size:18px;font-weight:500}
@@ -170,9 +184,14 @@ body.nav-open{overflow:hidden}
 .vtheme{font-size:10px;padding:2px 8px;border-radius:10px;background:var(--coral-pale);color:var(--coral);font-weight:500}
 
 /* STAT BARS */
-.stat-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.stat-label{font-size:12px;color:var(--charcoal);flex:1}
-.stat-bar-wrap{width:180px;background:var(--cream2);border-radius:4px;height:8px;overflow:hidden;flex-shrink:0}
+/* Le libellé garde une base de 140px : tant qu'elle tient avec la barre et le
+   pourcentage la ligne reste d'un seul tenant, sinon la barre passe dessous
+   plutôt que d'écraser le texte. */
+.stat-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.stat-label{font-size:12px;color:var(--charcoal);flex:1 1 140px;min-width:0;overflow-wrap:anywhere}
+/* La barre cède du terrain avant que la ligne ne déborde, sans jamais se
+   réduire au point de ne plus rien montrer. */
+.stat-bar-wrap{width:180px;background:var(--cream2);border-radius:4px;height:8px;overflow:hidden;flex-shrink:1;min-width:64px}
 .stat-bar-fill{height:8px;border-radius:4px;background:var(--sage)}
 .stat-pct{font-size:11px;font-weight:600;color:var(--sage);width:42px;text-align:right;font-variant-numeric:tabular-nums}
 
@@ -229,7 +248,10 @@ body.nav-open{overflow:hidden}
 .note-box{background:var(--gold-pale);border:1px solid rgba(184,144,58,0.22);border-radius:var(--r);padding:12px 16px;font-size:12px;color:var(--charcoal);line-height:1.6}
 .note-box strong{color:var(--gold)}
 /* Récap par section : "à quoi sert" + "ce qu'on trouve" */
-.test-recap{background:var(--cream);border-left:3px solid var(--sage);border-radius:6px;padding:12px 16px;margin-bottom:14px;font-size:12px;line-height:1.55;display:grid;grid-template-columns:130px 1fr;gap:8px 14px}
+/* Intitulé au-dessus de sa valeur tant que la colonne de 130px laisserait trop
+   peu de place au texte ; côte à côte dès qu'il y a la largeur. */
+.test-recap{background:var(--cream);border-left:3px solid var(--sage);border-radius:6px;padding:12px 16px;margin-bottom:14px;font-size:12px;line-height:1.55;display:grid;grid-template-columns:1fr;gap:8px 14px}
+@media(min-width:640px){.test-recap{grid-template-columns:130px 1fr}}
 .test-recap .lbl{font-weight:600;text-transform:uppercase;font-size:9.5px;letter-spacing:.06em;color:var(--mid);padding-top:1px}
 .test-recap .val{color:var(--charcoal)}
 .test-recap .val strong{color:var(--charcoal)}
@@ -246,7 +268,9 @@ body.nav-open{overflow:hidden}
 
 /* HERO STAT (Vue d'ensemble) */
 .hero-stat{background:linear-gradient(135deg,var(--charcoal) 0%,#3a4742 100%);color:white;border-radius:var(--r2);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:20px}
-.hero-stat-content{flex:1;min-width:280px}
+/* La base de 280px décide du passage à la ligne des chiffres ; min-width:0 lui
+   interdit d'imposer cette largeur quand l'écran ne l'offre pas. */
+.hero-stat-content{flex:1 1 280px;min-width:0}
 .hero-stat-eyebrow{font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.5;margin-bottom:8px}
 .hero-stat-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:500;line-height:1.3;margin-bottom:8px}
 .hero-stat-title .accent{color:#F2C4A8;font-style:italic}
@@ -276,7 +300,9 @@ body.nav-open{overflow:hidden}
 .ergo-section-title .accent-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .ergo-section-sub{font-size:12.5px;color:var(--mid);margin-bottom:22px;line-height:1.7;max-width:920px}
 /* === Cards thématiques (clusters) — sans redite KPI/details === */
-.ergo-cluster-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:16px}
+/* min() borne le minimum à la largeur réelle : sous 360px la carte suit le
+   conteneur au lieu de le déborder. */
+.ergo-cluster-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));gap:16px}
 .ergo-cluster-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px}
 .ergo-cluster-card[data-theme-color="sage"]{border-left:3px solid var(--sage)}
 .ergo-cluster-card[data-theme-color="coral"]{border-left:3px solid var(--coral)}
@@ -346,8 +372,13 @@ body.nav-open{overflow:hidden}
 .vf-row{display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px;margin-bottom:12px}
 .vf-row:last-child{margin-bottom:0}
 .vf-label{font-size:10px;font-weight:600;color:var(--charcoal);text-transform:uppercase;letter-spacing:.06em;min-width:100px;padding-top:6px}
-.vf-pills{display:flex;flex-wrap:wrap;gap:5px;flex:1}
-.vf-pill{font-size:11px;padding:5px 11px;border-radius:18px;border:1px solid var(--border2);background:white;color:var(--mid);cursor:pointer;transition:all .12s;white-space:nowrap}
+/* Sous 200px utiles, les pastilles passent sous leur intitulé au lieu de se
+   serrer dans une colonne trop étroite pour elles. */
+.vf-pills{display:flex;flex-wrap:wrap;gap:5px;flex:1 1 200px;min-width:0}
+/* Certains sous-thèmes sont plus longs qu'un écran étroit ; ils s'y écrivent
+   sur deux lignes plutôt que de déborder. Au-delà, ligne unique comme avant. */
+.vf-pill{font-size:11px;padding:5px 11px;border-radius:18px;border:1px solid var(--border2);background:white;color:var(--mid);cursor:pointer;transition:all .12s;max-width:100%}
+@media(min-width:640px){.vf-pill{white-space:nowrap}}
 .vf-pill:hover{background:var(--cream2);color:var(--charcoal)}
 .vf-pill.on{background:var(--sage);color:white;border-color:var(--sage);font-weight:500}
 .vf-pill.coral.on{background:var(--coral);border-color:var(--coral)}
