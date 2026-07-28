@@ -3613,10 +3613,12 @@ function go(view) {
   document.getElementById('p-' + view).classList.add('active');
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   event.target.closest('.nav-item').classList.add('active');
-  const titles = {vue:"Vue d'ensemble", personnes:'Personnes', equipement:'Équipement & modèle', sroi:'Coût évité & SROI', ergotheques:'Ergothèques', recherche:'Enquêtes & entretiens'};
+  const titles = {vue:"Vue d'ensemble", personnes:'Personnes', equipement:'Équipement & modèle', sroi:'Coût évité & SROI', ergotheques:'Ergothèques', recherche:'Enquêtes & entretiens', analyses:'Analyses statistiques'};
   document.getElementById('topbar-title').textContent = titles[view];
-  drawPage(view);
+  // Le tiroir se referme avant le rendu : la navigation ne doit pas dépendre
+  // de la réussite du dessin de la page.
   closeNav();
+  drawPage(view);
 }
 
 // Tiroir de navigation (sous 900px ; au-delà la sidebar est permanente).
@@ -5204,11 +5206,17 @@ function drawAnalyses() {
 
     // Gradient by orient (forest plot + table)
     const entries = Object.entries(bo.gradient_by_orient).filter(([k,v]) => v && 'beta' in v);
+    // Seul bloc de régression à ne pas transporter d'intervalle de confiance :
+    // les trois autres portent ci_lo/ci_hi, celui-ci n'a que l'erreur-type. On
+    // laisse la colonne vide plutôt que d'en dériver un — le choix de la
+    // méthode appartient au pipeline, pas à la page.
+    const _ci = v => (v.ci_lo == null || v.ci_hi == null) ? '—'
+      : `[${v.ci_lo>=0?'+':''}${v.ci_lo.toFixed(4)} ; ${v.ci_hi>=0?'+':''}${v.ci_hi.toFixed(4)}]`;
     const canvasId = 'c-orient-gradient';
     const tableRows = entries.map(([k,v]) => `<tr>
       <td><strong>${k}</strong></td>
       <td style="color:${v.beta>=0?'var(--sage)':'var(--coral)'}"><strong>${v.beta>=0?'+':''}${v.beta.toFixed(4)}</strong></td>
-      <td>[${v.ci_lo>=0?'+':''}${v.ci_lo.toFixed(4)} ; ${v.ci_hi>=0?'+':''}${v.ci_hi.toFixed(4)}]</td>
+      <td>${_ci(v)}</td>
       <td>${_fmtP(v.p)}</td>
       <td>${fmt(v.n)}</td>
       <td>${_sigBadge(v.p<0.001?'***':v.p<0.01?'**':v.p<0.05?'*':'ns')}</td>
@@ -5240,7 +5248,9 @@ function drawAnalyses() {
         responsive: true, maintainAspectRatio: false,
         plugins: {legend:{display:false}, tooltip:{callbacks:{label: ctx => {
           const it = entries[ctx.dataIndex][1];
-          return `β = ${it.beta.toFixed(4)} [IC95 ${it.ci_lo.toFixed(3)} ; ${it.ci_hi.toFixed(3)}] · p = ${it.p < 0.001 ? '<.001' : it.p.toFixed(3)} · N = ${fmt(it.n)}`;
+          const ci = (it.ci_lo == null || it.ci_hi == null) ? ''
+            : ` [IC95 ${it.ci_lo.toFixed(3)} ; ${it.ci_hi.toFixed(3)}]`;
+          return `β = ${it.beta.toFixed(4)}${ci} · p = ${it.p < 0.001 ? '<.001' : it.p.toFixed(3)} · N = ${fmt(it.n)}`;
         }}}},
         scales: {x: {title:{display:true, text:'β coefficient GIR sur pret'}, grid:{color: (ctx)=>ctx.tick.value===0?'#666':'rgba(0,0,0,0.06)'}}}
       }
