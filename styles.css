@@ -58,6 +58,10 @@ body.nav-open{overflow:hidden}
 .nav-icon{width:16px;height:16px;flex-shrink:0;opacity:.75}
 .nav-item.active .nav-icon{opacity:1}
 .sb-footer{padding:18px 24px;border-top:1px solid rgba(255,255,255,0.07)}
+/* Signature de l'éditeur, reprise du bandeau d'origine : même typographie et
+   même accent italique, à l'échelle d'un pied de colonne. */
+.sb-signature{font-family:'Playfair Display',serif;font-size:15px;color:rgba(255,255,255,0.85);letter-spacing:0.02em;line-height:1.2;margin-bottom:9px}
+.sb-signature span{color:var(--coral-l);font-style:italic}
 .sb-version{font-size:10px;color:rgba(255,255,255,0.32);line-height:1.6}
 
 /* TOPBAR */
