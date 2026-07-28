@@ -26,7 +26,14 @@ Site statique, **aucune étape de build**, aucune dépendance à installer.
 | --- | --- |
 | `index.html` | ~1,4 Mo : le balisage des 7 pages, puis un `<script>` unique contenant les données et tout le code |
 | `styles.css` | Toute la présentation, extraite du HTML |
-| `logo-*.png`, `favicon*`, `ant-source.jpeg` | Identité visuelle (mascotte fourmi) |
+| `logo-*`, `favicon*`, `apple-touch-icon.png` | Identité visuelle (mascotte fourmi) |
+
+La mascotte forme une famille `logo-myria-*` : `logo-myria-source.jpeg` est
+l'original avec fond, `logo-myria-full.png` le master détouré en 1000 px,
+`logo-myria-mark.png` la seule déclinaison affichée (sidebar, 56 px CSS rendus
+en 200 px pour les écrans denses). Les deux premières servent à regénérer les
+autres. Les favicons gardent en revanche leurs noms conventionnels, attendus par
+les navigateurs et les outils — ne pas les renommer.
 
 Deux dépendances externes, chargées par CDN : Chart.js 4.4.1 et les polices
 Google (Playfair Display, DM Sans). Une machine hors ligne rendra la page sans
