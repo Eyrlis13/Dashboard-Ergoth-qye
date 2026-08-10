@@ -4703,24 +4703,16 @@ function calcSROI() {
   // Périmètre actif (filtres topbar)
   const scopeEl = document.getElementById('sroi-scope');
   if (scopeEl) {
-    let perimetre;
+    const periode = activeYear !== 'all' ? `équipés en ${activeYear}` : `équipés depuis 2021`;
+    let acteur;
     if (activeErgo) {
       const meta = DATA.ergos_meta.find(e => e.code === activeErgo);
-      perimetre = meta ? meta.titre.replace('ERGOTHÈQUE ', 'Ergothèque ') : activeErgo;
+      const nom = meta ? meta.titre.replace('ERGOTHÈQUE ', 'Ergothèque ') : activeErgo;
+      acteur = `par ${nom}`;
     } else {
-      perimetre = `Ensemble du dispositif (${DATA.ergos_meta.length} ergothèques)`;
+      acteur = `par l'ensemble du dispositif (${DATA.ergos_meta.length} ergothèques)`;
     }
-    if (activeYear !== 'all') perimetre += ' · année ' + activeYear;
-    const nAuto = (sroiAuto.pctRisque?1:0) + (sroiAuto.incid?1:0) + (sroiAuto.reduc?1:0);
-    let ratioNote;
-    if (nAuto >= 2) {
-      ratioNote = `Plusieurs hypothèses (% à risque, incidence, efficacité de la prévention) sont recalculées depuis le profil GIR/âge réel de cette population — donc le <strong>ratio lui-même varie selon le territoire</strong> sélectionné.`;
-    } else if (nAuto === 1) {
-      ratioNote = `Une hypothèse est recalculée depuis le profil réel de cette population, les autres viennent des curseurs — le ratio varie donc en partie selon le territoire.`;
-    } else {
-      ratioNote = `Toutes les hypothèses sont en mode manuel : le <em>ratio</em> ne dépend que des curseurs (seuls les montants absolus suivent la taille de la population).`;
-    }
-    scopeEl.innerHTML = `<strong>Périmètre actif :</strong> ${perimetre} — <strong>${fmt(benef)} bénéficiaires</strong>. Les montants sont calculés sur cette population. ${ratioNote}`;
+    scopeEl.innerHTML = `<strong>Périmètre affiché :</strong> <strong>${fmt(benef)}</strong> bénéficiaires ${periode} ${acteur}. Le cumul est projeté sur la durée d'usage moyen (${duree} ${duree>1?'ans':'an'}).`;
   }
 
   // Coût évité chutes ANNUEL (brut, avant attribution et cumul durée) :
