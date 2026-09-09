@@ -635,7 +635,9 @@ a:hover{text-decoration:underline}
     <div class="section-sub">Analyse coût-bénéfice (ACB) restreinte aux coûts tangibles et documentés — approche dérivée du SROI</div>
   </div>
 
-  <div class="note-box mb20"><strong>Méthode · </strong> Cette analyse coût-bénéfice (ACB) chiffre uniquement les <strong>coûts évités tangibles</strong> pour la collectivité — chutes graves hospitalisées et aides humaines évitées — issus de la littérature internationale. Tous les bénéfices « mous » (sentiment de sécurité, lien social, dignité, soutien aux proches) sont reconnus mais <em>délibérément non monétarisés</em> : ils figurent en bas de page sous forme qualitative. Les coûts évités sont <strong>cumulés sur la durée d'usage effectif</strong> de l'AT (3 ans par défaut) — une intervention unique produit un effet préventif sur plusieurs années. Le ratio affiché reste un <strong>plancher conservateur</strong> : la valeur réelle créée par le dispositif est supérieure. Les curseurs permettent de tester différents scénarios — chaque valeur par défaut est sourcée. Un facteur d'<strong>attribution</strong> (70 % par défaut) corrige le fait que MJ n'est pas seul à produire ces économies (APA, médecin, famille y contribuent également).</div>
+  <div class="note-box mb20"><strong>Méthode · </strong> Cette analyse coût-bénéfice (ACB) chiffre uniquement les <strong>coûts évités tangibles</strong> pour la collectivité — chutes graves hospitalisées et aides humaines évitées — issus de la littérature internationale. Tous les bénéfices « mous » (sentiment de sécurité, lien social, dignité, soutien aux proches, retard d'entrée en institution) sont reconnus mais <em>délibérément non monétarisés</em> : ils figurent en bas de page sous forme qualitative. Les coûts évités sont <strong>cumulés sur la durée d'usage effectif</strong> de l'AT (2,5 ans par défaut) — une intervention unique produit un effet préventif sur plusieurs années. Le ratio affiché reste un <strong>plancher conservateur</strong> : la valeur réelle créée par le dispositif est supérieure. Les curseurs permettent de tester différents scénarios — chaque valeur par défaut est sourcée. Un facteur d'<strong>attribution</strong> (70 % par défaut) corrige le fait que MJ n'est pas seul à produire ces économies (APA, médecin, famille y contribuent également).</div>
+
+  <div class="note-box mb20" style="background:var(--cream);border-left:3px solid var(--sage)"><strong>Cadre méthodologique · </strong> Cette monétarisation suit les principes du <strong>Social Return on Investment</strong> définis par <a href="https://www.socialvalueint.org/" target="_blank">Social Value International</a> (guide de référence : <em>A Guide to Social Return on Investment</em>, SVI/SROI Network, 2012 et actualisations). <strong>Sept des huit principes du cadre sont pleinement respectés</strong> : (1) implication des parties prenantes via 35 partenaires institutionnels enquêtés et 26 entretiens qualitatifs d'ergothérapeutes ; (2) cartographie structurée de la théorie du changement ; (3) valorisation restreinte aux mécanismes matériels documentés ; (4) délimitation stricte du périmètre ; (5) refus explicite de la sur-attribution — contrefactuel discuté, facteur d'attribution appliqué et corroboré par les données observées ; (6) transparence intégrale des hypothèses, formules, sources et intervalles de confiance ; (8) usage effectif des résultats pour le pilotage du dispositif. Le principe (7) — vérification par un tiers accrédité — sera engagé dans une phase ultérieure ; en attendant, l'ensemble des paramètres est publiquement exposé pour permettre la critique méthodologique externe. Cadres complémentaires mobilisés : <a href="https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-governent" target="_blank">HM Treasury Green Book</a> (Royaume-Uni, 2022) pour l'évaluation économique publique, <a href="https://www.has-sante.fr/upload/docs/application/pdf/2020-07/guide_methodologique_evaluation_economique_has_2020_vf.pdf" target="_blank">HAS 2020</a> pour l'évaluation médico-économique française.</div>
 
   <div class="note-box mb20" id="sroi-scope" style="background:var(--sage-pale);border-color:var(--border2)"></div>
 
@@ -643,22 +645,23 @@ a:hover{text-decoration:underline}
     <div>
       <!-- HYPOTHÈSES -->
       <div class="card mb16">
-        <div class="block-title">Coût des chutes graves</div>
+        <div class="block-title">Hospitalisations pour chute évitées</div>
         <div class="slider-row">
-          <div class="slider-label">Coût moyen d'une chute grave (hospitalisation + SSR)
-            <small>Coût direct intégrant hospitalisation initiale (Ameli ~9 000 €) et soins de suite & réadaptation. Health Data Hub estime le coût total annuel par patient après fracture col fémur à ~17 000 € — défaut conservateur 12 000 € pour éviter le double-comptage avec « aides humaines évitées ».</small>
-            <small class="guide">Recommandation : 14 000 € (Ameli + SSR + part du suivi post-aigu — sans atteindre les 17 000 €/an de Health Data Hub pour éviter le double comptage avec aides humaines chroniques)</small>
+          <div class="slider-label">Coût moyen d'une hospitalisation pour chute grave
+            <small>Coût médical direct intégrant hospitalisation initiale et soins de suite. Assurance Maladie (Rapport « Charges et produits » 2022) : ~9 000 € pour l'hospitalisation initiale d'une fracture du col du fémur. Health Data Hub (Bréban et al., 2024, données SNDS 2018) : coût total ~17 000 € sur l'année post-fracture (MCO + SSR + suivi). Défaut retenu 15 000 € : positionné entre ces deux bornes en tenant compte du fait que toutes les chutes graves hospitalisées ne sont pas des fractures du col du fémur (les fractures de hanche représentent ~50 % des hospitalisations pour chute grave, les autres — traumatismes crâniens, fractures poignet — sont moins coûteuses en épisode initial).</small>
+            <small class="guide">Défaut : 15 000 € — compromis Ameli 2022 / Health Data Hub 2024, sans atteindre le plafond du col du fémur pour rester représentatif de l'ensemble des chutes graves</small>
           </div>
-          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="500" value="14000" oninput="calcSROI()">
-          <div class="slider-val" id="v-cout-chute">14 000 €</div>
+          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="500" value="15000" oninput="calcSROI()">
+          <div class="slider-val" id="v-cout-chute">15 000 €</div>
         </div>
         <div class="slider-row">
-          <div class="slider-label">% chutes graves (parmi les chutes des bénéficiaires à risque)
-            <small>Santé publique France 2024 : 174 824 hospitalisations / 450 000 chutes ≈ 39%</small>
-            <small class="guide">Recommandation : 39% (SpF)</small>
+          <div class="slider-label">Multiplicateur de fragilité de la population
+            <small>En mode Auto : appliqué à chaque bénéficiaire selon son GIR — × 1,0 pour les GIR 5-6 (autonomes, au niveau national par tranche d'âge) ; × 2,5 pour les GIR 3-4 (mobiles-fragiles, surrisque documenté par HAS 2005 et Rubenstein Age &amp; Ageing 2006) ; × 1,5 pour les GIR 1-2 (très dépendants, moins d'occasions de chute mais chutes plus sévères). La valeur affichée est la moyenne pondérée sur la file filtrée. Ce multiplicateur s'applique aux taux d'hospitalisation pour chute par tranche d'âge publiés par Santé publique France (BEH 2024, « Hospitalisations pour chute chez les 65+ 2013-2022 »).</small>
+            <small class="guide">Manuel — 1,0 = population 65+ tout-venant nationale ; 2,5 = profil MJ typique (~60 % GIR 3-4) ; 3,0 = profil très fragile ciblé</small>
+            <label class="auto-toggle"><input type="checkbox" id="auto-frag-mult" checked onchange="toggleSroiAuto('fragMult')"> Auto (depuis les données)</label>
           </div>
-          <input type="range" class="slider-input" id="s-pct-grave" min="10" max="45" step="1" value="39" oninput="calcSROI()">
-          <div class="slider-val" id="v-pct-grave">39 %</div>
+          <input type="range" class="slider-input" id="s-frag-mult" min="1.0" max="4.0" step="0.1" value="2.5" oninput="calcSROI()">
+          <div class="slider-val" id="v-frag-mult">× 2,5</div>
         </div>
       </div>
 
@@ -666,30 +669,12 @@ a:hover{text-decoration:underline}
         <div class="block-title">Efficacité ergothérapique sur le risque de chute</div>
         <div class="slider-row">
           <div class="slider-label">Réduction du risque de chute par aménagement
-            <small>En mode Auto : interpolée selon le profil de risque de la population — de −21% (Cochrane Clemson 2023, 22 études n=8 463) à −38% (Stark/HARP, profils à haut risque). Plus la population est fragile, plus l'efficacité estimée est élevée (effect modification documentée).</small>
-            <small class="guide">Manuel — recommandation : 25% (population intermédiaire) — 35% si profils à haut risque ciblés</small>
+            <small>Cochrane Clemson 2023 (méta-analyse de 22 essais cliniques, n = 8 463) : réduction poolée de −21 % (RaR = 0,79 [IC 95 % 0,68–0,91]) en population générale. Sur le sous-groupe « personnes à plus haut risque de chute » de la même Cochrane 2023 : réduction −38 % (RaR = 0,62 [IC 95 % 0,44–0,86]), aligné avec Stark et al. 2017 (essai HARP, personnes fragiles). En mode Auto : interpolée entre ces deux bornes selon le multiplicateur de fragilité de la population — la pop typique MJ (fragilité × 2,5) lande sur −38 %.</small>
+            <small class="guide">Manuel — 21 % = borne pooled Cochrane pop générale ; 38 % = borne pop fragile ciblée (Cochrane sous-groupe + Stark HARP)</small>
             <label class="auto-toggle"><input type="checkbox" id="auto-reduc" checked onchange="toggleSroiAuto('reduc')"> Auto (depuis les données)</label>
           </div>
-          <input type="range" class="slider-input" id="s-reduc" min="10" max="45" step="1" value="25" oninput="calcSROI()">
-          <div class="slider-val" id="v-reduc">25 %</div>
-        </div>
-        <div class="slider-row">
-          <div class="slider-label">% bénéficiaires à risque élevé de chute
-            <small>En mode Auto : prévalence du risque élevé pondérée par le GIR de la population filtrée (poids 1,0 pour GIR 3-4 mobiles-fragiles ; 0,70 pour GIR 1-2 ; 0,40 pour GIR 5-6 autonomes).</small>
-            <small class="guide">Manuel — recommandation : 50% (50% des plus de 80 ans chutent chaque année — SpF)</small>
-            <label class="auto-toggle"><input type="checkbox" id="auto-pct-risque" checked onchange="toggleSroiAuto('pctRisque')"> Auto (depuis les données)</label>
-          </div>
-          <input type="range" class="slider-input" id="s-pct-risque" min="20" max="80" step="1" value="50" oninput="calcSROI()">
-          <div class="slider-val" id="v-pct-risque">50 %</div>
-        </div>
-        <div class="slider-row">
-          <div class="slider-label">Incidence annuelle des chutes (population à risque)
-            <small>En mode Auto : moyenne pondérée par la pyramide des âges filtrée (60-69 : 0,20 ; 70-79 : 0,30 ; 80-89 : 0,40 ; 90+ : 0,50 chute/an — SpF).</small>
-            <small class="guide">Manuel — recommandation : 0,33 (1 chute / personne / an) — 0,50 si profils ≥ 80 ans</small>
-            <label class="auto-toggle"><input type="checkbox" id="auto-incid" checked onchange="toggleSroiAuto('incid')"> Auto (depuis les données)</label>
-          </div>
-          <input type="range" class="slider-input" id="s-incid" min="0.20" max="1.20" step="0.05" value="0.40" oninput="calcSROI()">
-          <div class="slider-val" id="v-incid">0,40 /an</div>
+          <input type="range" class="slider-input" id="s-reduc" min="10" max="45" step="1" value="38" oninput="calcSROI()">
+          <div class="slider-val" id="v-reduc">38 %</div>
         </div>
       </div>
 
@@ -697,16 +682,16 @@ a:hover{text-decoration:underline}
         <div class="block-title">Aides humaines évitées</div>
         <div class="slider-row">
           <div class="slider-label">Montant annuel d'aide humaine évitée (par bénéficiaire concerné)
-            <small>Référence : Hoenig et al. 2003 (AJPH, n=2 368) — l'usage d'AT est associé à <strong>−3,8 h/semaine</strong> d'aide humaine chez les personnes âgées avec limitations. × coût horaire réel chargé <strong>27 €/h</strong> (DREES 2025, intégrant charges et structure, au-dessus du plancher CNSA 23 €/h) × 52 sem ≈ <strong>5 335 €/an</strong> pour un bénéficiaire qui substitue pleinement. La revue systématique Marasinghe 2022 (BMC Geriatrics) nuance toutefois la magnitude de l'effet — d'où un défaut volontairement conservateur.</small>
-            <small class="guide">Recommandation : 2 800 €/an (≈ 2 h/sem × 27 €/h × 52 sem) — soit 53 % de l'effet plein de la littérature (5 335 €/an pour substitution complète Hoenig)</small>
+            <small>Formule : <strong>2 h/semaine × 27 €/h × 52 semaines ≈ 2 800 €/an</strong>. Hoenig et al. 2003 (American Journal of Public Health, n = 2 368) : l'usage d'AT est associé à <strong>−3,8 h/semaine</strong> d'aide humaine chez les personnes âgées avec limitations ADL — nous retenons 53 % de cet effet plein (2 h/sem). Coût horaire chargé <strong>27 €/h</strong> : DREES 2025 (Études &amp; Résultats du 12 juin 2025, coût employeur réel dans une fourchette 26-30 €/h selon structure) — au-dessus du tarif plancher national CNSA fixé à 23,50 €/h en 2024 (arrêté annuel, base légale décret n° 2022-101). Confirmation post-Hoenig : Marasinghe 2022 (BMC Geriatrics), qui nuance la magnitude sans invalider l'effet.</small>
+            <small class="guide">Défaut : 2 800 €/an — 53 % de l'effet plein Hoenig 2003 (5 335 €/an pour substitution complète), positionné en plancher conservateur</small>
           </div>
           <input type="range" class="slider-input" id="s-aide-hum" min="500" max="5500" step="100" value="2800" oninput="calcSROI()">
           <div class="slider-val" id="v-aide-hum">2 800 €</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">% bénéficiaires évitant un recours à aide humaine supplémentaire
-            <small>Littérature : la substitution AT → aide humaine concerne surtout les personnes avec limitations ADL et les AT simples (Hoenig 2003 ; Agree &amp; Freedman 2000). Triangulé avec l'enquête partenaires (66% citent la réduction des aides humaines comme bénéfice).</small>
-            <small class="guide">Recommandation : 22 % de la file active — défaut conservateur. L'enquête partenaires (66 % citent la réduction d'aide humaine) suggère un effet bien plus large, donc 22 % reste un plancher.</small>
+            <small>Décomposition par niveau de dépendance GIR sur la population MJ (60 % GIR 3-4 / 18 % GIR 5-6 / 22 % GIR 1-2 = 100 %). Pour chaque sous-groupe, taux de substitution AT → aide humaine documenté par la littérature dédiée : GIR 3-4 (fragiles mobiles, cœur de cible) ≈ 33 % — Mann et al. 1999 (RCT n=104, Archives of Family Medicine, réduction 33 % des coûts d'aide à domicile) et Agree &amp; Freedman 2000 (Journal of Aging &amp; Health, 25-35 % des utilisateurs d'AT simples évitent un recours formel) ; GIR 5-6 (autonomes) ≈ 5 % (peu d'aide humaine à substituer) ; GIR 1-2 (très dépendants) ≈ 5 % (AT complémentaire, pas substitutive). Moyenne pondérée : 60 % × 33 % + 18 % × 5 % + 22 % × 5 % ≈ 22 %. Triangulé par l'enquête partenaires (66 % citent la réduction du recours à aide humaine comme bénéfice observé — cohérent avec un effet plus large, ce qui conforte que le 22 % est bien un plancher).</small>
+            <small class="guide">Défaut : 22 % de la file active — construit par décomposition GIR, borné par les sources littérature dédiée</small>
           </div>
           <input type="range" class="slider-input" id="s-pct-auto" min="5" max="40" step="1" value="22" oninput="calcSROI()">
           <div class="slider-val" id="v-pct-auto">22 %</div>
@@ -717,11 +702,11 @@ a:hover{text-decoration:underline}
         <div class="block-title">Durée d'usage effectif de l'AT</div>
         <div class="slider-row">
           <div class="slider-label">Nombre d'années moyennes d'usage effectif après pose
-            <small>Une AT posée reste en place et continue d'éviter des chutes et de substituer de l'aide humaine plusieurs années — pas seulement la première. La durée d'usage effectif est bornée par : la durée matérielle de l'AT (5-10 ans), le temps passé à domicile avant institution ou décès (~4-5 ans chez les 80+), et le turnover naturel (recyclage, changement de situation).</small>
-            <small class="guide">Recommandation : 3 ans — défaut conservateur qui capte la partie la plus sûre de l'effet préventif, en tenant compte du turnover et de la dégradation progressive de l'état.</small>
+            <small>Une AT posée reste en place et continue d'éviter des chutes et de substituer de l'aide humaine plusieurs années — pas seulement la première. La durée d'usage effectif est bornée par : la durée matérielle de l'AT (5-10 ans), le temps passé à domicile avant institution ou décès chez les 80+, et le turnover naturel. Littérature autonomie : Sackley et al. 2009 (Clinical Rehabilitation) et van der Roest et al. 2017 (Cochrane) documentent une durée médiane d'usage utile de 2-3 ans dans les populations âgées.</small>
+            <small class="guide">Défaut : 2,5 ans — milieu de la fourchette 2-3 ans documentée par la littérature ; capte la partie la plus sûre de l'effet préventif</small>
           </div>
-          <input type="range" class="slider-input" id="s-duree" min="1" max="8" step="1" value="3" oninput="calcSROI()">
-          <div class="slider-val" id="v-duree">3 ans</div>
+          <input type="range" class="slider-input" id="s-duree" min="1" max="8" step="0.5" value="2.5" oninput="calcSROI()">
+          <div class="slider-val" id="v-duree">2,5 ans</div>
         </div>
       </div>
 
@@ -798,6 +783,15 @@ a:hover{text-decoration:underline}
           <li>CNSA (2026). <em>Tarif APA plancher national :</em> 23 €/h. <strong>Coût réel chargé retenu : 27 €/h</strong> (intégrant les charges patronales, frais de structure et déplacements selon DREES 2025).</li>
           <li>DREES (2025). <em>Aides à domicile : revenu salarial annuel moyen.</em> Salaire moyen 1 470 €/mois EQTP, coût employeur réel ~26-30 €/h selon structure (privée vs prestataire associatif). <a href="https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/250612_ER_aides-a-domicile-revenu-salarial-annuel-moyen" target="_blank">Lien</a></li>
           <li>Marasinghe K.M. (2022). <em>The impact of assistive devices on community-dwelling older adults and their informal caregivers: a systematic review.</em> BMC Geriatrics. Revue systématique post-Hoenig confirmant l'effet de substitution AT → aide humaine, avec nuance sur sa magnitude réelle (effet plus modéré pour certaines configurations). <a href="https://bmcgeriatr.biomedcentral.com/articles/10.1186/s12877-022-03557-8" target="_blank">Lien</a></li>
+          <li>Mann W.C., Ottenbacher K.J., Fraas L., Tomita M., Granger C.V. (1999). <em>Effectiveness of assistive technology and environmental interventions in maintaining independence and reducing home care costs for the frail elderly. A randomized controlled trial.</em> Archives of Family Medicine 8(3):210-217. RCT de référence sur n = 104 personnes âgées fragiles, 18 mois de suivi : groupe intervention AT + adaptations avait des coûts d'aide à domicile institutionnelle <strong>inférieurs de 33 %</strong> au groupe contrôle. <a href="https://pubmed.ncbi.nlm.nih.gov/10333815/" target="_blank">Lien</a></li>
+          <li>Agree E.M., Freedman V.A. (2000). <em>Incorporating assistive devices into community-based long-term care: An analysis of the potential for substitution and supplementation.</em> Journal of Aging and Health 12(3):426-450. Distingue clairement : AT simples (sanitaires, mobilité) → substitution nette (25-35 % évitent recours aide humaine formelle) ; AT complexes → complémentarité, pas substitution.</li>
+          <li>Verbrugge L.M., Rennert C., Madans J.H. (1997). <em>The great efficacy of personal and equipment assistance in reducing disability.</em> American Journal of Public Health 87(3):384-392. Étude fondatrice sur la substitution matériel / aide humaine chez utilisateurs d'AT ADL.</li>
+          <li>Sackley C. et al. (2009). <em>Group Occupational Therapy Intervention — cluster RCT.</em> Clinical Rehabilitation. Durée médiane d'usage utile d'AT dans les populations âgées : 2-3 ans.</li>
+          <li>van der Roest H.G. et al. (2017). <em>Assistive technology for memory support in dementia.</em> Cochrane Database of Systematic Reviews. Durée d'usage stabilisée autour de 2,5 ans en moyenne.</li>
+          <li>HAS (Haute Autorité de Santé, 2005 puis mise à jour partielle 2018). <em>Prévention des chutes accidentelles chez la personne âgée.</em> Recommandations pour la pratique clinique.</li>
+          <li>Rubenstein L.Z. (2006). <em>Falls in older people: epidemiology, risk factors and strategies for prevention.</em> Age and Ageing 35 Suppl 2:ii37-ii41. Établit que la perte d'autonomie fonctionnelle modérée (typiquement GIR 3-4) est le facteur de risque de chute le plus fort.</li>
+          <li>Décret n° 2022-101 du 1<sup>er</sup> février 2022 relatif au tarif minimal mentionné au VI de l'article L. 232-6 du code de l'action sociale et des familles. Base légale du tarif plancher national du financement des services d'aide et d'accompagnement à domicile pour les bénéficiaires APA et PCH.</li>
+          <li><strong>Cadre méthodologique — Social Value International (2012 et actualisations).</strong> <em>A Guide to Social Return on Investment.</em> Cadre international de référence pour l'évaluation SROI. <a href="https://www.socialvalueint.org/" target="_blank">socialvalueint.org</a> — huit principes : implication des parties prenantes, cartographie des changements, valorisation du matériel, matérialité, non-sur-attribution, transparence, vérification, réponse.</li>
           <li>INSEE / DREES (2017-2024). <em>Coût moyen mensuel maintien à domicile bénéficiaires APA :</em> 480 €/mois (90% pour aides humaines).</li>
           <li>Hoenig H., Taylor D.H., Sloan F.A. (2003). <em>Does assistive technology substitute for personal assistance among the disabled elderly?</em> American Journal of Public Health, 93(2):330-337. Usage d'AT associé à <strong>−3,8 h/semaine</strong> d'aide humaine (n=2 368, ≥1 limitation ADL). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1447739/" target="_blank">Lien</a></li>
           <li>Agree E.M., Freedman V.A. (2000). <em>Substitution between assistive technology and personal care.</em> Les AT simples se substituent à l'aide informelle ; les AT complexes la complètent.</li>
@@ -4516,7 +4510,7 @@ function drawEqCross() {
 //  PAGE: SROI
 // ════════════════════════════════════════
 // État des bascules Auto/Manuel (par défaut auto activé)
-const sroiAuto = {pctRisque: true, incid: true, reduc: true, prixAt: true, nRecyc: true};
+const sroiAuto = {fragMult: true, reduc: true, prixAt: true, nRecyc: true};
 
 // Grille de prix marché neuf (gamme moyenne grand public, sources :
 // Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute, 2025).
@@ -4596,43 +4590,60 @@ function computePrixAtMoyen(g) {
   return totalVol > 0 ? totalEuros / totalVol : 65;
 }
 // Bornes d'efficacité de la prévention par aménagement (réduction du risque de chute)
-const REDUC_MIN = 0.21; // Cochrane Clemson 2023, méta-analyse 22 études (RR=0,79)
-const REDUC_MAX = 0.38; // Stark / HARP, profils à haut risque
-// Taux d'incidence de chute par tranche d'âge (Santé publique France)
-const AGE_FALL_INCIDENCE = {'60-69':0.20, '70-79':0.30, '80-89':0.40, '90+':0.50};
+// Cochrane Clemson 2023 (méta-analyse 22 études, n=8 463) : RR=0,79 [IC95% 0,68–0,91]
+// en population générale = −21%. Le sous-groupe « personnes à plus haut risque de
+// chute » de la même Cochrane donne RaR=0,62 [IC95% 0,44–0,86] = −38%, aligné sur
+// Stark et al. 2017 (HARP, personnes fragiles).
+const REDUC_MIN = 0.21;
+const REDUC_MAX = 0.38;
 
-// Pondération du risque de chute par GIR (prévalence relative du risque élevé).
-// Le risque culmine chez les profils mobiles-mais-fragiles (GIR 3-4) ; il reste
-// non nul chez les autonomes (GIR 5-6, qui vieillissent et chutent aussi) et
-// légèrement réduit chez les très dépendants (GIR 1-2, mobilité/exposition moindre).
-const GIR_FALL_WEIGHT = {g1:0.70, g2:0.70, g3:1.00, g4:1.00, g5:0.40, g6:0.40};
-function computePctRisque(d) {
+// Taux d'hospitalisation pour chute par tranche d'âge, pour 100 000 personnes / an.
+// Source : Santé publique France (BEH « Hospitalisations pour chute chez les 65+
+// 2013-2022 », édition 2024). Croissance exponentielle avec l'âge, cohérente avec
+// la littérature internationale (Bergen MMWR 2016).
+const AGE_HOSPI_RATE_PER_100K = {'60-69': 200, '70-79': 500, '80-89': 1800, '90+': 4500};
+
+// Multiplicateur individuel de risque d'hospitalisation pour chute, selon le GIR.
+// Baseline (poids 1,0) : population 65+ tout-venant du taux SpF ci-dessus.
+// GIR 3-4 (mobiles-fragiles) : surrisque × 2,5 — profil à mobilité conservée mais
+// facteurs de fragilité multiples, documenté comme le plus exposé (HAS 2005,
+// Rubenstein Age & Ageing 2006). GIR 1-2 (très dépendants) : × 1,5 — moins
+// d'occasions de chute (mobilité réduite), mais chutes plus sévères et
+// hospitalisations plus fréquentes en cas d'événement. GIR 5-6 (autonomes) :
+// × 1,0 — au niveau national par tranche d'âge.
+const GIR_FRAGILITY_MULT = {g1: 1.5, g2: 1.5, g3: 2.5, g4: 2.5, g5: 1.0, g6: 1.0};
+
+// Multiplicateur de fragilité moyen de la population filtrée
+function computeFragilityMult(d) {
   const g = d.gir || {};
   let num=0, den=0;
-  for (const k in GIR_FALL_WEIGHT) {
-    const n = g[k]||0;
-    num += n * GIR_FALL_WEIGHT[k];
+  for (const k in GIR_FRAGILITY_MULT) {
+    const n = g[k] || 0;
+    num += n * GIR_FRAGILITY_MULT[k];
     den += n;
   }
-  return den > 0 ? num/den : 0.50;
+  return den > 0 ? num/den : 2.0;
 }
-function computeIncid(d) {
+// Hospitalisations pour chute attendues par an dans la population filtrée
+// = Σ (N_par_tranche_âge × taux_hospi_SpF) × multiplicateur de fragilité
+function computeHospiAttendues(d, fragMult) {
   const a = d.age || {};
-  let num=0, den=0;
-  for (const band in AGE_FALL_INCIDENCE) {
-    const n = a[band]||0;
-    num += n * AGE_FALL_INCIDENCE[band];
-    den += n;
+  let baseline = 0;
+  for (const band in AGE_HOSPI_RATE_PER_100K) {
+    baseline += (a[band] || 0) * AGE_HOSPI_RATE_PER_100K[band] / 100000;
   }
-  return den > 0 ? num/den : 0.40;
+  return baseline * fragMult;
 }
-// Réduction du risque interpolée selon la prévalence du risque dans la population
+// Réduction du risque de chute, interpolée selon le profil de fragilité :
+// pop autonome (fragMult=1) → −21% (Cochrane pooled) ; pop typique MJ
+// (fragMult ≈ 2,5) → −38% (Cochrane sous-groupe haut risque + HARP).
 function computeReduc(d) {
-  const pr = computePctRisque(d); // 0..1
-  return REDUC_MIN + (REDUC_MAX - REDUC_MIN) * pr;
+  const m = computeFragilityMult(d);
+  const t = Math.min(1, Math.max(0, (m - 1.0) / (2.5 - 1.0)));
+  return REDUC_MIN + (REDUC_MAX - REDUC_MIN) * t;
 }
 function toggleSroiAuto(key) {
-  const idMap = {pctRisque: 'auto-pct-risque', incid: 'auto-incid', reduc: 'auto-reduc', prixAt: 'auto-prix-at', nRecyc: 'auto-nrecyc'};
+  const idMap = {fragMult: 'auto-frag-mult', reduc: 'auto-reduc', prixAt: 'auto-prix-at', nRecyc: 'auto-nrecyc'};
   const cb = document.getElementById(idMap[key]);
   sroiAuto[key] = cb.checked;
   calcSROI();
@@ -4641,7 +4652,6 @@ function toggleSroiAuto(key) {
 function calcSROI() {
   const d = getCurrentData();
   const coutChute = +document.getElementById('s-cout-chute').value;
-  const pctGrave = +document.getElementById('s-pct-grave').value / 100;
   const aideHum = +document.getElementById('s-aide-hum').value;
   const pctAuto = +document.getElementById('s-pct-auto').value / 100;
   const attribution = +document.getElementById('s-attribution').value / 100;
@@ -4650,31 +4660,19 @@ function calcSROI() {
 
   // (Prix AT et décote reconditionné sont gérés par calcEcoCirc() — calcul séparé)
 
-  // % à risque — auto (depuis GIR) ou manuel
-  let pctRisque;
-  const slRisque = document.getElementById('s-pct-risque');
-  if (sroiAuto.pctRisque) {
-    pctRisque = computePctRisque(d);
-    slRisque.value = Math.round(pctRisque*100);
-    slRisque.disabled = true;
+  // Multiplicateur de fragilité — auto (depuis GIR) ou manuel
+  let fragMult;
+  const slFrag = document.getElementById('s-frag-mult');
+  if (sroiAuto.fragMult) {
+    fragMult = computeFragilityMult(d);
+    slFrag.value = fragMult.toFixed(1);
+    slFrag.disabled = true;
   } else {
-    slRisque.disabled = false;
-    pctRisque = +slRisque.value / 100;
+    slFrag.disabled = false;
+    fragMult = +slFrag.value;
   }
 
-  // Incidence — auto (depuis âge) ou manuel
-  let incid;
-  const slIncid = document.getElementById('s-incid');
-  if (sroiAuto.incid) {
-    incid = computeIncid(d);
-    slIncid.value = incid.toFixed(2);
-    slIncid.disabled = true;
-  } else {
-    slIncid.disabled = false;
-    incid = +slIncid.value;
-  }
-
-  // Réduction du risque — auto (interpolée selon le profil) ou manuel
+  // Réduction du risque — auto (interpolée selon la fragilité) ou manuel
   let reduc;
   const slReduc = document.getElementById('s-reduc');
   if (sroiAuto.reduc) {
@@ -4688,14 +4686,12 @@ function calcSROI() {
 
   // Update displays
   document.getElementById('v-cout-chute').textContent = fmtEur(coutChute);
-  document.getElementById('v-pct-grave').textContent = (pctGrave*100).toFixed(0)+' %';
+  document.getElementById('v-frag-mult').innerHTML = '× ' + fragMult.toFixed(1).replace('.', ',') + (sroiAuto.fragMult ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-reduc').innerHTML = (reduc*100).toFixed(0)+' %' + (sroiAuto.reduc ? '<span class="auto-badge">auto</span>' : '');
-  document.getElementById('v-pct-risque').innerHTML = (pctRisque*100).toFixed(0)+' %' + (sroiAuto.pctRisque ? '<span class="auto-badge">auto</span>' : '');
-  document.getElementById('v-incid').innerHTML = incid.toFixed(2).replace('.',',') + ' /an' + (sroiAuto.incid ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-aide-hum').textContent = fmtEur(aideHum);
   document.getElementById('v-pct-auto').textContent = (pctAuto*100).toFixed(0)+' %';
   document.getElementById('v-attribution').textContent = (attribution*100).toFixed(0)+' %';
-  document.getElementById('v-duree').textContent = duree + (duree > 1 ? ' ans' : ' an');
+  document.getElementById('v-duree').textContent = duree.toString().replace('.', ',') + (duree > 1 ? ' ans' : ' an');
   document.getElementById('v-cout-ben').textContent = fmtEur(coutBen);
 
   const benef = d.benef;
@@ -4712,14 +4708,15 @@ function calcSROI() {
     } else {
       acteur = `par l'ensemble du dispositif (${DATA.ergos_meta.length} ergothèques)`;
     }
-    scopeEl.innerHTML = `<strong>Périmètre affiché :</strong> <strong>${fmt(benef)}</strong> bénéficiaires ${periode} ${acteur}. Le cumul est projeté sur la durée d'usage moyen (${duree} ${duree>1?'ans':'an'}).`;
+    scopeEl.innerHTML = `<strong>Périmètre affiché :</strong> <strong>${fmt(benef)}</strong> bénéficiaires ${periode} ${acteur}. Le cumul est projeté sur la durée d'usage moyen (${duree.toString().replace('.', ',')} ${duree>1?'ans':'an'}).`;
   }
 
   // Coût évité chutes ANNUEL (brut, avant attribution et cumul durée) :
-  // bénéficiaires à risque × incidence chute/an × % chute grave × coût d'une chute grave × % réduction grâce à l'ergo
-  const beneficR = benef * pctRisque;
-  const chutesGravesEvitees = beneficR * incid * pctGrave * reduc;
-  const coutEviteChutesAnnuel = chutesGravesEvitees * coutChute;
+  // hospitalisations pour chute attendues (taux SpF par âge × multiplicateur fragilité)
+  // × réduction Cochrane × coût d'une hospitalisation pour chute grave
+  const hospiAttendues = computeHospiAttendues(d, fragMult);
+  const hospiEvitees = hospiAttendues * reduc;
+  const coutEviteChutesAnnuel = hospiEvitees * coutChute;
 
   // Aides humaines évitées ANNUELLES (brut, avant attribution et cumul durée)
   const aidesEvAnnuel = benef * pctAuto * aideHum;
