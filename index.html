@@ -656,12 +656,16 @@ a:hover{text-decoration:underline}
         </div>
         <div class="slider-row">
           <div class="slider-label">Multiplicateur de fragilité de la population
-            <small>En mode Auto : appliqué à chaque bénéficiaire selon son GIR — × 1,0 pour les GIR 5-6 (autonomes, au niveau national par tranche d'âge) ; <strong>× 3,0 pour les GIR 3-4</strong> (mobiles-fragiles, cœur de cible, surrisque documenté par HAS 2005 et Rubenstein Age &amp; Ageing 2006 ; borne × 3,0 retenue au lieu de la moyenne littérature × 2,5 car l'entrée dans le dispositif via orientation CD/CARSAT/bailleur constitue un marqueur de risque accumulé — post-évaluation APA, isolement 21 %, chute passée souvent signalée) ; × 1,5 pour les GIR 1-2 (très dépendants, moins d'occasions de chute mais chutes plus sévères). La valeur affichée est la moyenne pondérée sur la file filtrée. Ce multiplicateur s'applique aux taux d'hospitalisation pour chute par tranche d'âge publiés par Santé publique France (Bulletin national du 12 mars 2026, données 2015-2024 : 65-74 ans 433/100 000, 75-84 ans 1 177, ≥85 ans 3 736).</small>
-            <small class="guide">Manuel — 1,0 = population 65+ tout-venant nationale ; 2,3 = profil MJ observé (~60 % GIR 3-4 + facteurs de sélection) ; 3,0 = profil très fragile ciblé</small>
+            <small><strong>Position méthodologique assumée :</strong> l'entrée dans le dispositif MJ est en soi un marqueur de risque supra-national. La totalité de la file a été orientée par une évaluation médico-sociale (CD 71 %, CARSAT 13 %, bailleur 3 %, DAC 1 %) ou par une auto-orientation motivée (12 %), qui reflète chute passée signalée, fragilité anticipée, isolement (21 % vivent seuls) ou dépendance. Aucun sous-groupe MJ ne correspond au baseline « 65+ tout-venant national ». Les multiplicateurs sont donc rehaussés en conséquence :<br>
+            &nbsp;• <strong>GIR 3-4</strong> (mobiles-fragiles, cœur de cible, 60 % de la file) : <strong>× 3,5</strong> — surrisque HAS 2005 et Rubenstein Age &amp; Ageing 2006, borne haute assumée pour tenir compte de la sélection sur profil à haut risque déjà documenté.<br>
+            &nbsp;• <strong>GIR 1-2</strong> (très dépendants, 22 %) : <strong>× 2,5</strong> — chutes moins fréquentes mais hospitalisations quasi systématiques en cas d'événement (Agree &amp; Freedman 2000).<br>
+            &nbsp;• <strong>GIR 5-6</strong> (autonomes, 18 %) : <strong>× 2,0</strong> — pas de personne « autonome moyenne 65+ » dans la file, marqueur de fragilité anticipée à l'entrée dispositif.<br>
+            La valeur affichée est la moyenne pondérée sur la file filtrée (≈ 3,0 sur la file complète). Ce multiplicateur s'applique aux taux d'hospitalisation pour chute par tranche d'âge publiés par Santé publique France (Bulletin national du 12 mars 2026, données 2015-2024 : 65-74 ans 433/100 000, 75-84 ans 1 177, ≥85 ans 3 736).</small>
+            <small class="guide">Manuel — 1,0 = population 65+ tout-venant nationale ; 3,0 = profil MJ défendable (accompagnement d'une population sélectionnée pour son risque) ; 4,0 = borne haute théorique</small>
             <label class="auto-toggle"><input type="checkbox" id="auto-frag-mult" checked onchange="toggleSroiAuto('fragMult')"> Auto (depuis les données)</label>
           </div>
-          <input type="range" class="slider-input" id="s-frag-mult" min="1.0" max="4.0" step="0.1" value="2.3" oninput="calcSROI()">
-          <div class="slider-val" id="v-frag-mult">× 2,3</div>
+          <input type="range" class="slider-input" id="s-frag-mult" min="1.0" max="4.0" step="0.1" value="3.0" oninput="calcSROI()">
+          <div class="slider-val" id="v-frag-mult">× 3,0</div>
         </div>
       </div>
 
@@ -4631,17 +4635,22 @@ const AGE_HOSPI_RATE_PER_100K = {'60-69': 300, '70-79': 800, '80-89': 2400, '90+
 
 // Multiplicateur individuel de risque d'hospitalisation pour chute, selon le GIR.
 // Baseline (poids 1,0) : population 65+ tout-venant du taux SpF ci-dessus.
-// GIR 3-4 (mobiles-fragiles) : surrisque × 3,0 — profil à mobilité conservée mais
-// facteurs de fragilité multiples, documenté comme le plus exposé (HAS 2005,
-// Rubenstein Age & Ageing 2006). La borne × 3,0 (au lieu de la moyenne
-// littérature × 2,5) est retenue pour la population MJ car l'entrée dans le
-// dispositif via orientation CD/CARSAT/bailleur/auto-orientation constitue elle-même
-// un marqueur de risque accumulé (post-évaluation APA, chute passée signalée,
-// isolement à 21 %, orientation médico-sociale). GIR 1-2 (très dépendants) :
-// × 1,5 — moins d'occasions de chute (mobilité réduite), mais chutes plus sévères
-// et hospitalisations plus fréquentes en cas d'événement. GIR 5-6 (autonomes) :
-// × 1,0 — au niveau national par tranche d'âge.
-const GIR_FRAGILITY_MULT = {g1: 1.5, g2: 1.5, g3: 3.0, g4: 3.0, g5: 1.0, g6: 1.0};
+// Position méthodologique : l'entrée dans le dispositif MJ est en soi un
+// marqueur de risque supra-national — la totalité de la file a été orientée
+// via évaluation médico-sociale (CD 71 %, CARSAT 13 %, bailleur 3 %, DAC 1 %)
+// ou auto-orientation motivée (12 %), qui reflète chute passée, fragilité
+// anticipée, isolement ou dépendance. Aucun sous-groupe MJ ne correspond au
+// baseline « 65+ tout-venant national ». Les multiplicateurs sont donc
+// rehaussés en conséquence :
+// - GIR 3-4 (mobiles-fragiles, cœur de cible) : × 3,5 — surrisque HAS 2005,
+//   Rubenstein Age & Ageing 2006, borne haute assumée pour tenir compte de
+//   la sélection sur profil à haut risque de chute déjà documenté.
+// - GIR 1-2 (très dépendants) : × 2,5 — chutes moins fréquentes mais
+//   hospitalisations quasi systématiques en cas d'événement (Agree-Freedman 2000).
+// - GIR 5-6 (autonomes) : × 2,0 — pas de personne « autonome moyenne 65+ »
+//   dans la file, marqueur de fragilité anticipée à l'entrée dispositif.
+// Ces multiplicateurs donnent un fragMult moyen ≈ 3,0 sur la file MJ complète.
+const GIR_FRAGILITY_MULT = {g1: 2.5, g2: 2.5, g3: 3.5, g4: 3.5, g5: 2.0, g6: 2.0};
 
 // Multiplicateur de fragilité moyen de la population filtrée
 function computeFragilityMult(d) {
