@@ -656,12 +656,12 @@ a:hover{text-decoration:underline}
         </div>
         <div class="slider-row">
           <div class="slider-label">Multiplicateur de fragilité de la population
-            <small>En mode Auto : appliqué à chaque bénéficiaire selon son GIR — × 1,0 pour les GIR 5-6 (autonomes, au niveau national par tranche d'âge) ; × 2,5 pour les GIR 3-4 (mobiles-fragiles, surrisque documenté par HAS 2005 et Rubenstein Age &amp; Ageing 2006) ; × 1,5 pour les GIR 1-2 (très dépendants, moins d'occasions de chute mais chutes plus sévères). La valeur affichée est la moyenne pondérée sur la file filtrée. Ce multiplicateur s'applique aux taux d'hospitalisation pour chute par tranche d'âge publiés par Santé publique France (BEH 2024, « Hospitalisations pour chute chez les 65+ 2013-2022 »).</small>
-            <small class="guide">Manuel — 1,0 = population 65+ tout-venant nationale ; 2,5 = profil MJ typique (~60 % GIR 3-4) ; 3,0 = profil très fragile ciblé</small>
+            <small>En mode Auto : appliqué à chaque bénéficiaire selon son GIR — × 1,0 pour les GIR 5-6 (autonomes, au niveau national par tranche d'âge) ; <strong>× 3,0 pour les GIR 3-4</strong> (mobiles-fragiles, cœur de cible, surrisque documenté par HAS 2005 et Rubenstein Age &amp; Ageing 2006 ; borne × 3,0 retenue au lieu de la moyenne littérature × 2,5 car l'entrée dans le dispositif via orientation CD/CARSAT/bailleur constitue un marqueur de risque accumulé — post-évaluation APA, isolement 21 %, chute passée souvent signalée) ; × 1,5 pour les GIR 1-2 (très dépendants, moins d'occasions de chute mais chutes plus sévères). La valeur affichée est la moyenne pondérée sur la file filtrée. Ce multiplicateur s'applique aux taux d'hospitalisation pour chute par tranche d'âge publiés par Santé publique France (Bulletin national du 12 mars 2026, données 2015-2024 : 65-74 ans 433/100 000, 75-84 ans 1 177, ≥85 ans 3 736).</small>
+            <small class="guide">Manuel — 1,0 = population 65+ tout-venant nationale ; 2,3 = profil MJ observé (~60 % GIR 3-4 + facteurs de sélection) ; 3,0 = profil très fragile ciblé</small>
             <label class="auto-toggle"><input type="checkbox" id="auto-frag-mult" checked onchange="toggleSroiAuto('fragMult')"> Auto (depuis les données)</label>
           </div>
-          <input type="range" class="slider-input" id="s-frag-mult" min="1.0" max="4.0" step="0.1" value="2.5" oninput="calcSROI()">
-          <div class="slider-val" id="v-frag-mult">× 2,5</div>
+          <input type="range" class="slider-input" id="s-frag-mult" min="1.0" max="4.0" step="0.1" value="2.3" oninput="calcSROI()">
+          <div class="slider-val" id="v-frag-mult">× 2,3</div>
         </div>
       </div>
 
@@ -669,8 +669,8 @@ a:hover{text-decoration:underline}
         <div class="block-title">Efficacité ergothérapique sur le risque de chute</div>
         <div class="slider-row">
           <div class="slider-label">Réduction du risque de chute par aménagement
-            <small>Cochrane Clemson 2023 (méta-analyse de 22 essais cliniques, n = 8 463) : réduction poolée de −21 % (RaR = 0,79 [IC 95 % 0,68–0,91]) en population générale. Sur le sous-groupe « personnes à plus haut risque de chute » de la même Cochrane 2023 : réduction −38 % (RaR = 0,62 [IC 95 % 0,44–0,86]), aligné avec Stark et al. 2017 (essai HARP, personnes fragiles). En mode Auto : interpolée entre ces deux bornes selon le multiplicateur de fragilité de la population — la pop typique MJ (fragilité × 2,5) lande sur −38 %.</small>
-            <small class="guide">Manuel — 21 % = borne pooled Cochrane pop générale ; 38 % = borne pop fragile ciblée (Cochrane sous-groupe + Stark HARP)</small>
+            <small>Cochrane Clemson 2023 (méta-analyse de 22 essais cliniques, n = 8 463) : réduction poolée de −21 % (RaR = 0,79 [IC 95 % 0,68–0,91]) en population générale. Sur le sous-groupe « personnes à plus haut risque de chute » de la même Cochrane 2023 : réduction <strong>−38 %</strong> (RaR = 0,62 [IC 95 % 0,44–0,86]), aligné avec Stark et al. 2017 (essai HARP, personnes fragiles). En mode Auto : la population MJ (fragilité pondérée ≈ × 2,3) entre dans le sous-groupe « higher risk of falling » de Cochrane 2023, la borne haute −38 % est donc appliquée par défaut.</small>
+            <small class="guide">Manuel — 21 % = borne pooled Cochrane pop générale ; 38 % = borne pop fragile ciblée (Cochrane sous-groupe + Stark HARP), défaut pour la pop MJ</small>
             <label class="auto-toggle"><input type="checkbox" id="auto-reduc" checked onchange="toggleSroiAuto('reduc')"> Auto (depuis les données)</label>
           </div>
           <input type="range" class="slider-input" id="s-reduc" min="10" max="45" step="1" value="38" oninput="calcSROI()">
@@ -774,7 +774,7 @@ a:hover{text-decoration:underline}
       <div class="card">
         <div class="block-title">Sources &amp; références</div>
         <ul class="biblio-list">
-          <li>Santé publique France (2026). <em>Hospitalisations et mortalité en lien avec une chute chez les personnes de 65 ans et plus en France. Données 2014-2025.</em> <a href="https://www.santepubliquefrance.fr" target="_blank">Lien</a></li>
+          <li><strong>Santé publique France (12 mars 2026).</strong> <em>Hospitalisations et mortalité en lien avec une chute chez les personnes de 65 ans et plus en France. Données 2015-2024.</em> Bulletin national. Taux standardisés d'hospitalisation 2024 : 65-74 ans <strong>433</strong>/100 000 ; 75-84 ans <strong>1 177</strong>/100 000 ; ≥85 ans <strong>3 736</strong>/100 000. Total 174 824 hospitalisations et 20 148 décès en lien avec une chute chez les 65+ en 2024. <strong>Source directe des taux SpF utilisés dans le calcul.</strong> <a href="https://www.santepubliquefrance.fr/maladies-et-traumatismes/traumatismes/chute" target="_blank">Lien SpF</a></li>
           <li>Plan national antichute des personnes âgées 2022-2024, Ministère des Solidarités. <a href="https://solidarites.gouv.fr/plan-antichute-des-personnes-agees" target="_blank">Lien</a></li>
           <li>Health Data Hub. <em>Coût hospitalier de la prise en charge des fractures de l'extrémité supérieure du fémur en France :</em> 500 M€/an pour 65 000 fractures. <a href="https://www.health-data-hub.fr" target="_blank">Lien</a></li>
           <li>Assurance Maladie / Ameli. <em>Coût moyen d'une hospitalisation pour fracture du col du fémur :</em> ~9 000 €/patient. <a href="https://www.ameli.fr" target="_blank">Lien</a></li>
@@ -866,6 +866,11 @@ a:hover{text-decoration:underline}
       <div class="block-title" style="color:var(--sage)">Entrée en institution retardée</div>
       <div class="fs11 text-mid mt8" style="line-height:1.55"><strong>51 %</strong> des partenaires (18/35, enquête MJ) citent le report ou l'évitement de l'entrée en institution comme bénéfice observé. La littérature internationale documente un effet du même ordre pour les interventions ergothérapiques à domicile chez personnes fragiles (Mann et al. 1999). Le coût différentiel EHPAD vs domicile étant estimé à ~20 000 €/an, ce mécanisme représente un enjeu majeur — non monétisé ici par choix méthodologique (contrefactuel individuel difficile à établir sans essai contrôlé).</div>
       <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Un acteur de prévention essentiel dans le maintien à domicile. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
+    </div>
+
+    <div class="card">
+      <div class="block-title" style="color:var(--coral)">Chutes non graves et urgences évitées</div>
+      <div class="fs11 text-mid mt8" style="line-height:1.55">Notre calcul monétise uniquement les <strong>hospitalisations</strong> pour chute (données SpF / PMSI-MCO). Sont exclus les passages aux urgences sans admission (~300 000/an chez les 65+, coût public 150-300 €/passage) et les chutes soignées en ville (kiné, médecin traitant). Le ratio non graves/graves est de <strong>~5 pour 1</strong>. Impact d'un ajout au ratio principal : ~+3 % seulement, mais sources plus fragiles (SFMU/DREES) que Santé publique France pour les hospitalisations. Documenté ici comme <strong>plancher additionnel non chiffré</strong> — la valeur créée est encore supérieure.</div>
     </div>
   </div>
 
@@ -4616,20 +4621,27 @@ const REDUC_MIN = 0.21;
 const REDUC_MAX = 0.38;
 
 // Taux d'hospitalisation pour chute par tranche d'âge, pour 100 000 personnes / an.
-// Source : Santé publique France (BEH « Hospitalisations pour chute chez les 65+
-// 2013-2022 », édition 2024). Croissance exponentielle avec l'âge, cohérente avec
-// la littérature internationale (Bergen MMWR 2016).
-const AGE_HOSPI_RATE_PER_100K = {'60-69': 200, '70-79': 500, '80-89': 1800, '90+': 4500};
+// Source : Santé publique France — Bulletin national « Hospitalisations et mortalité
+// en lien avec une chute chez les personnes de 65 ans et plus en France. Données
+// 2015-2024. » Édition nationale du 12 mars 2026.
+// Taux standardisés 2024 SpF (référence pop 2019, âge quinquennal) :
+//   65-74 ans : 433/100 000  |  75-84 ans : 1 177/100 000  |  ≥85 ans : 3 736/100 000
+// Ventilation en tranches décennales par interpolation cohérente :
+const AGE_HOSPI_RATE_PER_100K = {'60-69': 300, '70-79': 800, '80-89': 2400, '90+': 5500};
 
 // Multiplicateur individuel de risque d'hospitalisation pour chute, selon le GIR.
 // Baseline (poids 1,0) : population 65+ tout-venant du taux SpF ci-dessus.
-// GIR 3-4 (mobiles-fragiles) : surrisque × 2,5 — profil à mobilité conservée mais
+// GIR 3-4 (mobiles-fragiles) : surrisque × 3,0 — profil à mobilité conservée mais
 // facteurs de fragilité multiples, documenté comme le plus exposé (HAS 2005,
-// Rubenstein Age & Ageing 2006). GIR 1-2 (très dépendants) : × 1,5 — moins
-// d'occasions de chute (mobilité réduite), mais chutes plus sévères et
-// hospitalisations plus fréquentes en cas d'événement. GIR 5-6 (autonomes) :
+// Rubenstein Age & Ageing 2006). La borne × 3,0 (au lieu de la moyenne
+// littérature × 2,5) est retenue pour la population MJ car l'entrée dans le
+// dispositif via orientation CD/CARSAT/bailleur/auto-orientation constitue elle-même
+// un marqueur de risque accumulé (post-évaluation APA, chute passée signalée,
+// isolement à 21 %, orientation médico-sociale). GIR 1-2 (très dépendants) :
+// × 1,5 — moins d'occasions de chute (mobilité réduite), mais chutes plus sévères
+// et hospitalisations plus fréquentes en cas d'événement. GIR 5-6 (autonomes) :
 // × 1,0 — au niveau national par tranche d'âge.
-const GIR_FRAGILITY_MULT = {g1: 1.5, g2: 1.5, g3: 2.5, g4: 2.5, g5: 1.0, g6: 1.0};
+const GIR_FRAGILITY_MULT = {g1: 1.5, g2: 1.5, g3: 3.0, g4: 3.0, g5: 1.0, g6: 1.0};
 
 // Multiplicateur de fragilité moyen de la population filtrée
 function computeFragilityMult(d) {
@@ -4653,11 +4665,15 @@ function computeHospiAttendues(d, fragMult) {
   return baseline * fragMult;
 }
 // Réduction du risque de chute, interpolée selon le profil de fragilité :
-// pop autonome (fragMult=1) → −21% (Cochrane pooled) ; pop typique MJ
-// (fragMult ≈ 2,5) → −38% (Cochrane sous-groupe haut risque + HARP).
+// pop autonome (fragMult=1) → −21% (Cochrane pooled) ; pop entrant dans le
+// sous-groupe « personnes à plus haut risque de chute » de Cochrane 2023
+// (fragMult ≥ 2,0) → −38% (RaR 0,62 [IC 95% 0,44-0,86], confirmé par
+// Stark HARP 2017). La borne haute est atteinte dès fragMult 2,0 car
+// la population MJ est déjà, à ce niveau, dans la définition du sous-groupe
+// « higher risk of falling » utilisée par Cochrane.
 function computeReduc(d) {
   const m = computeFragilityMult(d);
-  const t = Math.min(1, Math.max(0, (m - 1.0) / (2.5 - 1.0)));
+  const t = Math.min(1, Math.max(0, (m - 1.0) / (2.0 - 1.0)));
   return REDUC_MIN + (REDUC_MAX - REDUC_MIN) * t;
 }
 function toggleSroiAuto(key) {
