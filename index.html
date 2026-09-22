@@ -650,11 +650,12 @@ a:hover{text-decoration:underline}
         <div class="block-title">Hospitalisations pour chute évitées</div>
         <div class="slider-row">
           <div class="slider-label">Coût moyen d'une hospitalisation pour chute grave
-            <small><strong>Source directe :</strong> Health Data Hub — Bréban et al. (2024), <em>Coût médical direct de la prise en charge hospitalière et post-hospitalière des fractures de l'extrémité supérieure du fémur en France en 2018</em> (données SNDS exhaustives 2018, article publié 2024, référence PMC11358834). Coût médical direct complet sur l'année post-fracture : hospitalisation MCO + Soins de Suite et Réadaptation (SSR) + suivi médical (kiné, radios de contrôle, consultations spécialistes) = <strong>~17 000 €/patient</strong>. Complément Assurance Maladie (Rapport « Charges et produits » 2022) : ~9 000 € pour l'hospitalisation MCO seule. La borne 17 000 € est retenue comme référence car le mécanisme « escalade de plan APA évitée » (poche suivante) capte l'aide humaine chronique générale, pas le suivi médical post-chute — pas de double comptage.</small>
-            <small class="guide">Défaut : 17 000 € — coût médical direct complet documenté par Health Data Hub 2024 (MCO + SSR + suivi 1 an)</small>
+            <small><strong>Source directe :</strong> <strong>étude FRACTOS</strong> — Thomas T. et al. (2022), <em>The Economic Burden of Severe Osteoporotic Fractures in the French Healthcare Database: the FRACTOS Study</em>, Journal of Bone and Mineral Research 37:1811-1822. Données de l'Assurance Maladie sur <strong>356 895 patients</strong>. Coût moyen pour l'Assurance Maladie de la première année suivant une fracture grave : <strong>18 040 €</strong> — hospitalisation (10 806 €), soins de suite et réadaptation (6 744 €), kinésithérapie, transports et suivi.<br><br>
+            <strong>Pourquoi ce montant est prudent :</strong> FRACTOS porte sur les 50 ans et plus, et le coût croît avec l'âge (nos bénéficiaires ont 81 ans en moyenne). La fracture de la hanche, la plus fréquente au grand âge, coûte <strong>21 085 €</strong> la première année. Le montant s'arrête à douze mois : il ne compte ni les séquelles au-delà, ni les entrées en établissement qui suivent souvent une fracture. Ordres de grandeur convergents chez Fardellone et al. (2021, Archives of Osteoporosis 16:124) : 15 754 € pour les femmes, 18 585 € pour les hommes.</small>
+            <small class="guide">Défaut : 18 040 € — coût Assurance Maladie de la première année après fracture grave (FRACTOS 2022)</small>
           </div>
-          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="500" value="17000" oninput="calcSROI()">
-          <div class="slider-val" id="v-cout-chute">17 000 €</div>
+          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="500" value="18040" oninput="calcSROI()">
+          <div class="slider-val" id="v-cout-chute">18 040 €</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">Multiplicateur de fragilité de la population
@@ -686,22 +687,22 @@ a:hover{text-decoration:underline}
 
       <div class="card mb16">
         <div class="block-title">Aggravation du GIR évitée</div>
-        <div class="note-box mb12" style="background:var(--cream);border-left:3px solid var(--sage);padding:10px 12px;font-size:11px;line-height:1.55"><strong>Modèle en matrice de transition · </strong>Le dispositif ne remplace pas les services d'aide à domicile (SAAD), qui sont ses partenaires. Il <em>ralentit la trajectoire de dépendance</em> : chaque passage à un GIR plus lourd évité, c'est un plan APA qui n'est pas réévalué à la hausse. Le calcul applique à chaque niveau de GIR son propre taux d'aggravation annuel, sa propre réduction par l'intervention et son propre surcoût de plan — <strong>trois briques indépendamment sourcées, aucun pourcentage construit</strong> : DREES pour les taux d'aggravation, essais randomisés (CAPABLE, ABLE) pour l'effet de l'intervention, CNSA pour les plafonds APA.</div>
+        <div class="note-box mb12" style="background:var(--cream);border-left:3px solid var(--sage);padding:10px 12px;font-size:11px;line-height:1.55"><strong>Modèle en trois briques · </strong>Le dispositif ne remplace pas les services d'aide à domicile (SAAD), qui sont ses partenaires. Il <em>ralentit la trajectoire de dépendance</em> : chaque passage à un GIR plus lourd évité, c'est un plan APA qui n'est pas réévalué à la hausse, et c'est le conseil départemental qui l'économise. <strong>Périmètre restreint aux GIR 3 et 4</strong> (7 868 personnes, 60 % des bénéficiaires) : ce sont les seuls profils pour lesquels on dispose à la fois d'un taux d'aggravation publié et d'un effet mesuré par essai randomisé. Les GIR 1-2 et 5-6 sont exclus du chiffrage et documentés en qualitatif. <strong>Trois briques indépendamment sourcées, aucun pourcentage construit.</strong></div>
         <div class="slider-row">
-          <div class="slider-label">Réduction de l'aggravation du GIR (profil cœur de cible, GIR 3-4)
-            <small><strong>Sources — essais randomisés mesurant le déclin fonctionnel :</strong> <em>CAPABLE</em> (Szanton SL et al., <em>JAMA Internal Medicine</em> 2019;179(2):204-211, essai randomisé contrôlé n=300) : réduction significative du déclin des activités de la vie quotidienne, de l'ordre de <strong>30 % en relatif</strong>. <em>ABLE</em> (Gitlin LN et al., <em>JAGS</em> 2006;54(5):809-816, RCT) : réduction significative des difficultés fonctionnelles à 6 mois, effet partiellement maintenu à 12 mois (Gitlin 2009). Revue systématique Steultjens EMJ et al. (<em>Age &amp; Ageing</em> 2004;33(5):453-460) confirmant l'effet de l'ergothérapie à domicile.<br><br>
-            <strong>Modulation par profil</strong> (ratios conservés quand le curseur bouge) : GIR 3-4 (cœur de cible des essais) = valeur du curseur ; GIR 5-6 (prévention primaire, effet plus modeste) = 25/30 de cette valeur ; GIR 1-2 (l'AT est complémentaire de l'aide humaine plutôt que substitutive à ce niveau, Agree &amp; Freedman 2000) = 15/30.<br><br>
-            <strong>Hypothèse de transposition déclarée :</strong> ces essais mesurent un score fonctionnel (ADL/IADL), non une transition de GIR. La conversion suppose que le GIR est une fonction monotone du score fonctionnel — plausible, la grille AGGIR reposant largement sur les activités de la vie quotidienne, mais non démontrée.<br><br>
+          <div class="slider-label">Réduction de l'aggravation du GIR
+            <small><strong>Source — essai randomisé CAPABLE :</strong> Szanton SL et al. (2019), <em>Effect of a Biobehavioral Environmental Approach on Disability Among Low-Income Older Adults</em>, JAMA Internal Medicine 179(2):204-211. Intervention combinant ergothérapeute, aménagement et aides techniques au domicile : le score de dépendance est <strong>30 % plus bas</strong> dans le groupe accompagné (risque relatif 0,70).<br><br>
+            <strong>Convergence :</strong> essai ABLE (Gitlin LN et al., <em>JAGS</em> 2006;54(5):809-816), effet à long terme sur la mortalité confirmé (Gitlin 2009, JAGS 57(3):476-481), revue systématique Steultjens EMJ et al. (<em>Age &amp; Ageing</em> 2004;33(5):453-460).<br><br>
+            <strong>Hypothèse de transposition déclarée :</strong> CAPABLE mesure un score de dépendance, pas directement des changements de GIR. La grille AGGIR reposant sur les mêmes activités de la vie quotidienne, la transposition est plausible, mais c'est une hypothèse. Avec un effet divisé par deux (15 %), le ratio tomberait à 2,54.<br><br>
             <strong>Source délibérément écartée :</strong> Mann et al. 1999 (<em>Archives of Family Medicine</em>), qui mesure une réduction de 33 % des <em>coûts d'aide à domicile</em> aux États-Unis — objet différent (des coûts, non un taux d'aggravation) dans un système de santé non transposable au dispositif APA français.</small>
-            <small class="guide">Défaut : 30 % — valeur centrale CAPABLE pour le profil GIR 3-4</small>
+            <small class="guide">Défaut : 30 % — risque relatif 0,70 mesuré par l'essai CAPABLE</small>
           </div>
           <input type="range" class="slider-input" id="s-reduc-aggrav" min="10" max="50" step="1" value="30" oninput="calcSROI()">
           <div class="slider-val" id="v-reduc-aggrav">30 %</div>
         </div>
         <div class="fs11 text-mid mt12" style="line-height:1.6;background:var(--cream);padding:10px 12px;border-radius:6px">
-          <strong>Taux annuels d'aggravation appliqués</strong> (DREES, Fizzala 2016, ER n° 964) : GIR 6→5 : 7 % · GIR 5→4 <em>(entrée en APA)</em> : 10 % · GIR 4→3 : 13 % · GIR 3→2 : 25 % · GIR 2→1 : 18 %.<br>
-          <strong>Surcoûts annuels du plan APA</strong> (plafonds CNSA) : GIR 6→5 : 1 800 € · GIR 5→4 : 9 156 € <em>(plan complet)</em> · GIR 4→3 : 4 560 € · GIR 3→2 : 5 256 € · GIR 2→1 : 4 500 €.<br>
-          <span class="text-light">Point de vérification signalé : la périodicité annuelle des taux DREES reste à confirmer sur la publication source.</span>
+          <strong>Brique 1 — Taux annuel d'aggravation : 16 %</strong> <span class="text-light">(DREES, Debout 2010, Études et Résultats n° 724)</span>. Parmi les personnes entrées en GIR 4 à domicile, 10 % passent en GIR 3 et 6 % en GIR 2 un an plus tard. <em>Hypothèse signalée : ce taux mesuré sur les GIR 4 est aussi appliqué aux GIR 3, faute de taux publié pour eux.</em><br><br>
+          <strong>Brique 3 — Surcoût annuel du plan APA</strong> <span class="text-light">(DREES, plans d'aide réellement notifiés par GIR, revalorisés en euros 2026)</span> : quitter le GIR 4 → <strong>5 980 €/an</strong> (vers GIR 3 dans 10 cas sur 16 à +366 €/mois, vers GIR 2 dans 6 cas sur 16 à +719 €/mois) · passer du GIR 3 au GIR 2 → <strong>4 243 €/an</strong>. Moyenne pondérée ≈ 5 340 €.<br><br>
+          <strong>Pourquoi les plans notifiés et pas les plafonds ?</strong> Le plafond est le maximum légal, que moins d'un plan sur huit atteignait en 2017. Le plan notifié est ce que le département accorde réellement : c'est la dépense qu'il engage quand une personne change de GIR. Avec les plafonds, le ratio monterait à 3,36 mais surévaluerait la dépense évitée.
         </div>
       </div>
 
@@ -4690,30 +4691,42 @@ function computeHospiAttendues(d, fragMult) {
 //  (essais randomisés CAPABLE / ABLE), surcoût du plan APA (CNSA).
 // ════════════════════════════════════════
 
-// Brique 1 — Taux annuel d'aggravation du GIR à domicile.
-// Source : DREES, Fizzala A. (2016), « L'évolution de la dépendance des
-// bénéficiaires de l'APA à domicile », Études et Résultats n° 964.
-// NB : la périodicité annuelle de ces taux reste à confirmer sur la
-// publication source — point de vérification prioritaire du modèle.
-const GIR_AGGRAV_RATE = {g6: 0.07, g5: 0.10, g4: 0.13, g3: 0.25, g2: 0.18, g1: 0};
+// PÉRIMÈTRE : l'effet n'est compté que pour les GIR 3 et 4 — les seuls profils
+// pour lesquels on dispose à la fois d'un taux d'aggravation publié et d'un
+// effet mesuré par essai randomisé. Les GIR 1-2 et 5-6 sont exclus du calcul
+// et documentés en qualitatif.
 
-// Brique 2 — Réduction de l'aggravation par l'intervention ergothérapique,
-// modulée par profil. Sources : CAPABLE (Szanton et al., JAMA Internal
-// Medicine 2019, RCT n=300, −30 % de déclin fonctionnel), ABLE (Gitlin et al.,
-// JAGS 2006, RCT), revue systématique Steultjens et al. (Age & Ageing 2004).
-// GIR 3-4 = cœur de cible des essais ; GIR 5-6 = prévention primaire, effet
-// plus modeste ; GIR 1-2 = l'AT est complémentaire de l'aide humaine plutôt
-// que substitutive à ce niveau de dépendance (Agree & Freedman 2000).
+// Brique 1 — Taux annuel d'aggravation du GIR à domicile.
+// Source : DREES, Debout C. (2010), « La durée de perception de l'APA »,
+// Études et Résultats n° 724. Parmi les personnes entrées en GIR 4 à domicile,
+// 10 % sont passées en GIR 3 et 6 % en GIR 2 un an plus tard, soit 16 % au
+// total. Hypothèse de transposition signalée : ce taux mesuré sur les GIR 4
+// est également appliqué aux GIR 3, faute de taux annuel publié pour eux.
+const GIR_AGGRAV_RATE = {g4: 0.16, g3: 0.16};
+
+// Brique 2 — Réduction de l'aggravation par l'intervention ergothérapique.
+// Source : essai randomisé CAPABLE (Szanton et al., JAMA Internal Medicine
+// 2019;179(2):204-211) — le score de dépendance est 30 % plus bas dans le
+// groupe accompagné (risque relatif 0,70). Convergent avec ABLE (Gitlin et
+// al., JAGS 2006) et la revue Steultjens et al. (Age & Ageing 2004).
+// Hypothèse de transposition signalée : CAPABLE mesure un score de dépendance,
+// pas directement des changements de GIR ; la grille AGGIR reposant sur les
+// mêmes activités de la vie quotidienne, la transposition est plausible.
 // Mann et al. 1999 est délibérément écarté de cette calibration : il mesure
 // une réduction de coûts d'aide à domicile aux États-Unis, non un taux
 // d'aggravation fonctionnelle, et n'est pas transposable au système APA.
-const GIR_REDUC_AGGRAV = {g6: 0.25, g5: 0.25, g4: 0.30, g3: 0.30, g2: 0.15, g1: 0.15};
+const GIR_REDUC_AGGRAV = {g4: 0.30, g3: 0.30};
 
 // Brique 3 — Surcoût annuel du plan APA au GIR supérieur.
-// Source : CNSA, plafonds mensuels de l'APA par GIR (revalorisés annuellement).
-// GIR 1 : 1 956 €/mois · GIR 2 : 1 581 € · GIR 3 : 1 143 € · GIR 4 : 763 €.
-// GIR 5-6 : hors APA, relève de l'action sociale des caisses de retraite.
-const GIR_SURCOUT_APA = {g6: 1800, g5: 9156, g4: 4560, g3: 5256, g2: 4500, g1: 0};
+// Source : DREES, « L'aide et l'action sociales en France », fiche APA —
+// montants des plans d'aide RÉELLEMENT NOTIFIÉS par les départements (et non
+// les plafonds légaux, que moins d'un plan sur huit atteint). Montants 2017
+// convertis en euros 2026 via la hausse des plafonds légaux (+22 %) :
+// GIR 2 : 1 170 €/mois · GIR 3 : 817 €/mois · GIR 4 : 451 €/mois.
+// Quitter le GIR 4 mène vers le GIR 3 dans 10 cas sur 16 (+366 €/mois) et vers
+// le GIR 2 dans 6 cas sur 16 (+719 €/mois), soit 5 980 €/an en moyenne.
+// Passer du GIR 3 au GIR 2 : +353 €/mois, soit 4 243 €/an.
+const GIR_SURCOUT_APA = {g4: 5980, g3: 4243};
 
 // Facteur d'atténuation de l'effet par ancienneté de cohorte (indice 0 = année
 // de l'intervention). Les essais CAPABLE et ABLE mesurent leur effet à 6-12
@@ -4725,8 +4738,11 @@ const AGGRAV_DECAY = [1.0, 0.8, 0.6, 0.45, 0.35, 0.25, 0.20, 0.15];
 // La composition GIR observée est extrapolée à la file complète.
 function computeAggravAnnuelle(d, reducScale) {
   const g = d.gir || {};
+  // Le dénominateur d'extrapolation porte sur TOUS les GIR renseignés, et non
+  // sur les seuls GIR du périmètre de calcul : la composition observée est
+  // extrapolée à la file complète avant d'appliquer le périmètre GIR 3-4.
   let den = 0;
-  for (const k in GIR_AGGRAV_RATE) den += (g[k] || 0);
+  for (const k of ['g1','g2','g3','g4','g5','g6']) den += (g[k] || 0);
   if (den === 0) return {euros: 0, nb: 0};
   const scale = d.benef / den;
   let euros = 0, nb = 0;
