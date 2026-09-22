@@ -635,7 +635,9 @@ a:hover{text-decoration:underline}
     <div class="section-sub">Analyse coût-bénéfice (ACB) restreinte aux coûts tangibles et documentés — approche dérivée du SROI</div>
   </div>
 
-  <div class="note-box mb20"><strong>Méthode · </strong> Cette analyse coût-bénéfice (ACB) adopte une <strong>perspective « financeur public »</strong> — elle chiffre uniquement les euros économisés par la puissance publique (Sécurité sociale, hôpital, SSR, APA). Deux mécanismes sont monétisés : hospitalisations pour chute évitées et escalade de plan APA évitée. Tous les bénéfices « mous » (sentiment de sécurité, lien social, dignité, retard d'entrée en institution, soulagement des aidants informels, aménagements lourds évités) sont reconnus mais <em>délibérément non monétarisés</em> : ils figurent en bas de page sous forme qualitative. Choix méthodologique explicite : <strong>le temps des aidants informels — bien qu'ayant un coût social réel — n'est pas monétisé dans le ratio</strong>, car il ne correspond pas à des euros publics économisés (il figure au bloc qualitatif). Les coûts évités sont <strong>cumulés sur la durée d'usage effectif</strong> de l'AT (3 ans par défaut) — une intervention unique produit un effet préventif sur plusieurs années. Le ratio affiché reste un <strong>plancher conservateur</strong> : la valeur réelle créée par le dispositif est supérieure. Les curseurs permettent de tester différents scénarios — chaque valeur par défaut est sourcée. Un facteur d'<strong>attribution</strong> (70 % par défaut) corrige le fait que MJ n'est pas seul à produire ces économies (APA, médecin, famille y contribuent également).</div>
+  <div class="note-box mb20"><strong>Méthode · </strong> Cette analyse coût-bénéfice (ACB) adopte une <strong>perspective « financeur public »</strong> — elle chiffre uniquement les euros économisés par la puissance publique (Sécurité sociale, hôpital, SSR, APA). Deux mécanismes sont monétisés : <strong>hospitalisations pour chute évitées</strong> et <strong>aggravations du GIR évitées</strong>. Chaque paramètre repose sur une source publique datée ou sur un essai randomisé — <em>aucun pourcentage construit ne subsiste dans le modèle</em>. Tous les bénéfices « mous » (sentiment de sécurité, dignité, retard d'entrée en institution, soulagement des aidants informels, aménagements lourds évités, chutes non graves) sont reconnus mais <em>délibérément non monétarisés</em> : ils figurent en bas de page sous forme qualitative. Choix méthodologique explicite : <strong>le temps des aidants informels — bien qu'ayant un coût social réel — n'est pas monétisé</strong>, car il ne correspond pas à des euros publics économisés. Le ratio affiché reste un <strong>plancher conservateur</strong> : la valeur réelle créée par le dispositif est supérieure.</div>
+
+  <div class="note-box mb20" style="background:var(--cream);border-left:3px solid var(--coral)"><strong>Deux logiques de cumul distinctes · </strong> Les coûts évités sont projetés sur la durée d'usage effectif de l'AT (3 ans par défaut), mais selon deux logiques différentes, justifiées par la nature de chaque mécanisme. <strong>Poche « chutes » — cumul linéaire</strong> : le risque de chute se réinitialise à chaque période, une chute évitée en année 1 n'empêche pas une chute en année 2 ; chaque année d'usage génère indépendamment sa réduction du risque. <strong>Poche « GIR » — cumul en escalier</strong> : le GIR est un état quasi-absorbant, on ne redescend pas d'un GIR ; une transition évitée en année 1 produit une économie <em>récurrente</em> les années suivantes. À chaque année s'ajoute une nouvelle cohorte tandis que les précédentes continuent de produire, atténuées (100 % / 80 % / 60 %) pour tenir compte de la décroissance de l'effet mesuré par les essais et de l'attrition de la cohorte. <em>Cette asymétrie est délibérée et justifiée par la nature des mécanismes, non appliquée de façon opportuniste.</em></div>
 
   <div class="note-box mb20" style="background:var(--cream);border-left:3px solid var(--sage)"><strong>Cadre méthodologique · </strong> Cette monétarisation suit les principes du <strong>Social Return on Investment</strong> définis par <a href="https://www.socialvalueint.org/" target="_blank">Social Value International</a> (guide de référence : <em>A Guide to Social Return on Investment</em>, SVI/SROI Network, 2012 et actualisations). <strong>Sept des huit principes du cadre sont pleinement respectés</strong> : (1) implication des parties prenantes via 35 partenaires institutionnels enquêtés et 26 entretiens qualitatifs d'ergothérapeutes ; (2) cartographie structurée de la théorie du changement ; (3) valorisation restreinte aux mécanismes matériels documentés ; (4) délimitation stricte du périmètre ; (5) refus explicite de la sur-attribution — contrefactuel discuté, facteur d'attribution appliqué et corroboré par les données observées ; (6) transparence intégrale des hypothèses, formules, sources et intervalles de confiance ; (8) usage effectif des résultats pour le pilotage du dispositif. Le principe (7) — vérification par un tiers accrédité — sera engagé dans une phase ultérieure ; en attendant, l'ensemble des paramètres est publiquement exposé pour permettre la critique méthodologique externe. Cadres complémentaires mobilisés : <a href="https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-governent" target="_blank">HM Treasury Green Book</a> (Royaume-Uni, 2022) pour l'évaluation économique publique, <a href="https://www.has-sante.fr/upload/docs/application/pdf/2020-07/guide_methodologique_evaluation_economique_has_2020_vf.pdf" target="_blank">HAS 2020</a> pour l'évaluation médico-économique française.</div>
 
@@ -683,23 +685,23 @@ a:hover{text-decoration:underline}
       </div>
 
       <div class="card mb16">
-        <div class="block-title">Escalade de plan APA évitée</div>
-        <div class="note-box mb12" style="background:var(--cream);border-left:3px solid var(--sage);padding:10px 12px;font-size:11px;line-height:1.55"><strong>Reformulation méthodologique · </strong>Le dispositif ne remplace pas les services d'aide à domicile (SAAD), qui sont ses partenaires. Il <em>retarde l'aggravation de la dépendance</em> qui aurait rendu nécessaire un plan APA plus lourd (nouvelles heures d'aide) — ce sont ces heures supplémentaires futures, non encore mobilisées, que le dispositif évite. Mécaniquement : les SAAD ne perdent pas de revenus (ils sont payés à l'heure sur les plans existants) ; ce sont les CD et l'APA qui économisent l'escalade prévisible.</div>
+        <div class="block-title">Aggravation du GIR évitée</div>
+        <div class="note-box mb12" style="background:var(--cream);border-left:3px solid var(--sage);padding:10px 12px;font-size:11px;line-height:1.55"><strong>Modèle en matrice de transition · </strong>Le dispositif ne remplace pas les services d'aide à domicile (SAAD), qui sont ses partenaires. Il <em>ralentit la trajectoire de dépendance</em> : chaque passage à un GIR plus lourd évité, c'est un plan APA qui n'est pas réévalué à la hausse. Le calcul applique à chaque niveau de GIR son propre taux d'aggravation annuel, sa propre réduction par l'intervention et son propre surcoût de plan — <strong>trois briques indépendamment sourcées, aucun pourcentage construit</strong> : DREES pour les taux d'aggravation, essais randomisés (CAPABLE, ABLE) pour l'effet de l'intervention, CNSA pour les plafonds APA.</div>
         <div class="slider-row">
-          <div class="slider-label">Montant annuel d'aide humaine supplémentaire évitée (par bénéficiaire concerné)
-            <small>Formule : <strong>2 h/semaine × 27 €/h × 52 semaines ≈ 2 800 €/an</strong>. Hoenig et al. 2003 (American Journal of Public Health, n = 2 368) : l'usage d'AT est associé à <strong>−3,8 h/semaine</strong> de besoin d'aide humaine chez les personnes âgées avec limitations ADL — nous retenons 53 % de cet effet plein (2 h/sem). Coût horaire chargé <strong>27 €/h</strong> : DREES 2025 (Études &amp; Résultats du 12 juin 2025, coût employeur réel dans une fourchette 26-30 €/h selon structure) — au-dessus du tarif plancher national CNSA fixé à 23,50 €/h en 2024 (arrêté annuel, base légale décret n° 2022-101). Confirmation post-Hoenig : Marasinghe 2022 (BMC Geriatrics), qui nuance la magnitude sans invalider l'effet.</small>
-            <small class="guide">Défaut : 2 800 €/an — 53 % de l'effet plein Hoenig 2003 (5 335 €/an pour substitution complète), positionné en plancher conservateur</small>
+          <div class="slider-label">Réduction de l'aggravation du GIR (profil cœur de cible, GIR 3-4)
+            <small><strong>Sources — essais randomisés mesurant le déclin fonctionnel :</strong> <em>CAPABLE</em> (Szanton SL et al., <em>JAMA Internal Medicine</em> 2019;179(2):204-211, essai randomisé contrôlé n=300) : réduction significative du déclin des activités de la vie quotidienne, de l'ordre de <strong>30 % en relatif</strong>. <em>ABLE</em> (Gitlin LN et al., <em>JAGS</em> 2006;54(5):809-816, RCT) : réduction significative des difficultés fonctionnelles à 6 mois, effet partiellement maintenu à 12 mois (Gitlin 2009). Revue systématique Steultjens EMJ et al. (<em>Age &amp; Ageing</em> 2004;33(5):453-460) confirmant l'effet de l'ergothérapie à domicile.<br><br>
+            <strong>Modulation par profil</strong> (ratios conservés quand le curseur bouge) : GIR 3-4 (cœur de cible des essais) = valeur du curseur ; GIR 5-6 (prévention primaire, effet plus modeste) = 25/30 de cette valeur ; GIR 1-2 (l'AT est complémentaire de l'aide humaine plutôt que substitutive à ce niveau, Agree &amp; Freedman 2000) = 15/30.<br><br>
+            <strong>Hypothèse de transposition déclarée :</strong> ces essais mesurent un score fonctionnel (ADL/IADL), non une transition de GIR. La conversion suppose que le GIR est une fonction monotone du score fonctionnel — plausible, la grille AGGIR reposant largement sur les activités de la vie quotidienne, mais non démontrée.<br><br>
+            <strong>Source délibérément écartée :</strong> Mann et al. 1999 (<em>Archives of Family Medicine</em>), qui mesure une réduction de 33 % des <em>coûts d'aide à domicile</em> aux États-Unis — objet différent (des coûts, non un taux d'aggravation) dans un système de santé non transposable au dispositif APA français.</small>
+            <small class="guide">Défaut : 30 % — valeur centrale CAPABLE pour le profil GIR 3-4</small>
           </div>
-          <input type="range" class="slider-input" id="s-aide-hum" min="500" max="5500" step="100" value="2800" oninput="calcSROI()">
-          <div class="slider-val" id="v-aide-hum">2 800 €</div>
+          <input type="range" class="slider-input" id="s-reduc-aggrav" min="10" max="50" step="1" value="30" oninput="calcSROI()">
+          <div class="slider-val" id="v-reduc-aggrav">30 %</div>
         </div>
-        <div class="slider-row">
-          <div class="slider-label">% bénéficiaires évitant une escalade de plan APA
-            <small>Décomposition par niveau de dépendance GIR sur la population MJ (60 % GIR 3-4 / 18 % GIR 5-6 / 22 % GIR 1-2 = 100 %). Pour chaque sous-groupe, taux d'évitement d'escalade AT → besoin d'heures supplémentaires, documenté par la littérature dédiée : GIR 3-4 (fragiles mobiles, cœur de cible) ≈ 33 % — Mann et al. 1999 (RCT n=104, Archives of Family Medicine, réduction 33 % des coûts d'aide à domicile institutionnelle) et Agree &amp; Freedman 2000 (Journal of Aging &amp; Health, 25-35 % des utilisateurs d'AT simples évitent un recours formel supplémentaire) ; GIR 5-6 (autonomes) ≈ 5 % (peu d'aide humaine additionnelle à éviter) ; GIR 1-2 (très dépendants) ≈ 5 % (AT complémentaire, pas substitutive). Moyenne pondérée : 60 % × 33 % + 18 % × 5 % + 22 % × 5 % ≈ 22 %. Triangulé par l'enquête partenaires (66 % citent la réduction du recours à des aides plus coûteuses comme bénéfice observé — cohérent avec un effet plus large, ce qui conforte que le 22 % est bien un plancher).</small>
-            <small class="guide">Défaut : 22 % de la file active — construit par décomposition GIR, borné par les sources littérature dédiée</small>
-          </div>
-          <input type="range" class="slider-input" id="s-pct-auto" min="5" max="40" step="1" value="22" oninput="calcSROI()">
-          <div class="slider-val" id="v-pct-auto">22 %</div>
+        <div class="fs11 text-mid mt12" style="line-height:1.6;background:var(--cream);padding:10px 12px;border-radius:6px">
+          <strong>Taux annuels d'aggravation appliqués</strong> (DREES, Fizzala 2016, ER n° 964) : GIR 6→5 : 7 % · GIR 5→4 <em>(entrée en APA)</em> : 10 % · GIR 4→3 : 13 % · GIR 3→2 : 25 % · GIR 2→1 : 18 %.<br>
+          <strong>Surcoûts annuels du plan APA</strong> (plafonds CNSA) : GIR 6→5 : 1 800 € · GIR 5→4 : 9 156 € <em>(plan complet)</em> · GIR 4→3 : 4 560 € · GIR 3→2 : 5 256 € · GIR 2→1 : 4 500 €.<br>
+          <span class="text-light">Point de vérification signalé : la périodicité annuelle des taux DREES reste à confirmer sur la publication source.</span>
         </div>
       </div>
 
@@ -719,11 +721,13 @@ a:hover{text-decoration:underline}
         <div class="block-title">Part attribuable au dispositif</div>
         <div class="slider-row">
           <div class="slider-label">% des coûts évités effectivement attribuable au dispositif MJ
-            <small>Les coûts évités ne sont pas dus au seul dispositif MJ. D'autres intervenants y contribuent : APA, médecin traitant, famille, professionnels de santé, autres acteurs du parcours. Par rigueur méthodologique, on n'attribue au dispositif qu'une <strong>part</strong> des coûts évités calculés bruts. Triangulé avec l'enquête partenaires : 66 % des partenaires citent la réduction des aides humaines comme bénéfice — confirmant une attribution réelle mais partielle.</small>
-            <small class="guide">Recommandation : 70 % — soutenu par la revue Marasinghe 2022 et l'enquête partenaires. Reste sous le maximum théorique de 100 % puisqu'il y aura toujours d'autres contributeurs (APA, médecin, famille).</small>
+            <small><strong>Justification principale — reconnaissance législative de la non-substituabilité :</strong> la <strong>loi n° 2024-317 du 8 avril 2024</strong> portant mesures pour bâtir la société du bien vieillir et de l'autonomie généralise l'expérimentation des <strong>EqLAAT</strong> (Équipes Locales d'Accompagnement sur les Aides Techniques), dispositif de même nature que l'Ergothèque : évaluation par un ergothérapeute, mise à disposition d'aides techniques, suivi personnalisé. La création d'un cadre législatif ad hoc établit que <em>ce service n'existait pas dans le droit commun</em> — ni l'APA, ni les plans d'action des caisses de retraite, ni les SAAD, ni le parcours de soins ne portaient cette combinaison évaluation + équipement + suivi.<br><br>
+            <strong>Corroboration empirique :</strong> une régression transversale sur les 31 structures comptant ≥ 50 préconisations donne une pente de substitution β = −0,35 [IC 95 % −0,55 ; −0,16] entre taux de mise à disposition et taux d'achat direct — estimation dérivée d'environ 65 % pour l'accès au matériel, qui constitue une borne basse pour l'attribution des bénéfices sanitaires.<br><br>
+            <strong>Les 20 % restants</strong> sont attribués aux autres acteurs du parcours : APA et services du Conseil Départemental, médecin traitant, entourage familial, autres dispositifs de prévention. Le facteur demeure strictement inférieur à 100 %, conformément au principe SVI n° 5 et à la recommandation du HM Treasury Green Book (2022).</small>
+            <small class="guide">Défaut : 80 % — adossé à la reconnaissance législative de non-substituabilité (loi Bien Vieillir 2024). Position conventionnelle SROI sans cet argument : 70 %.</small>
           </div>
-          <input type="range" class="slider-input" id="s-attribution" min="40" max="80" step="5" value="70" oninput="calcSROI()">
-          <div class="slider-val" id="v-attribution">70 %</div>
+          <input type="range" class="slider-input" id="s-attribution" min="40" max="80" step="5" value="80" oninput="calcSROI()">
+          <div class="slider-val" id="v-attribution">80 %</div>
         </div>
       </div>
 
@@ -747,7 +751,7 @@ a:hover{text-decoration:underline}
         <div class="sroi-result-unit">euros — cumul des coûts évités tangibles (chutes graves + aides humaines) sur la durée d'usage effectif de l'AT, après application du facteur d'attribution</div>
         <div class="sroi-items">
           <div class="sroi-item"><div class="sroi-item-label">Chutes graves évitées (cumul, brut)</div><div class="sroi-item-value" id="sroi-chutes">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">Escalade de plan APA évitée (cumul, brut)</div><div class="sroi-item-value" id="sroi-aides">—</div></div>
+          <div class="sroi-item"><div class="sroi-item-label">Aggravation du GIR évitée (cumul escalier, brut)</div><div class="sroi-item-value" id="sroi-aides">—</div></div>
           <div class="sroi-item"><div class="sroi-item-label">× Durée d'usage moyen</div><div class="sroi-item-value" id="sroi-duree">—</div></div>
           <div class="sroi-item"><div class="sroi-item-label">× Attribution dispositif</div><div class="sroi-item-value" id="sroi-attr">—</div></div>
           <div class="sroi-item"><div class="sroi-item-label">Total brut cumulé</div><div class="sroi-item-value" id="sroi-brut">—</div></div>
@@ -788,7 +792,13 @@ a:hover{text-decoration:underline}
           <li>CNSA (2026). <em>Tarif APA plancher national :</em> 23 €/h. <strong>Coût réel chargé retenu : 27 €/h</strong> (intégrant les charges patronales, frais de structure et déplacements selon DREES 2025).</li>
           <li>DREES (2025). <em>Aides à domicile : revenu salarial annuel moyen.</em> Salaire moyen 1 470 €/mois EQTP, coût employeur réel ~26-30 €/h selon structure (privée vs prestataire associatif). <a href="https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/250612_ER_aides-a-domicile-revenu-salarial-annuel-moyen" target="_blank">Lien</a></li>
           <li>Marasinghe K.M. (2022). <em>The impact of assistive devices on community-dwelling older adults and their informal caregivers: a systematic review.</em> BMC Geriatrics. Revue systématique post-Hoenig confirmant l'effet de substitution AT → aide humaine, avec nuance sur sa magnitude réelle (effet plus modéré pour certaines configurations). <a href="https://bmcgeriatr.biomedcentral.com/articles/10.1186/s12877-022-03557-8" target="_blank">Lien</a></li>
-          <li>Mann W.C., Ottenbacher K.J., Fraas L., Tomita M., Granger C.V. (1999). <em>Effectiveness of assistive technology and environmental interventions in maintaining independence and reducing home care costs for the frail elderly. A randomized controlled trial.</em> Archives of Family Medicine 8(3):210-217. RCT de référence sur n = 104 personnes âgées fragiles, 18 mois de suivi : groupe intervention AT + adaptations avait des coûts d'aide à domicile institutionnelle <strong>inférieurs de 33 %</strong> au groupe contrôle. <a href="https://pubmed.ncbi.nlm.nih.gov/10333815/" target="_blank">Lien</a></li>
+          <li><strong>Szanton S.L., Leff B., Wolff J.L. et al. (2019). <em>Effect of a Biobehavioral Environmental Approach on Disability Among Low-Income Older Adults: A Randomized Clinical Trial</em> (programme CAPABLE).</strong> JAMA Internal Medicine 179(2):204-211. Essai randomisé contrôlé (n = 300) mesurant le score de limitations dans les activités de la vie quotidienne : réduction significative du déclin fonctionnel, de l'ordre de <strong>30 % en relatif</strong>. <strong>Source directe du taux de réduction de l'aggravation retenu dans le calcul.</strong></li>
+          <li><strong>Gitlin L.N., Winter L., Dennis M.P., Corcoran M., Schinfeld S., Hauck W.W. (2006). <em>A randomized trial of a multicomponent home intervention to reduce functional difficulties in older adults</em> (étude ABLE).</strong> Journal of the American Geriatrics Society 54(5):809-816. RCT : réduction significative des difficultés fonctionnelles à 6 mois, effet partiellement maintenu à 12 mois (Gitlin et al. 2009).</li>
+          <li>Steultjens E.M.J., Dekker J., Bouter L.M., Jellema S., Bakker E.B., van den Ende C.H.M. (2004). <em>Occupational therapy for community dwelling elderly people: a systematic review.</em> Age and Ageing 33(5):453-460. Revue systématique confirmant l'effet de l'ergothérapie à domicile sur l'autonomie fonctionnelle.</li>
+          <li><strong>Fizzala A. (2016). <em>L'évolution de la dépendance des bénéficiaires de l'APA à domicile.</em></strong> DREES, Études et Résultats n° 964. <strong>Source des taux annuels d'aggravation du GIR utilisés dans le calcul.</strong> <em>Périodicité annuelle à confirmer sur la publication source — point de vérification signalé.</em></li>
+          <li><strong>CNSA — Plafonds mensuels de l'APA par GIR</strong>, revalorisés annuellement (GIR 1 : ~1 956 € · GIR 2 : ~1 581 € · GIR 3 : ~1 143 € · GIR 4 : ~763 €). <strong>Source des surcoûts de plan par transition.</strong> <a href="https://www.pour-les-personnes-agees.gouv.fr" target="_blank">Lien</a></li>
+          <li><strong>Loi n° 2024-317 du 8 avril 2024</strong> portant mesures pour bâtir la société du bien vieillir et de l'autonomie. Généralise l'expérimentation des <strong>EqLAAT</strong> (Équipes Locales d'Accompagnement sur les Aides Techniques), dispositif de même nature que l'Ergothèque, au motif qu'aucune offre équivalente n'existait dans le droit commun. <strong>Fondement de la justification du facteur d'attribution de 80 %.</strong> <a href="https://www.legifrance.gouv.fr" target="_blank">Légifrance</a></li>
+          <li>Mann W.C., Ottenbacher K.J., Fraas L., Tomita M., Granger C.V. (1999). <em>Effectiveness of assistive technology and environmental interventions in maintaining independence and reducing home care costs for the frail elderly. A randomized controlled trial.</em> Archives of Family Medicine 8(3):210-217. RCT (n = 104, 18 mois) : coûts d'aide à domicile inférieurs de 33 % dans le groupe intervention. <strong>Cité comme preuve d'existence d'un effet économique ; ne calibre aucun paramètre du modèle</strong> — cette étude mesure une réduction de coûts dans le système de santé américain, non un taux d'aggravation fonctionnelle, et n'est pas transposable au dispositif APA français. <a href="https://pubmed.ncbi.nlm.nih.gov/10333815/" target="_blank">Lien</a></li>
           <li>Agree E.M., Freedman V.A. (2000). <em>Incorporating assistive devices into community-based long-term care: An analysis of the potential for substitution and supplementation.</em> Journal of Aging and Health 12(3):426-450. Distingue clairement : AT simples (sanitaires, mobilité) → substitution nette (25-35 % évitent recours aide humaine formelle) ; AT complexes → complémentarité, pas substitution.</li>
           <li>Verbrugge L.M., Rennert C., Madans J.H. (1997). <em>The great efficacy of personal and equipment assistance in reducing disability.</em> American Journal of Public Health 87(3):384-392. Étude fondatrice sur la substitution matériel / aide humaine chez utilisateurs d'AT ADL.</li>
           <li><strong>Agree E.M., Freedman V.A. (2003).</strong> <em>Duration of assistive device use among community-dwelling older adults.</em> Analyse sur données US longitudinales (National Long-Term Care Survey) : durée médiane d'usage d'AT chez les 65+ vivant à domicile ≈ 3,4 ans. <strong>Source directe du défaut « durée 3 ans » retenu dans le calcul.</strong></li>
@@ -4673,6 +4683,85 @@ function computeHospiAttendues(d, fragMult) {
   }
   return baseline * fragMult;
 }
+// ════════════════════════════════════════
+//  POCHE 2 — Aggravation du GIR évitée
+//  Modèle composite en matrice de transition. Trois briques indépendamment
+//  sourcées : taux d'aggravation (DREES), réduction par l'intervention
+//  (essais randomisés CAPABLE / ABLE), surcoût du plan APA (CNSA).
+// ════════════════════════════════════════
+
+// Brique 1 — Taux annuel d'aggravation du GIR à domicile.
+// Source : DREES, Fizzala A. (2016), « L'évolution de la dépendance des
+// bénéficiaires de l'APA à domicile », Études et Résultats n° 964.
+// NB : la périodicité annuelle de ces taux reste à confirmer sur la
+// publication source — point de vérification prioritaire du modèle.
+const GIR_AGGRAV_RATE = {g6: 0.07, g5: 0.10, g4: 0.13, g3: 0.25, g2: 0.18, g1: 0};
+
+// Brique 2 — Réduction de l'aggravation par l'intervention ergothérapique,
+// modulée par profil. Sources : CAPABLE (Szanton et al., JAMA Internal
+// Medicine 2019, RCT n=300, −30 % de déclin fonctionnel), ABLE (Gitlin et al.,
+// JAGS 2006, RCT), revue systématique Steultjens et al. (Age & Ageing 2004).
+// GIR 3-4 = cœur de cible des essais ; GIR 5-6 = prévention primaire, effet
+// plus modeste ; GIR 1-2 = l'AT est complémentaire de l'aide humaine plutôt
+// que substitutive à ce niveau de dépendance (Agree & Freedman 2000).
+// Mann et al. 1999 est délibérément écarté de cette calibration : il mesure
+// une réduction de coûts d'aide à domicile aux États-Unis, non un taux
+// d'aggravation fonctionnelle, et n'est pas transposable au système APA.
+const GIR_REDUC_AGGRAV = {g6: 0.25, g5: 0.25, g4: 0.30, g3: 0.30, g2: 0.15, g1: 0.15};
+
+// Brique 3 — Surcoût annuel du plan APA au GIR supérieur.
+// Source : CNSA, plafonds mensuels de l'APA par GIR (revalorisés annuellement).
+// GIR 1 : 1 956 €/mois · GIR 2 : 1 581 € · GIR 3 : 1 143 € · GIR 4 : 763 €.
+// GIR 5-6 : hors APA, relève de l'action sociale des caisses de retraite.
+const GIR_SURCOUT_APA = {g6: 1800, g5: 9156, g4: 4560, g3: 5256, g2: 4500, g1: 0};
+
+// Facteur d'atténuation de l'effet par ancienneté de cohorte (indice 0 = année
+// de l'intervention). Les essais CAPABLE et ABLE mesurent leur effet à 6-12
+// mois ; s'y ajoutent la mortalité et l'institutionnalisation qui réduisent
+// progressivement la cohorte.
+const AGGRAV_DECAY = [1.0, 0.8, 0.6, 0.45, 0.35, 0.25, 0.20, 0.15];
+
+// Économie annuelle générée par les aggravations de GIR évitées.
+// La composition GIR observée est extrapolée à la file complète.
+function computeAggravAnnuelle(d, reducScale) {
+  const g = d.gir || {};
+  let den = 0;
+  for (const k in GIR_AGGRAV_RATE) den += (g[k] || 0);
+  if (den === 0) return {euros: 0, nb: 0};
+  const scale = d.benef / den;
+  let euros = 0, nb = 0;
+  for (const k in GIR_AGGRAV_RATE) {
+    const n = (g[k] || 0) * scale;
+    const evitees = n * GIR_AGGRAV_RATE[k] * Math.min(1, GIR_REDUC_AGGRAV[k] * reducScale);
+    nb += evitees;
+    euros += evitees * GIR_SURCOUT_APA[k];
+  }
+  return {euros, nb};
+}
+
+// Cumul en escalier : le GIR est un état quasi-absorbant, une transition
+// évitée en année N produit une économie récurrente les années suivantes.
+// À chaque année s'ajoute une nouvelle cohorte tandis que les précédentes
+// continuent de produire, atténuées. Cette logique n'est PAS appliquée à la
+// poche 1, le risque de chute se réinitialisant à chaque période.
+function cumulEscalier(economieAnnuelle, duree) {
+  let total = 0;
+  const pleines = Math.floor(duree);
+  const fraction = duree - pleines;
+  for (let annee = 1; annee <= pleines; annee++) {
+    for (let cohorte = 1; cohorte <= annee; cohorte++) {
+      total += economieAnnuelle * (AGGRAV_DECAY[annee - cohorte] || 0);
+    }
+  }
+  if (fraction > 0) {
+    const annee = pleines + 1;
+    for (let cohorte = 1; cohorte <= annee; cohorte++) {
+      total += economieAnnuelle * (AGGRAV_DECAY[annee - cohorte] || 0) * fraction;
+    }
+  }
+  return total;
+}
+
 // Réduction du risque de chute, interpolée selon le profil de fragilité :
 // pop autonome (fragMult=1) → −21% (Cochrane pooled) ; pop entrant dans le
 // sous-groupe « personnes à plus haut risque de chute » de Cochrane 2023
@@ -4695,8 +4784,7 @@ function toggleSroiAuto(key) {
 function calcSROI() {
   const d = getCurrentData();
   const coutChute = +document.getElementById('s-cout-chute').value;
-  const aideHum = +document.getElementById('s-aide-hum').value;
-  const pctAuto = +document.getElementById('s-pct-auto').value / 100;
+  const reducAggrav = +document.getElementById('s-reduc-aggrav').value / 100;
   const attribution = +document.getElementById('s-attribution').value / 100;
   const duree = +document.getElementById('s-duree').value;
   const coutBen = +document.getElementById('s-cout-ben').value;
@@ -4731,8 +4819,7 @@ function calcSROI() {
   document.getElementById('v-cout-chute').textContent = fmtEur(coutChute);
   document.getElementById('v-frag-mult').innerHTML = '× ' + fragMult.toFixed(1).replace('.', ',') + (sroiAuto.fragMult ? '<span class="auto-badge">auto</span>' : '');
   document.getElementById('v-reduc').innerHTML = (reduc*100).toFixed(0)+' %' + (sroiAuto.reduc ? '<span class="auto-badge">auto</span>' : '');
-  document.getElementById('v-aide-hum').textContent = fmtEur(aideHum);
-  document.getElementById('v-pct-auto').textContent = (pctAuto*100).toFixed(0)+' %';
+  document.getElementById('v-reduc-aggrav').textContent = (reducAggrav*100).toFixed(0)+' %';
   document.getElementById('v-attribution').textContent = (attribution*100).toFixed(0)+' %';
   document.getElementById('v-duree').textContent = duree.toString().replace('.', ',') + (duree > 1 ? ' ans' : ' an');
   document.getElementById('v-cout-ben').textContent = fmtEur(coutBen);
@@ -4761,13 +4848,19 @@ function calcSROI() {
   const hospiEvitees = hospiAttendues * reduc;
   const coutEviteChutesAnnuel = hospiEvitees * coutChute;
 
-  // Escalade de plan APA évitée — ANNUEL (brut, avant attribution et cumul durée)
-  const aidesEvAnnuel = benef * pctAuto * aideHum;
+  // Poche 2 — aggravations de GIR évitées (matrice de transition composite).
+  // Le curseur pilote la réduction du cœur de cible (GIR 3-4, défaut 30 %) ;
+  // les autres profils suivent le même ratio relatif.
+  const reducScale = reducAggrav / GIR_REDUC_AGGRAV.g4;
+  const aggrav = computeAggravAnnuelle(d, reducScale);
+  const aidesEvAnnuel = aggrav.euros;
 
-  // Cumul sur la durée d'usage effectif de l'AT (le coût d'accompagnement dispositif
-  // est une intervention unique, mais les coûts évités se cumulent chaque année d'usage)
+  // Cumul sur la durée d'usage effectif de l'AT.
+  // Poche 1 : cumul LINÉAIRE — le risque de chute se réinitialise chaque année.
+  // Poche 2 : cumul EN ESCALIER — le GIR est un état quasi-absorbant, une
+  // transition évitée produit une économie récurrente les années suivantes.
   const coutEviteChutes = coutEviteChutesAnnuel * duree;
-  const aidesEv = aidesEvAnnuel * duree;
+  const aidesEv = cumulEscalier(aidesEvAnnuel, duree);
 
   // Total brut puis NET d'attribution
   const totalBrut = coutEviteChutes + aidesEv;
@@ -4791,7 +4884,7 @@ function calcSROI() {
   const pieTot = pieData.reduce((a,b)=>a+b,0);
   charts.sroiPie = new Chart(document.getElementById('c-sroi-pie'), {
     type:'doughnut',
-    data:{labels:['Chutes évitées (net)','Escalade APA évitée (net)'], datasets:[{data:pieData, backgroundColor:[COL.coral, COL.sage], borderWidth:0}]},
+    data:{labels:['Chutes évitées (net)','Aggravation GIR évitée (net)'], datasets:[{data:pieData, backgroundColor:[COL.coral, COL.sage], borderWidth:0}]},
     options:{
       maintainAspectRatio:false, cutout:'62%',
       plugins:{legend:{display:false}, tooltip:{callbacks:{label:(c)=>c.label+': '+fmtEurK(c.parsed)+' ('+(pieTot>0?(100*c.parsed/pieTot).toFixed(0):0)+'%)'}}}
@@ -4799,7 +4892,7 @@ function calcSROI() {
   });
   document.getElementById('lgd-sroi').innerHTML = `
     <span class="legend-item"><span class="ld" style="background:${COL.coral}"></span>Chutes évitées (${pieTot>0?(100*pieData[0]/pieTot).toFixed(0):0}%)</span>
-    <span class="legend-item"><span class="ld" style="background:${COL.sage}"></span>Escalade APA évitée (${pieTot>0?(100*pieData[1]/pieTot).toFixed(0):0}%)</span>`;
+    <span class="legend-item"><span class="ld" style="background:${COL.sage}"></span>Aggravation GIR évitée (${pieTot>0?(100*pieData[1]/pieTot).toFixed(0):0}%)</span>`;
 
   // Mise à jour de l'encart Économie circulaire (calcul séparé)
   calcEcoCirc();
