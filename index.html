@@ -932,11 +932,11 @@ a:hover{text-decoration:underline}
           <div class="slider-val" id="v-cout-reco">20 €</div>
         </div>
         <div class="slider-row">
-          <div class="slider-label">Nombre d'AT recyclées (passant par le cycle de réemploi)
-            <small>Valeur actuelle observée dans les données. Curseur ajustable pour modéliser un objectif futur si la part recyclage augmente.</small>
+          <div class="slider-label">Nombre d'AT remises en circulation
+            <small>En mode Auto : somme des volumes par catégorie du champ « récupérées » — <strong>1 762 équipements</strong> sur le périmètre complet. C'est le seul compteur tracé équipement par équipement, donc le plus fiable. Le champ global « redistribuées » (812) ne recense que les remises en service explicitement enregistrées comme telles et sous-estime le réemploi réel.<br><br>Curseur ajustable pour modéliser un objectif futur si la part du réemploi augmente.</small>
             <label class="auto-toggle"><input type="checkbox" id="auto-nrecyc" checked onchange="toggleSroiAuto('nRecyc')"> Auto (depuis les données)</label>
           </div>
-          <input type="range" class="slider-input" id="s-n-recyc" min="0" max="5000" step="50" value="812" oninput="calcEcoCirc()">
+          <input type="range" class="slider-input" id="s-n-recyc" min="0" max="5000" step="50" value="1762" oninput="calcEcoCirc()">
           <div class="slider-val" id="v-n-recyc">812</div>
         </div>
         <div class="slider-row">
@@ -4385,7 +4385,7 @@ function drawEquipement() {
   // Tous les statuts "Récupérée" du global
   const recyclePotentiel = Math.round(d.pret * 0.18); // approximation : 18% des AT font le tour
   const _recup = d.recyc || 0;
-  const _redistrib = d.redistrib || 0;
+  const _redistrib = computeNRedistrib(getCurrentGranular());
   const _stock = Math.max(_recup - _redistrib, 0);
   document.getElementById('circ-2').textContent = fmt(_recup);
   document.getElementById('circ-3').textContent = fmt(_stock);
@@ -4942,6 +4942,18 @@ function calcSROI() {
 // ════════════════════════════════════════
 //  ÉCONOMIE CIRCULAIRE (calcul séparé du SROI)
 // ════════════════════════════════════════
+// Nombre d'aides techniques effectivement remises en circulation.
+// Source : somme des volumes par catégorie du champ « récupérées » (cat_recyc),
+// seul compteur tracé équipement par équipement — 1 762 sur le périmètre complet.
+// Le champ global « redistrib » (812) ne couvre que les remises en service
+// explicitement enregistrées comme telles et sous-estime le réemploi réel.
+function computeNRedistrib(g) {
+  const cat = (g && g.cat_recyc) || {};
+  let n = 0;
+  for (const k in cat) n += (cat[k] || 0);
+  return n;
+}
+
 function calcEcoCirc() {
   const d = getCurrentData();
   const g = getCurrentGranular();
@@ -4961,11 +4973,11 @@ function calcEcoCirc() {
     prixAt = +slPrixAt.value;
   }
 
-  // Nb d'AT recyclées — auto (donnée) ou manuel
+  // Nb d'AT remises en circulation — auto (donnée) ou manuel
   let nRecyc;
   const slNRecyc = document.getElementById('s-n-recyc');
   if (sroiAuto.nRecyc) {
-    nRecyc = d.redistrib || 0;
+    nRecyc = computeNRedistrib(g);
     slNRecyc.value = nRecyc;
     slNRecyc.disabled = true;
   } else {
@@ -4975,7 +4987,7 @@ function calcEcoCirc() {
 
   const prixRecond = prixAt * (1 - decoteRecond);
   const nMAD = d.pret || 0;
-  const nObservedRedistrib = d.redistrib || 0;
+  const nObservedRedistrib = computeNRedistrib(g);
   // Premières mises à disposition (acquisitions au reconditionné, hors recyclage observé)
   const nPremiereMAD = Math.max(0, nMAD - nObservedRedistrib);
 
