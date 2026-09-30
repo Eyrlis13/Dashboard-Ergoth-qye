@@ -314,6 +314,14 @@ a:hover{text-decoration:underline}
 .dev-content{margin-top:18px;padding-left:6px}
 .dev-content p{font-size:13px;line-height:1.75;color:var(--charcoal);margin-bottom:14px}
 .dev-item{margin-bottom:18px;padding-left:14px;border-left:2px solid var(--border2)}
+/* Sources et détails repliés sous chaque curseur */
+.src-fold{margin-top:6px}
+.src-fold summary{cursor:pointer;font-size:10px;color:var(--sage);list-style:none;user-select:none;display:inline-block}
+.src-fold summary::-webkit-details-marker{display:none}
+.src-fold summary::before{content:"▸ "}
+.src-fold[open] summary::before{content:"▾ "}
+.src-fold summary:hover{text-decoration:underline}
+.src-fold>small{display:block;margin-top:6px}
 .dev-item-eyebrow{font-size:9px;font-weight:600;color:var(--coral);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
 .dev-item-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:500;color:var(--charcoal);margin-bottom:6px;line-height:1.3}
 .dev-item-desc{font-size:12px;color:var(--mid);line-height:1.7;margin-bottom:8px}
@@ -635,11 +643,14 @@ a:hover{text-decoration:underline}
     <div class="section-sub">Analyse coût-bénéfice (ACB) restreinte aux coûts tangibles et documentés — approche dérivée du SROI</div>
   </div>
 
-  <div class="note-box mb20"><strong>Méthode · </strong> Cette analyse coût-bénéfice (ACB) adopte une <strong>perspective « financeur public »</strong> — elle chiffre uniquement les euros économisés par la puissance publique (Sécurité sociale, hôpital, SSR, APA). Deux mécanismes sont monétisés : <strong>hospitalisations pour chute évitées</strong> et <strong>aggravations du GIR évitées</strong>. Chaque paramètre repose sur une source publique datée ou sur un essai randomisé — <em>aucun pourcentage construit ne subsiste dans le modèle</em>. Tous les bénéfices « mous » (sentiment de sécurité, dignité, retard d'entrée en institution, soulagement des aidants informels, aménagements lourds évités, chutes non graves) sont reconnus mais <em>délibérément non monétarisés</em> : ils figurent en bas de page sous forme qualitative. Choix méthodologique explicite : <strong>le temps des aidants informels — bien qu'ayant un coût social réel — n'est pas monétisé</strong>, car il ne correspond pas à des euros publics économisés. Le ratio affiché reste un <strong>plancher conservateur</strong> : la valeur réelle créée par le dispositif est supérieure.</div>
-
-  <div class="note-box mb20" style="background:var(--cream);border-left:3px solid var(--coral)"><strong>Deux logiques de cumul distinctes · </strong> Les coûts évités sont projetés sur la durée d'usage effectif de l'AT (3 ans par défaut), mais selon deux logiques différentes, justifiées par la nature de chaque mécanisme. <strong>Poche « chutes » — cumul linéaire</strong> : le risque de chute se réinitialise à chaque période, une chute évitée en année 1 n'empêche pas une chute en année 2 ; chaque année d'usage génère indépendamment sa réduction du risque. <strong>Poche « GIR » — cumul en escalier</strong> : le GIR est un état quasi-absorbant, on ne redescend pas d'un GIR ; une transition évitée en année 1 produit une économie <em>récurrente</em> les années suivantes. À chaque année s'ajoute une nouvelle cohorte tandis que les précédentes continuent de produire, atténuées (100 % / 80 % / 60 %) pour tenir compte de la décroissance de l'effet mesuré par les essais et de l'attrition de la cohorte. <em>Cette asymétrie est délibérée et justifiée par la nature des mécanismes, non appliquée de façon opportuniste.</em></div>
-
-  <div class="note-box mb20" style="background:var(--cream);border-left:3px solid var(--sage)"><strong>Cadre méthodologique · </strong> Cette monétarisation suit les principes du <strong>Social Return on Investment</strong> définis par <a href="https://www.socialvalueint.org/" target="_blank">Social Value International</a> (guide de référence : <em>A Guide to Social Return on Investment</em>, SVI/SROI Network, 2012 et actualisations). <strong>Sept des huit principes du cadre sont pleinement respectés</strong> : (1) implication des parties prenantes via 35 partenaires institutionnels enquêtés et 26 entretiens qualitatifs d'ergothérapeutes ; (2) cartographie structurée de la théorie du changement ; (3) valorisation restreinte aux mécanismes matériels documentés ; (4) délimitation stricte du périmètre ; (5) refus explicite de la sur-attribution — contrefactuel discuté, facteur d'attribution appliqué et corroboré par les données observées ; (6) transparence intégrale des hypothèses, formules, sources et intervalles de confiance ; (8) usage effectif des résultats pour le pilotage du dispositif. Le principe (7) — vérification par un tiers accrédité — sera engagé dans une phase ultérieure ; en attendant, l'ensemble des paramètres est publiquement exposé pour permettre la critique méthodologique externe. Cadres complémentaires mobilisés : <a href="https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-governent" target="_blank">HM Treasury Green Book</a> (Royaume-Uni, 2022) pour l'évaluation économique publique, <a href="https://www.has-sante.fr/upload/docs/application/pdf/2020-07/guide_methodologique_evaluation_economique_has_2020_vf.pdf" target="_blank">HAS 2020</a> pour l'évaluation médico-économique française.</div>
+  <details class="dev-details" style="margin:0 0 16px;border-top:none;padding-top:0">
+    <summary>Méthode et hypothèses</summary>
+    <div class="dev-content">
+      <p>Analyse du point de vue du <strong>financeur public</strong> : seuls les euros publics économisés sont chiffrés (Assurance maladie, hôpital, APA), sur la durée d'usage de l'aide technique et nets d'un facteur d'attribution. Deux mécanismes : hospitalisations pour chute évitées et aggravations du GIR évitées. Les autres bénéfices (aidants, entrée en institution retardée, travaux évités, chutes non graves) ne sont pas chiffrés : le ratio est un plancher.</p>
+      <p><strong>Cumul sur la durée.</strong> Chutes : linéaire, le risque se réinitialise chaque année. GIR : en escalier, un GIR ne se regagne pas et l'économie se poursuit les années suivantes (effet atténué à 100 % / 80 % / 60 %).</p>
+      <p><strong>Cadre.</strong> Principes du <a href="https://www.socialvalueint.org/" target="_blank">Social Value International</a> : sept des huit respectés, la vérification par un tiers accrédité reste à faire. Voir aussi le <a href="https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-governent" target="_blank">Green Book</a> et le guide <a href="https://www.has-sante.fr/upload/docs/application/pdf/2020-07/guide_methodologique_evaluation_economique_has_2020_vf.pdf" target="_blank">HAS 2020</a>.</p>
+    </div>
+  </details>
 
   <div class="note-box mb20" id="sroi-scope" style="background:var(--sage-pale);border-color:var(--border2)"></div>
 
@@ -650,21 +661,22 @@ a:hover{text-decoration:underline}
         <div class="block-title">Hospitalisations pour chute évitées</div>
         <div class="slider-row">
           <div class="slider-label">Coût moyen d'une hospitalisation pour chute grave
-            <small><strong>Source directe :</strong> <strong>étude FRACTOS</strong> — Thomas T. et al. (2022), <em>The Economic Burden of Severe Osteoporotic Fractures in the French Healthcare Database: the FRACTOS Study</em>, Journal of Bone and Mineral Research 37:1811-1822. Données de l'Assurance Maladie sur <strong>356 895 patients</strong>. Coût moyen pour l'Assurance Maladie de la première année suivant une fracture grave : <strong>18 040 €</strong> — hospitalisation (10 806 €), soins de suite et réadaptation (6 744 €), kinésithérapie, transports et suivi.<br><br>
+            <details class="src-fold"><summary>Sources et détail</summary><small><strong>Source directe :</strong> <strong>étude FRACTOS</strong> — Thomas T. et al. (2022), <em>The Economic Burden of Severe Osteoporotic Fractures in the French Healthcare Database: the FRACTOS Study</em>, Journal of Bone and Mineral Research 37:1811-1822. Données de l'Assurance Maladie sur <strong>356 895 patients</strong>. Coût moyen pour l'Assurance Maladie de la première année suivant une fracture grave : <strong>18 040 €</strong> — hospitalisation (10 806 €), soins de suite et réadaptation (6 744 €), kinésithérapie, transports et suivi.<br><br>
             <strong>Pourquoi ce montant est prudent :</strong> FRACTOS porte sur les 50 ans et plus, et le coût croît avec l'âge (nos bénéficiaires ont 81 ans en moyenne). La fracture de la hanche, la plus fréquente au grand âge, coûte <strong>21 085 €</strong> la première année. Le montant s'arrête à douze mois : il ne compte ni les séquelles au-delà, ni les entrées en établissement qui suivent souvent une fracture. Ordres de grandeur convergents chez Fardellone et al. (2021, Archives of Osteoporosis 16:124) : 15 754 € pour les femmes, 18 585 € pour les hommes.</small>
-            <small class="guide">Défaut : 18 040 € — coût Assurance Maladie de la première année après fracture grave (FRACTOS 2022)</small>
+            <small class="guide">Défaut : 18 040 € — coût Assurance Maladie de la première année après fracture grave (FRACTOS 2022)</small></details>
+            
           </div>
-          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="500" value="18040" oninput="calcSROI()">
+          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="10" value="18040" oninput="calcSROI()">
           <div class="slider-val" id="v-cout-chute">18 040 €</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">Multiplicateur de fragilité de la population
-            <small><strong>Position méthodologique assumée :</strong> l'entrée dans le dispositif MJ est en soi un marqueur de risque supra-national. La totalité de la file a été orientée par une évaluation médico-sociale (CD 71 %, CARSAT 13 %, bailleur 3 %, DAC 1 %) ou par une auto-orientation motivée (12 %), qui reflète chute passée signalée, fragilité anticipée, isolement (21 % vivent seuls) ou dépendance. Aucun sous-groupe MJ ne correspond au baseline « 65+ tout-venant national ». Les multiplicateurs sont donc rehaussés en conséquence :<br>
+            <details class="src-fold"><summary>Sources et détail</summary><small><strong>Position méthodologique assumée :</strong> l'entrée dans le dispositif MJ est en soi un marqueur de risque supra-national. La totalité de la file a été orientée par une évaluation médico-sociale (CD 71 %, CARSAT 13 %, bailleur 3 %, DAC 1 %) ou par une auto-orientation motivée (12 %), qui reflète chute passée signalée, fragilité anticipée, isolement (21 % vivent seuls) ou dépendance. Aucun sous-groupe MJ ne correspond au baseline « 65+ tout-venant national ». Les multiplicateurs sont donc rehaussés en conséquence :<br>
             &nbsp;• <strong>GIR 3-4</strong> (mobiles-fragiles, cœur de cible, 60 % de la file) : <strong>× 3,5</strong> — surrisque HAS 2005 et Rubenstein Age &amp; Ageing 2006, borne haute assumée pour tenir compte de la sélection sur profil à haut risque déjà documenté.<br>
             &nbsp;• <strong>GIR 1-2</strong> (très dépendants, 22 %) : <strong>× 2,5</strong> — chutes moins fréquentes mais hospitalisations quasi systématiques en cas d'événement (Agree &amp; Freedman 2000).<br>
             &nbsp;• <strong>GIR 5-6</strong> (autonomes, 18 %) : <strong>× 2,0</strong> — pas de personne « autonome moyenne 65+ » dans la file, marqueur de fragilité anticipée à l'entrée dispositif.<br>
             La valeur affichée est la moyenne pondérée sur la file filtrée (≈ 3,0 sur la file complète). Ce multiplicateur s'applique aux taux d'hospitalisation pour chute par tranche d'âge publiés par Santé publique France (Bulletin national du 12 mars 2026, données 2015-2024 : 65-74 ans 433/100 000, 75-84 ans 1 177, ≥85 ans 3 736).</small>
-            <small class="guide">Manuel — 1,0 = population 65+ tout-venant nationale ; 3,0 = profil MJ défendable (accompagnement d'une population sélectionnée pour son risque) ; 4,0 = borne haute théorique</small>
+            <small class="guide">Manuel — 1,0 = population 65+ tout-venant nationale ; 3,0 = profil MJ défendable (accompagnement d'une population sélectionnée pour son risque) ; 4,0 = borne haute théorique</small></details>
             <label class="auto-toggle"><input type="checkbox" id="auto-frag-mult" checked onchange="toggleSroiAuto('fragMult')"> Auto (depuis les données)</label>
           </div>
           <input type="range" class="slider-input" id="s-frag-mult" min="1.0" max="4.0" step="0.1" value="3.0" oninput="calcSROI()">
@@ -676,8 +688,8 @@ a:hover{text-decoration:underline}
         <div class="block-title">Efficacité ergothérapique sur le risque de chute</div>
         <div class="slider-row">
           <div class="slider-label">Réduction du risque de chute par aménagement
-            <small>Cochrane Clemson 2023 (méta-analyse de 22 essais cliniques, n = 8 463) : réduction poolée de −21 % (RaR = 0,79 [IC 95 % 0,68–0,91]) en population générale. Sur le sous-groupe « personnes à plus haut risque de chute » de la même Cochrane 2023 : réduction <strong>−38 %</strong> (RaR = 0,62 [IC 95 % 0,44–0,86]), aligné avec Stark et al. 2017 (essai HARP, personnes fragiles). En mode Auto : la population MJ (fragilité pondérée ≈ × 2,3) entre dans le sous-groupe « higher risk of falling » de Cochrane 2023, la borne haute −38 % est donc appliquée par défaut.</small>
-            <small class="guide">Manuel — 21 % = borne pooled Cochrane pop générale ; 38 % = borne pop fragile ciblée (Cochrane sous-groupe + Stark HARP), défaut pour la pop MJ</small>
+            <details class="src-fold"><summary>Sources et détail</summary><small>Cochrane Clemson 2023 (méta-analyse de 22 essais cliniques, n = 8 463) : réduction poolée de −21 % (RaR = 0,79 [IC 95 % 0,68–0,91]) en population générale. Sur le sous-groupe « personnes à plus haut risque de chute » de la même Cochrane 2023 : réduction <strong>−38 %</strong> (RaR = 0,62 [IC 95 % 0,44–0,86]), aligné avec Stark et al. 2017 (essai HARP, personnes fragiles). En mode Auto : la population MJ (fragilité pondérée ≈ × 2,3) entre dans le sous-groupe « higher risk of falling » de Cochrane 2023, la borne haute −38 % est donc appliquée par défaut.</small>
+            <small class="guide">Manuel — 21 % = borne pooled Cochrane pop générale ; 38 % = borne pop fragile ciblée (Cochrane sous-groupe + Stark HARP), défaut pour la pop MJ</small></details>
             <label class="auto-toggle"><input type="checkbox" id="auto-reduc" checked onchange="toggleSroiAuto('reduc')"> Auto (depuis les données)</label>
           </div>
           <input type="range" class="slider-input" id="s-reduc" min="10" max="45" step="1" value="38" oninput="calcSROI()">
@@ -687,31 +699,33 @@ a:hover{text-decoration:underline}
 
       <div class="card mb16">
         <div class="block-title">Aggravation du GIR évitée</div>
-        <div class="note-box mb12" style="background:var(--cream);border-left:3px solid var(--sage);padding:10px 12px;font-size:11px;line-height:1.55"><strong>Modèle en trois briques · </strong>Le dispositif ne remplace pas les services d'aide à domicile (SAAD), qui sont ses partenaires. Il <em>ralentit la trajectoire de dépendance</em> : chaque passage à un GIR plus lourd évité, c'est un plan APA qui n'est pas réévalué à la hausse, et c'est le conseil départemental qui l'économise. <strong>Périmètre restreint aux GIR 3 et 4</strong> (7 868 personnes, 60 % des bénéficiaires) : ce sont les seuls profils pour lesquels on dispose à la fois d'un taux d'aggravation publié et d'un effet mesuré par essai randomisé. Les GIR 1-2 et 5-6 sont exclus du chiffrage et documentés en qualitatif. <strong>Trois briques indépendamment sourcées, aucun pourcentage construit.</strong></div>
+        <div class="note-box mb12" style="background:var(--cream);border-left:3px solid var(--sage);padding:10px 12px;font-size:11px;line-height:1.55"><strong>Périmètre : GIR 3 et 4.</strong> Le dispositif ralentit la trajectoire de dépendance : chaque aggravation évitée épargne au département un plan APA plus lourd.</div>
         <div class="slider-row">
           <div class="slider-label">Réduction de l'aggravation du GIR
-            <small><strong>Source — essai randomisé CAPABLE :</strong> Szanton SL et al. (2019), <em>Effect of a Biobehavioral Environmental Approach on Disability Among Low-Income Older Adults</em>, JAMA Internal Medicine 179(2):204-211. Intervention combinant ergothérapeute, aménagement et aides techniques au domicile : le score de dépendance est <strong>30 % plus bas</strong> dans le groupe accompagné (risque relatif 0,70).<br><br>
+            <details class="src-fold"><summary>Sources et détail</summary><small><strong>Source — essai randomisé CAPABLE :</strong> Szanton SL et al. (2019), <em>Effect of a Biobehavioral Environmental Approach on Disability Among Low-Income Older Adults</em>, JAMA Internal Medicine 179(2):204-211. Intervention combinant ergothérapeute, aménagement et aides techniques au domicile : le score de dépendance est <strong>30 % plus bas</strong> dans le groupe accompagné (risque relatif 0,70).<br><br>
             <strong>Convergence :</strong> essai ABLE (Gitlin LN et al., <em>JAGS</em> 2006;54(5):809-816), effet à long terme sur la mortalité confirmé (Gitlin 2009, JAGS 57(3):476-481), revue systématique Steultjens EMJ et al. (<em>Age &amp; Ageing</em> 2004;33(5):453-460).<br><br>
             <strong>Hypothèse de transposition déclarée :</strong> CAPABLE mesure un score de dépendance, pas directement des changements de GIR. La grille AGGIR reposant sur les mêmes activités de la vie quotidienne, la transposition est plausible, mais c'est une hypothèse. Avec un effet divisé par deux (15 %), le ratio tomberait à 2,54.<br><br>
             <strong>Source délibérément écartée :</strong> Mann et al. 1999 (<em>Archives of Family Medicine</em>), qui mesure une réduction de 33 % des <em>coûts d'aide à domicile</em> aux États-Unis — objet différent (des coûts, non un taux d'aggravation) dans un système de santé non transposable au dispositif APA français.</small>
-            <small class="guide">Défaut : 30 % — risque relatif 0,70 mesuré par l'essai CAPABLE</small>
+            <small class="guide">Défaut : 30 % — risque relatif 0,70 mesuré par l'essai CAPABLE</small></details>
+            
           </div>
           <input type="range" class="slider-input" id="s-reduc-aggrav" min="10" max="50" step="1" value="30" oninput="calcSROI()">
           <div class="slider-val" id="v-reduc-aggrav">30 %</div>
         </div>
-        <div class="fs11 text-mid mt12" style="line-height:1.6;background:var(--cream);padding:10px 12px;border-radius:6px">
+        <details class="src-fold" style="margin-top:10px"><summary>Taux d'aggravation et surcoûts appliqués</summary><div class="fs11 text-mid" style="line-height:1.6;background:var(--cream);padding:10px 12px;border-radius:6px;margin-top:6px">
           <strong>Brique 1 — Taux annuel d'aggravation : 16 %</strong> <span class="text-light">(DREES, Debout 2010, Études et Résultats n° 724)</span>. Parmi les personnes entrées en GIR 4 à domicile, 10 % passent en GIR 3 et 6 % en GIR 2 un an plus tard. <em>Hypothèse signalée : ce taux mesuré sur les GIR 4 est aussi appliqué aux GIR 3, faute de taux publié pour eux.</em><br><br>
           <strong>Brique 3 — Surcoût annuel du plan APA</strong> <span class="text-light">(DREES, plans d'aide réellement notifiés par GIR, revalorisés en euros 2026)</span> : quitter le GIR 4 → <strong>5 980 €/an</strong> (vers GIR 3 dans 10 cas sur 16 à +366 €/mois, vers GIR 2 dans 6 cas sur 16 à +719 €/mois) · passer du GIR 3 au GIR 2 → <strong>4 243 €/an</strong>. Moyenne pondérée ≈ 5 340 €.<br><br>
           <strong>Pourquoi les plans notifiés et pas les plafonds ?</strong> Le plafond est le maximum légal, que moins d'un plan sur huit atteignait en 2017. Le plan notifié est ce que le département accorde réellement : c'est la dépense qu'il engage quand une personne change de GIR. Avec les plafonds, le ratio monterait à 3,36 mais surévaluerait la dépense évitée.
-        </div>
+        </div></details>
       </div>
 
       <div class="card mb16">
         <div class="block-title">Durée d'usage effectif de l'AT</div>
         <div class="slider-row">
           <div class="slider-label">Nombre d'années moyennes d'usage effectif après pose
-            <small>Une AT posée reste en place et continue d'éviter des chutes et de retarder l'aggravation de la dépendance plusieurs années — pas seulement la première. La durée d'usage effectif est bornée par : la durée matérielle de l'AT (barres d'appui 10 ans+, rehausseurs 5-8 ans, chaises douche 5-10 ans — le matériel n'est pas le facteur limitant), le temps passé à domicile avant institution ou décès (~4-5 ans en moyenne chez les 80+ français, INSEE 2020), et le turnover naturel. <strong>Sources littérature dédiée</strong> : Agree E.M., Freedman V.A. (2003), <em>Duration of assistive device use among community-dwelling older adults</em>, données US longitudinales LTC Survey : durée médiane d'usage AT chez 65+ à domicile ≈ 3,4 ans. Fänge A., Iwarsson S. (2007), <em>Home modifications and use of aids among older adults with disabilities</em>, suivi longitudinal Suède : durée moyenne > 4 ans pour aides simples chez personnes maintenues à domicile.</small>
-            <small class="guide">Défaut : 3 ans — cohérent avec Agree-Freedman 2003 (médiane 3,4 ans sur pop âgée à domicile) et Fänge-Iwarsson 2007, reste conservateur par rapport à la durée matérielle de l'AT et à l'espérance de vie à domicile</small>
+            <details class="src-fold"><summary>Sources et détail</summary><small>Une AT posée reste en place et continue d'éviter des chutes et de retarder l'aggravation de la dépendance plusieurs années — pas seulement la première. La durée d'usage effectif est bornée par : la durée matérielle de l'AT (barres d'appui 10 ans+, rehausseurs 5-8 ans, chaises douche 5-10 ans — le matériel n'est pas le facteur limitant), le temps passé à domicile avant institution ou décès (~4-5 ans en moyenne chez les 80+ français, INSEE 2020), et le turnover naturel. <strong>Sources littérature dédiée</strong> : Agree E.M., Freedman V.A. (2003), <em>Duration of assistive device use among community-dwelling older adults</em>, données US longitudinales LTC Survey : durée médiane d'usage AT chez 65+ à domicile ≈ 3,4 ans. Fänge A., Iwarsson S. (2007), <em>Home modifications and use of aids among older adults with disabilities</em>, suivi longitudinal Suède : durée moyenne > 4 ans pour aides simples chez personnes maintenues à domicile.</small>
+            <small class="guide">Défaut : 3 ans — cohérent avec Agree-Freedman 2003 (médiane 3,4 ans sur pop âgée à domicile) et Fänge-Iwarsson 2007, reste conservateur par rapport à la durée matérielle de l'AT et à l'espérance de vie à domicile</small></details>
+            
           </div>
           <input type="range" class="slider-input" id="s-duree" min="1" max="8" step="0.5" value="3" oninput="calcSROI()">
           <div class="slider-val" id="v-duree">3 ans</div>
@@ -722,10 +736,11 @@ a:hover{text-decoration:underline}
         <div class="block-title">Part attribuable au dispositif</div>
         <div class="slider-row">
           <div class="slider-label">% des coûts évités effectivement attribuable au dispositif MJ
-            <small><strong>Justification principale — reconnaissance législative de la non-substituabilité :</strong> la <strong>loi n° 2024-317 du 8 avril 2024</strong> portant mesures pour bâtir la société du bien vieillir et de l'autonomie généralise l'expérimentation des <strong>EqLAAT</strong> (Équipes Locales d'Accompagnement sur les Aides Techniques), dispositif de même nature que l'Ergothèque : évaluation par un ergothérapeute, mise à disposition d'aides techniques, suivi personnalisé. La création d'un cadre législatif ad hoc établit que <em>ce service n'existait pas dans le droit commun</em> — ni l'APA, ni les plans d'action des caisses de retraite, ni les SAAD, ni le parcours de soins ne portaient cette combinaison évaluation + équipement + suivi.<br><br>
+            <details class="src-fold"><summary>Sources et détail</summary><small><strong>Justification principale — reconnaissance législative de la non-substituabilité :</strong> la <strong>loi n° 2024-317 du 8 avril 2024</strong> portant mesures pour bâtir la société du bien vieillir et de l'autonomie généralise l'expérimentation des <strong>EqLAAT</strong> (Équipes Locales d'Accompagnement sur les Aides Techniques), dispositif de même nature que l'Ergothèque : évaluation par un ergothérapeute, mise à disposition d'aides techniques, suivi personnalisé. La création d'un cadre législatif ad hoc établit que <em>ce service n'existait pas dans le droit commun</em> — ni l'APA, ni les plans d'action des caisses de retraite, ni les SAAD, ni le parcours de soins ne portaient cette combinaison évaluation + équipement + suivi.<br><br>
             <strong>Corroboration empirique :</strong> une régression transversale sur les 31 structures comptant ≥ 50 préconisations donne une pente de substitution β = −0,35 [IC 95 % −0,55 ; −0,16] entre taux de mise à disposition et taux d'achat direct — estimation dérivée d'environ 65 % pour l'accès au matériel, qui constitue une borne basse pour l'attribution des bénéfices sanitaires.<br><br>
             <strong>Les 20 % restants</strong> sont attribués aux autres acteurs du parcours : APA et services du Conseil Départemental, médecin traitant, entourage familial, autres dispositifs de prévention. Le facteur demeure strictement inférieur à 100 %, conformément au principe SVI n° 5 et à la recommandation du HM Treasury Green Book (2022).</small>
-            <small class="guide">Défaut : 80 % — adossé à la reconnaissance législative de non-substituabilité (loi Bien Vieillir 2024). Position conventionnelle SROI sans cet argument : 70 %.</small>
+            <small class="guide">Défaut : 80 % — adossé à la reconnaissance législative de non-substituabilité (loi Bien Vieillir 2024). Position conventionnelle SROI sans cet argument : 70 %.</small></details>
+            
           </div>
           <input type="range" class="slider-input" id="s-attribution" min="40" max="80" step="5" value="80" oninput="calcSROI()">
           <div class="slider-val" id="v-attribution">80 %</div>
@@ -733,13 +748,13 @@ a:hover{text-decoration:underline}
       </div>
 
       <div class="card">
-        <div class="block-title">Budget annuel du dispositif (par bénéficiaire)</div>
+        <div class="block-title">Coût du dispositif (par bénéficiaire)</div>
         <div class="slider-row">
-          <div class="slider-label">Coût moyen d'accompagnement par bénéficiaire (intervention ergo + AT)
-            <small>Intervention ergothérapeute + matériel mis à disposition + suivi</small>
-            <small class="guide">Recommandation : 560 € par bénéficiaire (à ajuster selon budget réel ergothèque)</small>
+          <div class="slider-label">Coût moyen par bénéficiaire
+            <details class="src-fold"><summary>Sources et détail</summary><small>Intervention ergothérapeute, matériel mis à disposition, suivi, coordination et frais de structure. Coût unique par personne. Moyenne du réseau : 560 € (budget opérationnel des Ergothèques). Bourgogne-Franche-Comté, coût prévu dans les conventions 2025 (Merci Julie) : Côte-d'Or 601 €, Doubs 578 €, Jura 578 €, Nièvre 538 €, Haute-Saône 564 €, Yonne 595 €. Le coût du département s'applique quand on sélectionne son Ergothèque.</small></details>
+            <label class="auto-toggle"><input type="checkbox" id="auto-cout-ben" checked onchange="toggleSroiAuto('coutBen')"> Auto (selon l'Ergothèque)</label>
           </div>
-          <input type="range" class="slider-input" id="s-cout-ben" min="150" max="800" step="5" value="560" oninput="calcSROI()">
+          <input type="range" class="slider-input" id="s-cout-ben" min="150" max="800" step="1" value="560" oninput="calcSROI()">
           <div class="slider-val" id="v-cout-ben">560 €</div>
         </div>
       </div>
@@ -829,9 +844,7 @@ a:hover{text-decoration:underline}
     <div class="section-sub">Les bénéfices réels du dispositif qui ne figurent pas dans le ratio ci-dessus — par choix méthodologique</div>
   </div>
 
-  <div class="note-box mb20" style="background:var(--coral-pale);border-color:rgba(212,113,74,0.25)">
-    <strong>Pourquoi ces bénéfices ne sont pas dans le ratio · </strong> Le ratio ACB ne chiffre que des coûts évités <em>tangibles</em>, documentés par la littérature scientifique et triangulables. Les bénéfices ci-dessous existent et sont confirmés par les ergothérapeutes, les partenaires et la recherche en gérontologie — mais leur monétarisation est méthodologiquement fragile (estimations très variables, contrefactuels difficiles). Nous choisissons délibérément de les laisser en qualitatif. <strong>Le ratio ci-dessus est donc un plancher : la valeur réelle créée par le dispositif est supérieure.</strong>
-  </div>
+  <div class="note-box mb20" style="background:var(--coral-pale);border-color:rgba(212,113,74,0.25)">Bénéfices reconnus mais <strong>non chiffrés</strong> (contrefactuel trop incertain) : le ratio ci-dessus est un plancher.</div>
 
   <div class="grid g3">
     <div class="card">
@@ -889,19 +902,13 @@ a:hover{text-decoration:underline}
     </div>
   </div>
 
-  <div class="note-box mt20" style="background:var(--cream);border-color:var(--border)">
-    <strong>Position assumée · </strong> Nous aurions pu attribuer une valeur monétaire à chacun de ces bénéfices (« x €/an pour le sentiment de sécurité », « y €/an pour le soutien aidant »...). Les méthodologies SROI le permettent. Nous choisissons de ne pas le faire pour <strong>protéger la robustesse du chiffre principal</strong> : un ratio fondé uniquement sur des coûts évités tangibles est inattaquable. La <em>valorisation qualitative</em> de ces bénéfices, ci-dessus, permet de les défendre sans les chiffrer.
-  </div>
-
-  <!-- ═══════ ÉCONOMIE CIRCULAIRE — section séparée ═══════ -->
+    <!-- ═══════ ÉCONOMIE CIRCULAIRE — section séparée ═══════ -->
   <div class="mb24 mt32" style="padding-top:14px;border-top:1px solid var(--border)">
     <div class="section-title" style="font-size:20px">Économie circulaire — efficience matérielle</div>
     <div class="section-sub">Indicateur complémentaire — économies générées par le modèle reconditionné et le recyclage</div>
   </div>
 
-  <div class="note-box mb20" style="background:var(--sage-pale);border-color:rgba(61,122,106,0.25)">
-    <strong>Pourquoi cet indicateur est séparé du SROI · </strong> Le SROI ci-dessus mesure les coûts évités <em>grâce à l'intervention</em> (chutes, aides humaines). Ce calcul-ci mesure une autre dimension : l'<em>efficience matérielle</em> du modèle. Hypothèse contrefactuelle différente : à équipement équivalent, combien aurait coûté à la collectivité l'achat au prix neuf, et combien économise-t-on grâce au reconditionné et au recyclage ? Les deux indicateurs sont complémentaires mais ne s'additionnent pas (ils reposent sur des contrefactuels distincts).
-  </div>
+  <div class="note-box mb20" style="background:var(--sage-pale);border-color:rgba(61,122,106,0.25)"><strong>Indicateur distinct du ratio</strong> : contrefactuel différent (achat neuf évité), il ne s'y additionne pas.</div>
 
   <div class="grid g2">
     <div>
@@ -909,7 +916,7 @@ a:hover{text-decoration:underline}
         <div class="block-title">Hypothèses</div>
         <div class="slider-row">
           <div class="slider-label">Prix moyen pondéré d'une AT (neuf, marché grand public)
-            <small>Calculé automatiquement à partir des volumes par catégorie d'AT mises à disposition × prix marché neuf (Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute — gamme moyenne 2025).</small>
+            <details class="src-fold"><summary>Sources et détail</summary><small>Calculé automatiquement à partir des volumes par catégorie d'AT mises à disposition × prix marché neuf (Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute — gamme moyenne 2025).</small></details>
             <label class="auto-toggle"><input type="checkbox" id="auto-prix-at" checked onchange="toggleSroiAuto('prixAt')"> Auto (depuis les volumes)</label>
           </div>
           <input type="range" class="slider-input" id="s-prix-at" min="20" max="200" step="1" value="65" oninput="calcEcoCirc()">
@@ -917,23 +924,25 @@ a:hover{text-decoration:underline}
         </div>
         <div class="slider-row">
           <div class="slider-label">% de décote du reconditionné par rapport au neuf
-            <small>Sur le marché du reconditionnement médical professionnel (Envie Autonomie, APF, UCANSS), le matériel se négocie en moyenne entre <strong>50 % et 70 % du prix neuf</strong>, soit une décote de <strong>30 à 50 %</strong> (source <a href="https://www.wikidependance.fr/reseau-envie-autonomie-faire-du-neuf-avec-de-lancien/" target="_blank">Envie Autonomie</a>).</small>
-            <small class="guide">Recommandation : 40 % (milieu de la fourchette marché)</small>
+            <details class="src-fold"><summary>Sources et détail</summary><small>Sur le marché du reconditionnement médical professionnel (Envie Autonomie, APF, UCANSS), le matériel se négocie en moyenne entre <strong>50 % et 70 % du prix neuf</strong>, soit une décote de <strong>30 à 50 %</strong> (source <a href="https://www.wikidependance.fr/reseau-envie-autonomie-faire-du-neuf-avec-de-lancien/" target="_blank">Envie Autonomie</a>).</small>
+            <small class="guide">Recommandation : 40 % (milieu de la fourchette marché)</small></details>
+            
           </div>
           <input type="range" class="slider-input" id="s-decote-recond" min="20" max="80" step="5" value="40" oninput="calcEcoCirc()">
           <div class="slider-val" id="v-decote-recond">40 %</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">Coût de reconditionnement interne par AT redistribuée
-            <small>Quand MJ récupère une AT puis la redistribue, elle doit la nettoyer, la désinfecter, parfois remplacer des pièces. Estimation interne ~20 €/AT — à ajuster selon le mix de catégories.</small>
-            <small class="guide">Recommandation : 20 € (estimation MJ)</small>
+            <details class="src-fold"><summary>Sources et détail</summary><small>Quand MJ récupère une AT puis la redistribue, elle doit la nettoyer, la désinfecter, parfois remplacer des pièces. Estimation interne ~20 €/AT — à ajuster selon le mix de catégories.</small>
+            <small class="guide">Recommandation : 20 € (estimation MJ)</small></details>
+            
           </div>
           <input type="range" class="slider-input" id="s-cout-reco" min="5" max="60" step="1" value="20" oninput="calcEcoCirc()">
           <div class="slider-val" id="v-cout-reco">20 €</div>
         </div>
         <div class="slider-row">
           <div class="slider-label">Nombre d'AT remises en circulation
-            <small>En mode Auto : somme des volumes par catégorie du champ « récupérées » — <strong>1 762 équipements</strong> sur le périmètre complet. C'est le seul compteur tracé équipement par équipement, donc le plus fiable. Le champ global « redistribuées » (812) ne recense que les remises en service explicitement enregistrées comme telles et sous-estime le réemploi réel.<br><br>Curseur ajustable pour modéliser un objectif futur si la part du réemploi augmente.</small>
+            <details class="src-fold"><summary>Sources et détail</summary><small>En mode Auto : somme des volumes par catégorie du champ « récupérées » — <strong>1 762 équipements</strong> sur le périmètre complet. C'est le seul compteur tracé équipement par équipement, donc le plus fiable. Le champ global « redistribuées » (812) ne recense que les remises en service explicitement enregistrées comme telles et sous-estime le réemploi réel.<br><br>Curseur ajustable pour modéliser un objectif futur si la part du réemploi augmente.</small></details>
             <label class="auto-toggle"><input type="checkbox" id="auto-nrecyc" checked onchange="toggleSroiAuto('nRecyc')"> Auto (depuis les données)</label>
           </div>
           <input type="range" class="slider-input" id="s-n-recyc" min="0" max="5000" step="50" value="1762" oninput="calcEcoCirc()">
@@ -941,8 +950,9 @@ a:hover{text-decoration:underline}
         </div>
         <div class="slider-row">
           <div class="slider-label">Cycles moyens par AT recyclée (long terme)
-            <small>Aujourd'hui : 1 cycle observé (chaque AT recyclée a été redistribuée une fois). À terme, une AT peut être redistribuée 2, 3 ou 4 fois dans sa vie utile. Curseur permet de modéliser ce levier de long terme — sans double comptage : chaque cycle supplémentaire évite un achat neuf.</small>
-            <small class="guide">Aujourd'hui observé : 1 · Cible long terme réaliste : 2-3</small>
+            <details class="src-fold"><summary>Sources et détail</summary><small>Aujourd'hui : 1 cycle observé (chaque AT recyclée a été redistribuée une fois). À terme, une AT peut être redistribuée 2, 3 ou 4 fois dans sa vie utile. Curseur permet de modéliser ce levier de long terme — sans double comptage : chaque cycle supplémentaire évite un achat neuf.</small>
+            <small class="guide">Aujourd'hui observé : 1 · Cible long terme réaliste : 2-3</small></details>
+            
           </div>
           <input type="range" class="slider-input" id="s-cycles" min="1" max="5" step="0.5" value="1" oninput="calcEcoCirc()">
           <div class="slider-val" id="v-cycles">1 cycle</div>
@@ -3632,9 +3642,7 @@ a:hover{text-decoration:underline}
   </div>
 
   <!-- COMMENT LIRE -->
-  <div class="card mb20" style="background:linear-gradient(135deg,var(--sage-pale),var(--cream));border:1px solid var(--border2)">
-    <div class="block-title">Comment lire cette page</div>
-    <div class="fs12 mt12" style="line-height:1.7">
+  <details class="dev-details" style="margin:0 0 20px;border-top:none;padding-top:0"><summary>Comment lire cette page</summary><div class="dev-content"><div class="fs12 mt12" style="line-height:1.7">
       <ul style="margin:0 0 0 18px;padding:0">
         <li><strong>β (bêta)</strong> = coefficient de régression. C'est l'<em>effet</em> d'une unité de plus de la variable sur le nombre d'AT prêtées. Exemple : β = +0,08 pour GIR signifie qu'à chaque palier GIR (1→2, 2→3, etc.), on observe en moyenne 0,08 AT prêtée en plus, <em>toutes choses égales par ailleurs</em>.</li>
         <li><strong>p</strong> = probabilité que l'effet observé soit dû au hasard si l'hypothèse nulle (pas d'effet) était vraie. Convention : p &lt; .05 = significatif (*), p &lt; .01 = très significatif (**), p &lt; .001 = hautement significatif (***).</li>
@@ -3644,17 +3652,15 @@ a:hover{text-decoration:underline}
         <li><strong>ICC</strong> = part de variance attribuable à l'ergothèque par rapport à la variance totale. Un ICC de 0,07 signifie que 7 % de la variance des prêts s'explique par la différence entre ergothèques (le reste vient des différences individuelles).</li>
       </ul>
     </div>
-  </div>
+  </div></details>
 
   <!-- META & METHODE -->
   <div class="card mb20">
     <div class="block-title">Effectifs & méthode</div>
     <div class="grid g4 mt12" id="analyses-meta"></div>
-    <div class="note-box mt16" style="font-size:11px;line-height:1.6">
-      <strong>Méthodologie · </strong> Analyses restreintes à la période <strong>2021-2026</strong>. Tests non paramétriques par défaut (Spearman, Kruskal-Wallis, Mann-Whitney) en raison de la non-normalité de la plupart des variables. Régressions OLS avec vérification visuelle des résidus. ICC (intra-class correlation) calculé via un modèle mixte à intercept aléatoire au niveau de l'ergothèque (statsmodels mixedlm, REML). Clustering K-means (k=4) sur 6 indicateurs normalisés au niveau ergothèque. Toutes les analyses sont reproduites à partir des 32 fichiers Excel sources via un script Python (scipy / statsmodels / scikit-learn).
+    <details class="dev-details" style="margin-top:16px"><summary>Méthodologie</summary><div class="dev-content"><p style="font-size:12px">Analyses restreintes à la période <strong>2021-2026</strong>. Tests non paramétriques par défaut (Spearman, Kruskal-Wallis, Mann-Whitney) en raison de la non-normalité de la plupart des variables. Régressions OLS avec vérification visuelle des résidus. ICC (intra-class correlation) calculé via un modèle mixte à intercept aléatoire au niveau de l'ergothèque (statsmodels mixedlm, REML). Clustering K-means (k=4) sur 6 indicateurs normalisés au niveau ergothèque. Toutes les analyses sont reproduites à partir des 32 fichiers Excel sources via un script Python (scipy / statsmodels / scikit-learn).
       <br><strong>Nettoyage (v3) · </strong> Les bénéficiaires entrés avant 2021 et ceux sans année d'entrée renseignée ont été retirés en amont du pipeline (127 cas exclus sur 13 190). Le périmètre des 32 ergothèques inclut 29 départementales et 3 ergothèques bailleurs (CDC Habitat, 1001 Vies Habitat, HSA). La classification des aides techniques par catégorie repose sur un mapping documenté (table source d'origine non disponible).
-      Les p-values rapportées sont brutes (non corrigées pour comparaisons multiples) — interpréter avec prudence.
-    </div>
+      Les p-values rapportées sont brutes (non corrigées pour comparaisons multiples) — interpréter avec prudence.</p></div></details>
   </div>
 
   <!-- CALIBRATION DU DISPOSITIF — RÉSULTAT SAILLANT -->
@@ -4548,7 +4554,7 @@ function drawEqCross() {
 //  PAGE: SROI
 // ════════════════════════════════════════
 // État des bascules Auto/Manuel (par défaut auto activé)
-const sroiAuto = {fragMult: true, reduc: true, prixAt: true, nRecyc: true};
+const sroiAuto = {fragMult: true, reduc: true, prixAt: true, nRecyc: true, coutBen: true};
 
 // Grille de prix marché neuf (gamme moyenne grand public, sources :
 // Tousergo, Bastide, MedicalExpress, Pharmaspot, Identités, prevenchute, 2025).
@@ -4791,7 +4797,7 @@ function computeReduc(d) {
   return REDUC_MIN + (REDUC_MAX - REDUC_MIN) * t;
 }
 function toggleSroiAuto(key) {
-  const idMap = {fragMult: 'auto-frag-mult', reduc: 'auto-reduc', prixAt: 'auto-prix-at', nRecyc: 'auto-nrecyc'};
+  const idMap = {fragMult: 'auto-frag-mult', reduc: 'auto-reduc', prixAt: 'auto-prix-at', nRecyc: 'auto-nrecyc', coutBen: 'auto-cout-ben'};
   const cb = document.getElementById(idMap[key]);
   sroiAuto[key] = cb.checked;
   calcSROI();
@@ -4803,7 +4809,16 @@ function calcSROI() {
   const reducAggrav = +document.getElementById('s-reduc-aggrav').value / 100;
   const attribution = +document.getElementById('s-attribution').value / 100;
   const duree = +document.getElementById('s-duree').value;
-  const coutBen = +document.getElementById('s-cout-ben').value;
+  let coutBen;
+  const slCout = document.getElementById('s-cout-ben');
+  if (sroiAuto.coutBen) {
+    coutBen = COUT_BEN_CONVENTION[activeErgo] || COUT_BEN_RESEAU;
+    slCout.value = coutBen;
+    slCout.disabled = true;
+  } else {
+    slCout.disabled = false;
+    coutBen = +slCout.value;
+  }
 
   // (Prix AT et décote reconditionné sont gérés par calcEcoCirc() — calcul séparé)
 
@@ -4838,7 +4853,7 @@ function calcSROI() {
   document.getElementById('v-reduc-aggrav').textContent = (reducAggrav*100).toFixed(0)+' %';
   document.getElementById('v-attribution').textContent = (attribution*100).toFixed(0)+' %';
   document.getElementById('v-duree').textContent = duree.toString().replace('.', ',') + (duree > 1 ? ' ans' : ' an');
-  document.getElementById('v-cout-ben').textContent = fmtEur(coutBen);
+  document.getElementById('v-cout-ben').innerHTML = fmtEur(coutBen) + (sroiAuto.coutBen ? '<span class="auto-badge">auto</span>' : '');
 
   const benef = d.benef;
 
@@ -4942,6 +4957,12 @@ function calcSROI() {
 // ════════════════════════════════════════
 //  ÉCONOMIE CIRCULAIRE (calcul séparé du SROI)
 // ════════════════════════════════════════
+// Coût par personne accompagnée. Moyenne du réseau : 560 € (budget opérationnel des
+// Ergothèques). Pour la Bourgogne-Franche-Comté : coût prévu dans les conventions 2025
+// (Merci Julie), utilisé quand on filtre sur une Ergothèque de la région.
+const COUT_BEN_RESEAU = 560;
+const COUT_BEN_CONVENTION = {'21': 601, '25': 578, '39': 578, '58': 538, '70': 564, '89': 595};
+
 // Nombre d'aides techniques effectivement remises en circulation.
 // Source : somme des volumes par catégorie du champ « récupérées » (cat_recyc),
 // seul compteur tracé équipement par équipement — 1 762 sur le périmètre complet.
