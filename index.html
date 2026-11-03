@@ -1295,11 +1295,11 @@ a:hover{text-decoration:underline}
       <div class="fs12 text-mid mb12">Situation inventée pour l'exemple ; modifiez les champs pour voir ce qu'un compte rendu actuel enregistre et ce que la grille y ajouterait.</div>
       <div class="e3-form mb12">
         <div><label for="g-tit">Titulaire du jugement</label><select id="g-tit" onchange="drawGrille()"><option>la personne</option><option>un proche</option><option>l'aidant</option></select></div>
-        <div><label for="g-aid">Aides fournies</label><input id="g-aid" value="un cadre de toilettes et une barre de lit" oninput="drawGrille()"></div>
-        <div><label for="g-pri">Priorité énoncée à l'intervention</label><input id="g-pri" value="pouvoir lire son courrier" oninput="drawGrille()"></div>
+        <div><label for="g-aid">Aides fournies</label><input id="g-aid" value="un rehausseur de toilettes et une canne-siège" oninput="drawGrille()"></div>
+        <div><label for="g-pri">Priorité énoncée à l'intervention</label><input id="g-pri" value="retourner seul au marché du samedi" oninput="drawGrille()"></div>
         <div><label for="g-usa">Usage au suivi</label><select id="g-usa" onchange="drawGrille()"><option>chaque jour</option><option>de temps en temps</option><option>aide rendue</option></select></div>
         <div><label for="g-suf">Le changement a-t-il suffi pour cette priorité ?</label><select id="g-suf" onchange="drawGrille()"><option>non</option><option>en partie</option><option>oui</option><option>pas encore demandé</option></select></div>
-        <div><label for="g-por">Portée du jugement</label><input id="g-por" value="les gestes de toilette, sans la lecture" oninput="drawGrille()"></div>
+        <div><label for="g-por">Portée du jugement</label><input id="g-por" value="les gestes de toilette, sans les sorties" oninput="drawGrille()"></div>
       </div>
       <div class="grid g2">
         <div class="e3-out cur"><div class="eyebrow mb8" style="color:var(--mid)">Compte rendu actuel</div><div id="g-cur"></div></div>
@@ -3097,7 +3097,7 @@ function drawGrille() {
     `Aides fournies : ${aid || '—'}.<br>${usaTxt}.<br>Suivi réalisé.` +
     '<div class="fs11 text-mid mt8">Ce que le financeur peut lire : une intervention, des aides, un usage. Ces faits sont compatibles avec un jugement favorable comme avec un jugement défavorable.</div>';
   const sufTxt = {'non':'n\'a pas suffi', 'en partie':'a suffi en partie', 'oui':'a suffi', 'pas encore demandé':'n\'a pas encore été interrogé'}[suf];
-  const lecture = suf === 'non' ? 'La reconduction ne dira alors pas que le service a manqué cette priorité : le compte rendu le dit.'
+  const lecture = suf === 'non' ? 'Le financeur apprend que la priorité reste entière, ce que l\'usage seul ne lui aurait pas dit.'
                 : suf === 'pas encore demandé' ? 'Le compte rendu signale ce qu\'il ne sait pas encore : la suffisance reste à demander.'
                 : 'Le compte rendu porte le jugement de suffisance à côté de l\'usage.';
   document.getElementById('g-new').innerHTML =
