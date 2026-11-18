@@ -416,6 +416,144 @@ a:hover{text-decoration:underline}
 .e3-out.cur{background:var(--cream2)}
 .e3-out.new{background:var(--sage-pale);border:1px solid var(--sage-mid)}
 @media(max-width:900px){.e3-stats{grid-template-columns:repeat(2,1fr)}.e3-mx{grid-template-columns:90px repeat(4,1fr);font-size:11px}.e3-fact{grid-template-columns:80px 1fr 1fr}.e3-form{grid-template-columns:1fr}}
+
+/* ══ Onglet Nos impacts ══ */
+.imp-lede{font-size:15px;line-height:1.7;color:var(--charcoal);max-width:860px}
+.imp-meta{font-size:13px;line-height:1.6;color:var(--mid)}
+.imp-info{margin-top:10px}
+.imp-info summary{cursor:pointer;font-size:13px;color:var(--sage);font-weight:500;list-style:none;display:inline-flex;align-items:center;gap:6px}
+.imp-info summary::-webkit-details-marker{display:none}
+.imp-info summary::before{content:'i';display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;border:1.5px solid var(--sage);font:600 11px/1 Georgia,serif;font-style:italic}
+.imp-info[open] summary{margin-bottom:8px}
+.imp-info div{font-size:13px;line-height:1.65;color:var(--mid);background:var(--cream);border-radius:var(--r);padding:12px 16px;max-width:860px}
+.imp-part{display:flex;align-items:baseline;gap:12px;margin:34px 0 6px}
+.imp-part .num{font-family:'Playfair Display',serif;font-size:15px;color:var(--coral);border:1.5px solid var(--coral-l);border-radius:50%;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.imp-part h3{font-family:'Playfair Display',serif;font-weight:500;font-size:24px;color:var(--charcoal);margin:0}
+.imp-part-sub{font-size:15px;color:var(--mid);margin:0 0 18px 42px;line-height:1.6}
+.imp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.imp-card{background:white;border:1px solid var(--border);border-top:3px solid var(--sage);border-radius:var(--r2);box-shadow:var(--sh);padding:22px 26px;margin-bottom:16px}
+.imp-grid .imp-card{margin-bottom:0}
+.imp-card.model{border-top-color:var(--coral)}
+.imp-card h4{font-family:'Playfair Display',serif;font-weight:500;font-size:21px;color:var(--charcoal);margin:0 0 14px}
+.imp-stat{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:center;margin-bottom:8px}
+.imp-stat .fig{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+.imp-stat .n{font-family:'Playfair Display',serif;font-size:44px;line-height:1;color:var(--sage)}
+.imp-card.model .imp-stat .n{color:var(--coral)}
+.imp-stat .of{font-size:15px;color:var(--mid)}
+.imp-stat .txt{font-size:16px;line-height:1.5;color:var(--charcoal)}
+.imp-sub{display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:baseline;font-size:14px;line-height:1.55;color:var(--mid);margin:6px 0 0}
+.imp-sub b{color:var(--sage);font-weight:600;white-space:nowrap}
+.imp-card.model .imp-sub b{color:var(--coral)}
+.imp-detail{font-size:14px;line-height:1.6;color:var(--mid);margin-top:10px}
+.imp-quotes{display:grid;gap:12px;margin-top:16px}
+.imp-quotes.two{grid-template-columns:1fr 1fr}
+.imp-q{border-left:3px solid var(--coral-l);background:var(--coral-pale);border-radius:0 var(--r) var(--r) 0;padding:14px 18px;font-family:'Playfair Display',serif;font-style:italic;font-size:16px;line-height:1.55;color:var(--charcoal);margin:0}
+.imp-q cite{display:block;margin-top:8px;font-family:'DM Sans','Helvetica Neue',sans-serif;font-style:normal;font-size:13px;color:var(--mid)}
+.imp-limit{background:var(--gold-pale);border:1px solid rgba(184,144,58,0.22);border-radius:var(--r2);padding:22px 26px;margin-top:28px}
+.imp-limit h4{font-family:'Playfair Display',serif;font-weight:500;font-size:19px;color:var(--charcoal);margin:0 0 8px}
+.imp-limit p{font-size:15px;line-height:1.65;color:var(--charcoal);margin:0 0 8px;max-width:860px}
+.imp-limit .imp-q{background:rgba(255,255,255,.6);border-left-color:var(--gold);margin-top:12px}
+.imp-source{font-size:13px;color:var(--mid);line-height:1.6;margin-top:24px}
+.imp-switch{display:inline-flex;gap:6px;background:var(--cream2);border-radius:24px;padding:4px;margin-bottom:22px}
+.imp-switch button{border:none;background:transparent;padding:8px 18px;border-radius:20px;font-size:14px;color:var(--mid);cursor:pointer;font-family:inherit}
+.imp-switch button.on{background:white;color:var(--sage);font-weight:600;box-shadow:var(--sh)}
+.research-tab .cnt{font-weight:400;color:var(--light);margin-left:4px}
+@media(max-width:900px){.imp-grid,.imp-quotes.two{grid-template-columns:1fr}}
+
+/* ══ Onglet Coût-bénéfice ══ */
+.acb-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:10px}
+.acb-src-btn{border:1.5px solid var(--sage);background:white;color:var(--sage);border-radius:22px;padding:9px 18px;font:500 14px 'DM Sans','Helvetica Neue',sans-serif;cursor:pointer;white-space:nowrap}
+.acb-src-btn:hover{background:var(--sage);color:white}
+.acb-hero{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;gap:0;background:var(--charcoal);color:white;border-radius:var(--r2);overflow:hidden;box-shadow:var(--sh2)}
+.acb-hero-main{padding:30px 32px;background:linear-gradient(160deg,#2F4A42,var(--charcoal))}
+.acb-hero-main .lbl{font-size:14px;opacity:.75}
+.acb-hero-main .big{font-family:'Playfair Display',serif;font-size:72px;line-height:1.05;color:#F2C4A8;margin:6px 0}
+.acb-hero-main .sub{font-size:16px;opacity:.85}
+.acb-hero-side{padding:28px 32px;border-left:1px solid rgba(255,255,255,.1)}
+.acb-hero-row{display:flex;align-items:baseline;gap:12px;font-size:15px;opacity:.9;margin-bottom:8px}
+.acb-hero-row .v{font-family:'Playfair Display',serif;font-size:28px;color:white;opacity:1;min-width:120px}
+.acb-years{margin-top:18px;display:grid;gap:8px;position:relative}
+.acb-yr{display:grid;grid-template-columns:70px 1fr 64px;align-items:center;gap:12px;font-size:14px}
+.acb-yr .bar{height:12px;border-radius:6px;background:rgba(255,255,255,.08);position:relative}
+.acb-yr .fill{height:100%;border-radius:6px;background:var(--sage-l)}
+.acb-yr .one{position:absolute;top:-4px;bottom:-4px;width:2px;background:#F2C4A8}
+.acb-yr .val{text-align:right;font-variant-numeric:tabular-nums}
+.acb-cover{font-size:14px;opacity:.8;margin-top:12px}
+.acb-cover i{display:inline-block;width:10px;height:2px;background:#F2C4A8;vertical-align:middle;margin-right:6px}
+.acb-eff{background:white;border:1px solid var(--border);border-top:3px solid var(--coral);border-radius:var(--r2);box-shadow:var(--sh);padding:22px 26px}
+.acb-eff h4{font-family:'Playfair Display',serif;font-weight:500;font-size:21px;color:var(--charcoal);margin:6px 0 8px}
+.acb-why{font-size:15px;line-height:1.6;color:var(--mid);margin-bottom:16px}
+.acb-chain .st{display:grid;grid-template-columns:22px 110px 1fr;align-items:baseline;gap:8px;padding:7px 0;border-top:1px solid var(--border);font-size:14px;line-height:1.5;color:var(--charcoal)}
+.acb-chain .st .op{color:var(--light);font-size:16px;text-align:center}
+.acb-chain .st .val{font-family:'Playfair Display',serif;font-size:20px;color:var(--charcoal);white-space:nowrap}
+.acb-chain .st.res{background:var(--sage-pale);border-radius:8px;border-top:none;margin:4px 0;padding:8px 0}
+.acb-chain .st.res .val{color:var(--sage)}
+.acb-chain .st.res.fin .val{color:var(--coral)}
+.acb-total{background:var(--cream2);border-radius:var(--r2);padding:18px 24px;font-size:15px;line-height:1.7;color:var(--charcoal)}
+.acb-total b{font-family:'Playfair Display',serif;font-weight:500;font-size:19px}
+.ref{font-size:11px;margin-left:1px}
+.ref a{color:var(--sage);cursor:pointer;text-decoration:none;font-weight:600}
+.ref a:hover{text-decoration:underline}
+.acb-sl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.acb-sl-lab{font-size:15px;color:var(--charcoal)}
+.acb-sl-val{font-family:'Playfair Display',serif;font-size:22px;color:var(--sage)}
+.acb-sl .slider-input{width:100%}
+.acb-sl-ends{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--mid);margin-top:4px}
+.acb-sl-ends .ret{color:var(--gold);font-weight:500}
+.acb-reset{margin-top:20px;border:none;background:var(--cream2);color:var(--charcoal);border-radius:20px;padding:9px 18px;font:500 14px 'DM Sans','Helvetica Neue',sans-serif;cursor:pointer}
+.acb-reset:hover{background:var(--cream3)}
+.acb-sens{width:100%;border-collapse:collapse;font-size:14px}
+.acb-sens th{font-weight:500;color:var(--mid);text-align:right;padding:6px 8px;border-bottom:1px solid var(--border2);font-size:13px}
+.acb-sens th:first-child{text-align:left}
+.acb-sens td{padding:9px 8px;border-bottom:1px solid var(--border);text-align:right;font-variant-numeric:tabular-nums;color:var(--charcoal)}
+.acb-sens td:first-child{text-align:left}
+.acb-sens td small{display:block;color:var(--mid);font-size:13px}
+.acb-sens td.lo{color:var(--coral)}
+.acb-sens td.hi{color:var(--sage)}
+.acb-sens td.c{font-weight:600}
+.acb-grid td.c{background:var(--sage-pale)}
+.acb-range-title{font-size:15px;color:var(--charcoal);margin-bottom:26px}
+.acb-range{position:relative;height:10px;border-radius:5px;background:linear-gradient(90deg,var(--coral-l),var(--sage-l));margin:34px 10px 14px}
+.acb-range .pt{position:absolute;top:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:white;border:3px solid var(--charcoal)}
+.acb-range .pt.c{border-color:var(--coral);width:20px;height:20px}
+.acb-range .pt span{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:'Playfair Display',serif;font-size:20px;color:var(--charcoal);white-space:nowrap}
+.acb-range-legend{display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:13px;color:var(--mid);line-height:1.55}
+.acb-range-legend div:last-child{text-align:right}
+.acb-chips{display:flex;flex-wrap:wrap;gap:8px}
+.acb-chip{background:white;border:1px solid var(--border2);border-radius:20px;padding:7px 14px;font-size:14px;color:var(--charcoal)}
+#src-overlay{position:fixed;inset:0;background:rgba(42,49,46,.35);opacity:0;pointer-events:none;transition:opacity .2s;z-index:900}
+#src-overlay.on{opacity:1;pointer-events:auto}
+#src-drawer{position:fixed;top:0;right:0;bottom:0;width:min(460px,92vw);background:var(--cream);box-shadow:-10px 0 40px rgba(0,0,0,.15);transform:translateX(100%);transition:transform .25s ease;z-index:901;overflow-y:auto;padding:24px 28px 40px}
+#src-drawer.on{transform:none}
+.src-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.src-head button{border:none;background:none;font-size:30px;line-height:1;color:var(--mid);cursor:pointer}
+.src-intro{font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:12px}
+.src-group{font-size:13px;font-weight:600;color:var(--coral);text-transform:uppercase;letter-spacing:.06em;margin:18px 0 6px}
+.src-list{margin:0;padding-left:28px}
+.src-list li{font-size:14px;line-height:1.55;color:var(--charcoal);margin-bottom:10px;padding:4px 6px;border-radius:6px;transition:background .3s}
+.src-list li.hl{background:var(--gold-pale)}
+.src-list li a{color:var(--sage);font-weight:500;white-space:nowrap}
+@media(max-width:900px){.acb-hero{grid-template-columns:1fr}.acb-hero-side{border-left:none;border-top:1px solid rgba(255,255,255,.1)}.acb-head{flex-direction:column}}
+
+/* ══ Onglet Analyses ══ */
+.ana-profile{background:white;border:1px solid var(--border);border-radius:var(--r2);box-shadow:var(--sh);padding:20px 26px}
+.ana-profile-t{font-family:'Playfair Display',serif;font-size:20px;color:var(--charcoal);margin-bottom:14px}
+.ana-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.ana-kpis b{display:block;font-family:'Playfair Display',serif;font-weight:500;font-size:30px;color:var(--sage)}
+.ana-kpis span{font-size:14px;color:var(--mid)}
+.ana-q{display:grid;grid-template-columns:minmax(300px,5fr) 7fr;gap:30px;background:white;border:1px solid var(--border);border-radius:var(--r2);box-shadow:var(--sh);padding:26px 28px;margin-bottom:18px;align-items:start}
+.ana-num{font-size:13px;color:var(--coral);text-transform:uppercase;letter-spacing:.07em;font-weight:500}
+.ana-q h3{font-family:'Playfair Display',serif;font-weight:500;font-size:23px;color:var(--charcoal);margin:6px 0 10px;line-height:1.25}
+.ana-q p{font-size:16px;line-height:1.65;color:var(--charcoal);margin:0 0 14px}
+.ana-badge{display:inline-block;font-size:13px;font-weight:600;border-radius:14px;padding:4px 12px}
+.ana-badge.net{background:var(--sage-pale);color:var(--sage)}
+.ana-badge.leger{background:var(--gold-pale);color:var(--gold)}
+.ana-badge.confirm{background:var(--cream2);color:var(--mid)}
+.ana-note{font-size:13px;color:var(--mid);margin-top:12px;line-height:1.55}
+.ana-more{margin-top:30px;background:var(--cream2);border-radius:var(--r2);padding:16px 22px}
+.ana-more summary{cursor:pointer;font-size:15px;font-weight:500;color:var(--charcoal)}
+.ana-more-body{margin-top:18px}
+@media(max-width:1000px){.ana-q{grid-template-columns:1fr}.ana-kpis{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -448,7 +586,7 @@ a:hover{text-decoration:underline}
     <div class="nav-section">Recherche et développement</div>
     <button class="nav-item" onclick="go('recherche')">
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      Enquêtes &amp; entretiens
+      Nos impacts
     </button>
     <button class="nav-item" onclick="go('sroi')">
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
@@ -461,7 +599,7 @@ a:hover{text-decoration:underline}
   </nav>
   <div class="sb-footer">
     <div class="sb-version">v3.0 &nbsp;·&nbsp; Données 2021–2026 (nettoyées)</div>
-    <div class="sb-version" style="color:rgba(255,255,255,.5);margin-top:4px">Thèse Syrielle Zouakh</div>
+    <div class="sb-version" style="color:rgba(255,255,255,.5);margin-top:4px">Données issues de la thèse de Syrielle Zouakh · Université Paris Nanterre</div>
   </div>
 </aside>
 
@@ -676,270 +814,102 @@ a:hover{text-decoration:underline}
 
 <!-- ══ SROI ══ -->
 <div id="p-sroi" class="page">
-  <div class="mb24">
-    <div class="section-title">Coût-bénéfice — coûts évités pour la collectivité</div>
-    <div class="section-sub">Analyse coût-bénéfice (ACB) restreinte aux coûts tangibles et documentés — approche dérivée du SROI</div>
-  </div>
-  <div class="note-box mb20" style="font-size:12.5px;line-height:1.65">Cette analyse chiffre la performance du service du point de vue du financeur public. Les entretiens de l'onglet « Enquêtes &amp; entretiens » montrent que cette performance ne tranche pas à elle seule du jugement de ceux pour qui le service compte, ni, pour les financeurs interrogés, de la décision de reconduire : les économies évitées intéressent, mais ne décident rien (voir « Ce que porte le compte rendu »).</div>
-
-  <details class="dev-details" style="margin:0 0 16px;border-top:none;padding-top:0">
-    <summary>Méthode et hypothèses</summary>
-    <div class="dev-content">
-      <p>Analyse du point de vue du <strong>financeur public</strong> : seuls les euros publics économisés sont chiffrés (Assurance maladie, hôpital, APA), sur la durée d'usage de l'aide technique et nets d'un facteur d'attribution. Deux mécanismes : hospitalisations pour chute évitées et aggravations du GIR évitées. Les autres bénéfices (aidants, entrée en institution retardée, travaux évités, chutes non graves) ne sont pas chiffrés : le ratio est un plancher.</p>
-      <p><strong>Cumul sur la durée.</strong> Chutes : linéaire, le risque se réinitialise chaque année. GIR : en escalier, un GIR ne se regagne pas et l'économie se poursuit les années suivantes (effet atténué à 100 % / 80 % / 60 %).</p>
-      <p><strong>Cadre.</strong> Principes du <a href="https://www.socialvalueint.org/" target="_blank">Social Value International</a> : sept des huit respectés, la vérification par un tiers accrédité reste à faire. Voir aussi le <a href="https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-governent" target="_blank">Green Book</a> et le guide <a href="https://www.has-sante.fr/upload/docs/application/pdf/2020-07/guide_methodologique_evaluation_economique_has_2020_vf.pdf" target="_blank">HAS 2020</a>.</p>
-    </div>
-  </details>
-
-  <div class="note-box mb20" id="sroi-scope" style="background:var(--sage-pale);border-color:var(--border2)"></div>
-
-  <div class="grid g2">
+  <div class="acb-head">
     <div>
-      <!-- HYPOTHÈSES -->
-      <div class="card mb16">
-        <div class="block-title">Hospitalisations pour chute évitées</div>
-        <div class="slider-row">
-          <div class="slider-label">Coût moyen d'une hospitalisation pour chute grave
-            <details class="src-fold"><summary>Sources et détail</summary><small><strong>Source directe :</strong> <strong>étude FRACTOS</strong> — Thomas T. et al. (2022), <em>The Economic Burden of Severe Osteoporotic Fractures in the French Healthcare Database: the FRACTOS Study</em>, Journal of Bone and Mineral Research 37:1811-1822. Données de l'Assurance Maladie sur <strong>356 895 patients</strong>. Coût moyen pour l'Assurance Maladie de la première année suivant une fracture grave : <strong>18 040 €</strong> — hospitalisation (10 806 €), soins de suite et réadaptation (6 744 €), kinésithérapie, transports et suivi.<br><br>
-            <strong>Pourquoi ce montant est prudent :</strong> FRACTOS porte sur les 50 ans et plus, et le coût croît avec l'âge (nos bénéficiaires ont 81 ans en moyenne). La fracture de la hanche, la plus fréquente au grand âge, coûte <strong>21 085 €</strong> la première année. Le montant s'arrête à douze mois : il ne compte ni les séquelles au-delà, ni les entrées en établissement qui suivent souvent une fracture. Ordres de grandeur convergents chez Fardellone et al. (2021, Archives of Osteoporosis 16:124) : 15 754 € pour les femmes, 18 585 € pour les hommes.</small>
-            <small class="guide">Défaut : 18 040 € — coût Assurance Maladie de la première année après fracture grave (FRACTOS 2022)</small></details>
-            
-          </div>
-          <input type="range" class="slider-input" id="s-cout-chute" min="5000" max="25000" step="10" value="18040" oninput="calcSROI()">
-          <div class="slider-val" id="v-cout-chute">18 040 €</div>
-        </div>
-        <div class="slider-row">
-          <div class="slider-label">Multiplicateur de fragilité de la population
-            <details class="src-fold"><summary>Sources et détail</summary><small><strong>Position méthodologique assumée :</strong> l'entrée dans le dispositif MJ est en soi un marqueur de risque supra-national. La totalité de la file a été orientée par une évaluation médico-sociale (CD 71 %, CARSAT 13 %, bailleur 3 %, DAC 1 %) ou par une auto-orientation motivée (12 %), qui reflète chute passée signalée, fragilité anticipée, isolement (21 % vivent seuls) ou dépendance. Aucun sous-groupe MJ ne correspond au baseline « 65+ tout-venant national ». Les multiplicateurs sont donc rehaussés en conséquence :<br>
-            &nbsp;• <strong>GIR 3-4</strong> (mobiles-fragiles, cœur de cible, 60 % de la file) : <strong>× 3,5</strong> — surrisque HAS 2005 et Rubenstein Age &amp; Ageing 2006, borne haute assumée pour tenir compte de la sélection sur profil à haut risque déjà documenté.<br>
-            &nbsp;• <strong>GIR 1-2</strong> (très dépendants, 22 %) : <strong>× 2,5</strong> — chutes moins fréquentes mais hospitalisations quasi systématiques en cas d'événement (Agree &amp; Freedman 2000).<br>
-            &nbsp;• <strong>GIR 5-6</strong> (autonomes, 18 %) : <strong>× 2,0</strong> — pas de personne « autonome moyenne 65+ » dans la file, marqueur de fragilité anticipée à l'entrée dispositif.<br>
-            La valeur affichée est la moyenne pondérée sur la file filtrée (≈ 3,0 sur la file complète). Ce multiplicateur s'applique aux taux d'hospitalisation pour chute par tranche d'âge publiés par Santé publique France (Bulletin national du 12 mars 2026, données 2015-2024 : 65-74 ans 433/100 000, 75-84 ans 1 177, ≥85 ans 3 736).</small>
-            <small class="guide">Manuel — 1,0 = population 65+ tout-venant nationale ; 3,0 = profil MJ défendable (accompagnement d'une population sélectionnée pour son risque) ; 4,0 = borne haute théorique</small></details>
-            <label class="auto-toggle"><input type="checkbox" id="auto-frag-mult" checked onchange="toggleSroiAuto('fragMult')"> Auto (depuis les données)</label>
-          </div>
-          <input type="range" class="slider-input" id="s-frag-mult" min="1.0" max="4.0" step="0.1" value="3.0" oninput="calcSROI()">
-          <div class="slider-val" id="v-frag-mult">× 3,0</div>
-        </div>
-      </div>
-
-      <div class="card mb16">
-        <div class="block-title">Efficacité ergothérapique sur le risque de chute</div>
-        <div class="slider-row">
-          <div class="slider-label">Réduction du risque de chute par aménagement
-            <details class="src-fold"><summary>Sources et détail</summary><small>Cochrane Clemson 2023 (méta-analyse de 22 essais cliniques, n = 8 463) : réduction poolée de −21 % (RaR = 0,79 [IC 95 % 0,68–0,91]) en population générale. Sur le sous-groupe « personnes à plus haut risque de chute » de la même Cochrane 2023 : réduction <strong>−38 %</strong> (RaR = 0,62 [IC 95 % 0,44–0,86]), aligné avec Stark et al. 2017 (essai HARP, personnes fragiles). En mode Auto : la population MJ (fragilité pondérée ≈ × 2,3) entre dans le sous-groupe « higher risk of falling » de Cochrane 2023, la borne haute −38 % est donc appliquée par défaut.</small>
-            <small class="guide">Manuel — 21 % = borne pooled Cochrane pop générale ; 38 % = borne pop fragile ciblée (Cochrane sous-groupe + Stark HARP), défaut pour la pop MJ</small></details>
-            <label class="auto-toggle"><input type="checkbox" id="auto-reduc" checked onchange="toggleSroiAuto('reduc')"> Auto (depuis les données)</label>
-          </div>
-          <input type="range" class="slider-input" id="s-reduc" min="10" max="45" step="1" value="38" oninput="calcSROI()">
-          <div class="slider-val" id="v-reduc">38 %</div>
-        </div>
-      </div>
-
-      <div class="card mb16">
-        <div class="block-title">Aggravation du GIR évitée</div>
-        <div class="note-box mb12" style="background:var(--cream);border-left:3px solid var(--sage);padding:10px 12px;font-size:11px;line-height:1.55"><strong>Périmètre : GIR 3 et 4.</strong> Le dispositif ralentit la trajectoire de dépendance : chaque aggravation évitée épargne au département un plan APA plus lourd.</div>
-        <div class="slider-row">
-          <div class="slider-label">Réduction de l'aggravation du GIR
-            <details class="src-fold"><summary>Sources et détail</summary><small><strong>Source — essai randomisé CAPABLE :</strong> Szanton SL et al. (2019), <em>Effect of a Biobehavioral Environmental Approach on Disability Among Low-Income Older Adults</em>, JAMA Internal Medicine 179(2):204-211. Intervention combinant ergothérapeute, aménagement et aides techniques au domicile : le score de dépendance est <strong>30 % plus bas</strong> dans le groupe accompagné (risque relatif 0,70).<br><br>
-            <strong>Convergence :</strong> essai ABLE (Gitlin LN et al., <em>JAGS</em> 2006;54(5):809-816), effet à long terme sur la mortalité confirmé (Gitlin 2009, JAGS 57(3):476-481), revue systématique Steultjens EMJ et al. (<em>Age &amp; Ageing</em> 2004;33(5):453-460).<br><br>
-            <strong>Hypothèse de transposition déclarée :</strong> CAPABLE mesure un score de dépendance, pas directement des changements de GIR. La grille AGGIR reposant sur les mêmes activités de la vie quotidienne, la transposition est plausible, mais c'est une hypothèse. Avec un effet divisé par deux (15 %), le ratio tomberait à 2,54.<br><br>
-            <strong>Source délibérément écartée :</strong> Mann et al. 1999 (<em>Archives of Family Medicine</em>), qui mesure une réduction de 33 % des <em>coûts d'aide à domicile</em> aux États-Unis — objet différent (des coûts, non un taux d'aggravation) dans un système de santé non transposable au dispositif APA français.</small>
-            <small class="guide">Défaut : 30 % — risque relatif 0,70 mesuré par l'essai CAPABLE</small></details>
-            
-          </div>
-          <input type="range" class="slider-input" id="s-reduc-aggrav" min="10" max="50" step="1" value="30" oninput="calcSROI()">
-          <div class="slider-val" id="v-reduc-aggrav">30 %</div>
-        </div>
-        <details class="src-fold" style="margin-top:10px"><summary>Taux d'aggravation et surcoûts appliqués</summary><div class="fs11 text-mid" style="line-height:1.6;background:var(--cream);padding:10px 12px;border-radius:6px;margin-top:6px">
-          <strong>Brique 1 — Taux annuel d'aggravation : 16 %</strong> <span class="text-light">(DREES, Debout 2010, Études et Résultats n° 724)</span>. Parmi les personnes entrées en GIR 4 à domicile, 10 % passent en GIR 3 et 6 % en GIR 2 un an plus tard. <em>Hypothèse signalée : ce taux mesuré sur les GIR 4 est aussi appliqué aux GIR 3, faute de taux publié pour eux.</em><br><br>
-          <strong>Brique 3 — Surcoût annuel du plan APA</strong> <span class="text-light">(DREES, plans d'aide réellement notifiés par GIR, revalorisés en euros 2026)</span> : quitter le GIR 4 → <strong>5 980 €/an</strong> (vers GIR 3 dans 10 cas sur 16 à +366 €/mois, vers GIR 2 dans 6 cas sur 16 à +719 €/mois) · passer du GIR 3 au GIR 2 → <strong>4 243 €/an</strong>. Moyenne pondérée ≈ 5 340 €.<br><br>
-          <strong>Pourquoi les plans notifiés et pas les plafonds ?</strong> Le plafond est le maximum légal, que moins d'un plan sur huit atteignait en 2017. Le plan notifié est ce que le département accorde réellement : c'est la dépense qu'il engage quand une personne change de GIR. Avec les plafonds, le ratio monterait à 3,36 mais surévaluerait la dépense évitée.
-        </div></details>
-      </div>
-
-      <div class="card mb16">
-        <div class="block-title">Durée d'usage effectif de l'AT</div>
-        <div class="slider-row">
-          <div class="slider-label">Nombre d'années moyennes d'usage effectif après pose
-            <details class="src-fold"><summary>Sources et détail</summary><small>Une AT posée reste en place et continue d'éviter des chutes et de retarder l'aggravation de la dépendance plusieurs années — pas seulement la première. La durée d'usage effectif est bornée par : la durée matérielle de l'AT (barres d'appui 10 ans+, rehausseurs 5-8 ans, chaises douche 5-10 ans — le matériel n'est pas le facteur limitant), le temps passé à domicile avant institution ou décès (~4-5 ans en moyenne chez les 80+ français, INSEE 2020), et le turnover naturel. <strong>Sources littérature dédiée</strong> : Agree E.M., Freedman V.A. (2003), <em>Duration of assistive device use among community-dwelling older adults</em>, données US longitudinales LTC Survey : durée médiane d'usage AT chez 65+ à domicile ≈ 3,4 ans. Fänge A., Iwarsson S. (2007), <em>Home modifications and use of aids among older adults with disabilities</em>, suivi longitudinal Suède : durée moyenne > 4 ans pour aides simples chez personnes maintenues à domicile.</small>
-            <small class="guide">Défaut : 3 ans — cohérent avec Agree-Freedman 2003 (médiane 3,4 ans sur pop âgée à domicile) et Fänge-Iwarsson 2007, reste conservateur par rapport à la durée matérielle de l'AT et à l'espérance de vie à domicile</small></details>
-            
-          </div>
-          <input type="range" class="slider-input" id="s-duree" min="1" max="8" step="0.5" value="3" oninput="calcSROI()">
-          <div class="slider-val" id="v-duree">3 ans</div>
-        </div>
-      </div>
-
-      <div class="card mb16">
-        <div class="block-title">Part attribuable au dispositif</div>
-        <div class="slider-row">
-          <div class="slider-label">% des coûts évités effectivement attribuable au dispositif MJ
-            <details class="src-fold"><summary>Sources et détail</summary><small><strong>Justification principale — reconnaissance législative de la non-substituabilité :</strong> la <strong>loi n° 2024-317 du 8 avril 2024</strong> portant mesures pour bâtir la société du bien vieillir et de l'autonomie généralise l'expérimentation des <strong>EqLAAT</strong> (Équipes Locales d'Accompagnement sur les Aides Techniques), dispositif de même nature que l'Ergothèque : évaluation par un ergothérapeute, mise à disposition d'aides techniques, suivi personnalisé. La création d'un cadre législatif ad hoc établit que <em>ce service n'existait pas dans le droit commun</em> — ni l'APA, ni les plans d'action des caisses de retraite, ni les SAAD, ni le parcours de soins ne portaient cette combinaison évaluation + équipement + suivi.<br><br>
-            <strong>Corroboration empirique :</strong> une régression transversale sur les 31 structures comptant ≥ 50 préconisations donne une pente de substitution β = −0,35 [IC 95 % −0,55 ; −0,16] entre taux de mise à disposition et taux d'achat direct — estimation dérivée d'environ 65 % pour l'accès au matériel, qui constitue une borne basse pour l'attribution des bénéfices sanitaires.<br><br>
-            <strong>Les 20 % restants</strong> sont attribués aux autres acteurs du parcours : APA et services du Conseil Départemental, médecin traitant, entourage familial, autres dispositifs de prévention. Le facteur demeure strictement inférieur à 100 %, conformément au principe SVI n° 5 et à la recommandation du HM Treasury Green Book (2022).</small>
-            <small class="guide">Défaut : 80 % — adossé à la reconnaissance législative de non-substituabilité (loi Bien Vieillir 2024). Position conventionnelle SROI sans cet argument : 70 %.</small></details>
-            
-          </div>
-          <input type="range" class="slider-input" id="s-attribution" min="40" max="80" step="5" value="80" oninput="calcSROI()">
-          <div class="slider-val" id="v-attribution">80 %</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="block-title">Coût du dispositif (par bénéficiaire)</div>
-        <div class="slider-row">
-          <div class="slider-label">Coût moyen par bénéficiaire
-            <details class="src-fold"><summary>Sources et détail</summary><small>Intervention ergothérapeute, matériel mis à disposition, suivi, coordination et frais de structure. Coût unique par personne. Moyenne du réseau : 560 € (budget opérationnel des Ergothèques). Bourgogne-Franche-Comté, coût prévu dans les conventions 2025 (Merci Julie) : Côte-d'Or 601 €, Doubs 578 €, Jura 578 €, Nièvre 538 €, Haute-Saône 564 €, Yonne 595 €. Le coût du département s'applique quand on sélectionne son Ergothèque.</small></details>
-            <label class="auto-toggle"><input type="checkbox" id="auto-cout-ben" checked onchange="toggleSroiAuto('coutBen')"> Auto (selon l'Ergothèque)</label>
-          </div>
-          <input type="range" class="slider-input" id="s-cout-ben" min="150" max="800" step="1" value="560" oninput="calcSROI()">
-          <div class="slider-val" id="v-cout-ben">560 €</div>
-        </div>
-      </div>
+      <div class="section-title">Coût-bénéfice</div>
+      <div class="section-sub" style="font-size:15px">Les dépenses que l'Ergothèque peut éviter à la collectivité, estimées sur deux effets seulement</div>
     </div>
+    <button class="acb-src-btn" onclick="openSources()">Sources (23)</button>
+  </div>
+  <div class="imp-meta mb16" id="sroi-scope"></div>
 
-    <div>
-      <div class="sroi-result mb16">
-        <div class="sroi-result-eyebrow">Coûts évités cumulés pour la collectivité (net d'attribution, sur la durée d'usage effectif)</div>
-        <div class="sroi-result-value" id="sroi-valeur-hero">—</div>
-        <div class="sroi-result-unit">euros — cumul des coûts évités tangibles (chutes graves + aides humaines) sur la durée d'usage effectif de l'AT, après application du facteur d'attribution</div>
-        <div class="sroi-items">
-          <div class="sroi-item"><div class="sroi-item-label">Chutes graves évitées (cumul, brut)</div><div class="sroi-item-value" id="sroi-chutes">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">Aggravation du GIR évitée (cumul escalier, brut)</div><div class="sroi-item-value" id="sroi-aides">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">× Durée d'usage moyen</div><div class="sroi-item-value" id="sroi-duree">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">× Attribution dispositif</div><div class="sroi-item-value" id="sroi-attr">—</div></div>
-          <div class="sroi-item"><div class="sroi-item-label">Total brut cumulé</div><div class="sroi-item-value" id="sroi-brut">—</div></div>
-          <div class="sroi-item" style="grid-column:1/-1"><div class="sroi-item-label">Coût total dispositif (intervention unique)</div><div class="sroi-item-value" id="sroi-cout">—</div></div>
-        </div>
-        <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
-          <div class="sroi-item-label" style="font-size:11px;opacity:.6">ROI coûts évités</div>
-          <div id="sroi-ratio" style="font-family:'Playfair Display',serif;font-size:24px;font-weight:500;color:#F2C4A8">—</div>
-          <div class="sroi-item-label" style="font-size:11px;opacity:.6">€ de coûts évités pour 1 € investi</div>
-        </div>
-        <!-- compat anciennes refs -->
-        <span id="sroi-valeur" style="display:none">—</span>
-        <span id="sroi-materiel" style="display:none">—</span>
-      </div>
-
-      <div class="card mb16">
-        <div class="block-title">Décomposition de la valeur</div>
-        <div class="legend mb8" id="lgd-sroi"></div>
-        <div class="chart-box" style="height:160px"><canvas id="c-sroi-pie"></canvas></div>
-      </div>
-
-      <div class="card mb16">
-        <div class="block-title">Scénarios — conservateur / central / optimiste</div>
-        <div class="chart-box" style="height:140px"><canvas id="c-sroi-scen"></canvas></div>
-        <div class="fs10 text-light" style="font-style:italic;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)">Variation ±30% autour du scénario central. Représente l'incertitude sur les paramètres clés.</div>
-      </div>
-
-      <div class="card">
-        <div class="block-title">Sources &amp; références</div>
-        <ul class="biblio-list">
-          <li><strong>Santé publique France (12 mars 2026).</strong> <em>Hospitalisations et mortalité en lien avec une chute chez les personnes de 65 ans et plus en France. Données 2015-2024.</em> Bulletin national. Taux standardisés d'hospitalisation 2024 : 65-74 ans <strong>433</strong>/100 000 ; 75-84 ans <strong>1 177</strong>/100 000 ; ≥85 ans <strong>3 736</strong>/100 000. Total 174 824 hospitalisations et 20 148 décès en lien avec une chute chez les 65+ en 2024. <strong>Source directe des taux SpF utilisés dans le calcul.</strong> <a href="https://www.santepubliquefrance.fr/maladies-et-traumatismes/traumatismes/chute" target="_blank">Lien SpF</a></li>
-          <li>Plan national antichute des personnes âgées 2022-2024, Ministère des Solidarités. <a href="https://solidarites.gouv.fr/plan-antichute-des-personnes-agees" target="_blank">Lien</a></li>
-          <li>Health Data Hub. <em>Coût hospitalier de la prise en charge des fractures de l'extrémité supérieure du fémur en France :</em> 500 M€/an pour 65 000 fractures. <a href="https://www.health-data-hub.fr" target="_blank">Lien</a></li>
-          <li>Assurance Maladie / Ameli. <em>Coût moyen d'une hospitalisation pour fracture du col du fémur :</em> ~9 000 €/patient. <a href="https://www.ameli.fr" target="_blank">Lien</a></li>
-          <li>Health Data Hub. <em>Estimation du coût médical direct de la prise en charge hospitalière et post-hospitalière des fractures de l'extrémité supérieure du fémur :</em> coût total moyen ~17 000 €/patient sur l'année qui suit la fracture (hospitalisation + SSR + suivi). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11358834/" target="_blank">Lien</a></li>
-          <li>Clemson L. et al. (2023). <em>Environmental interventions for preventing falls in older people living in the community.</em> Cochrane Database of Systematic Reviews. Méta-analyse sur 22 études n=8 463 : réduction du taux de chutes de 21% (RR=0,79 ; IC 95 % 0,65-0,97) avec interventions ergothérapeute au domicile. Remplace la révision 2018. <a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD013258.pub2/full" target="_blank">Lien</a></li>
-          <li>Stark S. et al. (2018, 2021). <em>OT-led home modifications, high-risk older adults — fall reduction:</em> −38 à −39%. (HARP study)</li>
-          <li>CNSA (2026). <em>Tarif APA plancher national :</em> 23 €/h. <strong>Coût réel chargé retenu : 27 €/h</strong> (intégrant les charges patronales, frais de structure et déplacements selon DREES 2025).</li>
-          <li>DREES (2025). <em>Aides à domicile : revenu salarial annuel moyen.</em> Salaire moyen 1 470 €/mois EQTP, coût employeur réel ~26-30 €/h selon structure (privée vs prestataire associatif). <a href="https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/250612_ER_aides-a-domicile-revenu-salarial-annuel-moyen" target="_blank">Lien</a></li>
-          <li>Marasinghe K.M. (2022). <em>The impact of assistive devices on community-dwelling older adults and their informal caregivers: a systematic review.</em> BMC Geriatrics. Revue systématique post-Hoenig confirmant l'effet de substitution AT → aide humaine, avec nuance sur sa magnitude réelle (effet plus modéré pour certaines configurations). <a href="https://bmcgeriatr.biomedcentral.com/articles/10.1186/s12877-022-03557-8" target="_blank">Lien</a></li>
-          <li><strong>Szanton S.L., Leff B., Wolff J.L. et al. (2019). <em>Effect of a Biobehavioral Environmental Approach on Disability Among Low-Income Older Adults: A Randomized Clinical Trial</em> (programme CAPABLE).</strong> JAMA Internal Medicine 179(2):204-211. Essai randomisé contrôlé (n = 300) mesurant le score de limitations dans les activités de la vie quotidienne : réduction significative du déclin fonctionnel, de l'ordre de <strong>30 % en relatif</strong>. <strong>Source directe du taux de réduction de l'aggravation retenu dans le calcul.</strong></li>
-          <li><strong>Gitlin L.N., Winter L., Dennis M.P., Corcoran M., Schinfeld S., Hauck W.W. (2006). <em>A randomized trial of a multicomponent home intervention to reduce functional difficulties in older adults</em> (étude ABLE).</strong> Journal of the American Geriatrics Society 54(5):809-816. RCT : réduction significative des difficultés fonctionnelles à 6 mois, effet partiellement maintenu à 12 mois (Gitlin et al. 2009).</li>
-          <li>Steultjens E.M.J., Dekker J., Bouter L.M., Jellema S., Bakker E.B., van den Ende C.H.M. (2004). <em>Occupational therapy for community dwelling elderly people: a systematic review.</em> Age and Ageing 33(5):453-460. Revue systématique confirmant l'effet de l'ergothérapie à domicile sur l'autonomie fonctionnelle.</li>
-          <li><strong>Fizzala A. (2016). <em>L'évolution de la dépendance des bénéficiaires de l'APA à domicile.</em></strong> DREES, Études et Résultats n° 964. <strong>Source des taux annuels d'aggravation du GIR utilisés dans le calcul.</strong> <em>Périodicité annuelle à confirmer sur la publication source — point de vérification signalé.</em></li>
-          <li><strong>CNSA — Plafonds mensuels de l'APA par GIR</strong>, revalorisés annuellement (GIR 1 : ~1 956 € · GIR 2 : ~1 581 € · GIR 3 : ~1 143 € · GIR 4 : ~763 €). <strong>Source des surcoûts de plan par transition.</strong> <a href="https://www.pour-les-personnes-agees.gouv.fr" target="_blank">Lien</a></li>
-          <li><strong>Loi n° 2024-317 du 8 avril 2024</strong> portant mesures pour bâtir la société du bien vieillir et de l'autonomie. Généralise l'expérimentation des <strong>EqLAAT</strong> (Équipes Locales d'Accompagnement sur les Aides Techniques), dispositif de même nature que l'Ergothèque, au motif qu'aucune offre équivalente n'existait dans le droit commun. <strong>Fondement de la justification du facteur d'attribution de 80 %.</strong> <a href="https://www.legifrance.gouv.fr" target="_blank">Légifrance</a></li>
-          <li>Mann W.C., Ottenbacher K.J., Fraas L., Tomita M., Granger C.V. (1999). <em>Effectiveness of assistive technology and environmental interventions in maintaining independence and reducing home care costs for the frail elderly. A randomized controlled trial.</em> Archives of Family Medicine 8(3):210-217. RCT (n = 104, 18 mois) : coûts d'aide à domicile inférieurs de 33 % dans le groupe intervention. <strong>Cité comme preuve d'existence d'un effet économique ; ne calibre aucun paramètre du modèle</strong> — cette étude mesure une réduction de coûts dans le système de santé américain, non un taux d'aggravation fonctionnelle, et n'est pas transposable au dispositif APA français. <a href="https://pubmed.ncbi.nlm.nih.gov/10333815/" target="_blank">Lien</a></li>
-          <li>Agree E.M., Freedman V.A. (2000). <em>Incorporating assistive devices into community-based long-term care: An analysis of the potential for substitution and supplementation.</em> Journal of Aging and Health 12(3):426-450. Distingue clairement : AT simples (sanitaires, mobilité) → substitution nette (25-35 % évitent recours aide humaine formelle) ; AT complexes → complémentarité, pas substitution.</li>
-          <li>Verbrugge L.M., Rennert C., Madans J.H. (1997). <em>The great efficacy of personal and equipment assistance in reducing disability.</em> American Journal of Public Health 87(3):384-392. Étude fondatrice sur la substitution matériel / aide humaine chez utilisateurs d'AT ADL.</li>
-          <li><strong>Agree E.M., Freedman V.A. (2003).</strong> <em>Duration of assistive device use among community-dwelling older adults.</em> Analyse sur données US longitudinales (National Long-Term Care Survey) : durée médiane d'usage d'AT chez les 65+ vivant à domicile ≈ 3,4 ans. <strong>Source directe du défaut « durée 3 ans » retenu dans le calcul.</strong></li>
-          <li><strong>Fänge A., Iwarsson S. (2007).</strong> <em>Home modifications and use of aids among older adults with disabilities.</em> Suivi longitudinal Suède : durée moyenne d'usage &gt; 4 ans pour aides simples chez personnes maintenues à domicile.</li>
-          <li>Sackley C. et al. (2009). <em>Group Occupational Therapy Intervention — cluster RCT.</em> Clinical Rehabilitation. Durée médiane d'usage utile d'AT dans populations post-AVC : 2-3 ans (référence complémentaire).</li>
-          <li>van der Roest H.G. et al. (2017). <em>Assistive technology for memory support in dementia.</em> Cochrane Database of Systematic Reviews. Durée d'usage stabilisée autour de 2,5 ans en populations démence (référence complémentaire).</li>
-          <li><strong>DREES (2015 puis actualisations 2022).</strong> <em>Enquête CARE Ménages — L'aide et le soutien aux personnes âgées de 60 ans ou plus vivant à domicile.</em> Établit que ~60 % des heures d'aide aux personnes âgées à domicile sont fournies par les proches aidants informels (non monétisées dans le ratio, documentées en qualitatif).</li>
-          <li>AVISE (2018). <em>Guide de la mesure de l'impact social.</em> Cadre méthodologique français pour l'évaluation SROI dans l'économie sociale et solidaire, aligné sur Social Value International.</li>
-          <li>HAS (Haute Autorité de Santé, 2005 puis mise à jour partielle 2018). <em>Prévention des chutes accidentelles chez la personne âgée.</em> Recommandations pour la pratique clinique.</li>
-          <li>Rubenstein L.Z. (2006). <em>Falls in older people: epidemiology, risk factors and strategies for prevention.</em> Age and Ageing 35 Suppl 2:ii37-ii41. Établit que la perte d'autonomie fonctionnelle modérée (typiquement GIR 3-4) est le facteur de risque de chute le plus fort.</li>
-          <li>Décret n° 2022-101 du 1<sup>er</sup> février 2022 relatif au tarif minimal mentionné au VI de l'article L. 232-6 du code de l'action sociale et des familles. Base légale du tarif plancher national du financement des services d'aide et d'accompagnement à domicile pour les bénéficiaires APA et PCH.</li>
-          <li><strong>Cadre méthodologique — Social Value International (2012 et actualisations).</strong> <em>A Guide to Social Return on Investment.</em> Cadre international de référence pour l'évaluation SROI. <a href="https://www.socialvalueint.org/" target="_blank">socialvalueint.org</a> — huit principes : implication des parties prenantes, cartographie des changements, valorisation du matériel, matérialité, non-sur-attribution, transparence, vérification, réponse.</li>
-          <li>INSEE / DREES (2017-2024). <em>Coût moyen mensuel maintien à domicile bénéficiaires APA :</em> 480 €/mois (90% pour aides humaines).</li>
-          <li>Hoenig H., Taylor D.H., Sloan F.A. (2003). <em>Does assistive technology substitute for personal assistance among the disabled elderly?</em> American Journal of Public Health, 93(2):330-337. Usage d'AT associé à <strong>−3,8 h/semaine</strong> d'aide humaine (n=2 368, ≥1 limitation ADL). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1447739/" target="_blank">Lien</a></li>
-          <li>Agree E.M., Freedman V.A. (2000). <em>Substitution between assistive technology and personal care.</em> Les AT simples se substituent à l'aide informelle ; les AT complexes la complètent.</li>
-          <li>Maresova P. et al. (2025). <em>Systematic review of home modifications for aging in place :</em> 13/20 études confirment l'efficacité (prévention chutes, indépendance fonctionnelle, économies). <a href="https://www.mdpi.com/2227-9032/13/7/752" target="_blank">Lien</a></li>
-          <li>Service-public.gouv.fr / pour-les-personnes-agees.gouv.fr — <em>Plafonds APA 2026 par GIR.</em></li>
-          <li><strong>Prix marché des AT (mécanisme « matériel évité »)</strong> — Médianes 2025, gamme moyenne grand public : <a href="https://www.tousergo.com" target="_blank">Tousergo</a>, <a href="https://www.bastide.fr" target="_blank">Bastide</a>, <a href="https://www.medicalexpress.fr" target="_blank">Medical Express</a>, <a href="https://www.pharmaspot.fr" target="_blank">Pharmaspot</a>, <a href="https://www.identites.eu" target="_blank">Identités</a>, <a href="https://www.prevenchute.com" target="_blank">prevenchute</a>. Exemples : planche de bain 25-65€, rehausseur WC avec accoudoirs 40-80€, déambulateur/rollator 100-400€. Grille complète dans le code (constante <code>AT_PRICES</code>).</li>
-        </ul>
-      </div>
+  <div class="acb-hero mb24">
+    <div class="acb-hero-main">
+      <div class="lbl">Pour 1 € investi</div>
+      <div class="big" id="sroi-ratio">—</div>
+      <div class="sub">de dépenses évitées <span id="acb-dur-txt">sur trois ans</span></div>
+    </div>
+    <div class="acb-hero-side">
+      <div class="acb-hero-row"><span class="v" id="sroi-valeur-hero">—</span><span>de dépenses évitées, attribuées à l'Ergothèque</span></div>
+      <div class="acb-hero-row"><span class="v" id="sroi-cout">—</span><span id="acb-cout-txt">investis</span></div>
+      <div class="acb-years" id="acb-years"></div>
+      <div class="acb-cover" id="acb-cover"></div>
     </div>
   </div>
 
-  <!-- ═══════ BLOC B — VALEUR SOCIALE NON MONÉTARISÉE ═══════ -->
-  <div class="mb24 mt32" style="padding-top:14px;border-top:1px solid var(--border)">
-    <div class="section-title" style="font-size:20px">Valeur sociale non monétarisée</div>
-    <div class="section-sub">Les bénéfices réels du dispositif qui ne figurent pas dans le ratio ci-dessus — par choix méthodologique</div>
-  </div>
-
-  <div class="note-box mb20" style="background:var(--coral-pale);border-color:rgba(212,113,74,0.25)">Bénéfices reconnus mais <strong>non chiffrés</strong> (contrefactuel trop incertain) : le ratio ci-dessus est un plancher.</div>
-
-  <div class="grid g3">
-    <div class="card">
-      <div class="block-title" style="color:var(--sage)">Sécurité retrouvée à domicile</div>
-      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« Sécurisation du maintien à domicile accessible à tous (pour ceux qui entrent dans le dispositif) porteur de valeurs humaines tels que la fraternité et le respect pour l'environnement. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
-      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« C'est un dispositif qui permet l'accompagnement des personnes physiquement fragiles. »<br><span class="fs10 text-mid" style="font-style:normal">— Bailleur social, enquête partenaires</span></div>
+  <div class="imp-part" style="margin-top:8px"><span class="num">1</span><h3>Comment on arrive à ce chiffre</h3></div>
+  <div class="imp-part-sub">Deux effets, chacun appuyé sur des études publiées. Les chiffres en exposant ouvrent les sources.</div>
+  <div class="grid g2 mb16">
+    <div class="acb-eff">
+      <div class="eyebrow" style="font-size:13px">Effet 1</div>
+      <h4>Moins de chutes graves</h4>
+      <div class="acb-why">Aménager le logement réduit les chutes chez les personnes à risque : ce sont des hospitalisations et des soins de suite évités.</div>
+      <div class="acb-chain" id="acb-chain-1"></div>
     </div>
-
-    <div class="card">
-      <div class="block-title" style="color:var(--gold)">Autonomie de choix et dignité</div>
-      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« Dispositif essentiel dans le parcours résidentiel des personnes qui redonne aux personnes le pouvoir de choisir plus librement son lieu de vie : valeur économique et sociale tant au niveau de l'individu qu'au niveau de la société. »<br><span class="fs10 text-mid" style="font-style:normal">— Caisse de retraite, enquête partenaires</span></div>
-      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Pour nous bailleur social, il permet de répondre à un besoin immédiat dans l'attente de la programmation d'éventuels travaux. »<br><span class="fs10 text-mid" style="font-style:normal">— Bailleur social, enquête partenaires</span></div>
-    </div>
-
-    <div class="card">
-      <div class="block-title" style="color:var(--coral)">Charge des aidants informels soulagée</div>
-      <div class="fs11 text-mid mt8" style="line-height:1.55"><strong>63 %</strong> des partenaires (22/35, enquête MJ) citent le soutien aux proches aidants comme contribution forte du dispositif. Selon la <strong>DREES (Enquête CARE Ménages 2015 &amp; actualisations 2022)</strong>, environ <strong>60 % des heures d'aide</strong> aux personnes âgées à domicile sont fournies par les proches — pas par des professionnels. Le dispositif réduit cette charge sans qu'elle apparaisse dans un budget public : c'est pourquoi elle n'est pas monétisée dans le ratio ci-dessus (perspective « financeur public »). La valeur sociale est réelle et documentée.</div>
-      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Valeur d'aide au maintien à domicile et de soutien aux aidants. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
-      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Le dispositif, au-delà d'aider les personnes et leurs proches, apporte une plus-value sur les plans économique, social et écologique. »<br><span class="fs10 text-mid" style="font-style:normal">— Caisse de retraite, enquête partenaires</span></div>
-    </div>
-
-    <div class="card">
-      <div class="block-title" style="color:var(--plum)">Effet pédagogique et préventif</div>
-      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« C'est un dispositif de prévention, de sensibilisation des bénéficiaires sur le bien vieillir à domicile, donc pédagogique également. »<br><span class="fs10 text-mid" style="font-style:normal">— Caisse de retraite, enquête partenaires</span></div>
-      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Un dispositif complémentaire à la prise en charge humaine du maintien à domicile, un acteur de prévention essentiel. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
-    </div>
-
-    <div class="card">
-      <div class="block-title" style="color:var(--sage)">Démocratisation de l'accès</div>
-      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« Une vie améliorée pour des bénéficiaires qui profitent tôt de leur AT, pour laquelle ils ont pu avoir une présentation. Simplification des démarches pour l'usager avec un dispositif intégré. »<br><span class="fs10 text-mid" style="font-style:normal">— Caisse de retraite, enquête partenaires</span></div>
-      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Boucle d'orientation rapide permettant un accompagnement complet. »<br><span class="fs10 text-mid" style="font-style:normal">— CFPPA, enquête partenaires</span></div>
-    </div>
-
-    <div class="card">
-      <div class="block-title" style="color:var(--gold)">Adaptation personnalisée</div>
-      <div class="fs12 mt8" style="line-height:1.6;font-style:italic">« Solution pratique et concrète après nos VAD/APA pour pouvoir avoir des conseils personnalisés et adaptés et mettre en place des aides techniques qui favorisent un maintien à domicile de meilleure qualité. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
-      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Réponse utile, efficace et personnalisée. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
-    </div>
-
-    <div class="card">
-      <div class="block-title" style="color:var(--plum)">Aménagements lourds évités ou repoussés</div>
-      <div class="fs11 text-mid mt8" style="line-height:1.55"><strong>66 %</strong> des partenaires (23/35, enquête MJ) citent la réduction du recours à des aides plus coûteuses (travaux, déménagement) comme bénéfice observé. Un rehausseur WC (60 €) peut éviter un remplacement WC PMR (1 500-2 500 €) ; un siège de douche (85 €) peut repousser une douche italienne (3 500-7 000 €). Ces travaux sont financés selon un mix complexe (MaPrimeAdapt' ANAH, caisses de retraite, bailleurs sociaux, reste à charge personne) — la part réellement évitée aux financeurs publics est difficile à isoler, c'est pourquoi elle reste en qualitatif dans le ratio principal.</div>
-      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Pour nous bailleur social, il permet de répondre à un besoin immédiat dans l'attente de la programmation d'éventuels travaux. »<br><span class="fs10 text-mid" style="font-style:normal">— Bailleur social, enquête partenaires</span></div>
-    </div>
-
-    <div class="card">
-      <div class="block-title" style="color:var(--sage)">Entrée en institution retardée</div>
-      <div class="fs11 text-mid mt8" style="line-height:1.55"><strong>51 %</strong> des partenaires (18/35, enquête MJ) citent le report ou l'évitement de l'entrée en institution comme bénéfice observé. La littérature internationale documente un effet du même ordre pour les interventions ergothérapiques à domicile chez personnes fragiles (Mann et al. 1999). Le coût différentiel EHPAD vs domicile étant estimé à ~20 000 €/an, ce mécanisme représente un enjeu majeur — non monétisé ici par choix méthodologique (contrefactuel individuel difficile à établir sans essai contrôlé).</div>
-      <div class="fs12 mt12" style="line-height:1.6;font-style:italic">« Un acteur de prévention essentiel dans le maintien à domicile. »<br><span class="fs10 text-mid" style="font-style:normal">— Conseil Départemental, enquête partenaires</span></div>
-    </div>
-
-    <div class="card">
-      <div class="block-title" style="color:var(--coral)">Chutes non graves et urgences évitées</div>
-      <div class="fs11 text-mid mt8" style="line-height:1.55">Notre calcul monétise uniquement les <strong>hospitalisations</strong> pour chute (données SpF / PMSI-MCO). Sont exclus les passages aux urgences sans admission (~300 000/an chez les 65+, coût public 150-300 €/passage) et les chutes soignées en ville (kiné, médecin traitant). Le ratio non graves/graves est de <strong>~5 pour 1</strong>. Impact d'un ajout au ratio principal : ~+3 % seulement, mais sources plus fragiles (SFMU/DREES) que Santé publique France pour les hospitalisations. Documenté ici comme <strong>plancher additionnel non chiffré</strong> — la valeur créée est encore supérieure.</div>
+    <div class="acb-eff">
+      <div class="eyebrow" style="font-size:13px">Effet 2</div>
+      <h4>Une dépendance qui s'aggrave moins vite</h4>
+      <div class="acb-why">Compenser une difficulté avec une aide technique retarde le passage au GIR supérieur<sup class="ref"><a onclick="openSources(14)">14</a></sup> : ce sont des heures d'aide en moins dans le plan APA.</div>
+      <div class="acb-chain" id="acb-chain-2"></div>
     </div>
   </div>
+  <div class="acb-total mb24" id="acb-total"></div>
+
+  <div class="imp-part"><span class="num">2</span><h3>Faites varier les hypothèses</h3></div>
+  <div class="imp-part-sub">Les curseurs vont de la variante la plus prudente à la plus haute retenues dans la note méthodologique.</div>
+  <div class="card mb24" style="padding:24px 28px">
+    <div class="grid g2" style="gap:22px 40px">
+      
+        <div class="acb-sl">
+          <div class="acb-sl-top"><span class="acb-sl-lab">Baisse des chutes graves</span><span class="acb-sl-val" id="v-reduc">—</span></div>
+          <input type="range" class="slider-input" id="s-reduc" min="20" max="44" step="1" value="38" oninput="calcSROI()">
+          <div class="acb-sl-ends"><span>20 %</span><span class="ret">Retenu : 38 % (Cochrane)</span><span>44 %</span></div>
+        </div>
+      
+        <div class="acb-sl">
+          <div class="acb-sl-top"><span class="acb-sl-lab">Coût d'une chute grave, sur un an</span><span class="acb-sl-val" id="v-cout-chute">—</span></div>
+          <input type="range" class="slider-input" id="s-cout-chute" min="11796" max="23926" step="2" value="18040" oninput="calcSROI()">
+          <div class="acb-sl-ends"><span>11 796 € (Mounié)</span><span class="ret">Retenu : 18 040 € (FRACTOS)</span><span>23 926 € (ICUROS, 18 mois)</span></div>
+        </div>
+      
+        <div class="acb-sl">
+          <div class="acb-sl-top"><span class="acb-sl-lab">Part attribuée à l'Ergothèque</span><span class="acb-sl-val" id="v-attribution">—</span></div>
+          <input type="range" class="slider-input" id="s-attribution" min="70" max="100" step="5" value="80" oninput="calcSROI()">
+          <div class="acb-sl-ends"><span>70 %</span><span class="ret">Retenu : 80 %</span><span>100 %</span></div>
+        </div>
+      
+        <div class="acb-sl">
+          <div class="acb-sl-top"><span class="acb-sl-lab">Durée prise en compte</span><span class="acb-sl-val" id="v-duree">—</span></div>
+          <input type="range" class="slider-input" id="s-duree" min="1" max="5" step="1" value="3" oninput="calcSROI()">
+          <div class="acb-sl-ends"><span>1 an</span><span class="ret">Retenu : 3 ans</span><span>5 ans</span></div>
+        </div>
+    </div>
+    <button class="acb-reset" onclick="acbReset()">Revenir aux valeurs retenues</button>
+  </div>
+
+  <div class="imp-part"><span class="num">3</span><h3>Robustesse du résultat</h3></div>
+  <div class="imp-part-sub">Chaque ligne change une seule hypothèse ; les autres gardent leur valeur retenue.</div>
+  <div class="grid g2 mb16" style="align-items:start">
+    <div class="card" style="padding:22px 26px"><table class="acb-sens" id="acb-sens"></table></div>
+    <div class="card" style="padding:22px 26px">
+      <div class="acb-range-title">En combinant plusieurs hypothèses</div>
+      <div class="acb-range" id="acb-range"></div>
+      <div class="acb-range-legend" id="acb-range-legend"></div>
+      <details class="imp-info" style="margin-top:18px"><summary>Croiser le coût d'une chute et la baisse des chutes</summary><div style="background:white;padding:0"><table class="acb-sens acb-grid" id="acb-grid"></table></div></details>
+    </div>
+  </div>
+
+  <details class="imp-info mb24"><summary>La méthode en bref</summary><div>
+    L'estimation suit les principes du Guide de l'évaluation socioéconomique des investissements publics<sup class="ref"><a onclick="openSources(1)">1</a></sup> et de la HAS<sup class="ref"><a onclick="openSources(2)">2</a></sup> : une situation de comparaison (l'évolution attendue sans Ergothèque), des effets supplémentaires, une projection dans le temps et des variantes. Le dispositif n'a pas de mesure comparative locale des chutes ou des GIR : le modèle combine les données d'activité, des études publiées et des hypothèses explicites.<br><br>
+    Les montants sont des ressources préservées : des soins pour l'Assurance maladie, des équivalents de plans d'aide pour les départements. Leur traduction en économies budgétaires dépend de la consommation des services et de leur financement. Actualisé au taux de 3,2 % du Guide 2023, le ratio central passe de 3,12 à 2,92.<br><br>
+    Appliquer la baisse des chutes aux hospitalisations reste une extrapolation, testée à 20 %<sup class="ref"><a onclick="openSources(4)">4</a>,<a onclick="openSources(7)">7</a>,<a onclick="openSources(8)">8</a></sup> ; l'essai OTIS rappelle que l'effet dépend de la réalisation effective des préconisations<sup class="ref"><a onclick="openSources(6)">6</a></sup>, que la mise à disposition immédiate du matériel facilite. Le coût de 11 796 € testé en variante est un surcoût mesuré en France, vraisemblablement sous-estimé faute des soins de suite publics<sup class="ref"><a onclick="openSources(11)">11</a>,<a onclick="openSources(12)">12</a></sup>. Sur l'autonomie, les essais de Mann, Gitlin et Stark appuient le rôle de l'évaluation personnalisée et des adaptations<sup class="ref"><a onclick="openSources(17)">17</a>,<a onclick="openSources(18)">18</a>,<a onclick="openSources(19)">19</a></sup>.<br><br>
+    La part de 80 % attribuée à l'Ergothèque est un jugement explicite : le dispositif relie le repérage du besoin à une solution accessible, sans offre équivalente sur les territoires concernés pendant la période étudiée<sup class="ref"><a onclick="openSources(23)">23</a></sup>. Les 20 % restants couvrent les autres contributions et l'incertitude de transposition.
+  </div></details>
+
+  <div class="imp-part"><span class="num">4</span><h3>Hors du calcul</h3></div>
+  <div class="imp-part-sub">Ces effets ont une valeur, mais aucun n'entre dans le ratio, qui ne retient que les chutes graves et l'aggravation de la dépendance.</div>
+  <div class="acb-chips mb16"><span class="acb-chip">Retrouver des nuits sans peur</span><span class="acb-chip">Refaire une activité qui compte</span><span class="acb-chip">Se laver seul, à son heure</span><span class="acb-chip">Préserver son intimité</span><span class="acb-chip">Manger à table avec les siens</span><span class="acb-chip">Retourner au marché</span><span class="acb-chip">Garder ses repères chez soi</span><span class="acb-chip">Décider soi-même de ce qu'on installe</span><span class="acb-chip">Moins de peur de tomber</span><span class="acb-chip">Moins de chutes sans hospitalisation</span><span class="acb-chip">Des proches moins sur le qui-vive</span><span class="acb-chip">Des gestes d'aide moins lourds</span><span class="acb-chip">Rester un conjoint, un enfant, au-delà de l'aide</span><span class="acb-chip">Des aides à domicile moins exposées</span><span class="acb-chip">Une réponse immédiate en attendant des travaux</span><span class="acb-chip">Un accès sans reste à charge, pour tous</span><span class="acb-chip">Des parcours sans rupture</span><span class="acb-chip">Des orientations plus rapides</span><span class="acb-chip">Des acteurs du territoire mieux coordonnés</span><span class="acb-chip">L'ergothérapie mieux connue</span><span class="acb-chip">Des aides techniques mieux connues</span><span class="acb-chip">Des ergothérapeutes fiers de leur métier</span><span class="acb-chip">Retarder l'entrée en établissement</span><span class="acb-chip">Choisir son lieu de vie</span><span class="acb-chip">Moins de travaux et de déménagements subis</span><span class="acb-chip">Moins de déchets, des ressources préservées</span></div>
+  <button class="acb-reset mb32" onclick="document.querySelector('button.nav-item[onclick*=recherche]').click()">Voir nos impacts</button>
 
     <!-- ═══════ ÉCONOMIE CIRCULAIRE — section séparée ═══════ -->
   <div class="mb24 mt32" style="padding-top:14px;border-top:1px solid var(--border)">
@@ -1086,231 +1056,298 @@ a:hover{text-decoration:underline}
 
 <!-- ══ RECHERCHE — 3 NIVEAUX ══ -->
 <div id="p-recherche" class="page">
-  <div class="mb24">
-    <div class="section-title">Recherche : ce que les parties jugent</div>
-    <div class="section-sub">87 entretiens auprès de personnes âgées, d'aidants, d'ergothérapeutes et de partenaires (essai 3 de la thèse), et enquête préalable auprès des partenaires</div>
-  </div>
-  <div class="note-box mb20" style="font-size:12.5px;line-height:1.65">
-    Cette partie rend compte d'une recherche doctorale (CIFRE, Université Paris Nanterre, laboratoire CEROS, en cotutelle avec l'Université de Montréal), conduite en indépendance scientifique : l'organisation qui porte le service n'a prise ni sur la méthode, ni sur l'analyse, ni sur la publication, et n'a pas accès aux entretiens. Seules des citations vérifiées sur les enregistrements sont reproduites ; les entretiens complets ne sont pas publiés. Les autres onglets du tableau de bord reposent sur les données de suivi du service.
+  <div class="mb20">
+    <div class="section-title">Nos impacts</div>
+    <div class="section-sub" style="font-size:15px">Ce que l'Ergothèque change, d'après 87 entretiens et une enquête auprès de 35 partenaires</div>
+    <div class="imp-meta" style="margin-top:8px">Recherche doctorale conduite en indépendance scientifique, Université Paris Nanterre (laboratoire CEROS).</div>
+    <details class="imp-info"><summary>À propos de l'étude</summary><div>L'organisation qui porte le service n'a eu prise ni sur la méthode, ni sur l'analyse, ni sur la publication, et n'a pas accès aux entretiens. Tous les ergothérapeutes ayant au moins un an de pratique dans le service ont été interrogés (mars et avril 2026). Les personnes accompagnées, les aidants et les partenaires ont été rencontrés de mai à juillet 2026. L'analyse a été conduite par une seule chercheuse ; sa fiabilité repose sur une piste d'audit et sur la vérification de chaque citation sur l'enregistrement. Les onglets « Données » reposent, eux, sur les données de suivi du service.</div></details>
   </div>
   <div class="research-tab-row">
-    <button class="research-tab on" onclick="switchResearchTab(this,'corpus')"><svg class="tab-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Corpus</button>
-    <button class="research-tab" onclick="switchResearchTab(this,'valorise')"><svg class="tab-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Ce que chacun valorise</button>
-    <button class="research-tab" onclick="switchResearchTab(this,'suffisance')"><svg class="tab-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Gain et suffisance</button>
-    <button class="research-tab" onclick="switchResearchTab(this,'compte')"><svg class="tab-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Ce que porte le compte rendu</button>
-    <button class="research-tab" onclick="switchResearchTab(this,'grille')"><svg class="tab-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Grille de suivi</button>
-    <button class="research-tab" onclick="switchResearchTab(this,'partenaires')"><svg class="tab-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Enquête partenaires</button>
+    <button class="research-tab on" onclick="switchResearchTab(this,'benef')">Bénéficiaires<span class="cnt">29</span></button>
+    <button class="research-tab" onclick="switchResearchTab(this,'aidants')">Aidants<span class="cnt">13</span></button>
+    <button class="research-tab" onclick="switchResearchTab(this,'ergos')">Ergothérapeutes<span class="cnt">26</span></button>
+    <button class="research-tab" onclick="switchResearchTab(this,'partenaires')">Partenaires<span class="cnt">35 + 19</span></button>
   </div>
 
-  <!-- Essai 3 : corpus -->
-  <div id="rt-corpus" class="research-content">
-    <div class="card-feature mb20">
-      <div class="eyebrow mb8">Un cas, quatre positions</div>
-      <div class="serif mb12" style="font-size:20px">Comment les parties d'un même service en jugent-elles la valeur ?</div>
-      <div class="fs13 text-mid" style="line-height:1.7">Les personnes qui reçoivent le service ne le paient pas ; ceux qui le financent n'entrent jamais dans les domiciles et décident de reconduire une convention d'après ce que le prestataire leur rapporte. L'étude interroge, dans ce service unique, ceux qui le reçoivent, ceux qui les aident, ceux qui le délivrent et ceux qui le financent, orientent ou accompagnent : que valorise chacun, pour qui, pour quelles raisons et sur quelle preuve ?</div>
+  <div id="rt-benef" class="research-content">
+    
+    <div class="card-feature mb8">
+      <div class="eyebrow mb8" style="font-size:13px">Les personnes accompagnées · 29 entretiens</div>
+      <div class="serif mb12" style="font-size:26px;color:var(--charcoal)">Ce qui change chez elles</div>
+      <div class="imp-lede">Entretiens menés à domicile, de mai à juillet 2026, auprès de personnes orientées par les différentes voies d'accès au service. Chaque chiffre indique dans combien des 29 entretiens l'effet est décrit.</div>
+      <details class="imp-info"><summary>Comment lire ces chiffres</summary><div>Un même entretien peut décrire plusieurs effets : les chiffres ne s'additionnent pas. Ils disent combien de personnes ont parlé d'un effet, sans mesurer son intensité. L'échantillon a été construit pour couvrir les cinq voies d'orientation du service (département en milieu urbain ou rural, caisse de retraite, bailleur social, autres voies) ; le recrutement s'est arrêté quand deux entretiens consécutifs n'apportaient plus rien de nouveau.</div></details>
     </div>
-    <div class="e3-stats">
-      <div class="e3-stat"><b>87</b><span>entretiens principaux</span></div>
-      <div class="e3-stat"><b>788</b><span>unités de codage (un passage où l'on juge ce que le service fait ou pourrait faire)</span></div>
-      <div class="e3-stat"><b>24</b><span>codes de contenu, définis un à un dans le livre de codes</span></div>
-      <div class="e3-stat"><b>4</b><span>positions : personnes âgées, aidants, ergothérapeutes, partenaires</span></div>
-    </div>
-    <div class="card mb20">
-      <div class="eyebrow mb8">Composition du corpus</div>
-      <table class="e3-tbl">
-        <tr><th>Position</th><th style="text-align:right">Entretiens</th><th style="text-align:right">Unités</th><th>Ce que la position apporte</th></tr>
-        <tr><td>Personnes âgées</td><td style="text-align:right">29</td><td style="text-align:right">315</td><td>Leurs propres activités, priorités et expérience de l'aide reçue.</td></tr>
-        <tr><td>Aidants familiaux</td><td style="text-align:right">13</td><td style="text-align:right">93</td><td>Leur travail d'aide, leur vie et leur relation avec un proche ; ce qu'ils rapportent du proche est distingué de ce qu'ils vivent.</td></tr>
-        <tr><td>Ergothérapeutes</td><td style="text-align:right">26</td><td style="text-align:right">231</td><td>L'expérience de l'intervention, l'usage approprié, les bénéfices reconnus dans leur propre travail.</td></tr>
-        <tr><td>Partenaires</td><td style="text-align:right">19</td><td style="text-align:right">149</td><td>Financement, orientation, coordination, accès ; les bénéfices pour leur travail et pour les publics qu'ils servent.</td></tr>
-      </table>
-      <div class="fs12 text-mid mt12" style="line-height:1.6">Les 19 partenaires comptent cinq financeurs publics, quatre bailleurs sociaux, trois caisses de retraite ou organismes de protection sociale, quatre services de coordination ou d'orientation et trois services d'aide à domicile.</div>
-    </div>
-    <div class="grid g2 mb20">
-      <div class="card">
-        <div class="eyebrow mb8">Échantillonnage</div>
-        <div class="fs13 text-mid" style="line-height:1.7">Tous les ergothérapeutes ayant au moins un an de pratique dans le service ont été interrogés : ce groupe est un recensement. Pour les trois autres groupes, l'échantillon cherche la variété maximale selon cinq configurations d'orientation (orientation départementale en milieu urbain, en milieu rural, par une caisse de retraite, par un bailleur social, autres voies). Le recrutement s'est arrêté quand deux entretiens consécutifs n'ajoutaient aucun code nouveau.</div>
+    <div class="imp-part"><span class="num">1</span><h3>Ce que ça change dans leur vie</h3></div>
+    <div class="imp-part-sub">Des gestes et des activités retrouvés, à leur heure et à leur façon.</div>
+    
+      <div class="imp-card">
+        <h4>Refaire ce qui compte</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">25</span><span class="of">sur 29</span></div><div class="txt">parlent d'une activité qui compte pour elles, gardée ou retrouvée.</div></div>
+        <div class="imp-sub"><b>24 sur 29</b><span>font leurs activités avec plus d'aisance et de confort</span></div><div class="imp-sub"><b>23 sur 29</b><span>décrivent un geste devenu plus facile</span></div><div class="imp-quotes two"><blockquote class="imp-q" title="Bilan 2026, Mme F.">« Je me lave tous les deux jours, toute seule, dans la baignoire. Avant c'était au lavabo, au gant, je n’aimais pas ça ! »<cite>Une personne accompagnée, Nièvre</cite></blockquote><blockquote class="imp-q" title="Bilan 2026, Mme C.">« Non, je pouvais marcher, mais impossible de sortir de la maison avec la marche. Maintenant avec la rampe, je sors une fois par semaine. Je suis retournée au marché la semaine d'après […]. »<cite>Une personne accompagnée, Vendée</cite></blockquote></div>
       </div>
-      <div class="card">
-        <div class="eyebrow mb8">Analyse</div>
-        <div class="fs13 text-mid" style="line-height:1.7">Chaque unité est codée selon les éléments d'un jugement : ce qui est valorisé, son titulaire, la raison, la preuve invoquée, le standard et l'éventuelle règle de composition, la portée, le jugement. L'analyse a été conduite par une seule chercheuse ; aucune mesure d'accord entre codeurs n'est donc disponible, et la fiabilité repose sur une piste d'audit et sur la vérification de chaque citation sur l'enregistrement. Les entretiens des ergothérapeutes (mars et avril 2026) précèdent les autres (mai à juillet 2026).</div>
+    
+      <div class="imp-card">
+        <h4>Vivre à son heure, porte fermée</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">14</span><span class="of">sur 29</span></div><div class="txt">disent choisir de nouveau le moment de leurs activités, comme l'heure de la toilette.</div></div>
+        <div class="imp-sub"><b>9 sur 29</b><span>parlent d'une intimité préservée</span></div><div class="imp-quotes"><blockquote class="imp-q" title="A01">« Maintenant, je me douche quand je veux… et c’est sûr que je ferme la porte, vous voyez. »<cite>Une personne accompagnée</cite></blockquote></div>
+      </div>
+    
+      <div class="imp-card">
+        <h4>Se sentir en sécurité chez soi</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">14</span><span class="of">sur 29</span></div><div class="txt">se sentent, ou sont, plus en sécurité chez elles.</div></div>
+        <div class="imp-quotes"><blockquote class="imp-q" title="Bilan 2026">« Pendant deux ans j'ai eu peur toutes les nuits. […] Ça m'a rendu mes nuits. »<cite>Une personne accompagnée, Jura</cite></blockquote></div>
+      </div>
+    
+      <div class="imp-card">
+        <h4>Garder sa place parmi les siens</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">12</span><span class="of">sur 29</span></div><div class="txt">parlent d'une relation avec un proche qui retrouve sa place au-delà de l'aide.</div></div>
+        <div class="imp-sub"><b>8 sur 29</b><span>parlent d'échanges et de compagnie</span></div><div class="imp-quotes"><blockquote class="imp-q" title="Bilan 2026, mari de Mme D.">« À Noël, elle était à table. Avec tout le monde. Elle a mangé toute seule, sans ma fille. Même pour elle, c’est quand même beaucoup mieux. »<cite>Le mari d'une personne accompagnée, Doubs</cite></blockquote></div>
+      </div>
+    <div class="imp-part"><span class="num">2</span><h3>Ce que le modèle apporte</h3></div>
+    <div class="imp-part-sub">Ces changements tiennent à la manière dont l'aide arrive au domicile.</div>
+    <div class="imp-grid">
+      
+      <div class="imp-card model">
+        <h4>Essayer d'abord, sans rien débourser</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">27</span><span class="of">sur 29</span></div><div class="txt">apprécient de pouvoir essayer une aide, ou l'obtenir, sans dépense inutile.</div></div>
+        <div class="imp-detail">L'aide est essayée dans la pièce où elle servira, puis prêtée sans reste à charge. Si elle ne convient pas, elle repart.</div>
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Une aide au moment où elle sert</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">26</span><span class="of">sur 29</span></div><div class="txt">parlent d'une réponse arrivée à temps pour servir.</div></div>
+        <div class="imp-quotes"><blockquote class="imp-q" title="A40">« Elle a servi pendant l’attente. Deux mois, ça paraît court, mais quand on attend de pouvoir bien se laver, c’est long. »<cite>Une personne rencontrée en entretien</cite></blockquote></div>
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Le dernier mot à la personne</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">26</span><span class="of">sur 29</span></div><div class="txt">évoquent un refus respecté : une aide proposée peut être déclinée.</div></div>
+        
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Des repères gardés</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">18</span><span class="of">sur 29</span></div><div class="txt">parlent de repères personnels gardés chez elles.</div></div>
+        
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Un ergothérapeute qui revient</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">20</span><span class="of">sur 29</span></div><div class="txt">parlent de participer à leurs activités avec une aide ajustée.</div></div>
+        <div class="imp-detail">Après la pose, l'ergothérapeute rappelle à une semaine, à un mois, puis tous les trois mois, et ajuste l'aide si besoin.</div>
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Une aide prêtée le temps qu'il faut</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">6</span><span class="of">sur 29</span></div><div class="txt">tiennent à ce que l'aide rendue serve à quelqu'un d'autre.</div></div>
+        <div class="imp-detail">Une barre de lit gardée six semaines de convalescence, une planche de bain utilisée deux mois avant un déménagement : le prêt permet de rendre l'aide quand le besoin est passé.</div>
       </div>
     </div>
-    <div class="fs12 text-mid" style="line-height:1.6">Source : essai 3 de la thèse (sections 3.1 à 3.4). Les effectifs des onglets « Données » (personnes accompagnées, aides prêtées) décrivent l'activité du service et ne se rapportent pas à ces entretiens.</div>
+    <div class="imp-limit"><h4>Limites du dispositif</h4><p>Pour certaines personnes, la priorité dépasse ce que le service fournit : une vue qui baisse, un seuil dont les travaux dépendent du bailleur. Elles reconnaissent le gain sur les gestes du quotidien et attendent encore une réponse à ce qui leur manque le plus.</p><p>Le suivi note aujourd'hui l'usage des aides. Demander aussi à la personne si le changement lui a suffi est une piste d'amélioration issue de l'étude.</p><blockquote class="imp-q" title="A31">« Ben, pour les petits gestes, dirais-je, oui. Si vous me demandez si [l’ergothérapeute] a répondu à mon problème majeur avec mes yeux, pas encore. »<cite>Une personne accompagnée</cite></blockquote></div>
+    <div class="imp-source">Source : recherche doctorale, Université Paris Nanterre (laboratoire CEROS), essai 3. Citations vérifiées sur les enregistrements ; les entretiens complets ne sont pas publiés.</div>
   </div>
 
-  <!-- Essai 3 : ce que chacun valorise -->
-  <div id="rt-valorise" class="research-content" style="display:none">
-    <div class="card mb20">
-      <div class="eyebrow mb8">Ce qui est valorisé, selon la position</div>
-      <div class="fs13 text-mid mb12" style="line-height:1.7">Nombre d'entretiens, dans chaque groupe, où le code est appliqué au moins une fois, quel que soit le titulaire du bénéfice. Le chiffre dit l'étendue d'un code dans un groupe ; le poids que les participants lui donnent se lit dans leurs jugements. Deux codes couvrent presque tous les entretiens parce que les guides interrogeaient chacun sur la réponse du service (conseil adapté, suivi effectif) ; ils disent que les quatre positions jugent la même réponse, non comment leurs jugements diffèrent.</div>
-      <div class="e3-sort" id="e3-sort"></div>
-      <table class="e3-tbl e3-heat" id="e3-heat"></table>
+  <div id="rt-aidants" class="research-content" style="display:none">
+    
+    <div class="card-feature mb8">
+      <div class="eyebrow mb8" style="font-size:13px">Les proches aidants · 13 entretiens</div>
+      <div class="serif mb12" style="font-size:26px;color:var(--charcoal)">Ce qui change pour eux</div>
+      <div class="imp-lede">Conjoints, enfants ou proches de personnes accompagnées, rencontrés de mai à juillet 2026. Ils parlent de leur proche et d'eux-mêmes, et l'étude distingue les deux. Chaque chiffre indique dans combien des 13 entretiens l'effet est décrit.</div>
+      <details class="imp-info"><summary>Comment lire ces chiffres</summary><div>Un même entretien peut décrire plusieurs effets : les chiffres ne s'additionnent pas. Ils disent combien de personnes ont parlé d'un effet, sans mesurer son intensité. L'échantillon a été construit pour couvrir les cinq voies d'orientation du service (département en milieu urbain ou rural, caisse de retraite, bailleur social, autres voies) ; le recrutement s'est arrêté quand deux entretiens consécutifs n'apportaient plus rien de nouveau.</div></details>
     </div>
-    <div class="grid g2 mb20">
-      <div class="card">
-        <div class="eyebrow mb8">Personnes âgées</div>
-        <div class="fs13 text-mid" style="line-height:1.7">Elles jugent un changement pour elles-mêmes, par sa place dans leur journée, d'après leur propre expérience : l'activité retrouvée, mais aussi l'horaire, l'intimité et la compagnie qu'un mouvement plus facile rend possibles. 25 sur 29 valorisent une activité qui compte pour elles.</div>
-        <div class="e3-q">« Maintenant, je me douche quand je veux… et c’est sûr que je ferme la porte, vous voyez. »<small>A01</small></div>
+    <div class="imp-part"><span class="num">1</span><h3>Ce que ça change dans leur vie d'aidant</h3></div>
+    <div class="imp-part-sub">Une aide moins lourde à donner, et une place de proche qui revient.</div>
+    
+      <div class="imp-card">
+        <h4>Une vigilance allégée</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">10</span><span class="of">sur 13</span></div><div class="txt">vivent une vigilance allégée au quotidien.</div></div>
+        <div class="imp-quotes"><blockquote class="imp-q" title="A25">« Ce qui a changé ? Ah… ben… c’est déjà que c’était un problème pratique qui nous inquiétait gros. C’est déjà bien. »<cite>Une aidante, fille d'une personne accompagnée</cite></blockquote></div>
       </div>
-      <div class="card">
-        <div class="eyebrow mb8">Aidants familiaux</div>
-        <div class="fs13 text-mid" style="line-height:1.7">Ils jugent pour un proche et pour eux-mêmes, en gardant les deux séparés ; leur preuve est leur propre expérience et ce qu'ils rapportent du proche. Dix aidants sur treize valorisent un mouvement plus facile dans l'aide qu'ils donnent, autant une relation qui reprend sa place au-delà de l'aide.</div>
-        <div class="e3-q">« Notre vrai progrès, c’est le café à la même table. Ce n’était même pas formulé comme objectif. »<small>A13</small></div>
+    
+      <div class="imp-card">
+        <h4>Une aide plus facile à donner</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">10</span><span class="of">sur 13</span></div><div class="txt">décrivent un geste d'aide devenu plus facile.</div></div>
+        <div class="imp-sub"><b>4 sur 13</b><span>parlent d'une peine d'aider qui diminue</span></div><div class="imp-quotes"><blockquote class="imp-q" title="A04">« Je peux être sa femme pendant la douche au lieu d’être le treuil. »<cite>Une aidante, épouse d'une personne accompagnée</cite></blockquote></div>
       </div>
-      <div class="card">
-        <div class="eyebrow mb8">Ergothérapeutes</div>
-        <div class="fs13 text-mid" style="line-height:1.7">Ils jugent ce que la réponse apporte à la personne et ce que le service apporte à leur propre travail : les 26 évaluent le service aux conditions de travail qu'il leur donne. Leur preuve vient de l'essai et du suivi, où ils observent l'usage d'une aide ou entendent ce qu'en dit la personne.</div>
-        <div class="e3-q">« Bah ça fait du bien, ça fait tout simplement du bien de se dire Ah ouais, ça c'est utile alors. »<small>E11</small></div>
+    
+      <div class="imp-card">
+        <h4>Rester un proche, au-delà de l'aide</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">10</span><span class="of">sur 13</span></div><div class="txt">parlent de garder la relation avec leur proche au-delà de l'aide.</div></div>
+        <div class="imp-quotes"><blockquote class="imp-q" title="A13">« Notre vrai progrès, c’est le café à la même table. Ce n’était même pas formulé comme objectif. »<cite>Un proche aidant</cite></blockquote></div>
       </div>
-      <div class="card">
-        <div class="eyebrow mb8">Partenaires</div>
-        <div class="fs13 text-mid" style="line-height:1.7">Les partenaires qui relaient des demandes jugent comme les ergothérapeutes ; ceux qui répondent d'un public, financeurs compris, jugent qui le service atteint. Le titulaire est alors un public, et la preuve un bilan dont ils aident à fixer les repères.</div>
-        <div class="e3-q">« Ce qui m’aide moi personnellement, c’est quand les coups de fil aboutissent. Si je passe du temps mais qu’à la fin on sait qui fait quoi, pour moi ça vaut le coup, vous voyez. »<small>P13</small></div>
+    
+      <div class="imp-card">
+        <h4>Du temps et des relations préservés</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">8</span><span class="of">sur 13</span></div><div class="txt">parlent de leur temps, ou de leurs propres relations, préservés.</div></div>
+        
+      </div>
+    <div class="imp-part"><span class="num">2</span><h3>Ce que le modèle apporte</h3></div>
+    <div class="imp-part-sub">Une réponse concrète, qui arrive à la maison et s'ajuste à leur proche.</div>
+    <div class="imp-grid">
+      
+      <div class="imp-card model">
+        <h4>Essayer d'abord, sans rien débourser</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">13</span><span class="of">sur 13</span></div><div class="txt">apprécient de pouvoir essayer une aide, ou l'obtenir, sans dépense inutile.</div></div>
+        
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Une aide ajustée à leur proche</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">11</span><span class="of">sur 13</span></div><div class="txt">parlent de leur proche qui participe à ses activités avec une aide ajustée.</div></div>
+        
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Le choix laissé à leur proche</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">10</span><span class="of">sur 13</span></div><div class="txt">évoquent un refus respecté : une aide proposée peut être déclinée.</div></div>
+        
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Une aide qui arrive à la maison</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">8</span><span class="of">sur 13</span></div><div class="txt">parlent d'une réponse arrivée à temps pour servir.</div></div>
+        <div class="imp-quotes"><blockquote class="imp-q" title="Feuillet qualitatif 2026">« Le maintien à domicile, concrètement, c'est un monsieur qui arrive avec des couverts dans son camion. »<cite>Un aidant, dont l'épouse remange à table grâce à des couverts adaptés</cite></blockquote></div>
       </div>
     </div>
-    <div class="fs12 text-mid">Source : essai 3, sections 3.3 (tableau 2) et 4.1 à 4.5. Citations traduites en français à partir de l'original, vérifiées sur les enregistrements.</div>
+    <div class="imp-limit"><h4>Limites du dispositif</h4><p>Lors du suivi, la personne aidée est souvent présente. Ce que vit l'aidant, ses nuits ou sa fatigue, reste alors hors de la conversation, et sa propre priorité n'est pas toujours connue du service.</p><blockquote class="imp-q" title="A32">« J’ai dit que c’était mieux pour la douche, en tout cas. J’ai pas non plus dit tout ce que je vous ai dit sur le sommeil et la nuit. Elle [sa femme] était à côté, et je voulais pas qu’elle entende… que j’en pouvais plus. »<cite>Un aidant, époux d'une personne accompagnée</cite></blockquote></div>
+    <div class="imp-source">Source : recherche doctorale, Université Paris Nanterre (laboratoire CEROS), essai 3. Citations vérifiées sur les enregistrements ; les entretiens complets ne sont pas publiés.</div>
   </div>
 
-  <!-- Essai 3 : gain et suffisance -->
-  <div id="rt-suffisance" class="research-content" style="display:none">
-    <div class="card-feature mb20">
-      <div class="eyebrow mb8">Deux jugements distincts</div>
-      <div class="serif mb12" style="font-size:20px">Reconnaître un gain n'est pas juger qu'il suffit</div>
-      <div class="fs13 text-mid" style="line-height:1.7">Interrogés sur la suffisance d'un changement, les personnes âgées, les aidants et les partenaires le jugent au regard de la priorité de la personne concernée. Cette priorité fixe le standard, le niveau qu'un changement doit atteindre pour compter comme suffisant. L'usage d'une aide ne l'atteint pas à lui seul, et la priorité se situe souvent au-delà de ce que le service fournit : un bilan de la vue, des travaux à la charge d'un bailleur, des nuits que façonne une maladie.</div>
+  <div id="rt-ergos" class="research-content" style="display:none">
+    
+    <div class="card-feature mb8">
+      <div class="eyebrow mb8" style="font-size:13px">Les ergothérapeutes · 26 entretiens</div>
+      <div class="serif mb12" style="font-size:26px;color:var(--charcoal)">Ce qui change dans leur métier, et ce qu'ils voient changer</div>
+      <div class="imp-lede">Tous les ergothérapeutes ayant au moins un an de pratique dans le service ont été interrogés, en mars et avril 2026. Le réseau compte une cinquantaine d'ergothérapeutes salariés. Chaque chiffre indique dans combien des 26 entretiens l'effet est décrit.</div>
+      <details class="imp-info"><summary>Comment lire ces chiffres</summary><div>Un même entretien peut décrire plusieurs effets : les chiffres ne s'additionnent pas. Ils disent combien de personnes ont parlé d'un effet, sans mesurer son intensité. Les 26 entretiens forment un recensement : aucun ergothérapeute éligible n'a été écarté.</div></details>
     </div>
-    <div class="grid g2 mb20">
-      <div class="e3-case"><h4>A31</h4><span class="e3-tag ok">petits gestes : oui</span><span class="e3-tag no">problème majeur : pas encore</span>
-        <div class="fs13 text-mid mt8" style="line-height:1.65">Orientée après qu'un évaluateur de l'APA l'a vue se hisser sur les meubles des toilettes, elle souffre surtout de sa vue : elle ne peut plus lire son courrier. Elle utilise chaque jour le cadre de toilettes et la barre de lit. Une lampe essayée lors de la visite l'a aidée ; l'ergothérapeute lui a donné un contact pour un bilan spécialisé, qui n'a pas encore eu lieu.</div>
-        <div class="e3-q">« Ben, pour les petits gestes, dirais-je, oui. Si vous me demandez si [l’ergothérapeute] a répondu à mon problème majeur avec mes yeux, pas encore. Mais attention, je ne dis pas… je ne suis pas mécontente des objets qu’elle a mis… Je vais pas vous dire… je suis plutôt déçue que la chose qui me manque le plus […] reste à attendre. »<small>A31</small></div>
+    <div class="imp-part"><span class="num">1</span><h3>Ce qu'ils voient changer chez les personnes</h3></div>
+    <div class="imp-part-sub">Ce que l'essai et le suivi leur montrent au domicile.</div>
+    
+      <div class="imp-card">
+        <h4>Des activités faites avec plus d'aisance</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">18</span><span class="of">sur 26</span></div><div class="txt">parlent d'aisance et de confort gardés dans les activités des personnes.</div></div>
+        <div class="imp-sub"><b>11 sur 26</b><span>décrivent un mouvement facilité</span></div><div class="imp-quotes"><blockquote class="imp-q" title="Deck 5 novembre 2026">« Et donc j’ai pu enfin installer la barre dans son lit actuel qui est un lit classique en fait, et ça l’aide grandement, elle a pu le voir directement. »<cite>Ergothérapeute du réseau</cite></blockquote></div>
       </div>
-      <div class="e3-case"><h4>A24</h4><span class="e3-tag no">gain insuffisant</span>
-        <div class="fs13 text-mid mt8" style="line-height:1.65">Elle se douche désormais assise et peut encore le faire après une mauvaise nuit. Elle juge pourtant le changement insuffisant : sa priorité était d'atteindre seule son balcon. Le marchepied portatif essayé au seuil bloquait la porte ; les travaux que réclame le seuil dépendent d'un bailleur qui ne répond plus.</div>
+    
+      <div class="imp-card">
+        <h4>Plus de sécurité au domicile</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">17</span><span class="of">sur 26</span></div><div class="txt">parlent de la sécurité des personnes accompagnées.</div></div>
+        
       </div>
-      <div class="e3-case"><h4>A04, aidante</h4><span class="e3-tag ok">gain à la douche</span><span class="e3-tag no">priorité inchangée : le sommeil</span>
-        <div class="fs13 text-mid mt8" style="line-height:1.65">Elle reconnaît un gain à la douche et nie qu'il suffise : sa priorité était son propre sommeil, et ses nuits n'ont pas changé.</div>
-        <div class="e3-q">« Je peux être sa femme pendant la douche au lieu d’être le treuil. Enfin, je suis quand même là, donc il ne faut pas embellir. »<small>A04</small></div>
+    <div class="imp-part"><span class="num">2</span><h3>Ce que ça change dans leur métier</h3></div>
+    <div class="imp-part-sub">Un travail dont ils voient l'effet, sans attendre.</div>
+    
+      <div class="imp-card">
+        <h4>Un métier dont on voit l'utilité</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">26</span><span class="of">sur 26</span></div><div class="txt">parlent de ce que le service change dans leurs conditions de travail.</div></div>
+        <div class="imp-sub"><b>7 sur 26</b><span>parlent d'un métier mieux reconnu et compris</span></div><div class="imp-sub"><b>6 sur 26</b><span>parlent d'éprouver l'utilité de leur travail</span></div><div class="imp-quotes two"><blockquote class="imp-q" title="E11">« Bah ça fait du bien, ça fait tout simplement du bien de se dire Ah ouais, ça c'est utile alors. »<cite>Ergothérapeute du réseau</cite></blockquote><blockquote class="imp-q" title="Deck 5 novembre 2026">« De pouvoir se rendre compte directement des effets du travail qu’on fait, de pas avoir à dépendre de trucs administratifs que peuvent prendre des plombes. »<cite>Ergothérapeute du réseau</cite></blockquote></div>
       </div>
-      <div class="e3-case"><h4>A25, aidante</h4><span class="e3-tag ok">suffisant pour le problème posé</span>
-        <div class="fs13 text-mid mt8" style="line-height:1.65">Elle avait demandé que son père puisse atteindre les toilettes entre deux passages de l'aide à domicile. Le standard est le même que pour A31 et A24 ; la priorité étant atteinte, le jugement est favorable.</div>
-        <div class="e3-q">« Ce qui a changé ? Ah… ben… c’est déjà que c’était un problème pratique qui nous inquiétait gros. C’est déjà bien. »<small>A25</small></div>
+    <div class="imp-part"><span class="num">3</span><h3>Ce que le modèle apporte</h3></div>
+    <div class="imp-part-sub">Les leviers qu'ils citent pour qu'une aide soit acceptée, puis utilisée.</div>
+    <div class="imp-grid">
+      
+      <div class="imp-card model">
+        <h4>Faire essayer, sans dépense inutile</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">25</span><span class="of">sur 26</span></div><div class="txt">valorisent de pouvoir faire essayer une aide sans dépense inutile.</div></div>
+        <div class="imp-quotes"><blockquote class="imp-q" title="Bilan 2026">« Ils changent d'avis dès que je leur fais tester le matériel chez eux, ça c’est une évidence. »<cite>Ergothérapeute du réseau</cite></blockquote></div>
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Répondre au moment utile</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">24</span><span class="of">sur 26</span></div><div class="txt">parlent d'une réponse qui arrive à temps pour servir.</div></div>
+        <div class="imp-detail">Le matériel est prêté sans délai, sans attendre un financement.</div>
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Respecter les repères de la personne</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">22</span><span class="of">sur 26</span></div><div class="txt">valorisent un accompagnement qui respecte les repères de la personne.</div></div>
+        
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Un refus possible, un prêt réversible</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">19</span><span class="of">sur 26</span></div><div class="txt">parlent de respecter le refus d'une personne.</div></div>
+        <div class="imp-quotes"><blockquote class="imp-q" title="Bilan 2026">« Ils ont la possibilité d'essayer et si vraiment ça leur convient pas, on peut le récupérer, c’est moins engageant donc moins effrayant. »<cite>Ergothérapeute du réseau</cite></blockquote></div>
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Une relation de confiance</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">18</span><span class="of">sur 26</span></div><div class="txt">parlent d'une relation de confiance avec les personnes accompagnées.</div></div>
+        <div class="imp-quotes"><blockquote class="imp-q" title="Bilan 2026">« On plante une graine et derrière on se fait connaître pour le jour où ils seront plus en difficulté. »<cite>Ergothérapeute du réseau</cite></blockquote></div>
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Le réemploi des aides</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">18</span><span class="of">sur 26</span></div><div class="txt">valorisent le réemploi des aides, remises en état puis prêtées à une autre personne.</div></div>
+        
       </div>
     </div>
-    <div class="card mb20">
-      <div class="eyebrow mb8">Cinq personnes n'ont pas dit au service que le gain était insuffisant, ou pas en entier</div>
-      <div class="fs13 text-mid" style="line-height:1.7">Le suivi a appris l'usage des aides et le gain qu'elles apportent ; le jugement de suffisance de la personne, et la priorité propre de l'aidant, lui sont restés inconnus. Les personnes âgées disent qu'on ne le leur a pas demandé ; pour les aidants, l'obstacle tient à la présence de la personne aidée lors du suivi.</div>
-      <div class="e3-q">« S’ils retiennent que j’utilise les deux… comment… [aides techniques, terme proposé par l’enquêtrice] oui… ils vont se dire : ‘Ah oui, Mme […], tout va bien !’ alors que moi… je sais pas si quelqu’un leur demande autre chose… »<small>A31</small></div>
-      <div class="e3-q">« J’ai dit que c’était mieux pour la douche, en tout cas. J’ai pas non plus dit tout ce que je vous ai dit sur le sommeil et la nuit. Elle [sa femme] était à côté, et je voulais pas qu’elle entende… que j’en pouvais plus. »<small>A32, aidant</small></div>
-      <div class="fs13 text-mid mt8" style="line-height:1.7">Le partenaire d'un bailleur social (P07) garde de même son jugement à part de celui de sa locataire, dont l'accès à l'immeuble reste difficile :</div>
-      <div class="e3-q">« Il a le droit de trouver que ce n’est pas suffisant. »<small>P07</small></div>
-    </div>
-    <div class="grid g2 mb20">
-      <div class="card">
-        <div class="eyebrow mb8">Portée</div>
-        <div class="fs13 text-mid" style="line-height:1.7">Les jugements bornent ce qu'ils couvrent : une barre de lit gardée six semaines de convalescence (A33), une planche de bain utilisée deux mois avant un déménagement (A40), deux après-midi dehors dans une semaine par ailleurs longue (A42). Rendre l'aide fait alors partie du jugement favorable.</div>
-        <div class="e3-q">« Elle a servi pendant l’attente. Deux mois, ça paraît court, mais quand on attend de pouvoir bien se laver, c’est long. »<small>A40</small></div>
-      </div>
-      <div class="card">
-        <div class="eyebrow mb8">Composition</div>
-        <div class="fs13 text-mid" style="line-height:1.7">Quand un changement a des effets pour plusieurs titulaires, les participants disent comment ils les combinent : A22 garde deux jugements, un pour sa mère et un pour lui ; A26 les fond en un seul et donne la priorité au gain de sa mère sur sa propre peur.</div>
-        <div class="e3-q">« Pour maman oui, sur les petits gestes oui, probablement oui. Pour moi, non. »<small>A22</small></div>
-      </div>
-    </div>
-    <div class="fs12 text-mid">Source : essai 3, section 4.5 et 5.2. Les identifiants (A, E, P) sont des pseudonymes d'entretien.</div>
+    <div class="imp-limit"><h4>Limites du dispositif</h4><p>Le regard des autres freine l'acceptation des aides : le matériel médical rend visible la perte d'autonomie. Les ergothérapeutes appellent à moderniser et à démocratiser l'aménagement du logement.</p><blockquote class="imp-q" title="Bilan 2026">« Les rehausseurs de toilettes, c'est moche, c'est stigmatisant, ça fait handicapé. »<cite>Ergothérapeute du réseau</cite></blockquote></div>
+    <div class="imp-source">Source : recherche doctorale, Université Paris Nanterre (laboratoire CEROS), essai 3. Citations vérifiées sur les enregistrements ; les entretiens complets ne sont pas publiés.</div>
   </div>
 
-  <!-- Essai 3 : compte rendu -->
-  <div id="rt-compte" class="research-content" style="display:none">
-    <div class="card-feature mb20">
-      <div class="eyebrow mb8">Un jugement réparti entre les parties</div>
-      <div class="serif mb12" style="font-size:20px">Aucune partie ne conduit l'ensemble ; le compte rendu en porte une pièce</div>
-      <div class="fs13 text-mid" style="line-height:1.7">Ceux pour qui un changement compte fixent le standard et concluent ; les ergothérapeutes produisent l'essentiel de la preuve ; le financeur applique un standard propre, un volume prévu avec une tolérance, au bilan que le prestataire assemble avec lui. Le compte rendu qui circule entre ces parties porte une seule des quatre étapes, la preuve.</div>
-    </div>
-    <div class="card mb20">
-      <div class="eyebrow mb12">A. Les étapes du jugement, tenues par des parties différentes</div>
-      <div class="e3-mx">
-        <div></div><div class="h">1 Ce qui est valorisé</div><div class="h">2 Standard</div><div class="h">3 Preuve</div><div class="h">4 Jugement</div>
-        <div class="r">Personne âgée</div><div class="b">Une activité à sa façon ; l'aide qu'elle choisit de garder</div><div class="b stay">Sa propre priorité</div><div class="b">Son expérience du quotidien</div><div class="b stay">Le gain, et séparément s'il suffit</div>
-        <div class="r">Aidant</div><div class="b">L'aide qu'il donne ; la relation ; du temps à lui</div><div class="b stay">Sa priorité, ou ce qu'il a demandé</div><div class="b">Son expérience ; ce que dit son proche</div><div class="b stay">Deux jugements distincts, ou un seul selon une règle énoncée</div>
-        <div class="r">Ergothérapeute</div><div class="b">L'adéquation à l'usage quotidien ; un travail utile</div><div class="b">L'adéquation à l'usage ordinaire</div><div class="b carry">Essai et suivi : usage de l'aide, vu ou dit</div><div class="b">Une aide appropriée</div>
-        <div class="r" style="font-weight:400;font-style:italic;color:var(--mid)">le compte rendu</div><div class="b empty"></div><div class="b empty"></div><div class="b carry">Bilan : personnes, visites, aides ; demandes suivies</div><div class="b empty"></div>
-        <div class="r">Financeur</div><div class="b">Accès ; suite donnée ; volume</div><div class="b">Volume prévu, avec une tolérance</div><div class="b carry">Le bilan du prestataire</div><div class="b">Reconduire la convention ou non</div>
-      </div>
-      <div class="fs12 text-mid mt12"><span class="e3-tag" style="background:var(--sage-pale);color:var(--sage)">fond plein</span> ce que le compte rendu porte au financeur &nbsp; <span class="e3-tag" style="border:1px dashed var(--border2);background:var(--cream)">tirets</span> standards et jugements qui restent chez leur titulaire</div>
-    </div>
-    <div class="card mb20">
-      <div class="eyebrow mb12">B. Un même fait enregistré, compatible avec des jugements opposés</div>
-      <div class="e3-fact">
-        <div></div><div class="fs12 text-mid" style="font-weight:500">Fait que le service peut observer et consigner</div><div class="fs12 text-mid" style="font-weight:500">Jugement du titulaire, qui reste au domicile</div>
-        <div class="r" style="align-self:center;font-weight:500">Usage<br><span class="fs11 text-mid" style="font-weight:400">tranché par le standard</span></div>
-        <div class="b carry" style="align-self:center">L'aide est utilisée chaque jour</div>
-        <div><div class="b stay">Suffisant : le problème posé est réglé (A25)</div><div class="b stay mt8">Insuffisant : la priorité principale n'est pas touchée (A31, A24)</div></div>
-        <div class="r" style="align-self:center;font-weight:500">Retour<br><span class="fs11 text-mid" style="font-weight:400">tranché par la portée et ce qui est valorisé</span></div>
-        <div class="b carry" style="align-self:center">L'aide revient</div>
-        <div><div class="b stay">Une réussite : un besoin temporaire est comblé (A33, A40)</div><div class="b stay mt8">Une perte : l'aide remplaçait une aide humaine qui lui convenait (A36)</div></div>
-        <div class="r" style="align-self:center;font-weight:500">Capacité<br><span class="fs11 text-mid" style="font-weight:400">tranchée par qui juge et ce qui est valorisé</span></div>
-        <div class="b carry" style="align-self:center">Il y parvient seul à l'essai</div>
-        <div><div class="b stay">Un gain, pour sa fille (A36)</div><div class="b stay mt8">Pas pour lui : l'effort quotidien, et l'aide humaine qui lui convient (A36)</div></div>
-      </div>
-    </div>
-    <div class="grid g2 mb20">
-      <div class="card">
-        <div class="eyebrow mb8">Le standard des financeurs</div>
-        <div class="fs13 text-mid" style="line-height:1.7">Deux financeurs tolèrent un écart entre le volume prévu et le volume réalisé, chacun pour ses raisons, et chacun nomme le point au-delà duquel l'écart pèserait autrement.</div>
-        <div class="e3-q">« Les douze personnes d’écart comptent, mais elles n’annulent pas le reste. En revanche, refaire chaque année le même constat sur un secteur, sans rien essayer, ça finirait par peser autrement. »<small>P01 : 138 personnes soutenues sur 150 prévues</small></div>
-        <div class="e3-q">« Moi, je préfère 57 demandes bien traitées à 60 pour lesquelles on sait pas nous raconter la suite. Après, si on était à 20, on se poserait des questions. »<small>P06 : 57 accompagnements proposés sur 60 prévus</small></div>
-      </div>
-      <div class="card">
-        <div class="eyebrow mb8">Un bilan assemblé à plusieurs mains</div>
-        <div class="fs13 text-mid" style="line-height:1.7">Les financeurs jugent d'après des chiffres dont ils aident à fixer les repères. Les économies évitées, en revanche, ne décident rien pour eux.</div>
-        <div class="e3-q">« Alors, une partie, c’est dans la trame commune qu’on a travaillé avec [l’ergothérapeute]. Pour le reste, [le prestataire] nous a proposé le reste de son bilan, et nous, on avait aussi précisé nos attentes en amont. La correction sur les unités, c’est aussi nous qui l’avons rajouté. »<small>P01</small></div>
-        <div class="e3-q">« Les coûts évités, ça, on ne fait qu’en entendre parler, et c’est sûr que ça intéresse, mais j’utiliserais pas ça comme une économie sur notre budget à nous, vous voyez. »<small>P01</small></div>
-      </div>
-    </div>
-    <div class="note-box" style="font-size:12.5px;line-height:1.65">Une reconduction atteste que le service vaut d'être financé pour un public ; elle n'atteste pas qu'il a suffi à ceux qu'il sert. Les deux jugements sont légitimes, et le compte rendu ne les relie que par des faits compatibles avec des jugements opposés.</div>
-    <div class="fs12 text-mid mt12">Source : essai 3, sections 4.4, 4.5 et 5.2 (figure 4). Les jugements ont été énoncés en entretien ; la lecture des bilans par les financeurs au moment de décider n'est connue que par ce qu'ils en ont dit.</div>
-  </div>
-
-  <!-- Essai 3 : grille -->
-  <div id="rt-grille" class="research-content" style="display:none">
-    <div class="card-feature mb20">
-      <div class="eyebrow mb8">Prototype</div>
-      <div class="serif mb12" style="font-size:20px">Un compte rendu qui porterait aussi le jugement</div>
-      <div class="fs13 text-mid" style="line-height:1.7">Ce que l'étude suggère de consigner, à chaque suivi, pour que les deux jugements se rejoignent dans le compte rendu : pour chaque titulaire, la priorité énoncée à l'intervention, la suffisance du changement pour cette priorité et la portée du jugement. Le financeur garde son propre standard. La grille n'a pas été éprouvée : on ne sait pas si des financeurs liraient autrement un tel compte rendu (essai 3, section 5.5).</div>
-    </div>
-    <div class="card mb20">
-      <div class="eyebrow mb8">La grille</div>
-      <table class="e3-tbl">
-        <tr><th>Élément du jugement</th><th>Question à poser</th><th>Ce que le compte rendu porterait au financeur</th><th>Appuis</th></tr>
-        <tr><td>Titulaire</td><td>Pour qui le changement compte-t-il : la personne, un proche, l'aidant ?</td><td>Le titulaire de chaque jugement rapporté</td><td>A22, A26</td></tr>
-        <tr><td>Ce qui est valorisé et standard</td><td>Quelle priorité la personne, ou l'aidant, a-t-elle énoncée lors de l'intervention ?</td><td>La priorité énoncée, à côté des aides fournies</td><td>A04, A24, A31</td></tr>
-        <tr><td>Jugement</td><td>Le changement a-t-il suffi pour cette priorité ?</td><td>Le jugement de suffisance du titulaire, à côté de l'usage</td><td>A25, A24, A31</td></tr>
-        <tr><td>Portée</td><td>Pour quelle activité et sur quelle période le jugement vaut-il ?</td><td>La portée, pour qu'une aide rendue se lise comme un besoin comblé ou comme une aide déclinée</td><td>A33, A40, A36</td></tr>
-        <tr><td>Règle de composition</td><td>Quand les gains diffèrent d'un titulaire à l'autre, comment les combine-t-on ?</td><td>Des jugements séparés, ou un jugement unique avec sa règle énoncée</td><td>A22, A26</td></tr>
-        <tr><td>Standard propre du financeur</td><td>Quel volume, quelle tolérance, quel suivi s'appliquent ?</td><td>Le volume prévu, l'écart toléré et les conditions où il pèserait autrement</td><td>P01, P06</td></tr>
-      </table>
-    </div>
-    <div class="card mb20">
-      <div class="eyebrow mb8">Essayer la grille sur un cas fictif</div>
-      <div class="fs12 text-mid mb12">Situation inventée pour l'exemple ; modifiez les champs pour voir ce qu'un compte rendu actuel enregistre et ce que la grille y ajouterait.</div>
-      <div class="e3-form mb12">
-        <div><label for="g-tit">Titulaire du jugement</label><select id="g-tit" onchange="drawGrille()"><option>la personne</option><option>un proche</option><option>l'aidant</option></select></div>
-        <div><label for="g-aid">Aides fournies</label><input id="g-aid" value="un rehausseur de toilettes et une canne-siège" oninput="drawGrille()"></div>
-        <div><label for="g-pri">Priorité énoncée à l'intervention</label><input id="g-pri" value="retourner seul au marché du samedi" oninput="drawGrille()"></div>
-        <div><label for="g-usa">Usage au suivi</label><select id="g-usa" onchange="drawGrille()"><option>chaque jour</option><option>de temps en temps</option><option>aide rendue</option></select></div>
-        <div><label for="g-suf">Le changement a-t-il suffi pour cette priorité ?</label><select id="g-suf" onchange="drawGrille()"><option>non</option><option>en partie</option><option>oui</option><option>pas encore demandé</option></select></div>
-        <div><label for="g-por">Portée du jugement</label><input id="g-por" value="les gestes de toilette, sans les sorties" oninput="drawGrille()"></div>
-      </div>
-      <div class="grid g2">
-        <div class="e3-out cur"><div class="eyebrow mb8" style="color:var(--mid)">Compte rendu actuel</div><div id="g-cur"></div></div>
-        <div class="e3-out new"><div class="eyebrow mb8">Avec la grille</div><div id="g-new"></div></div>
-      </div>
-    </div>
-    <div class="fs12 text-mid">Source : essai 3, section 5.4 (tableau 5). Des instruments partent déjà de ce qui compte pour la personne, comme la Mesure canadienne du rendement occupationnel et les grilles d'évaluation à critères (rubrics) ; la grille ajoute le titulaire, la portée et la règle de composition.</div>
-  </div>
-
-  <!-- Partenaires -->
+  <!-- Partenaires : questionnaire (inchangé) + entretiens -->
   <div id="rt-partenaires" class="research-content" style="display:none">
+    <div class="imp-switch">
+      <button class="on" onclick="switchPartView(this,'quest')">Questionnaire · 35 répondants</button>
+      <button onclick="switchPartView(this,'ent')">Entretiens · 19 partenaires</button>
+    </div>
+
+    <div id="pt-ent" style="display:none">
+    
+    <div class="card-feature mb8">
+      <div class="eyebrow mb8" style="font-size:13px">Les partenaires rencontrés · 19 entretiens</div>
+      <div class="serif mb12" style="font-size:26px;color:var(--charcoal)">Ce qui change dans leur travail</div>
+      <div class="imp-lede">Cinq financeurs publics, quatre bailleurs sociaux, trois caisses de retraite ou organismes de protection sociale, quatre services de coordination ou d'orientation et trois services d'aide à domicile, rencontrés de mai à juillet 2026. Chaque chiffre indique dans combien des 19 entretiens l'effet est décrit.</div>
+      <details class="imp-info"><summary>Comment lire ces chiffres</summary><div>Un même entretien peut décrire plusieurs effets : les chiffres ne s'additionnent pas. Ils disent combien de personnes ont parlé d'un effet, sans mesurer son intensité. L'échantillon a été construit pour couvrir les cinq voies d'orientation du service (département en milieu urbain ou rural, caisse de retraite, bailleur social, autres voies) ; le recrutement s'est arrêté quand deux entretiens consécutifs n'apportaient plus rien de nouveau.</div></details>
+    </div>
+    <div class="imp-part"><span class="num">1</span><h3>Ce que ça change dans leur travail</h3></div>
+    <div class="imp-part-sub">Mieux orienter, se coordonner, s'appuyer sur une expertise.</div>
+    
+      <div class="imp-card">
+        <h4>Un travail qui aboutit</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">19</span><span class="of">sur 19</span></div><div class="txt">parlent de ce que le dispositif change dans leur propre travail.</div></div>
+        <div class="imp-quotes"><blockquote class="imp-q" title="P13">« Ce qui m’aide moi personnellement, c’est quand les coups de fil aboutissent. Si je passe du temps mais qu’à la fin on sait qui fait quoi, pour moi ça vaut le coup, vous voyez. »<cite>Un partenaire rencontré en entretien</cite></blockquote></div>
+      </div>
+    
+      <div class="imp-card">
+        <h4>Une relation de confiance, un bilan construit ensemble</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">16</span><span class="of">sur 19</span></div><div class="txt">parlent d'une relation de confiance avec le service.</div></div>
+        <div class="imp-quotes two"><blockquote class="imp-q" title="P01">« Alors, une partie, c’est dans la trame commune qu’on a travaillé avec [l’ergothérapeute]. Pour le reste, [le prestataire] nous a proposé le reste de son bilan, et nous, on avait aussi précisé nos attentes en amont. »<cite>Un financeur public</cite></blockquote><blockquote class="imp-q" title="P06">« Moi, je préfère 57 demandes bien traitées à 60 pour lesquelles on sait pas nous raconter la suite. »<cite>Un financeur public</cite></blockquote></div>
+      </div>
+    <div class="imp-part"><span class="num">2</span><h3>Ce que le modèle apporte</h3></div>
+    <div class="imp-part-sub">Ce qu'ils attendent du service pour les publics qu'ils orientent ou financent.</div>
+    <div class="imp-grid">
+      
+      <div class="imp-card model">
+        <h4>Une réponse au moment utile</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">16</span><span class="of">sur 19</span></div><div class="txt">attendent une réponse qui arrive à temps pour servir.</div></div>
+        
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Le choix laissé à la personne</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">15</span><span class="of">sur 19</span></div><div class="txt">parlent du respect du refus de la personne.</div></div>
+        
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Essayer, sans dépense inutile</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">13</span><span class="of">sur 19</span></div><div class="txt">valorisent l'essai d'une aide sans dépense inutile.</div></div>
+        
+      </div>
+      
+      <div class="imp-card model">
+        <h4>Le réemploi des aides</h4>
+        <div class="imp-stat"><div class="fig"><span class="n">5</span><span class="of">sur 19</span></div><div class="txt">parlent du réemploi des aides rendues.</div></div>
+        
+      </div>
+    </div>
+    <div class="imp-limit"><h4>Limites du dispositif</h4><p>Ce qui dépend d'autres acteurs reste hors de portée du prêt d'aides : l'accessibilité d'un immeuble, des travaux à programmer.</p><blockquote class="imp-q" title="P07">« Il a le droit de trouver que ce n’est pas suffisant. »<cite>Un bailleur social, à propos d'un locataire dont l'accès à l'immeuble reste difficile</cite></blockquote></div>
+    <div class="imp-source">Source : recherche doctorale, Université Paris Nanterre (laboratoire CEROS), essai 3. Citations vérifiées sur les enregistrements ; les entretiens complets ne sont pas publiés.</div>
+    </div>
+    <div id="pt-quest">
     <!-- Intro -->
     <div class="card-feature mb20">
       <div class="eyebrow mb8">Enquête préalable — Partenaires</div>
@@ -1414,6 +1451,7 @@ a:hover{text-decoration:underline}
       <div class="fs12 text-mid mb16">Question : <em>« Quelles sont selon vous les limites du dispositif Ergothèque ? »</em> (réponse libre)</div>
       <div class="grid g2" id="part-limites"></div>
     </div>
+    </div>
   </div>
 
   </div>
@@ -1421,338 +1459,90 @@ a:hover{text-decoration:underline}
 
 <!-- ══ ANALYSES STATISTIQUES ══ -->
 <div id="p-analyses" class="page">
-  <div class="mb24">
+  <div class="mb20">
     <div class="section-title">Analyses statistiques</div>
-    <div class="section-sub">Screening exploratoire — tests d'hypothèse, corrélations, régressions, typologie · Population 2021-2026 (n = 13 063 bénéficiaires sur 32 ergothèques)</div>
+    <div class="section-sub" style="font-size:15px">Six questions que le terrain se pose, à partir des dossiers de suivi de 13 063 personnes accompagnées entre 2021 et 2026</div>
+    <details class="imp-info"><summary>Comment lire ces résultats</summary><div>Le taux de mise à disposition est la part des aides techniques préconisées par l'ergothérapeute qui sont prêtées par l'Ergothèque ; les autres sont achetées par la personne ou ne sont pas acquises. Chaque écart a été testé statistiquement. « Écart net » : l'écart est solide et d'une ampleur qui compte. « Écart léger » : l'écart est solide mais faible. « À confirmer » : l'écart apparaît dans les chiffres bruts mais ne résiste pas à tous les contrôles. Ces résultats portent sur l'ensemble du réseau : les filtres en haut de page ne s'y appliquent pas.</div></details>
   </div>
 
-  <!-- SYNTHÈSE EN CLAIR — ouverture lisible -->
-  <div class="card-feature mb20" style="background:linear-gradient(135deg,#FBF0EA,#F8F4EE);border-left:4px solid var(--coral)">
-    <div class="eyebrow mb8" style="color:var(--coral)">Lecture express</div>
-    <div class="serif mb12" style="font-size:20px;color:var(--charcoal)">Ce que disent les données</div>
-    <div class="fs12 text-mid mb16" style="line-height:1.6">Cette page mesure <em>qui reçoit quoi</em>, et à quel point ces différences sont solides statistiquement. Voici la lecture rapide avant les détails techniques.</div>
-
-    <div class="grid g2" style="gap:24px">
-      <div>
-        <div class="block-title" style="color:var(--sage);margin-top:0">Quatre résultats principaux</div>
-        <ul style="margin:8px 0 0 18px;line-height:1.75;font-size:12.5px">
-          <li><strong>Courbe en cloche selon le GIR.</strong> Le dispositif sert au mieux les profils du milieu (GIR 3-4, "fragiles mobiles", <strong>25 %</strong> de taux de prêt) et moins bien les deux extrêmes — très dépendants (<strong>14 %</strong>) et très autonomes (<strong>20 %</strong>). Statistiquement très robuste.</li>
-          <li><strong>Effet âge.</strong> Plus le bénéficiaire est âgé, moins il reçoit d'AT (29 % chez les &lt;60 ans → 21 % chez les 90+), même à GIR équivalent.</li>
-          <li><strong>Effet isolement.</strong> Les personnes isolées socialement reçoivent <strong>plus</strong> d'AT (25 % vs 23 %). L'AT remplace l'aidant manquant — argument fort pour défendre le ciblage du dispositif.</li>
-          <li><strong>Maturation du dispositif.</strong> Le taux de prêt a quasiment doublé entre 2021 et 2025 (13 % → 25 %). En parallèle, <strong>la cloche s'est précisée</strong> au fil du temps : en 2023, les autonomes recevaient le plus ; en 2025-2026, le pic s'est déplacé sur les GIR 3-4.</li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="block-title" style="color:var(--gold);margin-top:0">Trois nuances importantes pour interpréter</div>
-        <ul style="margin:8px 0 0 18px;line-height:1.75;font-size:12.5px">
-          <li><strong>Le pattern est le même partout.</strong> Ergothèques départementales et bailleurs sociaux montrent la même cloche GIR (interaction non significative, p ≈ .96). Pas de spécificité organisationnelle.</li>
-          <li><strong>Deux dynamiques opposées se compensent</strong> sous la cloche globale : les AT de salle de bain, confort et sécurité sont prêtées plus aux autonomes ; les AT de lit, préhension et repas sont prêtées plus aux dépendants. La cloche globale est leur somme.</li>
-          <li><strong>L'effet ergothèque est modéré.</strong> Seulement 8-10 % de la variance des prêts vient de la structure ; le reste vient des bénéficiaires eux-mêmes. Les écarts entre ergothèques reflètent surtout les profils accueillis, pas des "bonnes" ou "mauvaises" pratiques.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="note-box mt20" style="font-size:12px;line-height:1.7;background:rgba(255,255,255,0.55);border-color:var(--border)">
-      <strong>En une phrase · </strong> Le dispositif sert au mieux les <strong>fragiles mobiles isolés</strong>, et son efficacité s'<strong>est précisée dans le temps</strong>. Les pistes opérationnelles à creuser : comment mieux atteindre les très dépendants (pour qui l'AT seule ne suffit pas, besoin d'environnement adapté) et les très autonomes (qui pourraient bénéficier d'une logique préventive) ?
+  <div class="ana-profile mb24">
+    <div class="ana-profile-t">Qui l'Ergothèque accompagne-t-elle ?</div>
+    <div class="ana-kpis">
+      <div><b>81 ans</b><span>d'âge moyen</span></div>
+      <div><b>63 %</b><span>de femmes</span></div>
+      <div><b>60 %</b><span>en GIR 3 ou 4</span></div>
+      <div><b>21 %</b><span>se déclarent isolées</span></div>
+      <div><b>71 %</b><span>orientées par un département</span></div>
     </div>
   </div>
 
-  <!-- COMMENT LIRE -->
-  <details class="dev-details" style="margin:0 0 20px;border-top:none;padding-top:0"><summary>Comment lire cette page</summary><div class="dev-content"><div class="fs12 mt12" style="line-height:1.7">
-      <ul style="margin:0 0 0 18px;padding:0">
-        <li><strong>β (bêta)</strong> = coefficient de régression. C'est l'<em>effet</em> d'une unité de plus de la variable sur le nombre d'AT prêtées. Exemple : β = +0,08 pour GIR signifie qu'à chaque palier GIR (1→2, 2→3, etc.), on observe en moyenne 0,08 AT prêtée en plus, <em>toutes choses égales par ailleurs</em>.</li>
-        <li><strong>p</strong> = probabilité que l'effet observé soit dû au hasard si l'hypothèse nulle (pas d'effet) était vraie. Convention : p &lt; .05 = significatif (*), p &lt; .01 = très significatif (**), p &lt; .001 = hautement significatif (***).</li>
-        <li><strong>IC 95 %</strong> = intervalle de confiance à 95 %. Si l'intervalle ne contient pas zéro, l'effet est significatif. Plus l'intervalle est étroit, plus la précision de l'estimation est grande (lié à N).</li>
-        <li><strong>ρ Spearman</strong> = corrélation de rang, entre −1 et +1. Adaptée aux variables qui ne suivent pas une loi normale (ce qui est le cas de la plupart de nos variables).</li>
-        <li><strong>Effets fixes ergothèque</strong> = on insère un indicateur par ergothèque dans le modèle pour "absorber" tout ce qui est propre à chaque ergothèque (clientèle, pratiques, partenariats). L'effet GIR estimé devient alors un effet <em>intra-ergothèque</em>.</li>
-        <li><strong>ICC</strong> = part de variance attribuable à l'ergothèque par rapport à la variance totale. Un ICC de 0,07 signifie que 7 % de la variance des prêts s'explique par la différence entre ergothèques (le reste vient des différences individuelles).</li>
-      </ul>
+  <div class="ana-q">
+    <div class="ana-txt">
+      <div class="ana-num">Question 1</div>
+      <h3>La dépendance change-t-elle ce que l'on reçoit ?</h3>
+      <p>Oui, en forme de cloche. La part des aides préconisées qui sont prêtées culmine en GIR 3 et 4, autour d'une sur quatre (25 % en GIR 4), et baisse aux deux extrêmes : 14 % en GIR 1, 20 % en GIR 6. Le même profil se retrouve dans les ergothèques départementales et chez les bailleurs.</p>
+      <span class="ana-badge net">Écart net</span>
+      
     </div>
-  </div></details>
-
-  <!-- META & METHODE -->
-  <div class="card mb20">
-    <div class="block-title">Effectifs & méthode</div>
-    <div class="grid g4 mt12" id="analyses-meta"></div>
-    <details class="dev-details" style="margin-top:16px"><summary>Méthodologie</summary><div class="dev-content"><p style="font-size:12px">Analyses restreintes à la période <strong>2021-2026</strong>. Tests non paramétriques par défaut (Spearman, Kruskal-Wallis, Mann-Whitney) en raison de la non-normalité de la plupart des variables. Régressions OLS avec vérification visuelle des résidus. ICC (intra-class correlation) calculé via un modèle mixte à intercept aléatoire au niveau de l'ergothèque (statsmodels mixedlm, REML). Clustering K-means (k=4) sur 6 indicateurs normalisés au niveau ergothèque. Toutes les analyses sont reproduites à partir des 32 fichiers Excel sources via un script Python (scipy / statsmodels / scikit-learn).
-      <br><strong>Nettoyage (v3) · </strong> Les bénéficiaires entrés avant 2021 et ceux sans année d'entrée renseignée ont été retirés en amont du pipeline (127 cas exclus sur 13 190). Le périmètre des 32 ergothèques inclut 29 départementales et 3 ergothèques bailleurs (CDC Habitat, 1001 Vies Habitat, HSA). La classification des aides techniques par catégorie repose sur un mapping documenté (table source d'origine non disponible).
-      Les p-values rapportées sont brutes (non corrigées pour comparaisons multiples) — interpréter avec prudence.</p></div></details>
+    <div class="ana-chart"><div class="chart-box" style="height:240px"><canvas id="c-ana-gir"></canvas></div></div>
   </div>
 
-  <!-- CALIBRATION DU DISPOSITIF — RÉSULTAT SAILLANT -->
-  <div class="card-feature mb20">
-    <div class="eyebrow mb8">Résultat saillant</div>
-    <div class="serif mb12" style="font-size:18px;color:var(--charcoal)">Calibration du dispositif — courbe en U inversé du taux de mise à disposition selon le GIR</div>
-    <div class="fs12 text-mid mb16" style="line-height:1.7">
-      <strong>Le constat brut · </strong> Le taux de mise à disposition n'est pas monotone selon le GIR : il forme une <strong>courbe en U inversé</strong>. Il monte de <strong>14,5 %</strong> chez les bénéficiaires GIR 1 (les plus dépendants, n=240) à un <strong>pic de 24,8 %</strong> chez les GIR 4 (fragiles mobiles, n=3 898), puis redescend à <strong>19,6 %</strong> chez les GIR 6 (les plus autonomes, n=894). Autrement dit, le dispositif sert <em>proportionnellement le mieux</em> les profils intermédiaires, et <em>moins</em> les deux extrémités du spectre.
-      <br><br>
-      <strong>Confirmation statistique · </strong> Le test de Kruskal-Wallis sur le taux par GIR est hautement significatif (H = 119,5 ; p &lt; .001), mais la régression linéaire β GIR sur le taux est <em>non significative</em> (β = +0,004 ; p = .13) — précisément parce que la relation n'est pas linéaire. La régression quadratique ajoute un terme GIR² pour capter la courbure : <strong>β GIR = +0,13 *** et β GIR² = −0,017 ***</strong>, avec un sommet de la parabole à <strong>GIR ≈ 3,9</strong>. Le test du rapport de vraisemblance (linéaire vs quadratique) donne χ² = 76,3 (p &lt; .001), confirmant que la courbure est statistiquement réelle, pas un artefact de bruit.
-      <br><br>
-      <strong>Pourquoi c'est important · </strong> Ce pattern remplace l'hypothèse d'« équité inversée » testée précédemment (gradient monotone) par un constat plus nuancé : le modèle d'AT mises à disposition est <strong>calibré pour les profils de fragilité mobile</strong> (GIR 3-4). Les deux extrémités du spectre — très dépendants (GIR 1-2) et très autonomes (GIR 5-6) — sont sous-desservies, pour des raisons probablement très différentes : les premiers parce que l'AT seule ne suffit pas (besoin d'environnement adapté, d'aide humaine) ; les seconds parce que le besoin perçu est moindre. La suite des analyses teste la robustesse de cette courbure et son hétérogénéité.
+  <div class="ana-q">
+    <div class="ana-txt">
+      <div class="ana-num">Question 2</div>
+      <h3>Les plus âgés reçoivent-ils moins ?</h3>
+      <p>Un peu. La part des aides prêtées baisse avec l'âge, de 26 % chez les 60-69 ans à 21 % chez les 90 ans et plus, et cet écart tient à niveau de dépendance égal.</p>
+      <span class="ana-badge leger">Écart léger</span>
+      <div class="ana-note">Les moins de 60 ans (144 personnes) sont peu nombreux : leur taux est à lire avec prudence.</div>
     </div>
-    <div class="chart-box" style="height:280px"><canvas id="c-equity-gir"></canvas></div>
-    <div id="equity-table" class="mt16"></div>
+    <div class="ana-chart"><div class="chart-box" style="height:240px"><canvas id="c-ana-age"></canvas></div></div>
   </div>
 
-  <!-- ROBUSTESSE DU GRADIENT GIR -->
-  <div class="card mb20">
-    <div class="block-title">Robustesse du modèle GIR — la courbure résiste-t-elle aux contrôles ?</div>
-    <div class="test-recap r-yes">
-      <div class="lbl">À quoi ça sert ?</div>
-      <div class="val">À vérifier que la cloche en U inversé n'est pas un artefact : pas un effet de l'âge, du sexe, de l'isolement, ni des pratiques différentes entre ergothèques. On empile cinq modèles statistiques de plus en plus exigeants.</div>
-      <div class="lbl">Ce qu'on trouve</div>
-      <div class="val"><strong>La courbure tient.</strong> Le modèle quadratique (avec terme GIR²) avec effets fixes ergothèque donne toujours β GIR = +0,135 *** et β GIR² = −0,018 *** — la cloche existe même à profil contrôlé et à pratiques d'ergothèque égales. <span class="verdict-pill yes">Confirmé</span></div>
+  <div class="ana-q">
+    <div class="ana-txt">
+      <div class="ana-num">Question 3</div>
+      <h3>Les personnes isolées sont-elles mieux équipées ?</h3>
+      <p>Un peu. 25 % des aides préconisées leur sont prêtées, contre 23 % pour les personnes entourées, et l'écart tient à âge et dépendance égaux. Elles achètent aussi moins d'aides elles-mêmes.</p>
+      <span class="ana-badge leger">Écart léger</span>
+      
     </div>
-    <div class="fs12 text-mid mt8 mb16" style="line-height:1.7">Cinq modèles emboîtés estiment le coefficient GIR <em>linéaire</em> sur le nombre d'AT prêtées. <strong>Tous donnent un β proche de zéro et non significatif</strong> (β = −0,003 brut, +0,018 avec effets fixes ; p &gt; .1 partout) — ce qui est cohérent avec la courbe en U inversé : un modèle linéaire est mathématiquement incapable de capter une relation non monotone. Le test de courbure quadratique (ci-dessus) confirme en revanche que la relation n'est pas plate mais bel et bien curviligne.
-      <ul style="margin:8px 0 0 18px;line-height:1.6">
-        <li><strong>M1 brut</strong> — pret ~ GIR, sans contrôle.</li>
-        <li><strong>M2 ajusté</strong> — + âge, sexe, isolement, année d'entrée.</li>
-        <li><strong>M3 effets fixes ergothèque</strong> — + indicatrice par ergothèque pour absorber la variation entre organisations (case-mix, pratiques locales).</li>
-        <li><strong>M4 multi-niveaux</strong> — variante statistique de M3 utilisant un modèle mixte (REML) avec intercept aléatoire au niveau ergothèque.</li>
-        <li><strong>M5 WLS sur le taux</strong> — modélise le <em>taux</em> (pret/total) pondéré par le volume de préconisations, avec effets fixes ergothèque.</li>
-      </ul>
-    </div>
-    <div class="chart-box mb12" style="height:240px"><canvas id="c-equity-robust"></canvas></div>
-    <div id="equity-robust-table"></div>
-    <div class="note-box mt16" style="font-size:11px;line-height:1.6"><strong>Lecture · </strong> La quasi-nullité des β GIR linéaires est un <em>résultat informatif</em> : il rappelle qu'un test linéaire ne suffit pas à décrire la relation GIR → taux MAD. En complément, un modèle quadratique avec effets fixes ergothèque (GIR + GIR² + âge + sexe + isolement + année + indicatrice ergothèque) donne <strong>β GIR = +0,135 *** et β GIR² = −0,018 ***</strong>. La courbure survit donc à tous les contrôles individuels et de pratique ergothèque. Le « pic de calibration » est une réalité du dispositif, pas un artefact de case-mix.</div>
+    <div class="ana-chart"><div class="chart-box" style="height:180px"><canvas id="c-ana-iso"></canvas></div></div>
   </div>
 
-  <!-- HÉTÉROGÉNÉITÉ DU GRADIENT -->
-  <div class="card mb20">
-    <div class="block-title">Le gradient diffère-t-il selon le type d'ergothèque, la région ou l'année ?</div>
-    <div class="test-recap r-mixed">
-      <div class="lbl">À quoi ça sert ?</div>
-      <div class="val">À vérifier si la cloche est partout pareille, ou si elle est plus marquée dans certaines ergothèques / régions / années. On regarde des « interactions » : si la pente du GIR change selon le contexte.</div>
-      <div class="lbl">Ce qu'on trouve</div>
-      <div class="val"><strong>Le pattern est globalement le même</strong> entre ergothèques départementales et bailleurs (p ≈ .96). En revanche, il <strong>diffère selon la région et selon l'année</strong> (p &lt; .001 pour les deux) — la maturation du dispositif modifie progressivement la courbe. <span class="verdict-pill mixed">Nuancé</span></div>
+  <div class="ana-q">
+    <div class="ana-txt">
+      <div class="ana-num">Question 4</div>
+      <h3>Selon qui oriente, reçoit-on les mêmes aides ?</h3>
+      <p>Non. Les personnes orientées par la CARSAT, presque toutes en GIR 5 ou 6 (95 %), se voient prêter une part plus faible des aides préconisées : 15 %, contre 24 % pour les orientations des départements et 28 % pour celles des bailleurs sociaux.</p>
+      <span class="ana-badge net">Écart net</span>
+      
     </div>
-    <div class="fs12 text-mid mt8 mb16" style="line-height:1.6">Tests d'interactions et estimation du coefficient GIR par sous-groupe (forest plot avec IC95 %). Un test d'interaction significatif suggère que le mécanisme générateur du gradient varie selon le contexte.</div>
-    <div id="hetero-blocks"></div>
-    <div class="note-box mt16" style="font-size:11px;line-height:1.6"><strong>À retenir · </strong> L'interaction <strong>GIR × type d'ergothèque</strong> n'est <em>pas significative</em> (p ≈ .96) : le pattern de calibration GIR est globalement le même dans les ergothèques départementales (β taux = +0,009 ***) et chez les bailleurs (β = +0,008 n.s., n=230 limité). En revanche, deux interactions sont hautement significatives : <strong>GIR × année</strong> (F = 7,8, p &lt; .001) — le pic de calibration s'est déplacé dans le temps au fur et à mesure que le dispositif a muri — et <strong>GIR × région</strong> (F = 9,7, p &lt; .001) — certaines régions ont des pratiques de mise à disposition très différentes.</div>
+    <div class="ana-chart"><div class="chart-box" style="height:180px"><canvas id="c-ana-orient"></canvas></div></div>
   </div>
 
-  <!-- DÉCOMPOSITION PAR CANAL D'ORIENTATION -->
-  <div class="card mb20">
-    <div class="block-title">Décomposition par canal d'orientation</div>
-    <div class="test-recap r-mixed">
-      <div class="lbl">À quoi ça sert ?</div>
-      <div class="val">Les bénéficiaires arrivent à l'ergothèque par différents canaux : Conseil Départemental, CARSAT, bailleurs sociaux. On regarde si ces canaux orientent vers des profils différents et si la courbure GIR est portée par un canal en particulier.</div>
-      <div class="lbl">Ce qu'on trouve</div>
-      <div class="val"><strong>Les canaux orientent vers des profils très différents</strong> (χ² hautement significatif). Le Conseil Départemental couvre tout le spectre GIR et porte la majorité du pattern. La CARSAT sélectionne plutôt les autonomes (préservation). Les bailleurs sociaux orientent plutôt les profils dépendants mais sur petit volume. <span class="verdict-pill mixed">Profils contrastés</span></div>
+  <div class="ana-q">
+    <div class="ana-txt">
+      <div class="ana-num">Question 5</div>
+      <h3>Le recours est-il le même d'une ergothèque à l'autre ?</h3>
+      <p>Non. La part des aides prêtées va de moins de 10 % à plus de 50 % selon l'ergothèque. Une partie de ces écarts tient au public orienté (question 4). Au total, l'ergothèque n'explique qu'environ 9 % des différences de prêt entre personnes ; le reste tient aux situations individuelles. Les ergothèques des bailleurs, en doré, prêtent autant d'aides par personne que les départementales mais en préconisent moins, d'où un taux plus élevé.</p>
+      <span class="ana-badge net">Écart net</span>
+      <div class="ana-note">Ergothèques comptant au moins 50 personnes accompagnées.</div>
     </div>
-    <div class="fs12 text-mid mt8 mb12" style="line-height:1.6">Trois canaux principaux concentrent la quasi-totalité des cas dans les ergos départementales : les Conseils Départementaux, la CARSAT et les bailleurs sociaux.</div>
-    <div id="orient-distrib"></div>
-    <div class="block-title mt20" style="margin-top:24px">Gradient GIR par canal</div>
-    <div class="fs11 text-mid mt8 mb12" style="line-height:1.6">On estime à nouveau le coefficient GIR (de combien d'AT prêtées en plus à chaque palier GIR, à âge / sexe / isolement / année comparables) pour chaque canal séparément.</div>
-    <div id="orient-gradient-block"></div>
-    <div class="note-box mt16" style="font-size:11px;line-height:1.6"><strong>Interprétation · </strong> Les trois canaux principaux (Conseil Départemental, CARSAT, bailleur social) orientent des publics aux profils GIR très différents (test du χ² hautement significatif). Le Conseil Départemental, canal le plus volumineux, oriente sur l'ensemble du spectre GIR et porte la majorité du pattern global. La CARSAT oriente des publics nettement plus autonomes (préservation, action préventive). Les bailleurs sociaux concentrent les bénéficiaires les plus dépendants, mais avec un volume modeste qui limite la puissance statistique du gradient.</div>
+    <div class="ana-chart"><div class="chart-box" style="height:510px"><canvas id="c-ana-ergo"></canvas></div></div>
   </div>
 
-  <!-- DÉCOMPOSITION PAR CATÉGORIE D'AT -->
-  <div class="card-feature mb20">
-    <div class="eyebrow mb8">Mécanisme — décomposition catégorie d'AT</div>
-    <div class="serif mb12" style="font-size:18px;color:var(--charcoal)">D'où vient la cloche ? Décomposition par catégorie d'AT</div>
-    <div class="test-recap r-mixed">
-      <div class="lbl">À quoi ça sert ?</div>
-      <div class="val">À comprendre si la cloche globale vient de toutes les AT prêtées (donc un comportement uniforme du dispositif) ou seulement de certaines familles d'AT. On découpe les prêts en 8 catégories.</div>
-      <div class="lbl">Ce qu'on trouve</div>
-      <div class="val"><strong>Deux dynamiques opposées</strong> qui se compensent. Salle de bain, confort, sécurité : prêtées plus aux <em>autonomes</em>. Lit, préhension, repas : prêtées plus aux <em>dépendants</em>. La cloche globale est la somme de ces deux pentes inverses. <span class="verdict-pill mixed">Spécialisation</span></div>
+  <div class="ana-q">
+    <div class="ana-txt">
+      <div class="ana-num">Question 6</div>
+      <h3>Le recours a-t-il progressé depuis 2021 ?</h3>
+      <p>Plutôt oui. La part des aides prêtées est passée de 21 % en 2023 à 25 % en 2025, avec le passage à l'échelle. Une fois pris en compte l'âge, la dépendance et l'isolement des personnes, la hausse n'est plus significative.</p>
+      <span class="ana-badge confirm">À confirmer</span>
+      <div class="ana-note">2021 et 2022 comptent une cinquantaine de personnes chacune ; 2026 couvre janvier à mai.</div>
     </div>
-    <div class="fs12 text-mid mb16" style="line-height:1.7">Deux lectures complémentaires de la même question, en décomposant le gradient par catégorie d'AT (8 familles) :
-      <ul style="margin:8px 0 0 18px;line-height:1.6">
-        <li><strong>Test 1 — en volume absolu</strong> : β GIR sur le <em>nombre</em> d'AT prêtées de chaque catégorie. Cette lecture est dominée par les catégories volumineuses.</li>
-        <li><strong>Test 2 — en taux intra-catégorie</strong> : β GIR sur le <em>taux</em> de mise à disposition (prêt ÷ préconisation), restreint aux bénéficiaires ayant au moins une préconisation dans la catégorie, pondéré par le volume de préconisations. Cette lecture est plus rigoureuse méthodologiquement : elle compare des bénéficiaires <em>à besoin égal au sein de la catégorie</em>.</li>
-      </ul>
-    </div>
-
-    <div class="block-title mt16">Test 1 — Gradient sur le nombre absolu d'AT prêtées</div>
-    <div id="atcat-gradient-block"></div>
-
-    <div class="block-title" style="margin-top:24px">Test 2 — Gradient sur le taux mise-à-dispo (prêt ÷ préconisation), intra-catégorie</div>
-    <div id="atcat-rate-block"></div>
-
-    <div class="note-box mt20" style="font-size:11px;line-height:1.6"><strong>Lecture comparée des deux tests · </strong>
-      Les deux tests révèlent une <strong>spécialisation par catégorie d'AT</strong>, qui se lit comme deux groupes :
-      <ul style="margin:8px 0 0 18px;line-height:1.6">
-        <li><strong>Catégories qui croissent avec le GIR</strong> (les autonomes en reçoivent davantage) : <em>Salle de bain / Sanitaires</em> (β = +0,027 ***), <em>Confort &amp; posture</em> (+0,003 **), <em>Autres aides techniques</em> (+0,005 ***). Ce sont les AT du maintien de l'autonomie résiduelle : rehausseur de WC, planche de bain, antidérapant. Elles sont la signature du dispositif (~48 % des MAD).</li>
-        <li><strong>Catégories qui décroissent avec le GIR</strong> (les plus dépendants en reçoivent davantage) : <em>Lit, transferts &amp; couchage</em> (β = −0,021 ***), <em>Préhension &amp; repas</em> (−0,004 *). Ce sont les AT de la dépendance avancée : barre latérale de lit, plot rehausseur de lit, couverts adaptés.</li>
-        <li><strong>Catégories sans gradient net</strong> : <em>Sécurité &amp; prévention chutes</em>, <em>Mobilité &amp; marche</em>, <em>Aménagement</em>. La prévention chute touche tous les profils ; les travaux sont rares (n = 14 sur tout le dispositif).</li>
-      </ul>
-    </div>
-    <div class="note-box mt12" style="font-size:11px;line-height:1.6"><strong>Interprétation reformulée · </strong> La courbe en U inversé observée au niveau global est en réalité la <strong>résultante de deux pentes opposées</strong> entre familles d'AT. Le dispositif n'est pas « moins ajusté aux extrêmes » au sens d'une inégalité d'accès — il est différencié dans sa réponse :
-      <ul style="margin:8px 0 0 18px;line-height:1.6">
-        <li><strong>Pour les GIR autonomes</strong>, l'offre se concentre sur les AT salle de bain et de sécurité du domicile — beaucoup de catalogue, fort volume, taux de mise à dispo élevé.</li>
-        <li><strong>Pour les GIR dépendants</strong>, l'offre se concentre sur les AT du couchage et du repas — gamme plus restreinte, taux plus modéré mais quand même croissant en valeur absolue avec la dépendance.</li>
-        <li><strong>Le creux aux extrêmes</strong> du U inversé global vient du fait que les bénéficiaires GIR 1-2 ont moins d'AT du domicile (l'aménagement compte alors plus que le prêt) et les GIR 5-6 ont moins d'AT du couchage (qu'ils n'utilisent pas).</li>
-      </ul>
-      L'enjeu n'est donc pas d'« équité d'accès » au sens strict, mais d'<em>adéquation catalogue / besoin</em>. La question opérationnelle devient : <em>faut-il étendre l'offre vers le bas du spectre (AT de la grande dépendance) et vers le haut (AT de la prévention en bonne santé) ?</em></div>
+    <div class="ana-chart"><div class="chart-box" style="height:240px"><canvas id="c-ana-years"></canvas></div></div>
   </div>
 
-  <!-- AUTRES DÉTERMINANTS INDIVIDUELS -->
-  <div class="card-feature mb20">
-    <div class="eyebrow mb8">Au-delà du GIR</div>
-    <div class="serif mb12" style="font-size:18px;color:var(--charcoal)">Trois autres signaux statistiques individuels</div>
-    <div class="fs12 text-mid mb16" style="line-height:1.7">Une fois le GIR pris en compte, trois autres déterminants individuels ressortent significativement de la régression du nombre d'AT prêtées : l'âge (effet négatif), l'isolement social (effet positif), et l'année d'entrée (le dispositif a muri). Ces trois signaux sont indépendants entre eux et indépendants du GIR.</div>
 
-    <div class="grid g2">
-      <div>
-        <div class="block-title">Effet âge — gradient continu négatif</div>
-        <div class="fs11 text-mid mb12" style="line-height:1.6">Plus le bénéficiaire est âgé, moins le taux de mise à disposition est élevé — un effet net du GIR, du sexe et de l'isolement. β âge = −0,008 par année (***).</div>
-        <div class="chart-box" style="height:200px"><canvas id="c-extras-age"></canvas></div>
-        <div id="extras-age-table" class="mt8"></div>
-      </div>
-
-      <div>
-        <div class="block-title">Effet isolement social — les isolés reçoivent plus</div>
-        <div class="fs11 text-mid mb12" style="line-height:1.6">Les bénéficiaires en situation d'isolement social (21% de la file) ont un taux de mise à disposition <strong>plus élevé</strong> que les non-isolés, à GIR et âge comparables. β isolé = +0,13 AT par bénéficiaire (***). Le test Mann-Whitney sur le nombre brut d'AT prêtées est aussi hautement significatif (p &lt; .001).</div>
-        <div id="extras-iso-block"></div>
-      </div>
-    </div>
-
-    <div class="block-title mt20">Trajectoire temporelle — montée en charge et déplacement du pic</div>
-    <div class="fs11 text-mid mb12" style="line-height:1.6">Le taux global de mise à disposition a quasiment doublé entre 2021 et 2025, passant de 12,8 % à 25,3 %. L'interaction GIR × année est hautement significative (F = 7,8, p &lt; .001) : la <em>forme</em> de la relation GIR → taux MAD évolue dans le temps.</div>
-    <div class="grid g2" style="gap:18px">
-      <div>
-        <div class="fs11 text-mid mb6" style="font-style:italic">Évolution du taux global, toutes années</div>
-        <div class="chart-box" style="height:220px"><canvas id="c-extras-traj"></canvas></div>
-        <div id="extras-traj-table" class="mt8"></div>
-      </div>
-      <div>
-        <div class="fs11 text-mid mb6" style="font-style:italic">Forme de la courbe GIR — une ligne par année</div>
-        <div class="chart-box" style="height:220px"><canvas id="c-extras-gir-by-year"></canvas></div>
-        <div class="fs11 text-mid mt8" style="line-height:1.55">En 2023, les bénéficiaires les plus autonomes recevaient proportionnellement plus d'AT (courbe montante). En 2025-2026, le pic s'est déplacé sur les GIR 3-4 — le dispositif s'est recentré sur les profils de fragilité mobile.</div>
-      </div>
-    </div>
-
-    <div class="note-box mt16" style="font-size:11px;line-height:1.6">
-      <strong>Articulation des signaux · </strong> Les trois effets sont robustes simultanément dans la régression OLS contrôlée. Interprétations à discuter :
-      <ul style="margin:8px 0 0 18px;line-height:1.6">
-        <li><strong>Âge ↘</strong> : au-delà de la dépendance (GIR), l'âge en lui-même réduit les prêts. Hypothèse : plus l'âge avance, plus le bénéficiaire est susceptible d'être en transition vers une autre solution (institutionnalisation, aide humaine renforcée), ce qui peut réduire l'utilité perçue d'un prêt d'AT.</li>
-        <li><strong>Isolement ↗</strong> : à GIR et âge égaux, l'isolé reçoit plus d'AT. Cohérent avec l'hypothèse de <em>substitution AT ↔ aide humaine</em> (Hoenig 2003, Agree &amp; Freedman 2000) : l'AT pallie l'absence d'un aidant. C'est un argument fort pour le ciblage du dispositif.</li>
-        <li><strong>Année ↗</strong> : montée en charge réelle du dispositif, pas un artefact de saturation. Suggère que les ergothèques apprennent à prêter (catalogue, partenaires, logistique).</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- TESTS D'HYPOTHESE -->
-  <div class="card mb20">
-    <div class="block-title">Tests d'hypothèse principaux</div>
-    <div class="test-recap r-mixed">
-      <div class="lbl">À quoi ça sert ?</div>
-      <div class="val">Cinq questions « oui / non » que les financeurs ou partenaires se posent souvent : « est-ce que les plus dépendants reçoivent plus ? », « les isolés reçoivent-ils plus ? », « est-ce différent entre dept et bailleurs ? » etc. Chaque question est testée avec une statistique adaptée et un seuil de significativité (p &lt; .05).</div>
-      <div class="lbl">Ce qu'on trouve</div>
-      <div class="val">3 effets sur 5 sont significatifs : le GIR compte (effet en cloche), l'année compte (maturation), et le taux de mise à dispo varie selon le GIR. <strong>Pas d'effet</strong> entre dept et bailleurs, et l'effet « isolement → plus de préco » est à la limite (p ≈ .08). <span class="verdict-pill mixed">3 sur 5 confirmés</span></div>
-    </div>
-    <div id="analyses-tests"></div>
-  </div>
-
-  <!-- CORRELATIONS -->
-  <div class="card mb20">
-    <div class="flex fac fsp mb12" style="flex-wrap:wrap;gap:8px">
-      <div>
-        <div class="block-title" style="margin:0">Matrice de corrélation (Spearman)</div>
-        <div class="fs11 text-mid mt8">Coefficient de rang sur les 10 variables clés — adapté aux distributions asymétriques.</div>
-      </div>
-    </div>
-    <div class="test-recap r-yes">
-      <div class="lbl">À quoi ça sert ?</div>
-      <div class="val">Repérer en un coup d'œil quelles variables varient ensemble (positivement ou négativement). Un cadre vert foncé = forte association ; un cadre rouge foncé = association inverse. Plus c'est foncé, plus c'est fort.</div>
-      <div class="lbl">Ce qu'on trouve</div>
-      <div class="val">Les variables d'AT (préco, prêt, achat, non-acquis) sont fortement corrélées entre elles — logique, elles dérivent toutes du volume de besoin. Les variables cliniques (âge, GIR, IADL, ADL, SEGA) forment un deuxième bloc cohérent. <span class="verdict-pill yes">Structure attendue</span></div>
-    </div>
-    <div id="corr-heatmap" style="overflow-x:auto"></div>
-    <div class="mt16">
-      <div class="block-title">Corrélations les plus fortes</div>
-      <div id="corr-top" class="mt12"></div>
-    </div>
-  </div>
-
-  <!-- REGRESSIONS -->
-  <div class="card mb20" style="background:transparent;border:none;padding:0">
-    <div class="test-recap r-yes" style="margin-bottom:8px">
-      <div class="lbl">À quoi ça sert ?</div>
-      <div class="val">À identifier <em>quels facteurs expliquent</em> le nombre d'AT prêtées, en contrôlant les autres facteurs simultanément. Deux niveaux : individuel (chaque bénéficiaire) et ergothèque (chaque structure). Un β positif signifie « plus de cette variable = plus de prêts » à profil contrôlé.</div>
-      <div class="lbl">Ce qu'on trouve</div>
-      <div class="val"><strong>Côté individuel</strong> : âge ↘, GIR (courbe), isolement ↗. <strong>Côté ergothèque</strong> : la part d'isolés dans la file explique 43 % de la variation entre ergos (R² = 0,43). <span class="verdict-pill yes">Signaux clairs</span></div>
-    </div>
-  </div>
-  <div class="grid g2 mb20">
-    <div class="card">
-      <div class="block-title">Régression OLS — niveau individuel</div>
-      <div class="fs11 text-mid mt8 mb12">Y = nombre d'AT mises à disposition par bénéficiaire. N effectif après suppression des manquants ci-dessous.</div>
-      <div id="reg-indiv"></div>
-    </div>
-    <div class="card">
-      <div class="block-title">Régression OLS — niveau ergothèque</div>
-      <div class="fs11 text-mid mt8 mb12">Y = taux moyen de mise à disposition (pret/total) par ergothèque. N=32.</div>
-      <div id="reg-ergo"></div>
-    </div>
-  </div>
-
-  <!-- ICC / MULTILEVEL -->
-  <div class="card mb20">
-    <div class="block-title">Variance inter-ergothèques (ICC)</div>
-    <div class="test-recap r-yes">
-      <div class="lbl">À quoi ça sert ?</div>
-      <div class="val">À répondre à la question : « les différences entre bénéficiaires viennent-elles d'eux-mêmes ou de leur ergothèque ? » L'ICC est le pourcentage de variance attribuable à l'ergothèque. Si ICC = 50 %, l'ergothèque pèse autant que l'individu ; si ICC = 5 %, l'ergothèque pèse marginalement.</div>
-      <div class="lbl">Ce qu'on trouve</div>
-      <div class="val">ICC entre <strong>7 % et 10 %</strong> selon les variables — c'est modéré. 90 % de la variance vient des bénéficiaires eux-mêmes (leur profil, leurs besoins). Les écarts entre ergothèques sont surtout dus aux profils accueillis, pas à des « bonnes » ou « mauvaises » pratiques. <span class="verdict-pill yes">Individu domine</span></div>
-    </div>
-    <div class="fs11 text-mid mt8 mb12">Modèle mixte à intercept aléatoire. L'ICC indique la part de variance attribuable au niveau ergothèque (vs au niveau individuel). Un ICC ≥ 0,05 suggère que la modélisation multi-niveaux est légitime ; ≥ 0,10 qu'elle est importante.</div>
-    <div class="chart-box" style="height:220px"><canvas id="c-icc"></canvas></div>
-    <div id="icc-table" class="mt12"></div>
-  </div>
-
-  <!-- CLUSTERING -->
-  <div class="card mb20">
-    <div class="block-title">Typologie des ergothèques (K-means, k=4)</div>
-    <div class="test-recap r-yes">
-      <div class="lbl">À quoi ça sert ?</div>
-      <div class="val">À regrouper automatiquement les 32 ergothèques en familles selon leur profil (âge moyen de la file, GIR moyen, taux d'isolés, taux de prêt). L'algorithme « K-means » trouve 4 groupes optimaux. Utile pour comparer des ergos similaires entre elles et identifier des modèles d'organisation.</div>
-      <div class="lbl">Ce qu'on trouve</div>
-      <div class="val">Quatre profils d'ergothèques distincts apparaissent sur les axes PCA — voir tableau à droite pour leur composition. Permet de situer chaque ergothèque dans son groupe pertinent. <span class="verdict-pill yes">Typologie claire</span></div>
-    </div>
-    <div class="fs11 text-mid mt8 mb12">Projection PCA sur 2 axes, à partir de 6 indicateurs normalisés au niveau ergothèque.</div>
-    <div class="grid g2">
-      <div><div class="chart-box" style="height:340px"><canvas id="c-clusters"></canvas></div></div>
-      <div><div id="clusters-profiles"></div></div>
-    </div>
-  </div>
-
-  <!-- DESCRIPTIVE -->
-  <div class="card mb20">
-    <div class="block-title">Statistiques descriptives</div>
-    <div class="fs11 text-mid mt8 mb12">Distributions des variables cliniques et indicateurs de service.</div>
-    <div style="overflow-x:auto" id="desc-table"></div>
-  </div>
-
-  <!-- COMPARAISON SEXE -->
-  <div class="card mb20">
-    <div class="block-title">Différences hommes / femmes</div>
-    <div class="fs11 text-mid mt8 mb12">Test Mann-Whitney U pour chaque variable. La population est à <span id="pct-female">—</span> % féminine.</div>
-    <div style="overflow-x:auto" id="sex-table"></div>
-  </div>
-
-  <!-- ANGLES THESE -->
-  <div class="card-feature">
-    <div class="eyebrow mb8">Pour la thèse / publication</div>
-    <div class="serif mb12" style="font-size:18px;color:var(--charcoal)">Trois angles porteurs pour valorisation scientifique</div>
-    <div class="grid g3 mt12">
-      <div>
-        <div class="fw500 mb8" style="color:var(--sage)">1 · Calibration du dispositif</div>
-        <div class="fs12 text-mid" style="line-height:1.6">Courbe en cloche du taux de mise à dispo selon le GIR (pic GIR 3-4, fragilité mobile), validée par un modèle quadratique avec effets fixes ergothèque. Cadre théorique en sociologie de la santé et en accès aux dispositifs sociaux. Publication possible en français (RFAS, Sciences sociales et santé) ou anglais (Soc Sci Med).</div>
-      </div>
-      <div>
-        <div class="fw500 mb8" style="color:var(--gold)">2 · Variations organisationnelles</div>
-        <div class="fs12 text-mid" style="line-height:1.6">ICC ~ 7-8% sur les indicateurs de service : la part organisationnelle est modeste mais non nulle. Typologie K=4 isole bien un cluster « bailleurs » et un cluster BFC très performant. Cadre théorique : design organisationnel & innovation sociale.</div>
-      </div>
-      <div>
-        <div class="fw500 mb8" style="color:var(--coral)">3 · Économie circulaire</div>
-        <div class="fs12 text-mid" style="line-height:1.6">Taux de recyclage global = <span id="recyc-rate-strong">—</span>. Variabilité inter-ergothèques très forte. Effet d'apprentissage à tester (ancienneté). Cadre Operations & Sustainability — accessible aux revues en management.</div>
-      </div>
-    </div>
-  </div>
 </div>
 
 </div><!-- /main -->
@@ -1820,7 +1610,7 @@ function go(view) {
   document.getElementById('p-' + view).classList.add('active');
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   event.target.closest('.nav-item').classList.add('active');
-  const titles = {vue:"Vue d'ensemble", personnes:'Personnes', equipement:'Équipement & modèle', sroi:'Coût évité & SROI', ergotheques:'Ergothèques', recherche:'Enquêtes & entretiens'};
+  const titles = {vue:"Vue d'ensemble", personnes:'Personnes', equipement:'Équipement & modèle', sroi:'Coût-bénéfice', ergotheques:'Ergothèques', recherche:'Nos impacts', analyses:'Analyses statistiques'};
   document.getElementById('topbar-title').textContent = titles[view];
   drawPage(view);
 }
@@ -2453,8 +2243,8 @@ function computePrixAtMoyen(g) {
 // Bornes d'efficacité de la prévention par aménagement (réduction du risque de chute)
 // Cochrane Clemson 2023 (méta-analyse 22 études, n=8 463) : RR=0,79 [IC95% 0,68–0,91]
 // en population générale = −21%. Le sous-groupe « personnes à plus haut risque de
-// chute » de la même Cochrane donne RaR=0,62 [IC95% 0,44–0,86] = −38%, aligné sur
-// Stark et al. 2017 (HARP, personnes fragiles).
+// chute » de la même Cochrane donne un ratio de taux de 0,62 [IC95% 0,56–0,70] = −38%,
+// appuyé par l'essai HARP (Stark et al. 2021). Voir note méthodologique V2.
 const REDUC_MIN = 0.21;
 const REDUC_MAX = 0.38;
 
@@ -2476,9 +2266,8 @@ const AGE_HOSPI_RATE_PER_100K = {'60-69': 300, '70-79': 800, '80-89': 2400, '90+
 // anticipée, isolement ou dépendance. Aucun sous-groupe MJ ne correspond au
 // baseline « 65+ tout-venant national ». Les multiplicateurs sont donc
 // rehaussés en conséquence :
-// - GIR 3-4 (mobiles-fragiles, cœur de cible) : × 3,5 — surrisque HAS 2005,
-//   Rubenstein Age & Ageing 2006, borne haute assumée pour tenir compte de
-//   la sélection sur profil à haut risque de chute déjà documenté.
+// - GIR 3-4 (mobiles-fragiles, cœur de cible) : × 3,5 — calibration locale appuyée
+//   sur Hollinghurst et al. 2022 (rapports de cotes 1,70 / 2,51 / 3,42 selon la fragilité).
 // - GIR 1-2 (très dépendants) : × 2,5 — chutes moins fréquentes mais
 //   hospitalisations quasi systématiques en cas d'événement (Agree-Freedman 2000).
 // - GIR 5-6 (autonomes) : × 2,0 — pas de personne « autonome moyenne 65+ »
@@ -2555,7 +2344,7 @@ const GIR_SURCOUT_APA = {g4: 5980, g3: 4243};
 // de l'intervention). Les essais CAPABLE et ABLE mesurent leur effet à 6-12
 // mois ; s'y ajoutent la mortalité et l'institutionnalisation qui réduisent
 // progressivement la cohorte.
-const AGGRAV_DECAY = [1.0, 0.8, 0.6, 0.45, 0.35, 0.25, 0.20, 0.15];
+const AGGRAV_DECAY = [1.0, 0.8, 0.6, 0.4, 0.2];
 
 // Économie annuelle générée par les aggravations de GIR évitées.
 // La composition GIR observée est extrapolée à la file complète.
@@ -2620,156 +2409,170 @@ function toggleSroiAuto(key) {
   calcSROI();
 }
 
+// ── Moteur coût-bénéfice (note méthodologique V2, septembre 2026)
+// Paramètres arrondis comme dans la note (taux 2,23 %, multiplicateur 3,01) pour que
+// les ratios affichés soient ceux publiés.
+const ACB_DEF = {reduc: 38, cout: 18040, attr: 80, duree: 3};
+const ACB_DISC = 0.032; // taux d'actualisation du Guide 2023
+function acbBase(d) {
+  const a = d.age || {};
+  let base = 0;
+  for (const band in AGE_HOSPI_RATE_PER_100K) base += (a[band] || 0) * AGE_HOSPI_RATE_PER_100K[band] / 100000;
+  const N = d.benef || 0;
+  const rate = N > 0 ? Math.round(base / N * 10000) / 10000 : 0;
+  const frag = Math.round(computeFragilityMult(d) * 100) / 100;
+  const g = d.gir || {};
+  let den = 0;
+  for (const k of ['g1','g2','g3','g4','g5','g6']) den += (g[k] || 0);
+  const sc = den > 0 ? N / den : 0;
+  const n4 = (g.g4 || 0) * sc, n3 = (g.g3 || 0) * sc;
+  const delta = (n3 + n4) > 0 ? (n4 * GIR_SURCOUT_APA.g4 + n3 * GIR_SURCOUT_APA.g3) / (n3 + n4) : 0;
+  const coutBen = COUT_BEN_CONVENTION[activeErgo] || COUT_BEN_RESEAU;
+  return {N, rate, frag, n3, n4, delta, coutBen};
+}
+function acbRun(b, o) {
+  const p = Object.assign({reduc: .38, cout: 18040, frag: b.frag, ra: .30, attr: .8, duree: 3, disc: 0}, o || {});
+  const hospi = b.N * b.rate * p.frag;
+  const evitees = hospi * p.reduc;
+  const F = evitees * p.cout;
+  const nAgg = (b.n3 + b.n4) * GIR_AGGRAV_RATE.g4 * p.ra;
+  const V = (b.n4 * GIR_SURCOUT_APA.g4 + b.n3 * GIR_SURCOUT_APA.g3) * GIR_AGGRAV_RATE.g4 * p.ra;
+  const I = b.N * b.coutBen;
+  let cum = 0, cumDisc = 0, brut = 0;
+  const years = [];
+  for (let y = 1; y <= p.duree; y++) {
+    let apaY = 0;
+    for (let c = 1; c <= y; c++) apaY += V * (AGGRAV_DECAY[y - c] || 0);
+    const bY = p.attr * (F + apaY);
+    brut += F + apaY; cum += bY; cumDisc += bY / Math.pow(1 + p.disc, y);
+    years.push(I > 0 ? cum / I : 0);
+  }
+  const ben = p.disc ? cumDisc : cum;
+  return {hospi, evitees, F, nAgg, V, I, brut, ben, ratio: I > 0 ? ben / I : 0, years, p};
+}
+const frN = (x, dec) => x.toFixed(dec).replace('.', ',');
+const frM = x => frN(x / 1e6, x >= 1e6 ? 2 : 3) + ' M€';
+const refA = (...n) => '<sup class="ref">' + n.map(k => `<a onclick="openSources(${k})">${k}</a>`).join(',') + '</sup>';
+const ORD = ['première', 'deuxième', 'troisième', 'quatrième', 'cinquième'];
+const DUR_TXT = ['', 'sur un an', 'sur deux ans', 'sur trois ans', 'sur quatre ans', 'sur cinq ans'];
+
+function acbReset() {
+  document.getElementById('s-reduc').value = ACB_DEF.reduc;
+  document.getElementById('s-cout-chute').value = ACB_DEF.cout;
+  document.getElementById('s-attribution').value = ACB_DEF.attr;
+  document.getElementById('s-duree').value = ACB_DEF.duree;
+  calcSROI();
+}
+
 function calcSROI() {
   const d = getCurrentData();
-  const coutChute = +document.getElementById('s-cout-chute').value;
-  const reducAggrav = +document.getElementById('s-reduc-aggrav').value / 100;
-  const attribution = +document.getElementById('s-attribution').value / 100;
+  const b = acbBase(d);
+  const reduc = +document.getElementById('s-reduc').value / 100;
+  const cout = +document.getElementById('s-cout-chute').value;
+  const attr = +document.getElementById('s-attribution').value / 100;
   const duree = +document.getElementById('s-duree').value;
-  let coutBen;
-  const slCout = document.getElementById('s-cout-ben');
-  if (sroiAuto.coutBen) {
-    coutBen = COUT_BEN_CONVENTION[activeErgo] || COUT_BEN_RESEAU;
-    slCout.value = coutBen;
-    slCout.disabled = true;
-  } else {
-    slCout.disabled = false;
-    coutBen = +slCout.value;
+  document.getElementById('v-reduc').textContent = Math.round(reduc * 100) + ' %';
+  document.getElementById('v-cout-chute').textContent = fmtEur(cout);
+  document.getElementById('v-attribution').textContent = Math.round(attr * 100) + ' %';
+  document.getElementById('v-duree').textContent = duree + (duree > 1 ? ' ans' : ' an');
+
+  const r = acbRun(b, {reduc, cout, attr, duree});
+
+  // Périmètre
+  const periode = activeYear !== 'all' ? `accompagnées en ${activeYear}` : 'accompagnées depuis 2021';
+  let acteur = `par l'ensemble du réseau (${DATA.ergos_meta.length} ergothèques)`;
+  if (activeErgo) {
+    const meta = DATA.ergos_meta.find(e => e.code === activeErgo);
+    acteur = 'par ' + (meta ? meta.titre.replace('ERGOTHÈQUE ', 'Ergothèque ') : activeErgo);
   }
+  document.getElementById('sroi-scope').innerHTML = `Périmètre : ${fmt(b.N)} personnes ${periode} ${acteur}. Les filtres en haut de page s'appliquent au calcul.`;
 
-  // (Prix AT et décote reconditionné sont gérés par calcEcoCirc() — calcul séparé)
+  // Résultat
+  document.getElementById('sroi-ratio').textContent = frN(r.ratio, 2) + ' €';
+  document.getElementById('acb-dur-txt').textContent = DUR_TXT[duree];
+  document.getElementById('sroi-valeur-hero').textContent = frM(r.ben);
+  document.getElementById('sroi-cout').textContent = frM(r.I);
+  document.getElementById('acb-cout-txt').textContent = `investis : ${fmt(b.N)} accompagnements à ${fmtEur(b.coutBen)}`;
+  const mx = Math.max(1.05, r.years[r.years.length - 1]) * 1.05;
+  document.getElementById('acb-years').innerHTML = r.years.map((y, i) =>
+    `<div class="acb-yr"><span>Année ${i + 1}</span><span class="bar"><span class="fill" style="display:block;width:${(100 * y / mx).toFixed(1)}%"></span><span class="one" style="left:${(100 / mx).toFixed(1)}%"></span></span><span class="val">${frN(y, 2)} €</span></div>`).join('');
+  const k = r.years.findIndex(y => y >= 1);
+  document.getElementById('acb-cover').innerHTML = '<i></i>' + (k >= 0
+    ? `1 € investi : le coût est couvert au cours de la ${ORD[k]} année.`
+    : `1 € investi : sur cette durée, le coût n'est pas encore couvert.`);
 
-  // Multiplicateur de fragilité — auto (depuis GIR) ou manuel
-  let fragMult;
-  const slFrag = document.getElementById('s-frag-mult');
-  if (sroiAuto.fragMult) {
-    fragMult = computeFragilityMult(d);
-    slFrag.value = fragMult.toFixed(1);
-    slFrag.disabled = true;
-  } else {
-    slFrag.disabled = false;
-    fragMult = +slFrag.value;
-  }
+  // Chaînes de calcul
+  const st = (op, val, lab, cls) => `<div class="st${cls ? ' ' + cls : ''}"><span class="op">${op}</span><span class="val">${val}</span><span>${lab}</span></div>`;
+  document.getElementById('acb-chain-1').innerHTML =
+    st('', fmt(b.N), 'personnes accompagnées') +
+    st('×', frN(b.rate * 100, 2) + ' %', 'risque annuel d\'hospitalisation pour chute, à âge égal' + refA(3)) +
+    st('×', frN(b.frag, 2), 'pour la fragilité du public, selon le GIR (coefficients de 2 à 3,5)' + refA(9)) +
+    st('=', fmt(Math.round(r.hospi)), `hospitalisations pour chute attendues par an, soit environ ${Math.round(100 * b.rate * b.frag)} pour 100 personnes`, 'res') +
+    st('×', Math.round(reduc * 100) + ' %', 'de chutes en moins quand le logement est aménagé' + refA(4, 5)) +
+    st('=', fmt(Math.round(r.evitees)), 'hospitalisations évitées par an', 'res') +
+    st('×', fmtEur(cout), 'de soins pour une chute grave, sur un an' + refA(10, 12, 13)) +
+    st('=', frM(r.F), 'de soins évités par an, avant attribution', 'res fin');
+  document.getElementById('acb-chain-2').innerHTML =
+    st('', fmt(Math.round(b.n3 + b.n4)), 'personnes en GIR 3 et 4') +
+    st('×', '16 %', 'voient leur dépendance s\'aggraver chaque année' + refA(20)) +
+    st('×', '30 %', 'de ces aggravations retardées par l\'accompagnement' + refA(15, 16)) +
+    st('=', fmt(Math.round(r.nAgg)), 'aggravations retardées par an', 'res') +
+    st('×', fmtEur(Math.round(b.delta / 10) * 10), 'de plan d\'aide APA en plus par an, en moyenne, au changement de GIR' + refA(21, 22)) +
+    st('=', frM(r.V), 'la première année, avant attribution', 'res fin') +
+    `<div class="acb-why" style="margin:10px 0 0;font-size:14px">Un report garde sa valeur les années suivantes, avec un effet qui s'atténue : 100 % la première année, 80 % la deuxième, 60 % la troisième.</div>`;
+  document.getElementById('acb-total').innerHTML =
+    `<b>${frM(r.brut)}</b> évités ${DUR_TXT[duree]} × <b>${Math.round(attr * 100)} %</b> attribués à l'Ergothèque${refA(23)} ÷ <b>${frM(r.I)}</b> investis = <b>${frN(r.ratio, 2)} €</b> pour 1 € investi.`;
 
-  // Réduction du risque — auto (interpolée selon la fragilité) ou manuel
-  let reduc;
-  const slReduc = document.getElementById('s-reduc');
-  if (sroiAuto.reduc) {
-    reduc = computeReduc(d);
-    slReduc.value = Math.round(reduc*100);
-    slReduc.disabled = true;
-  } else {
-    slReduc.disabled = false;
-    reduc = +slReduc.value / 100;
-  }
+  // Robustesse : variantes une à une, à partir des valeurs retenues
+  const C = acbRun(b, {});
+  const v = o => frN(acbRun(b, o).ratio, 2);
+  const rows = [
+    ['Baisse des chutes graves', '20 %', v({reduc: .20}), '38 %', '44 %', v({reduc: .44})],
+    ["Coût d'une chute grave", '11 796 €', v({cout: 11796}), '18 040 €', '23 926 €', v({cout: 23926})],
+    ['Surrisque du public', '× 2', v({frag: 2}), '× ' + frN(b.frag, 2), '× 3,5', v({frag: 3.5})],
+    ['Aggravations retardées', '15 %', v({ra: .15}), '30 %', '', ''],
+    ["Part attribuée à l'Ergothèque", '70 %', v({attr: .70}), '80 %', '100 %', v({attr: 1})],
+    ['Durée prise en compte', '3 ans actualisés', v({disc: ACB_DISC}), '3 ans', '5 ans', v({duree: 5})],
+  ];
+  document.getElementById('acb-sens').innerHTML =
+    `<tr><th>Hypothèse</th><th>Plus prudente</th><th>Retenue<br>${frN(C.ratio, 2)}</th><th>Plus haute</th></tr>` +
+    rows.map(x => `<tr><td>${x[0]}</td><td class="lo">${x[2]}<small>${x[1]}</small></td><td class="c">${x[3]}</td><td class="hi">${x[5] || '—'}<small>${x[4]}</small></td></tr>`).join('');
 
-  // Update displays
-  document.getElementById('v-cout-chute').textContent = fmtEur(coutChute);
-  document.getElementById('v-frag-mult').innerHTML = '× ' + fragMult.toFixed(1).replace('.', ',') + (sroiAuto.fragMult ? '<span class="auto-badge">auto</span>' : '');
-  document.getElementById('v-reduc').innerHTML = (reduc*100).toFixed(0)+' %' + (sroiAuto.reduc ? '<span class="auto-badge">auto</span>' : '');
-  document.getElementById('v-reduc-aggrav').textContent = (reducAggrav*100).toFixed(0)+' %';
-  document.getElementById('v-attribution').textContent = (attribution*100).toFixed(0)+' %';
-  document.getElementById('v-duree').textContent = duree.toString().replace('.', ',') + (duree > 1 ? ' ans' : ' an');
-  document.getElementById('v-cout-ben').innerHTML = fmtEur(coutBen) + (sroiAuto.coutBen ? '<span class="auto-badge">auto</span>' : '');
+  const lo = acbRun(b, {cout: 11796, attr: .70, disc: ACB_DISC}).ratio;
+  const hi = acbRun(b, {cout: 23926, reduc: .44, attr: 1}).ratio;
+  const span = Math.max(hi, C.ratio) * 1.08;
+  const pos = x => (100 * x / span).toFixed(1) + '%';
+  document.getElementById('acb-range').innerHTML =
+    `<span class="pt" style="left:${pos(lo)}"><span>${frN(lo, 2)}</span></span>` +
+    `<span class="pt c" style="left:${pos(C.ratio)}"><span>${frN(C.ratio, 2)}</span></span>` +
+    `<span class="pt" style="left:${pos(hi)}"><span>${frN(hi, 2)}</span></span>`;
+  document.getElementById('acb-range-legend').innerHTML =
+    `<div>Hypothèses prudentes combinées : coût de 11 796 €, part attribuée de 70 %, actualisation à 3,2 %.</div>` +
+    `<div>Hypothèses hautes combinées : coût de 23 926 €, baisse des chutes de 44 %, part attribuée de 100 %.</div>`;
 
-  const benef = d.benef;
+  const costs = [11796, 15000, 18040, 23926], reds = [.20, .30, .38, .44];
+  document.getElementById('acb-grid').innerHTML =
+    '<tr><th>Coût d\'une chute</th>' + reds.map(x => `<th>Baisse de ${Math.round(x * 100)} %</th>`).join('') + '</tr>' +
+    costs.map(c => `<tr><td>${fmtEur(c)}</td>` + reds.map(x => `<td class="${c === 18040 && x === .38 ? 'c' : ''}">${v({cout: c, reduc: x})}</td>`).join('') + '</tr>').join('');
 
-  // Périmètre actif (filtres topbar)
-  const scopeEl = document.getElementById('sroi-scope');
-  if (scopeEl) {
-    const periode = activeYear !== 'all' ? `équipés en ${activeYear}` : `équipés depuis 2021`;
-    let acteur;
-    if (activeErgo) {
-      const meta = DATA.ergos_meta.find(e => e.code === activeErgo);
-      const nom = meta ? meta.titre.replace('ERGOTHÈQUE ', 'Ergothèque ') : activeErgo;
-      acteur = `par ${nom}`;
-    } else {
-      acteur = `par l'ensemble du dispositif (${DATA.ergos_meta.length} ergothèques)`;
-    }
-    scopeEl.innerHTML = `<strong>Périmètre affiché :</strong> <strong>${fmt(benef)}</strong> bénéficiaires ${periode} ${acteur}. Le cumul est projeté sur la durée d'usage moyen (${duree.toString().replace('.', ',')} ${duree>1?'ans':'an'}).`;
-  }
-
-  // Coût évité chutes ANNUEL (brut, avant attribution et cumul durée) :
-  // hospitalisations pour chute attendues (taux SpF par âge × multiplicateur fragilité)
-  // × réduction Cochrane × coût d'une hospitalisation pour chute grave
-  const hospiAttendues = computeHospiAttendues(d, fragMult);
-  const hospiEvitees = hospiAttendues * reduc;
-  const coutEviteChutesAnnuel = hospiEvitees * coutChute;
-
-  // Poche 2 — aggravations de GIR évitées (matrice de transition composite).
-  // Le curseur pilote la réduction du cœur de cible (GIR 3-4, défaut 30 %) ;
-  // les autres profils suivent le même ratio relatif.
-  const reducScale = reducAggrav / GIR_REDUC_AGGRAV.g4;
-  const aggrav = computeAggravAnnuelle(d, reducScale);
-  const aidesEvAnnuel = aggrav.euros;
-
-  // Cumul sur la durée d'usage effectif de l'AT.
-  // Poche 1 : cumul LINÉAIRE — le risque de chute se réinitialise chaque année.
-  // Poche 2 : cumul EN ESCALIER — le GIR est un état quasi-absorbant, une
-  // transition évitée produit une économie récurrente les années suivantes.
-  const coutEviteChutes = coutEviteChutesAnnuel * duree;
-  const aidesEv = cumulEscalier(aidesEvAnnuel, duree);
-
-  // Total brut puis NET d'attribution
-  const totalBrut = coutEviteChutes + aidesEv;
-  const valeurTotale = totalBrut * attribution;
-  const coutTotal = benef * coutBen;
-  const ratio = coutTotal > 0 ? valeurTotale / coutTotal : 0;
-
-  document.getElementById('sroi-valeur-hero').textContent = fmtEurK(valeurTotale);
-  document.getElementById('sroi-ratio').textContent = ratio.toFixed(2).replace('.',',') + ' €';
-  document.getElementById('sroi-chutes').textContent = fmtEurK(coutEviteChutes);
-  document.getElementById('sroi-aides').textContent = fmtEurK(aidesEv);
-  const elBrut = document.getElementById('sroi-brut'); if (elBrut) elBrut.textContent = fmtEurK(totalBrut);
-  const elAttr = document.getElementById('sroi-attr'); if (elAttr) elAttr.textContent = (attribution*100).toFixed(0)+' %';
-  const elDuree = document.getElementById('sroi-duree'); if (elDuree) elDuree.textContent = duree + (duree > 1 ? ' ans' : ' an');
-  document.getElementById('sroi-cout').textContent = fmtEurK(coutTotal);
-  document.getElementById('sroi-valeur').textContent = fmtEurK(valeurTotale);
-
-  // Pie (2 segments — proportions sur le brut, l'attribution s'applique sur le total)
-  if (charts.sroiPie) charts.sroiPie.destroy();
-  const pieData = [coutEviteChutes * attribution, aidesEv * attribution];
-  const pieTot = pieData.reduce((a,b)=>a+b,0);
-  charts.sroiPie = new Chart(document.getElementById('c-sroi-pie'), {
-    type:'doughnut',
-    data:{labels:['Chutes évitées (net)','Aggravation GIR évitée (net)'], datasets:[{data:pieData, backgroundColor:[COL.coral, COL.sage], borderWidth:0}]},
-    options:{
-      maintainAspectRatio:false, cutout:'62%',
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:(c)=>c.label+': '+fmtEurK(c.parsed)+' ('+(pieTot>0?(100*c.parsed/pieTot).toFixed(0):0)+'%)'}}}
-    }
-  });
-  document.getElementById('lgd-sroi').innerHTML = `
-    <span class="legend-item"><span class="ld" style="background:${COL.coral}"></span>Chutes évitées (${pieTot>0?(100*pieData[0]/pieTot).toFixed(0):0}%)</span>
-    <span class="legend-item"><span class="ld" style="background:${COL.sage}"></span>Aggravation GIR évitée (${pieTot>0?(100*pieData[1]/pieTot).toFixed(0):0}%)</span>`;
-
-  // Mise à jour de l'encart Économie circulaire (calcul séparé)
   calcEcoCirc();
-
-  // Scénarios (variation ±30%)
-  if (charts.sroiScen) charts.sroiScen.destroy();
-  const scenLow = ratio * 0.7;
-  const scenMid = ratio;
-  const scenHigh = ratio * 1.3;
-  charts.sroiScen = new Chart(document.getElementById('c-sroi-scen'), {
-    type:'bar',
-    data:{
-      labels:['Conservateur','Central','Optimiste'],
-      datasets:[{
-        data:[scenLow, scenMid, scenHigh],
-        backgroundColor:[COL.coralL, COL.sageM, COL.sage],
-        borderRadius:6
-      }]
-    },
-    options:{
-      maintainAspectRatio:false, indexAxis:'y',
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:(c)=>'1 € investi → '+c.parsed.x.toFixed(2).replace('.',',')+' € de valeur'}}},
-      scales:{
-        x:{grid:{color:'rgba(0,0,0,0.04)'}, border:{display:false}, ticks:{callback:v=>v+' €'}},
-        y:{grid:{display:false}, border:{display:false}}
-      }
-    }
-  });
 }
+
+// ── Tiroir des sources
+function openSources(n) {
+  document.getElementById('src-drawer').classList.add('on');
+  document.getElementById('src-overlay').classList.add('on');
+  document.querySelectorAll('.src-list li.hl').forEach(li => li.classList.remove('hl'));
+  if (n) {
+    const li = document.getElementById('src-' + n);
+    if (li) { li.classList.add('hl'); li.scrollIntoView({block: 'center', behavior: 'smooth'}); }
+  }
+}
+function closeSources() {
+  document.getElementById('src-drawer').classList.remove('on');
+  document.getElementById('src-overlay').classList.remove('on');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSources(); });
 
 // ════════════════════════════════════════
 //  ÉCONOMIE CIRCULAIRE (calcul séparé du SROI)
@@ -3064,8 +2867,12 @@ function switchResearchTab(btn, tab) {
   document.querySelectorAll('.research-content').forEach(c=>c.style.display='none');
   document.getElementById('rt-'+tab).style.display = 'block';
   if (tab === 'partenaires') drawPartenaires();
-  if (tab === 'valorise') drawE3Valorise();
-  if (tab === 'grille') drawGrille();
+}
+function switchPartView(btn, v) {
+  btn.parentNode.querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('pt-quest').style.display = v === 'quest' ? 'block' : 'none';
+  document.getElementById('pt-ent').style.display = v === 'ent' ? 'block' : 'none';
 }
 
 const E3_N = {a:29, c:13, e:26, p:19, t:87};
@@ -3269,6 +3076,34 @@ function _fmtN(n, dec) {
   return Number(n).toFixed(dec === undefined ? 2 : dec).replace('.', ',');
 }
 
+
+// ── Questions de terrain (onglet Analyses)
+const ANA = {"gir": [0.1449, 0.1962, 0.2419, 0.2479, 0.2111, 0.1957], "age": [["<60", 0.2919, 144], ["60-69", 0.2561, 1487], ["70-79", 0.2354, 3960], ["80-89", 0.2194, 4836], ["90+", 0.2121, 2526]], "iso": [0.2512, 0.2274], "orient": [["Conseil départemental", 0.2385], ["CARSAT", 0.1514], ["Bailleur social", 0.2775]], "ergo": [["1001", 0.5079, 84], ["85", 0.3965, 571], ["78", 0.379, 387], ["75", 0.3752, 342], ["92", 0.3667, 445], ["HSA", 0.353, 237], ["27", 0.343, 423], ["CDC", 0.3301, 109], ["03", 0.3099, 464], ["01", 0.2928, 277], ["42", 0.2843, 496], ["25", 0.2801, 904], ["91", 0.2441, 514], ["94", 0.2237, 616], ["93", 0.223, 762], ["80", 0.2162, 180], ["61", 0.2142, 494], ["58", 0.1916, 679], ["21", 0.1826, 495], ["82", 0.163, 70], ["70", 0.158, 275], ["02", 0.1495, 919], ["10", 0.145, 79], ["77", 0.1363, 2363], ["14", 0.1252, 127], ["50", 0.1232, 65], ["39", 0.0959, 157], ["89", 0.0904, 344], ["08", 0.0282, 87], ["38", 0.0, 71]], "years": [[2021, 0.1285, 49], [2022, 0.1506, 52], [2023, 0.2062, 2248], [2024, 0.2113, 3714], [2025, 0.2534, 4971], [2026, 0.2284, 2029]]};
+function drawAnaQuestions() {
+  const pctT = v => (v * 100).toFixed(0) + ' %';
+  const base = (labels, data, colors, horiz) => ({
+    type: 'bar',
+    data: {labels, datasets: [{data, backgroundColor: colors, borderRadius: 6, maxBarThickness: horiz ? 16 : 54}]},
+    options: {
+      maintainAspectRatio: false, indexAxis: horiz ? 'y' : 'x',
+      plugins: {legend: {display: false}, tooltip: {callbacks: {label: c => pctT(c.parsed[horiz ? 'x' : 'y']) + ' des aides préconisées prêtées'}}},
+      scales: {
+        [horiz ? 'x' : 'y']: {beginAtZero: true, grid: {color: 'rgba(0,0,0,0.05)'}, border: {display: false}, ticks: {callback: v => Math.round(v * 100) + ' %', font: {size: 13}}},
+        [horiz ? 'y' : 'x']: {grid: {display: false}, border: {display: false}, ticks: {font: {size: 13}, autoSkip: false}}
+      }
+    }
+  });
+  const mk = (id, cfg) => { if (charts[id]) charts[id].destroy(); const el = document.getElementById(id); if (el) charts[id] = new Chart(el, cfg); };
+  const top = (arr, col, hi) => arr.map(v => v === Math.max(...arr) ? hi : col);
+  mk('c-ana-gir', base(['GIR 1','GIR 2','GIR 3','GIR 4','GIR 5','GIR 6'], ANA.gir, ANA.gir.map((v, i) => (i === 2 || i === 3) ? COL.sage : COL.sageL)));
+  mk('c-ana-age', base(ANA.age.map(a => a[0] === '<60' ? 'Moins de 60' : (a[0] === '90+' ? '90 et plus' : a[0].replace('-', ' à '))), ANA.age.map(a => a[1]), ANA.age.map((a, i) => i === 0 ? COL.coralL : COL.sage)));
+  mk('c-ana-iso', base(['Isolées', 'Entourées'], ANA.iso, [COL.sage, COL.sageL], true));
+  mk('c-ana-orient', base(ANA.orient.map(o => o[0]), ANA.orient.map(o => o[1]), ANA.orient.map(o => o[0] === 'CARSAT' ? COL.coral : COL.sage), true));
+  const nomErgo = c => { const m = DATA.ergos_meta.find(e => e.code === c); return m ? (m.code === 'HSA' ? 'Habitat Sud Atlantic' : m.nom) : c; };
+  mk('c-ana-ergo', base(ANA.ergo.map(e => nomErgo(e[0])), ANA.ergo.map(e => e[1]), ANA.ergo.map(e => ['CDC','HSA','1001'].includes(e[0]) ? COL.gold : COL.sage), true));
+  mk('c-ana-years', base(ANA.years.map(y => String(y[0])), ANA.years.map(y => y[1]), ANA.years.map(y => (y[0] < 2023 ? COL.sageL : COL.sage))));
+}
+
 function drawAnalyses() {
   // Meta
   const m = STATS.meta;
@@ -3464,6 +3299,7 @@ function drawAnalyses() {
 
     // Gradient by orient (forest plot + table)
     const entries = Object.entries(bo.gradient_by_orient).filter(([k,v]) => v && 'beta' in v);
+    entries.forEach(([k,v]) => { if (v.ci_lo == null && v.se != null) { v.ci_lo = v.beta - 1.96*v.se; v.ci_hi = v.beta + 1.96*v.se; } });
     const canvasId = 'c-orient-gradient';
     const tableRows = entries.map(([k,v]) => `<tr>
       <td><strong>${k}</strong></td>
@@ -3554,7 +3390,7 @@ function drawAnalyses() {
   // ---- AT categories — RATE intra-cat ----
   if (STATS.by_at_category && STATS.by_at_category.rate_by_cat) {
     const br = STATS.by_at_category.rate_by_cat;
-    const entries = Object.entries(br).filter(([cat,v]) => v && 'beta' in v).map(([cat,v]) => ({cat, ...v}));
+    const entries = Object.entries(br).filter(([cat,v]) => v && typeof v === 'object' && 'beta' in v).map(([cat,v]) => ({cat, ...v}));
     // Sort by beta descending (so positive on top)
     entries.sort((a,b) => b.beta - a.beta);
     const canvasId = 'c-atcat-rate';
@@ -3650,6 +3486,13 @@ function drawAnalyses() {
 
   // Correlation heatmap
   const corr = STATS.correlations;
+  if (!corr.top) { // paires les plus corrélées, recalculées depuis la matrice
+    corr.top = [];
+    for (let i = 0; i < corr.vars.length; i++) for (let j = i + 1; j < corr.vars.length; j++) {
+      const c = corr.matrix[i][j]; if (c && c.rho !== null) corr.top.push({v1: corr.vars[i], v2: corr.vars[j], rho: c.rho, p: c.p, n: c.n});
+    }
+    corr.top.sort((a, b) => Math.abs(b.rho) - Math.abs(a.rho)); corr.top = corr.top.slice(0, 8);
+  }
   const vars_ = corr.vars;
   const labelVar = v => labelMap[v] || v;
   function colorRho(r) {
@@ -3950,7 +3793,7 @@ function drawPage(view) {
   if (view === 'equipement') drawEquipement();
   if (view === 'sroi') calcSROI();
   if (view === 'ergotheques') drawErgotheques();
-  if (view === 'analyses') drawAnalyses();
+  if (view === 'analyses') drawAnaQuestions();
   if (view === 'recherche') {
     // Default to first tab (aines)
   }
@@ -3962,5 +3805,12 @@ function drawPage(view) {
 populateErgoFilter();
 drawVue();
 </script>
+
+<div id="src-overlay" onclick="closeSources()"></div>
+<aside id="src-drawer" aria-hidden="true">
+  <div class="src-head"><div class="serif" style="font-size:22px">Sources</div><button onclick="closeSources()" aria-label="Fermer">×</button></div>
+  <div class="src-intro">Références de la note méthodologique « Modélisation des coûts évités », version 2, septembre 2026 (Syrielle Zouakh, Université Paris Nanterre). Les calculs y sont reproduits pas à pas.</div>
+  <div class="src-group">Méthode</div><ol class="src-list"><li id="src-1" value="1">France Stratégie, DG Trésor et SGPI (2023). Guide de l’évaluation socioéconomique des investissements publics. <a href="https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/fs-2023-guide-evaluation-investissements-publics-septembre.pdf" target="_blank" rel="noopener">Consulter</a></li><li id="src-2" value="2">HAS (2020). Choix méthodologiques pour l’évaluation économique à la HAS. <a href="https://www.has-sante.fr/upload/docs/application/pdf/2020-07/guide_methodologique_evaluation_economique_has_2020_vf.pdf" target="_blank" rel="noopener">Consulter</a></li></ol><div class="src-group">Les chutes</div><ol class="src-list"><li id="src-3" value="3">Santé publique France (2026). Hospitalisations et mortalité en lien avec une chute chez les personnes de 65 ans et plus en France. Données 2015–2024. <a href="https://www.santepubliquefrance.fr/sites/default/files/rdd/document/bullnat_chutes_20260316.pdf" target="_blank" rel="noopener">Consulter</a></li><li id="src-4" value="4">Clemson L. et al. (2023). Environmental interventions for preventing falls in older people living in the community. Cochrane Database of Systematic Reviews, CD013258. <a href="https://www.cochrane.org/evidence/CD013258_reducing-fall-hazards-within-environment" target="_blank" rel="noopener">Consulter</a></li><li id="src-5" value="5">Stark S. et al. (2021). Home Hazard Removal to Reduce Falls Among Community-Dwelling Older Adults. JAMA Network Open, 4, e2122044. Essai HARP. <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2783628" target="_blank" rel="noopener">Consulter</a></li><li id="src-6" value="6">Cockayne S. et al. (2021). Home environmental assessments and modification delivered by occupational therapists to reduce falls in people aged 65 years and over. Health Technology Assessment, 25(46). Essai OTIS. <a href="https://pubmed.ncbi.nlm.nih.gov/34254934/" target="_blank" rel="noopener">Consulter</a></li><li id="src-7" value="7">Keall M. D. et al. (2015). Home modifications to reduce injuries from falls in the HIPI study. The Lancet, 385, 231–238. <a href="https://doi.org/10.1016/S0140-6736%2814%2961006-0" target="_blank" rel="noopener">Consulter</a></li><li id="src-8" value="8">Keall M. D. et al. (2017). Cost–benefit analysis of fall injuries prevented by a programme of home modifications. Injury Prevention, 23, 22–26. <a href="https://pubmed.ncbi.nlm.nih.gov/27312961/" target="_blank" rel="noopener">Consulter</a></li><li id="src-9" value="9">Hollinghurst R. et al. (2022). Annual risk of falls resulting in emergency department and hospital attendances for older people. Age and Ageing, 51, afac176. <a href="https://academic.oup.com/ageing/article/51/8/afac176/6653482" target="_blank" rel="noopener">Consulter</a></li><li id="src-10" value="10">Thomas T. et al. (2022). The Economic Burden of Severe Osteoporotic Fractures in the French Healthcare Database: The FRACTOS Study. Journal of Bone and Mineral Research, 37, 1811–1822. <a href="https://academic.oup.com/jbmr/article/37/10/1811/7512340" target="_blank" rel="noopener">Consulter</a></li><li id="src-11" value="11">Cour des comptes (2021). La prévention de la perte d’autonomie des personnes âgées. <a href="https://www.ccomptes.fr/sites/default/files/2023-10/20211125-rapport-prevention-perte-autonomie-personnes-agees.pdf" target="_blank" rel="noopener">Consulter</a></li><li id="src-12" value="12">Mounié M. et al. (2023). Costs and Survival of Patients having Experienced a Hospitalized Fall-Related Injury in France. JAMDA, 24, 951–957. <a href="https://pubmed.ncbi.nlm.nih.gov/36934774/" target="_blank" rel="noopener">Consulter</a></li><li id="src-13" value="13">Coassy A. et al. (2022). Costs of patient management over 18 months following a hip, clinical vertebral, distal forearm, or proximal humerus fragility fracture in France. Osteoporosis International, 33, 625–635. ICUROS. <a href="https://link.springer.com/article/10.1007/s00198-021-06189-7" target="_blank" rel="noopener">Consulter</a></li></ol><div class="src-group">La dépendance et les besoins d’aide</div><ol class="src-list"><li id="src-14" value="14">CNAMTS (2008). Le modèle AGGIR. Guide d’utilisation. <a href="https://www.cnsa.fr/sites/default/files/2024-05/guide_aggir_2008.pdf" target="_blank" rel="noopener">Consulter</a></li><li id="src-15" value="15">Szanton S. L. et al. (2019). Effect of a Biobehavioral Environmental Approach on Disability Among Low-Income Older Adults. JAMA Internal Medicine, 179, 204–211. Essai CAPABLE. <a href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2720136" target="_blank" rel="noopener">Consulter</a></li><li id="src-16" value="16">Tsuchiya-Ito R. et al. (2023). Association of housing adaptation services with the prevention of care needs level deterioration for older adults with frailty in Japan. BMC Health Services Research, 23, 916. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10463487/" target="_blank" rel="noopener">Consulter</a></li><li id="src-17" value="17">Mann W. C. et al. (1999). Effectiveness of assistive technology and environmental interventions in maintaining independence and reducing home care costs for the frail elderly. Archives of Family Medicine, 8, 210–217. <a href="https://pubmed.ncbi.nlm.nih.gov/10333815/" target="_blank" rel="noopener">Consulter</a></li><li id="src-18" value="18">Gitlin L. N. et al. (2006). A randomized trial of a multicomponent home intervention to reduce functional difficulties in older adults. Journal of the American Geriatrics Society, 54, 809–816. Essai ABLE. <a href="https://pubmed.ncbi.nlm.nih.gov/16696748/" target="_blank" rel="noopener">Consulter</a></li><li id="src-19" value="19">Stark S. et al. (2018). Feasibility Trial of Tailored Home Modifications: Process Outcomes. American Journal of Occupational Therapy, 72. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5744715/" target="_blank" rel="noopener">Consulter</a></li><li id="src-20" value="20">Debout C. (2010). La durée de perception de l’APA : 4 ans en moyenne. DREES, Études et Résultats, 724. <a href="https://drees.solidarites-sante.gouv.fr/sites/default/files/er724.pdf" target="_blank" rel="noopener">Consulter</a></li><li id="src-21" value="21">DREES (2024). L’aide et l’action sociales en France. Fiche 06 sur l’APA. Plans notifiés de 2017. <a href="https://drees.solidarites-sante.gouv.fr/sites/default/files/2024-10/ASPH%20-%20Fiche%2006%20-%20L%E2%80%99allocation%20personnalis%C3%A9e%20d%E2%80%99autonomie%20%28APA%29.pdf" target="_blank" rel="noopener">Consulter</a></li><li id="src-22" value="22">Service Public (2026). Allocation personnalisée d’autonomie : plafonds et participation. <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10009" target="_blank" rel="noopener">Consulter</a></li><li id="src-23" value="23">Loi n° 2024-317 du 8 avril 2024, article 3 relatif aux équipes locales d’accompagnement sur les aides techniques. <a href="https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000049385848" target="_blank" rel="noopener">Consulter</a></li></ol>
+</aside>
 </body>
 </html>
